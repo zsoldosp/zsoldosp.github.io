@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 13 Jul 2013 12:38:08 GMT</pubDate>
+    <pubDate>Sat, 13 Jul 2013 15:33:36 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -31,10 +31,11 @@
     <strong><a href="http://www.blogger.com/profile/06859781419645954688">bridge</strong></a> on <em>2012/02/21 14:55:14</em>: What we do at our build server is something similar to this:<br/><br/>We have ant steps defined, e.g. build, run checkstyle, run unit tests. We have different Hudson jobs for the same branch, one for each purpose.<br/><br/>Applying this environment for your scenario (tell me if I missed something from the problem) would look like this:<br/>- we could create a new job for the integration tests.<br/>- for changing the integration tests, we could write new tests and add them to the corresponding ant step. We could write the code and the ant xml in our favorite IDE. We could run them in our environment before committing it.<br/>- we can use the output of the build step in the same way we usually do. This is right now stop/go; but I think there are other ways to do this out there.
 <ol>
 <li id="1-1">
-    <strong><a href="http://www.blogger.com/profile/08451051975901266470">Peter Zsoldos</strong></a> on <em>2012/02/21 19:41:11</em>: Yup, your example achieves the same purpose as what I described. I have used the shell script in this example because a) I haven't worked on java projects in ages and I forgot it exists b) we have a number of scripts (both shell and django runscripts/management commands as well) that we reuse <br/><br/>When you say multiple jobs, you mean for one project (branch) you have 4-5 jobs or one job with multiple parallel steps?
+    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2012/02/21 19:41:11</em>: Yup, your example achieves the same purpose as what I described. I have used the shell script in this example because a) I haven't worked on java projects in ages and I forgot it exists b) we have a number of scripts (both shell and django runscripts/management commands as well) that we reuse <br/><br/>When you say multiple jobs, you mean for one project (branch) you have 4-5 jobs or one job with multiple parallel steps?
 </li></ol></li><li id="2">
     <strong><a href="http://www.blogger.com/profile/06859781419645954688">bridge</strong></a> on <em>2012/02/22 13:55:01</em>: When I say multiple jobs, we have 2 jobs for each branch. I don't know if we can make Hudson smarter - this is how the experts set it up initially, and nobody ever questioned it.<br/><br/>Having predefined scripts, as placeholders to invoke other scripts - that is poor-mans-ant: you have a layer of abstraction between the CI server and the scripts that are actually running. Say for instance, Hudson invokes the smoketest.sh, which invokes the low-level step, something like this:<br/><br/>#!/bin/bash<br/>compile.sh<br/>dist.sh<br/>run-unit-tests.sh<br/>check-login-ui.sh<br/>check-the-crazy-rollback-use-case.sh<br/><br/>So all you had to do would be add a new line to this shell/perl file.<br/><br/>Or, in perl (or python, whatever) you can add any other logic<br/>#!/usr/bin/perl<br/>if (system("dist.sh") != 0) {<br/>  exit;<br/>}<br/>if (system("run-unit-tests.sh") != 0) {<br/>  exit;<br/>}<br/>#...<br/><br/>Here you can add alternative and parallel flows too. A bit ugly, programmatic, but works. Even more, you can keep it clean if you keep the actual step's scripts and the flow's scripts in different files.<br/><br/>SoapUI is not a CI solution, but still, it's something similar as it's a testing tool. They suggest to use scripts in order to define custom logic between the test steps. http://www.soapui.org/Functional-Testing/controlling-flow.html
-</li></ol>]]></content:encoded>
+</li></ol>
+]]></content:encoded>
     </item>
   </channel>
 </rss>

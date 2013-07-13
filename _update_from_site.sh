@@ -1,5 +1,5 @@
 #!/bin/sh
 ls | grep -v "\(README.md\|_site\|`basename $0`\)" | while read f; do rm -rf $f; done
 mv _site/* .
-find . -name index.xml | while read f; do git diff $f | grep -v "<pubDate>" | grep ^"[+-] " || git checkout -- $f ; done
+find . -name index.xml | while read f; do git diff $f | grep -v "<pubDate>" | grep ^"[+-] " > /dev/null || git checkout -- $f ; done
 rm -rf _site
