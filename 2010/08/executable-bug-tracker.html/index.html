@@ -1,0 +1,94 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<!--
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+-->
+
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2010/08/executable-bug-tracker.html/">Executable bug tracker</a></h3>
+  
+    <div class="body">
+        
+<span class="Apple-style-span" style="font-size: small;">Disclaimer: I have (yet) no practical experience with the concept I describe below, it is a </span><i><span class="Apple-style-span" style="font-size: small;">"thinking out loud"</span></i><span class="Apple-style-span" style="font-size: small;"> kind of post. The context is a team working on a product in the maintenance/legacy phase of its life-cycle, with developers who are already comfortable with automated testing.</span><sup><span class="Apple-style-span" style="font-size: x-small;">1</span></sup><div><br/><div>It will be about the small, nice to have priority bugs/known issues. The ones that never get formally prioritized in any of the releases, because there are always more important features issues. The ones that you record in your issue tracker, to keep your conscience at peace; and which will be closed as "won't fix" at the end.</div><div><br/></div><div>Some advocate<sup><span class="Apple-style-span" style="font-size: x-small;">2</span></sup> that you should just save yourself the trouble of maintaining these bugs at all, and just don't bother recording them until clients/managements push for it. </div><div><br/></div><div>To clarify: I'm not against not prioritizing issues by the clients. However, I would love to find a way to give a chance for these issues to be fixed, without compromising delivery of business features.</div><div><br/></div><div>One of the contributing factors why these issues don't get fixed (IMHO, of course :)) is that it takes a lot of effort to actually find a bug to fix when you have some slack time. You have to search through your tracker for open bugs, scan them to pick one, build up the context to actually begin to work on it (aka.: getting into the zone), etc. All this makes it too much of a hassle when all you have is a spare few minutes, and would be happy to fix an issue nearby the current module you are working on otherwise, but not with this extra burden added.</div><div><br/></div></div><div>A possible solution is to have a collection of automated tests reproducing the bugs, with asserts that fail on the current codebase. These tests live separate from  the main test suite (extra jar/DLL, categories, namespace, etc.), but live together in the IDE with the app (to aid refactoring). There could even be a custom test runner or an additional step in the build process to notify you if any of these bugs are fixed - you might even fix one accidentally.</div><div><br/></div><div>With such a setup we can rely on static code analysis to find bugs in the area of the code we are about to start working on/just finished with; thus lowering the cost for one to begin working on a bug. Even if one won't fix it straight away, the test could be simply improved upon (remember <a href="http://www.informit.com/articles/article.aspx?p=1235624&amp;seqNum=6">the boyscout rule</a>?).</div><div><br/></div><div>The one concern I have is with the recording phase of this process - many a time the most costly part of fixing a bug is actually finding a way to reproduce it :) However, if the original "bug report" is the programmatic equivalent of "open this form, enter these values, then right click and observe the application crash", it might not add a noticeable overhead (especially in comparison to filing a bug report in the issue tracker).</div><div><br/></div><div><hr/><span class="Apple-style-span" style="font-size: x-small;">1. or open source projects</span></div><div><span class="Apple-style-span" style="font-size: x-small;">2. see disclaimer - it might actually make sense if working on a well kept codebase, with frequent releases.</span></div>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2010/08/executable-bug-tracker.html/">August 30, 2010 at 09:18 PM</a> in <span class="blog_post_categories"><a href='/category/software/'>software</a>, <a href='/category/bug-tracking/'>bug tracking</a>, <a href='/category/executable-documentation/'>executable documentation</a>, <a href='/category/automated-testing/'>automated testing</a></span>
+    </div>
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+

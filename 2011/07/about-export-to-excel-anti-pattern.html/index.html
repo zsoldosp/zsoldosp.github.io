@@ -1,0 +1,94 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<!--
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+-->
+
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2011/07/about-export-to-excel-anti-pattern.html/">About the export-to-Excel Anti-Pattern</a></h3>
+  
+    <div class="body">
+        
+<p>Excel is a wonderful ad hoc data analysis tool for non-programmers, and is also often <a href="http://lostechies.com/jimmybogard/2010/09/08/natural-selection-in-it/">the first milestone in the software evolution</a>. No wonder export to excel is the most common feature requested for business applications (some people even go as far as not developing a GUI at all, but just write Excel plugins).</p><br/> <p>The recent <a href="http://codebetter.com/iancooper/2011/07/15/why-crud-might-be-what-they-want-but-may-not-be-what-they-need/">CRUD vs Task Based UI</a> touches this issue, but focuses heavily on CRUD - and this problem is applicable to other types of applications (<em>all</em> applications have reports). The problem with the Excel export in any application is that <strong>important business activity happens outside the software</strong>. So when your users almost "beg" for a spreadsheet export, it's a strong clue that some aspect of the business process is not modelled, and our users likely perform some mundane, manual work - and IT is supposed to automate that!</p><br/> <p>Some examples I've run into (non exhaustive list!):<br/> <ul><br/> <li>users were reconciling data from two sources, but it took <a href="http://en.wikipedia.org/wiki/5_Whys">three-four Whys</a> to figure that out. And even after the discovery and the agreed automation solution I had to promise there will be an excel export feature (more on that later)!</li><br/> <li>users were manually looking for errors - turned out that adding a single filter to an existing report provided the same functionality.</li><br/> </ul><br/> </p><br/> <p>Excel centric business processes indicate communication and trust problems - the business doesn't ask for features, and the developers don't know what their users do with the delivered software. There could be many reasons for that (organizational, bad experience, high turnover, etc.), but beware - and if you spot it, try to act to make the situation better.</p><br/> <p>I used to joke with users (now I believe it seriously) that my role as a developer is to force them to figure out and document (software is a form of executable documentation of a business process after all) their work processes, and enforce that for the future. Much better than a paper/Word based new hire getting started guide!<br/> <p>However, <strong>exporting to Excel is a feature business applications should have</strong>, possibly for every list/graph we have in the system. Some of the tasks don't have the <a href="http://en.wikipedia.org/wiki/Return_on_Investment">ROI</a> that would justify the development of a given new feature/report/etc., and giving users direct access to the data is more enabling (think <strong>innovation</strong>) than if they had to ask IT every single time they wanted to check something (the more hurdles we put up, the less likely they'll be to check, potentially damaging the business). We should <strong>monitor</strong> these exports, and look for patterns (potentially across screens), and when a pattern emerges, talk to our users about how we could make life easier for them. A few occasions don't warrant a development project, and we don't want to develop something too early (just like with refactoring - wait for the pattern to emerge before you prematurely refactor to a structure that hinders later development).</p></p>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2011/07/about-export-to-excel-anti-pattern.html/">July 19, 2011 at 08:00 AM</a> in <span class="blog_post_categories"><a href='/category/user-experience/'>user experience</a>, <a href='/category/anti-pattern/'>anti-pattern</a>, <a href='/category/analysis/'>analysis</a>, <a href='/category/software/'>software</a></span>
+    </div>
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+

@@ -1,0 +1,94 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<!--
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+-->
+
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2010/10/evaluating-software-products.html/">Evaluating software products</a></h3>
+  
+    <div class="body">
+        
+<div>This topic has been on my mind for some time, having had to use products (that were chosen after evaluation) with much pain. The first reaction (well, maybe the second) to such situations is the <i>"if only <b>I</b> was tasked picking the right tool..."</i>. However, after thinking more about it, I'm not quite sure how we can evaluate products to keep everyone happy. </div><div><br/></div><div>So when  Pusztai László brought up the <i>buy vs. build</i> topic at the <a href="http://devportal.hu/content/ALMconference2010.aspx">2nd Microsoft Hungary Application Lifecycle Management Conference</a>, I just couldn't resist asking him - how do you evaluate software products properly and effectively? Unfortunately there wasn't enough time to discuss it in enough detail during his presentation, and I couldn't find him to follow up on it during the break, so here I am, elaborating (and trying to answer) my own questions, hoping you can correct, confirm, or add to my ideas.</div><div><br/></div><div>The context is:</div><div><ul><li>there is a recognized problem (that can be solved by tooling)</li><li>the impact of the tool is large enough to warrant an evaluation</li><li>there is commitment to get a tool</li><li>the potential tools have been narrowed down to a reasonable number of candidates</li></ul><div>Resist the temptation to just start playing with them at this point. It's a mistake, because if we <i>don't know what the success criteria</i> is, the chance to succeed is greatly reduced. Even when we think it's obvious, let's state explicitly - the same argument applies here as when clarifying user requirements. Try to involve as many stakeholders as possible. (Note: if the goal is to replace an existing system, be sure to list explicitly the things that are <i>good</i> about the current one too, just in case those aspects didn't make the list because we were too busy focusing on the improvements for the current pain points!). This list will be the reminder when we are awed by  the bells, whistles, and other extra features a system brings to check whether they solve the actual problem.</div></div><div><br/></div><div>The next step varies depending on the number of people available - a big enterprise might be able to evaluate all the selected products in parallel and decide having all the results. A smaller company might need to do the evaluation in sequence, and maybe stop the eval process once a good enough candidate is found (kind of like hiring - perfect is the enemy of the good). </div><div><br/></div><div>Beware that programmers like to get things to work (even if the things themselves wouldn't want to!). Pilot teams might go to great lengths to resolve issues during the pilot (with duct tape, if needed). If we have written about 70% of the features in use, should we chose that product (think about applying upgrades!)? Also, if people are complaining already during the pilot, that's a sure sign to stop investing any more time in that product.</div><div><br/></div><div>Solutions found during a pilot should be treated like <a href="http://www.c2.com/cgi/wiki?SpikeDescribed">spikes </a>- learn from them, take those ideas for the final implementation, but most of the time, the pilot solution should not be promoted to production use as-is.</div><div><br/></div><div>One thing that is hard to find during the pilot is how the application scales beyond the pilot team. If some kind of partitioning (separate servers for separate teams, load balancing, etc.) is possible, that's great, but better to know the limits of the app before it hits them. It's worth searching the support forums (in addition to finding the long outstanding unresolved issues) for information, as is to invite people for lunch who have been using this product for a longer period of time to hear the war stories.</div><div><br/></div><div>Another aspect to consider is data migration to (and from) the platform - when replacing an existing system, consider the cost/feasibility of migration to the new one. In some cases, not migrating might be the best choice (e.g.: keep a read-only CVS instance so people can dig back the revision history, and only import the mainlines into the new system), but the descriptions for all the manual test cases for our flagship product are probably something  that should be migrated. </div><div><br/></div><div>One of the things I'm still unsure about is how many products to evaluate in a row, if none seems to meet the requirement we set. Should we lower the bar, and  review whether or not we really need all the things we listed? Or that is the point when we just write our own tool?</div><div><div><div> </div></div></div><br/><br/><a href="http://jchyip.blogspot.com/2011/08/criteria-for-selecting-software.html">Jason Yip has a good post on criteria for evaluating Off-The-Shelf-Software</a><br/><hr/><br/>Updates: posts that I've found after publishing this piece that deal with the same topic, but just some other aspects.<br/><ul><br/><li><a href="http://davybrion.com/blog/2012/01/how-do-you-pick-open-source-libraries/">Davy Brion: How Do You Pick Open Source Libraries?</a></li><br/><li><a href="http://codemanship.co.uk/parlezuml/blog/?postid=1082">Jason Gorman: Jason's Handy Guide To Evaluating Software Packages</a></li><br/></ul>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2010/10/evaluating-software-products.html/">October 22, 2010 at 07:38 AM</a> in <span class="blog_post_categories"><a href='/category/evaluation/'>evaluation</a>, <a href='/category/software/'>software</a></span>
+    </div>
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+

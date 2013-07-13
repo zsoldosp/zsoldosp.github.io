@@ -1,0 +1,94 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<!--
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+-->
+
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2010/12/when-in-rome-do-as-romans-do.html/">When in Rome, do as the Romans do</a></h3>
+  
+    <div class="body">
+        
+<div><div><a href="http://www.pragprog.com/the-pragmatic-programmer">The Pragmatic Programmer</a> gives a very popular advice: <a href="http://stackoverflow.com/questions/1003940/learn-a-new-language-every-year">learn a new language every year</a>. The main reason behind this advice is that when you learn a new language, you learn a new way to think. </div><div><br/></div><div>However, especially when getting started with a new one, we (inadvertently) try to understand it by comparing it to something we already know, which is likely the language we are most comfortable with, thus turning the learning experience into a square peg-round hole problem. Be aware of of this limitation before dismissing a language or a language feature as something horrible.</div><div><br/></div><div>Some easy to spot examples of mistakes I have seen myself and/or others make are:</div><div><ul><li>creating lots of simple DTO classes in Python instead of using tuples </li><li>trying to create a synchronous API for a web service call in Flex</li><li>creating an indexer for the immutable list in Scala</li><li>...</li><li>...and of course, procedural PL/SQL code with lot's of loops and ifs instead of set based operations</li></ul></div><div>The subtle differences (idioms) can be trickier, but are worthy to learn about. Similar operations can behave surprisingly differently in different languages. When splitting a collection in C#, asking for an invalid slice range, you get an IndexOutOfRangeException, while in a functional language you likely get an empty list as the result.  In Python it's  called <i>monkey patching</i>, while ruby people call that <i>opening up a class</i>. </div><div><br/></div><div>Even a seasoned programmer picking up a new language misses these  - so if you can get someone to review your code in such detail as it's been done for <a href="http://bestinclass.dk/index.clj/2010/10/taking-uncle-bob-to-school.html">Uncle Bob in Clojure</a> or <a href="http://davybrion.com/blog/2010/08/using-more-rubyesq-events-in-ruby/">Davy Brion in Ruby</a>, do yourself a favor, and ask for it!</div><div><br/></div><div>If you are afraid of learning in public, and don't have access to experienced mentors, <a href="http://www.hanselman.com/blog/TheWeeklySourceCode1.aspx">read code</a>, and try to understand unreadable-at-first bits - I have fond memories of the time we have tried figuring out what (and why) some method did in <a href="http://code.google.com/p/scalacheck/">scalacheck</a>.</div><div><br/></div><div>Note that I'm not saying you should not <a href="http://thisdeveloperslife.com/post/1620026288/1-0-8-motivation">innovate</a>, there have been (and will be!) great things coming out of concepts moving between platforms - boy I'm glad for NHibernate, and annotation based test methods coming from NUnit to JUnit were quite welcome too. However, first understand the platform's own means to the given end before deciding you need something from another platform. </div><div><br/></div><div>So <a href="http://phpadvent.org/2008/php-is-not-java-by-luke-welling">embrace the culture of the language</a>, and if you feel you are not learning something new in the new language, don't rest, but seek out those differences that surely are there under the hood! </div><div><br/></div><div>Happy learning, dear reader!</div></div>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2010/12/when-in-rome-do-as-romans-do.html/">December 03, 2010 at 08:30 AM</a> in <span class="blog_post_categories"><a href='/category/culture/'>culture</a>, <a href='/category/software/'>software</a>, <a href='/category/programming-languages/'>programming languages</a></span>
+    </div>
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+

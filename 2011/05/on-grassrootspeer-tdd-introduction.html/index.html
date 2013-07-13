@@ -1,0 +1,100 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<!--
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+-->
+
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2011/05/on-grassrootspeer-tdd-introduction.html/">On Grassroots/Peer TDD Introduction</a></h3>
+  
+    <div class="body">
+        
+<p>While I'm no trainer/coach, I've been involved in spreading TDD among my peers, with varying extent of success. Recently someone asked for advice on how they should go about it, and in the spirit of <a href="http://sethgodin.typepad.com">Seth Godin</a>, instead of responding in a private email, I wrote this post, a mix of experience and hindsight ideas.</p><br/> <p>So, we are one (or two) developers in the team/company, already sold on TDD, with some unit testing experience. The peers are willing to listen to the concept, and  management, while not willing to invest in formal training, is ok giving a chance, as long as it doesn't hurt the projects' performance. How do we go about it?</p><br/> <h2>Don't introduce TDD on the project</h2><br/> <p>It's common that teams learn/practice new skills on live projects after a basic overview/training. While this might work, I would not recommend this approach for any grassroots initiative, because the chances of failure are significant, and one bad experience with a practice/technology can doom any further attempts to introduce it later, even if not the practice was at fault, only was applied without enough practice. A project manager friend of mine recently complained to me that since the team that worked on a massive legacy project started doing TDD, tasks that used to take hours begun to take days, and clearly, he wasn't happy about that. It turned out that the problem wasn't due to TDD, but lack of discipline (developers went overboard with refactoring, touching parts of the codebase not even remotely connected to the task they've been working on). Despite this, he could have easily come to the conclusion that TDD equals to dropped productivity, without much benefit (bug reports kept coming in, even if for different features - we are talking about legacy code!). Any new skill has a learning curve, you will be slowed down, and you won't get it perfect the first time - don't give a chance for the others to associate failures with the new concept. If you are like me and would need a more concrete example about refactoring just enough, I suggest you read <a href="http://xprogramming.com/">Ron Jeffries</a>' <a href="http://www.amazon.com/Extreme-Programming-Adventures-DV-Microsoft-Professional/dp/0735619492">Extreme Programming Adventures in C#</a> book, and on advice for dealing with legacy code, the undisputed classic book is <a href="http://michaelfeathers.typepad.com/">Michael Feathers</a>' <a href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052">Working Effectively with Legacy Code</a>.</p><br/> <h2>Introducing/selling TDD to the other developers</h2><br/> <p>A lot of technical presentations focus on the <strong>how</strong> instead of <strong>why</strong> it is beneficial to the audience. When it comes to TDD, I would also suggest presenting it simple - skip the emerging design concept (some of the early advocates noted that good design emerging from TDD might had to do with the fact that those early advocates actually had great design sense anyway), don't mention YAGNI - in short, don't overload them with new concepts. I rather liked the approach <a href="http://www.paulbutcher.com/">Paul Butcher</a> took in his <a href="http://pragprog.com/titles/pbdp/debug-it">Debug It!</a> book - we tend to program one baby step at a time, articulating in our mind what the next behavior we'll implement should be, then we code it, and move to the next behavior. TDD (or Test First Development for the nitpickers :)) is just a minor step from that, i.e.: we actually write down the articulated concept in code (which we tend to do anyways with the throwaway main methods used for debugging). And in addition, we get an automated regression test suite for free :). While a live demo could be cool, I would probably show <a href="http://katas.softwarecraftsmanship.org/?p=71">one</a> of the <a href="http://www.katacasts.com/">Kata casts</a> instead of me typing on the projector. Also, be sure to point out that at first we won't be able to code at this speed (I still can't)!</p><br/> <h2>Learning/practice</h2><br/> <p>TDD is a rather simple concept, but so are all the great wisdoms - it takes a lot of time and experience to fully understand those concepts. After the initial TDD sales pitch, I would dedicate a session to going over the tools and the basic usage - how to install the test library, how to run the tests, how to debug a single test, and the basic assert statements - <a href="http://www.nunit.org/index.php?p=equalityAsserts&amp;r=2.5.10">AreEqual</a> vs. <a href="http://www.nunit.org/index.php?p=identityAsserts&amp;r=2.5.10">AreSame</a>, <a href="http://www.nunit.org/index.php?p=exceptionAsserts&amp;r=2.5.10">Assert.Throws</a>, and also an example to show that most likely there are more asserts in the library (e.g. <a href="http://www.nunit.org/index.php?p=stringAssert&amp;r=2.5.10">StringAssert.EndsWith</a>).</p><br/> <p>With those interested/committed, we can move on to the <strong>supervised practice</strong> step. We've worked on <a href="http://codingdojo.org/cgi-bin/wiki.pl?KataCatalogue">simple problems</a>, in a structure inspired by this <a href="http://www.infoq.com/presentations/Building-Good-Habits">Peer learning presentation</a> by <a href="http://www.codemanship.co.uk/">Jason Gorman</a> (his site even has a full <a href="http://www.codemanship.co.uk/sc_at_bbc.pdf">case study</a> of this applied at the BBC). The <a href="http://codingdojo.org/cgi-bin/wiki.pl?WhatIsCodingDojo">coding dojo</a> is another possible format. Important thing is discuss the experiences, lessons learnt, and problems overcome with the whole group, because while practice makes one perfect, bad, practiced habits are hard to unlearn. It is OK not to have all the answers - just be ready to admit it, and ensure that you can find it out from somewhere. Meetups, user groups, and similar forums are invaluably helpful.</p> <br/> <p>Be sure to eat elephant in a piecemeal fashion - while at first the simple problems seem contrived, don't attempt to practice testing existing, complex production code. Stick to the simple problems for practice, every now and then actually demonstrate that it is possibly to test legacy code (though it'll require quite some preparation from you), maybe have some of these examples as a group exercise, but be sure to keep the practice focused on the simple mechanics initially. Just like any sport practice - you repeat rather basic exercises over and over, because it does pay off in the long run, but to keep you motivated, you do have the free practice sessions too.</p><br/> <h2>Don't force it</h2><br/> <p>Not everyone has the same passion as you do (you must have if you read this far :)), and some take a longer time to learn, have different pre-existing concerns they should overcome. Lead by example, be available to talk about it, answer questions, clarify, but don't try to force it on them. Urban cycling didn't became popular because we, cyclists, were preaching to pedestrians and car drivers - we were just approachable to friends, coworkers, etc. and provided answers and listened to their concerns. Yes, it could take a long time, but patience pays off - self-motivated people are more likely to overcome the hurdles they inevitably will face in the learning process!</p><br/> <h2>Bringing it to production</h2><br/> <p>I wouldn't set strong rules or hard deadlines like "two months from now, you all must write all production code in a TDD fashion", but rather just tell people to feel free to experiment during their daily work, but ensure they don't confuse work and practice. If they get stuck on testing some problem, they should just make a note, and deliver the feature untested, as they used to do before. Later, together with the group they should discuss it and potentially find a way to test it.</p><br/> <h2>Further resources</h2><br/> <p>This post is just a high level overview, and I have simply glossed over many of the actual difficulties about writing good unit tests, keeping them maintainable, etc.. There are books written about the topic, in almost all programming languages. Coming from a .NET background, I can recommend <a href="http://www.amazon.com/Art-Unit-Testing-Examples-NET/dp/1933988274/">The Art of Unit Testing with examples in .NET</a> by <a href="http://osherove.com/">Roy Osherov</a>, and I've found <a href="http://jamesshore.com/">James Shore</a>'s <a href="http://jamesshore.com/Blog/Lets-Play/">Let's Play TDD</a> Java episodes great - the best thing about the latter is the thought process narrative that goes with it. <a href="http://pragprog.com/titles/trevan/driving-technical-change">Driving Technical Change</a> might be another good book, though I haven't yet read that.</p><br/> <p>Good luck!</p>
+<hr><ol>
+<li id="1">
+    <strong><a href="http://www.blogger.com/profile/18146700402920753476">Miklos</strong></a> on <em>2011/05/16 19:10:12</em>: Thank you for your valuable advice Péter, it will be very useful for our TDD study group. I especially like that you answered in a blog post instead of an email, so other people can also benefit from your answer.
+</li><li id="2">
+    <strong><a href="http://www.blogger.com/profile/08451051975901266470">Peter Zsoldos</strong></a> on <em>2011/05/16 19:55:11</em>: @Miklos: my pleasure :) Would  be fun to read about your experience (and lessons learned) in a couple of months!
+</li></ol>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2011/05/on-grassrootspeer-tdd-introduction.html/">May 15, 2011 at 02:43 PM</a> in <span class="blog_post_categories"><a href='/category/teaching/'>teaching</a>, <a href='/category/software/'>software</a>, <a href='/category/team/'>team</a>, <a href='/category/change/'>change</a>, <a href='/category/tdd/'>tdd</a></span>
+    </div>
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+

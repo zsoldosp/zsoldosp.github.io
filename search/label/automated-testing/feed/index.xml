@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Do. Reflect. Learn. Repeat!</title>
+    <link>http://zsoldosp.eu</link>
+    <description>Excercises in public learning</description>
+    <pubDate>Sat, 13 Jul 2013 12:38:09 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Executable bug tracker</title>
+      <link>http://zsoldosp.eu/2010/08/executable-bug-tracker.html</link>
+      <pubDate>Mon, 30 Aug 2010 21:18:00 CEST</pubDate>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[bug tracking]]></category>
+      <category><![CDATA[executable documentation]]></category>
+      <category><![CDATA[automated testing]]></category>
+      <guid isPermaLink="false">http://zsoldosp.eu/2010/08/executable-bug-tracker.html</guid>
+      <description>Executable bug tracker</description>
+      <content:encoded><![CDATA[
+<span class="Apple-style-span" style="font-size: small;">Disclaimer: I have (yet) no practical experience with the concept I describe below, it is a </span><i><span class="Apple-style-span" style="font-size: small;">"thinking out loud"</span></i><span class="Apple-style-span" style="font-size: small;"> kind of post. The context is a team working on a product in the maintenance/legacy phase of its life-cycle, with developers who are already comfortable with automated testing.</span><sup><span class="Apple-style-span" style="font-size: x-small;">1</span></sup><div><br/><div>It will be about the small, nice to have priority bugs/known issues. The ones that never get formally prioritized in any of the releases, because there are always more important features issues. The ones that you record in your issue tracker, to keep your conscience at peace; and which will be closed as "won't fix" at the end.</div><div><br/></div><div>Some advocate<sup><span class="Apple-style-span" style="font-size: x-small;">2</span></sup> that you should just save yourself the trouble of maintaining these bugs at all, and just don't bother recording them until clients/managements push for it. </div><div><br/></div><div>To clarify: I'm not against not prioritizing issues by the clients. However, I would love to find a way to give a chance for these issues to be fixed, without compromising delivery of business features.</div><div><br/></div><div>One of the contributing factors why these issues don't get fixed (IMHO, of course :)) is that it takes a lot of effort to actually find a bug to fix when you have some slack time. You have to search through your tracker for open bugs, scan them to pick one, build up the context to actually begin to work on it (aka.: getting into the zone), etc. All this makes it too much of a hassle when all you have is a spare few minutes, and would be happy to fix an issue nearby the current module you are working on otherwise, but not with this extra burden added.</div><div><br/></div></div><div>A possible solution is to have a collection of automated tests reproducing the bugs, with asserts that fail on the current codebase. These tests live separate from  the main test suite (extra jar/DLL, categories, namespace, etc.), but live together in the IDE with the app (to aid refactoring). There could even be a custom test runner or an additional step in the build process to notify you if any of these bugs are fixed - you might even fix one accidentally.</div><div><br/></div><div>With such a setup we can rely on static code analysis to find bugs in the area of the code we are about to start working on/just finished with; thus lowering the cost for one to begin working on a bug. Even if one won't fix it straight away, the test could be simply improved upon (remember <a href="http://www.informit.com/articles/article.aspx?p=1235624&amp;seqNum=6">the boyscout rule</a>?).</div><div><br/></div><div>The one concern I have is with the recording phase of this process - many a time the most costly part of fixing a bug is actually finding a way to reproduce it :) However, if the original "bug report" is the programmatic equivalent of "open this form, enter these values, then right click and observe the application crash", it might not add a noticeable overhead (especially in comparison to filing a bug report in the issue tracker).</div><div><br/></div><div><hr/><span class="Apple-style-span" style="font-size: x-small;">1. or open source projects</span></div><div><span class="Apple-style-span" style="font-size: x-small;">2. see disclaimer - it might actually make sense if working on a well kept codebase, with frequent releases.</span></div>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

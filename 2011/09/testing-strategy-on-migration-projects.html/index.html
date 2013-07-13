@@ -1,0 +1,94 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+<!--
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+-->
+
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2011/09/testing-strategy-on-migration-projects.html/">Testing Strategy On Migration Projects</a></h3>
+  
+    <div class="body">
+        
+<p>It's common for migration projects (a.k.a.: rewrite) to specify scope initially as "to behave the same way as the old system does". Thus the testing approach to <em>automatically compare the new system's results to the old system's</em> seems to be a perfect choice (of course, in addition to the data migration, calculations should be reconciled too - at least for the records that were calculated using the latest version of the old system).</p><br/><p>However, once the application goes live and the old one is decommissioned, we cannot rely on these tests anymore (there is no old system anymore), and <em>we have no regression suite to rely on for the future change requests/enhancements</em>.</p><br/><p>Just to avoid any misunderstanding: I don't advocate not having automated reconciliation checks (verifications), on the contrary, I think they are immensely valuable. We can write the best specifications/code, but still miss some details, which, luckily for us, do pop up in the real data. These automated checks give everyone on the project team the peace of mind they so need before go-live. </p><br/><p>The point I'm trying to make here is that <em>while these checks are essential, they are not enough for the long term health of the system</em>. These are a good starting point, but just as we do with the specifications, as we work on the new system, when we find and uncovered logic case (e.g.: as part of the calculation reconciliation), we need to add a test case to the new application's test suite to ensure proper regression coverage that we can rely on in the years to come. And adding this test case is easy - we can just copypaste (after making it anonymous of course) the input that caused the problem with the verification into the unit/functional tests, implement the missing functionality, and move on. But saving on these few seconds costs a lot later down the road.</p><br/><p>Unit/functional/integration/system tests are supposed to be self contained - we would like to create (a) clean database(s), which we put into a known state before the tests (some frameworks support this out of the box, e.g.: Django, but we can easily implement this ourselves).  Migration reconciliations, by their very nature, need to work on the live (snapshot) data. Also, as described earlier, these reconciliation tests are temporary artifacts, while the other tests supposed to be permanent (at least until the client decides to change the requirements). Separation of Concerns also applies to the test suite - running tests in the same suite with different assumptions (live db we shouldn't touch vs. empty test db we can read/write as we wish) is more than risky - keep them physically separated, both at runtime and in source control.</p><br/><p>Even if the delivered project could be summed up in that vague sentence (does what the old does), this summary is never true - few start rewrite projects just to get the exact same functionality. Usually these projects are sponsored because the old application became unmaintainable and the client is missing opportunities, because the software is not supporting, but hindering their goals. Without the self-contained test suite, our shiny new migrated application is going to become another one of these.</p>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2011/09/testing-strategy-on-migration-projects.html/">September 19, 2011 at 05:30 PM</a> in <span class="blog_post_categories"><a href='/category/software/'>software</a>, <a href='/category/testing/'>testing</a>, <a href='/category/legacy-code/'>legacy code</a>, <a href='/category/rewrite/'>rewrite</a></span>
+    </div>
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+
