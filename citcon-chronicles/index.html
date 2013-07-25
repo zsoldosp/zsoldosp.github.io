@@ -1,0 +1,312 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+<h1 id="dr-strangelove-or-how-i-stopped-worrying-and-starting-to-love-end-to-end-tests">Dr. Strangelove - or how I stopped worrying and starting to love end-to-end tests</h1>
+<ul>
+<li>this is not the only true way and/or The Silver Bullet &tm;</li>
+<li>I don't want to say that TDD or the classic pyramid cannot work, so 
+  this isn't a strawman article. </li>
+</ul>
+<blockquote>
+<p>TODO: if needed, briefly explain the what the pyramid is</p>
+</blockquote>
+<p>I wanted to 
+Let me start with a non-exhaustive list of when the classic, unit
+test driven approach can fail:</p>
+<ul>
+<li>
+<p>The team is new to testing and</p>
+</li>
+<li>
+<p>members don't have the pre-requisite skills (refactoring, code 
+    smell detection, OOP basics, etc.)</p>
+</li>
+<li>members don't "sacrifice" their free time to practice TDD/TFD on
+    no-risk hobby projects - but they don't get time to practice at
+    work, so they practice on production code</li>
+<li>there is noone to mentor/guide them, reviewing the (test) code and
+    showing them the (anti)patterns in their code</li>
+<li>
+<p>only has a legacy codebase to work with, which is unkind to testing</p>
+</li>
+<li>
+<p>The wrong tests are written - there are a ton of tests for the 
+  toString() and the equivalent, easy to test, yet usually not 
+  production critical methods, but few, if not none for the scenarios 
+  important for the business</p>
+</li>
+<li>The tests result in the wrong design - all tests pass, and all 
+  validation rules pass, but was implemented via assertThrowsException
+  methods, resulting in HTTP 500 errors when the user submits the form
+  with the wrong data</li>
+<li>Other kind of integration bugs are omitted (forgot to put the actual 
+  form field onto the HTML page, various encoding errors are not caught,
+  the database model tested allows longer strings than the corresponding 
+  database field, url is not linked from the entry, but can be accessed
+  by direct GET/POST, etc.) and only discovered in production</li>
+<li>management and the business haven't been sold on the benefits of 
+  automated testing and only sees the initial productivity drop, with 
+  little-to-no change in production bugs</li>
+<li>the great refactoring/rewrite following an unexpected change in a
+  fundamental business concept (SKUs will have one number from now on,
+  while we used to use the components' numbers in the past; something
+  considered to be unique turns out not to be unique, etc.), when most
+  of the tests have to be thrown away.</li>
+</ul>
+<p>While it's an anecdote, not statistics, in the majority of the cases,
+the first question after being introduced to unit testing is "But how
+do I test my database?!"</p>
+<p>One option at this point is to forget the introduction of 
+automated testing, and working on improving people's design skills.
+It can be a hard sell however - how do I say politely that you don't
+know how to write a program? This is technically not true anyway,
+since if the team would be really catastrophic, they would have been
+all fired already.</p>
+<p>An alternative is to start with end-to-end to end testing. </p>
+<p>Yes, the feedback loop will be much slower compared to proper unit 
+testing. Yes, down the road it will be painfully slow after the Nth
+hundredth test. Speeding it up will hurt. However:</p>
+<ul>
+<li>you can only teach people what they want to learn. In this case, for
+  whatever reason they came around to value automated testing, not 
+  clean code. So they can still write spaghetti code if they prefer to.</li>
+<li>there is only one new thing the team needs to learn (writing automated
+  tests), not many (mocks/stubs, refactoring, good design, etc.)</li>
+<li>the automated feedback they have will be much more and much faster
+  than they used to get from manual testing / QA departments. There are
+  immediate benefits</li>
+<li>it will be much easier to teach refactoring once you have a 
+  regression test suite</li>
+<li>it is much easier to translate user reported bugs into regression 
+  tests (go here, click here, type this, etc.)</li>
+</ul>
+<p>The biggest win of this approach in my book is that people more 
+likely will write business facing tests, rather than developer
+tests. If something is not available from the UI, we won't test it
+(you can read more about this approach in Sebastien Lambla's 
+<a href="http://codebetter.com/sebastienlambla/2013/07/11/unit-testing-is-out-vertical-slice-testing-is-in/">VeST</a> posts). This makes it easier (disclaimers apply!)
+to communicate with project sponsors/stakeholders, both about the
+application as well as about the value of testing; and forces better UI
+design (if I want to assert on it, it's important, and thus it should be
+exposed on the (admin) UI).</p>
+<ul>
+<li>It becomes slow quickly (and <em>real</em> slow, too!)</li>
+<li>can lead to combinatorial explosion of scenarios</li>
+<li>writing the first passing test can take much longer compared to unit 
+  tests (e.g.: in a web app, you need to set up the url routing, the 
+  view itself, a template, etc. before you even get to writing the 
+  actual code you wanted to test.) # TODO: might be worth comparing it
+  to the walking skeleton</li>
+<li>getting deep stacktraces on test errors/failues that may be difficult
+  to decipher</li>
+<li>for one problem (e.g.: the login form broke), unrelated tests fail too,
+  i.e.: people might start their troubleshooting in the wrong area</li>
+<li>if you didn't write specific lower level tests, it can be hard to 
+  extract libraries from your code, since their implementation isn't 
+  checked, only the end-to-end behaviour </li>
+<li>plus all the problems that come with regular tests too, such as the
+  need to treat test code as production code (refactor/duplication, 
+  readability, etc.)</li>
+</ul>
+<pre><code class="python">    class WhenAttemptingToLoginWithBadCredentials(unittest.TestCase):
+        ...
+
+        def test_bad_username_gives_wrong_credentials_warning(self):
+            ...
+
+        def test_bad_password_gives_wrong_credentials_warning(self):
+            ...
+
+        def test_second_bad_login_attempt_displays_wrong_credentials_warnings(self):
+            ...
+
+        def test_second_bad_password_login_attempt_displays_wrong_credentials_warnings(self):
+            ...
+</code></pre>
+
+<p>a custom test runner reporter could help in consolidating many failures
+into one based on the exception's stacktrace (i.e.: instead of 150 test
+failure, it could print only one example, and make a not that this also
+caused another 149 to fail)</p>
+<p>A lot of us already run the same test suite with different parameters, e.g.: </p>
+<pre><code>* 3rd party dependency versions - the one we use in prod, the latest official release, and its development version
+* database configurations - run it with SQLite as well as with your production database version
+* selenium tests are almost always ran with multiple browsers
+</code></pre>
+<p>So if we already have a nice internal DSL/API for our tests, like the Page Object pattern suggest, such as</p>
+<pre><code class="python">class LoginApi:
+    def create_user(self, username, password, can_login):
+        ...
+
+    def login(self, username, password):
+        ...
+
+    def assert_warning_is_present(self, expected_warning_text):
+        ...
+
+    def assert_account_is_locked(self, username):
+        ...
+</code></pre>
+
+<p>there is no reason not to be able to create an implementation for each of the following:</p>
+<ul>
+<li>the plain-old code representation, independent of any persistence or (web) UI concern</li>
+<li>
+<p>a http based implementation, which maps the actions to <code>GET</code> and <code>POST</code> requests (and 
+  asserts that the next request targets are actually available from the current response,
+  e.g.: there is a link or the form's submit action is set correctly, etc.). Then we can
+  leave the implementation of those abstract methods to the following
+  additional "browsers":</p>
+<ul>
+<li>an in memory / framework specific (<code>django.test.Client</code>, <code>flask.withRouting()</code>, etc. # TODO: more examples from other languages</li>
+<li>a pure http requests based one </li>
+<li>and a selenium based one, with as many browsers as you need to support</li>
+</ul>
+</li>
+</ul>
+<p>The above already ensures that we have don't have to create a separate version of pages for people with disabilities. Of course, we probably would like to make the selenium based ones not post pure GET/POST requests, but drive through the ajaxy interface.</p>
+<p>It can also help to test the different views of the same things - internal sales people have quite a different view from the shop end customers see and use, yet what is possible in the end user shop, must also be possible to perform using the admin view.</p>
+<p>End user authored tests would raise standard <code>AssertionErrors</code> (failures), while the API would raise various errors - e.g.: picking up validation errors from the forms, or warning for missing links or form actions.</p>
+<p>In this style of testing, the same sequence of operations are performed redundantly for multiple tests (logging in, placing an order so we can test the fulfillment, etc.), which might not be necessary, given the whole automated test concept is to </p>
+<ol>
+<li>start with an empty world</li>
+<li>put it into a known state</li>
+<li>perform the action to be tested </li>
+<li>assert on the expected state of the world</li>
+<li>put the world back into an empty state</li>
+</ol>
+<p>We could reorder test execution. Given the following example:</p>
+<pre><code>def test_logging_on_with_a_bad_password_gives_a_warning(self):
+    self.as_admin().create_user(username = 'jane doe', password = 'good password', can_login = True)
+    self.as_anonymous().login(username = 'jane doe', password = 'not matching password').assert_warning_is_present('Username or password doesn't match')
+
+def test_entering_a_bad_password_twice_in_a_row_still_gives_a_warning(self):
+    ... snip ...
+
+def test_entering_a_bad_password_three_times_in_a_row_still_gives_a_warning(self):
+    ... snip ...
+
+def test_after_three_bad_login_attempts_cannot_log_in_with_good_password__because_account_is_locked(self):
+    self.as_admin().create_user(username = 'jane doe', password = '1234', can_login = True)
+
+    self.as_anonymous().login(username = 'jane doe', password = 'not matching password')
+    self.as_anonymous().login(username = 'jane doe', password = 'not matching password')
+    self.as_anonymous().login(username = 'jane doe', password = 'not matching password')
+
+    self.as_anonymous().login(username = 'jane doe', password = 'good password')
+
+    self.as_admin().assert_account_is_locked(username = 'jane doe')
+</code></pre>
+<p>Since likely we have a bunch of other tests for various cases of logging in after erring once or twice, there is no reason we should execute each of the repeated commands (e.g.: <code>as_admin().create_user(...)</code>) multiple times. But since in each following test case we build on the previous one, we can't just move the repeated code into a setup or setupClass (not to mention how that would interact with the tearDown not running on setUp failure behavior) - as well as the same sequence of steps can be distributed among many testcases, and even with multiple inheritance (aka mixins) this could get rather messy rather fast).</p>
+<p>If we could separate test scenario recording and execution, then we would end up with a nice command tree interspersed with assertions, something equivalent to the single below fluent call</p>
+<pre><code class="python">session('admin'
+    ).as_admin().create_user(
+            username = 'jane doe', password = '1234', can_login = True
+).session('user'
+    ).as_anonymous().login(
+        username = 'jane doe', password = 'not matching password'
+    ).assert_warning_is_present(
+        'Invalid username or password'
+    ).as_anonymous().login(
+        username = 'jane doe', password = 'not matching password'
+    ).assert_warning_is_present(
+        'Invalid username or password'
+    ).as_anonymous().login(
+        username = 'jane doe', password = 'not matching password'
+    ).assert_warning_is_present(
+        'Invalid username or password'
+).switch_to_session('admin'
+    ).assert_account_is_locked(username = 'jane doe')
+</code></pre>
+
+<p>The generated tree could contain additional calls, such as <code>test_starts_here</code> and the corresponding <code>test_ends_here</code>, so that when the test executor actually executes the tree, it can appropriately report the test successes, failures, and errors.</p>
+<p>In theory, we could even do away with the whole classic TestCase based approach and simply just create the scenarios - since the declaration of the scenarios and the execution of it can be separated based on the above explained driver / assertor model.</p>
+<ul>
+<li>grep GET/POST/etc. from your server log, and verify your users don't execute paths that you are not aware of/have not yet tested, and even convert from that into a test case</li>
+<li>generate a high level overview</li>
+<li>link the number of assertions/complexity/regularity of failures in the code with analytics data - are we concentrating our efforts at the right place?</li>
+<li>as above, but compare change in execution time (this page is really early in the funnel, thus making it slower could drastically impact conversions)</li>
+<li>by defining a mapping (e.g.: deriving based from the file/namespace where the scenario is declared/asserted) between the features and the executed steps, we could perform similar scenarios analysis between different features to remind the test writers of the scenarios they might have forgotten - either in the just added test, or maybe in the past scenarios</li>
+<li>
+<p>brings the concept of executable (and thus up to date!) documentation one step closer -</p>
+<ul>
+<li>built-in help system - allow the users to bring up all the scenarios that she could perform based on her browsing history and the current page</li>
+<li>based on these APIs, we could automate the generation of HOWTO articles and screencasts - go here, highlight the field I'm entering data into, circle it when I'm asserting on it, etc. We could even use a selection of tests for it, and could add any and all of the FAQ/support responses to the test suite.</li>
+<li>generate the documentation as scripts based on the method calls, make it easily filterable based on argument/method name</li>
+</ul>
+</li>
+</ul>
+<p>[peerlearning] Jason Gorman INFOQ
+[bowling kata]</p>
+</article> 
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/">About Me</a></h3>
+                    
+                    <a href="/"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+    </body> 
+</html>
+

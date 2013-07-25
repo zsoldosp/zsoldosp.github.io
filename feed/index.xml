@@ -10,10 +10,79 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 13 Jul 2013 15:33:37 GMT</pubDate>
+    <pubDate>Thu, 25 Jul 2013 09:05:27 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Some Metaprogramming (Reflection) In Bash</title>
+      <link>http://zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
+      <pubDate>Thu, 25 Jul 2013 08:18:00 CEST</pubDate>
+      <category><![CDATA[code]]></category>
+      <category><![CDATA[metaprogramming]]></category>
+      <category><![CDATA[bash]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
+      <description>Some Metaprogramming (Reflection) In Bash</description>
+      <content:encoded><![CDATA[<p>I needed to write a function in bash that would set an environment 
+variable to that value, unless the variable has been already set. 
+This is a typical metaprogramming (reflection, introspection, etc.) 
+task. </p>
+<p>However, searching for the terms I know (reflection, metaprogramming) 
+did not yield any bash results, since the bash terminology is <em>variable
+variable</em> or <em>dereferencing</em>. I hope the title of this post will help
+other non-native bash script writers searching for the "wrong" keywords!</p>
+<p>The trick is the <code>${!&lt;variable name&gt;}</code> construct - it will be interpreted
+as <code>${&lt;variable name's value&gt;}</code>. An example</p>
+<pre><code>$ a="aaaaa"
+$ b="bbbbb"
+$ echo $a
+aaaaa
+$ echo $b
+bbbbb
+$ variable_name="a"
+$ echo ${!variable_name}
+aaaaa
+$ variable_name="b"
+$ echo ${!variable_name}
+bbbbb
+</code></pre>
+<p>Of course, I could only find it offline (thanks, <a href="https://www.xing.com/profiles/Dieter_Loskarn">Dieter</a>!). 
+Armed with this kowledge, the function itself becomes easy -</p>
+<pre><code>function env_or_default() {
+    name=$1
+    default=$2
+    if [[ ${!name} == "" ]]; then
+        echo "no value set for $name, setting it to default value $default"
+        export $name=$default
+    else
+        echo "value for $name was passed in from the environment, it's value is ${!name}"
+    fi
+}
+</code></pre>
+<p>Obviously, the <code>echo</code> lines are there just for illustration.</p>
+<pre><code>$ env_or_default NOT_SET not-set-default-value
+no value set for NOT_SET, setting it to default value not-set-default-value
+$ export ALREADY_SET=already-has-value
+$ env_or_default ALREADY_SET already-set-default-value
+value for ALREADY_SET was passed in from the environment, it's value is already- has-value
+$ echo $NOT_SET
+not-set-default-value
+$ echo $ALREADY_SET
+already-has-value
+</code></pre>
+<p>Happy scripting! </p>
+<p>P.S.: Krzysztof Wilczynski showed another <a href="https://gist.github.com/kwilczynski/5877621">trick to do 
+this</a>:</p>
+<pre><code>random_file_name() {
+    local __return=$1
+    eval $__return="'$(date +"$(basename -- "$0")_%s_${RANDOM}_$$")'"
+}
+
+random_file_name FILE_NAME
+echo $FILE_NAME
+</code></pre>]]></content:encoded>
+    </item>
     <item>
       <title>Opening the 2013 paddling season on the Kocher</title>
       <link>http://zsoldosp.eu/2013/03/10/opening-the-2013-paddling-season-on-the-kocher/</link>
@@ -218,25 +287,6 @@ Peter
 <p>The cycling road is being built, so you have to go with the traffic, and the driving culture is really different here - with a bicycle you are treated as a second class citizen of the road, so be prepared to a lot of cars taking you over without giving you much side distance, and even not giving you the right of way when they should, e.g.: at pedestrian/cyclist crossings in towns, or when they do they might shout at you (it only happened the next day for me). It's inconvenient, but I only had to refresh my muscle memory - I have been cycling in Hungary for years...</p>
 <p>In Hegyeshalom I waited for my friend to join me for the section to Gyor (I was staying at his place), and the we got lost together and cycled to the Bahnhof club/restaurant on the local beach for dinner (it's *not* at the railway station!).</p>
 <p>The roads were pretty bad, with an occasional good section (the Slovakian road leading out from Bratislava - aside from the lack of signs - is awesome smooth &amp; flat!), but the weather was great (I have a sunburnt left ear to show :(). The sad part was that you really didn't see much of the Danube on this section...</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Day 6: From Ybbs to Vienna</title>
-      <link>http://zsoldosp.eu/2012/04/20/day-6-from-ybbs-to-vienna/</link>
-      <pubDate>Fri, 20 Apr 2012 09:00:46 CEST</pubDate>
-      <category><![CDATA[outdoors]]></category>
-      <guid isPermaLink="false">http://zsoldosp.eu/2012/04/20/day-6-from-ybbs-to-vienna/</guid>
-      <description>Day 6: From Ybbs to Vienna</description>
-      <content:encoded><![CDATA[
-<p>One good thing about staying at an Inn overnight id the breakfast: there is plenty!</p>
-<p>There were two other cycling parties at the Inn, either it is that Austrians are sportier, or simply I was the only one who didn't get the memo about the start of the good weather and by now the German section is already full with touring people.</p>
-<p>Personal record: managed to take the wrong turn just about 2.5kms after start :)</p>
-<p>The road to Melk, then Kremms is pretty, leading through small villages among grapefields, and since we've cycled here 3 years ago, memories were popping up almost everywhere. Though on the flip side I was dreading the section where my tire exploded back than. And no, I am not superstitious :)</p>
-<p>Here have I met the oldest cyclist of the tour - he already had shaking hand, but was going full straight when cycling. Sheldon Brown came to mind.</p>
-<p>After Kremms finding the way to the bridge was a bit difficult again, and now came a boring, shaky section along the Danube - you know the kind of road that has thin cracks across its whole width every 10-15 meters? One can still do a decent speed, but it is definitely not pleasant...</p>
-<p>Tulln surprised me with its logo for the Garden festival - says a lot about me that on seeing a bleu-green small 'g' all I can think is Google...</p>
-<p>Unlike last time, I crossed to the left bank at the power plant before Vienna, remembering how bad the road was last time. And I can definitely suggest to enter Vienna on the left - pretty cool.</p>
-<p>One problem though is that it's easy to loose the Radweg signs, but it doesn't hurt - just keep going along the Neues Donau (New Danube). The bigger issue though is that the camping is not marked anywhere, and locals of course have no clue where campings are. When asking for directions, ask about Ölhaus and Lobau (but don't go all the way to Lobau!). If you see Toni's Inselgrill, turn back and take the first exit to the right, cross the road at the pedestrians crossing, and go up the hill (there arwe signs for the cars).</p>
-<p>Anyhow, that was 156 km in about 7:20. Now on to Gyôr (just finished breakfast at Toni's).</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

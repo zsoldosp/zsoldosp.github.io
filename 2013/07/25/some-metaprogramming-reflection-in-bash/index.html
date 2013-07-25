@@ -39,20 +39,76 @@
         <div class="inner">
             
 
-                    <table class="post_list">
-                        <tr>
-                            <td class="date">July 25, 2013</td>
-                            <td><a href="/2013/07/25/some-metaprogramming-reflection-in-bash//">Some Metaprogramming (Reflection) In Bash</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">December 20, 2012</td>
-                            <td><a href="/2012/12/global-day-of-coderetreat-2012-nuremberg.html/">Global Day of Coderetreat 2012 - Nuremberg</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">March 17, 2011</td>
-                            <td><a href="/2011/03/how-why-i-do-code-reviews.html/">How & Why I do code reviews</a></td>
-                        </tr>
-                    </table>
+
+
+
+<div class="post">
+    <h3><a href="/2013/07/25/some-metaprogramming-reflection-in-bash//">Some Metaprogramming (Reflection) In Bash</a></h3>
+  
+    <div class="body">
+        <p>I needed to write a function in bash that would set an environment 
+variable to that value, unless the variable has been already set. 
+This is a typical metaprogramming (reflection, introspection, etc.) 
+task. </p>
+<p>However, searching for the terms I know (reflection, metaprogramming) 
+did not yield any bash results, since the bash terminology is <em>variable
+variable</em> or <em>dereferencing</em>. I hope the title of this post will help
+other non-native bash script writers searching for the "wrong" keywords!</p>
+<p>The trick is the <code>${!&lt;variable name&gt;}</code> construct - it will be interpreted
+as <code>${&lt;variable name's value&gt;}</code>. An example</p>
+<pre><code>$ a="aaaaa"
+$ b="bbbbb"
+$ echo $a
+aaaaa
+$ echo $b
+bbbbb
+$ variable_name="a"
+$ echo ${!variable_name}
+aaaaa
+$ variable_name="b"
+$ echo ${!variable_name}
+bbbbb
+</code></pre>
+<p>Of course, I could only find it offline (thanks, <a href="https://www.xing.com/profiles/Dieter_Loskarn">Dieter</a>!). 
+Armed with this kowledge, the function itself becomes easy -</p>
+<pre><code>function env_or_default() {
+    name=$1
+    default=$2
+    if [[ ${!name} == "" ]]; then
+        echo "no value set for $name, setting it to default value $default"
+        export $name=$default
+    else
+        echo "value for $name was passed in from the environment, it's value is ${!name}"
+    fi
+}
+</code></pre>
+<p>Obviously, the <code>echo</code> lines are there just for illustration.</p>
+<pre><code>$ env_or_default NOT_SET not-set-default-value
+no value set for NOT_SET, setting it to default value not-set-default-value
+$ export ALREADY_SET=already-has-value
+$ env_or_default ALREADY_SET already-set-default-value
+value for ALREADY_SET was passed in from the environment, it's value is already- has-value
+$ echo $NOT_SET
+not-set-default-value
+$ echo $ALREADY_SET
+already-has-value
+</code></pre>
+<p>Happy scripting! </p>
+<p>P.S.: Krzysztof Wilczynski showed another <a href="https://gist.github.com/kwilczynski/5877621">trick to do 
+this</a>:</p>
+<pre><code>random_file_name() {
+    local __return=$1
+    eval $__return="'$(date +"$(basename -- "$0")_%s_${RANDOM}_$$")'"
+}
+
+random_file_name FILE_NAME
+echo $FILE_NAME
+</code></pre>
+    </div>
+    
+    <div class="meta">
+        Posted on <a href="/2013/07/25/some-metaprogramming-reflection-in-bash//">July 25, 2013 at 08:18 AM</a> in <span class="blog_post_categories"><a href='/category/code/'>code</a>, <a href='/category/metaprogramming/'>metaprogramming</a>, <a href='/category/bash/'>bash</a>, <a href='/category/software/'>software</a></span>
+    </div>
 
 
         </div>
