@@ -10,10 +10,81 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 25 Jul 2013 09:05:27 GMT</pubDate>
+    <pubDate>Sun, 04 Aug 2013 12:22:35 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
+      <link>http://zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
+      <pubDate>Sun, 04 Aug 2013 14:25:00 CEST</pubDate>
+      <category><![CDATA[blog]]></category>
+      <category><![CDATA[outdoors]]></category>
+      <category><![CDATA[data]]></category>
+      <category><![CDATA[ownership]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
+      <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
+      <content:encoded><![CDATA[<p>This blog used to be two separate blogs, hosted at 
+<a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
+respectively. I've gone through some trouble to migrate their content,
+hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
+based setup. In the process, I have lost a considerable number of 
+features and conveniences - so why did I do this?</p>
+<h2 id="owning-my-data-and-platform">Owning my data and platform</h2>
+<p>As the saying goes, there is no such thing as a free lunch (or put more
+bluntly, if you are not paying for it, <em>you</em> are the product being 
+sold). A prime example is <a href="http://wordpress.com">WordPress.com</a>, which reserves the
+right to display ads on your freely hosted blog, while <a href="http://blogger.com">Blogger</a>
+probably enhances their advertisement profile of you - I don't know.</p>
+<p>Even if these platforms don't do anything bad at the moment, they can
+pretty much change the features available to you, or any other aspects
+of their terms of service - remember that story about the 
+<a href="http://news.cnet.com/8301-1023_3-57560370-93/instagram-rolls-back-terms-of-service-after-ownership-dustup/">Instagram ToS change regarding commercial use of your photos</a>?
+Sure, it turned out to be a misunderstanding and/or they backed down,
+but theoretically they can do it.</p>
+<p>Of course, this wasn't a concern when I started out with blogging, but 
+certainly is something to consider now that I am nearing post #42. </p>
+<p>These considerations are of course applicable for other service 
+providers beyond blogging, e.g.:</p>
+<ul>
+<li>(sports) tracking applications - while I have not yet gotten around 
+  to building up a website like <a href="http://www.susi-ralf.de/index.html">Suzi &amp; Ralf</a>, but I know 
+  eventually I will want to create something with the trails of all the
+  places I've been to, whether for fun or for an anniversary gift or
+  similar - and most sites make it rather hard to export your data 
+  conveniently (<a href="http://endomondo.com">endomondo</a> is particularly annoying, so I'm 
+  real grateful for the easy zip-export of <a href="http://runkeeper.com">runkeeper</a>!)</li>
+<li>social networks - does <a href="http://linkedin.com">LinkedIn</a>, <a href="http://facebook.com">Facebook</a>, 
+  <a href="http://xing.com">Xing</a>, etc. allow you to easily export your contacts and their
+  contact details? I would be pretty upset to find myself without a 
+  personal copy of that data</li>
+</ul>
+<p>Of course, I keep using services hosted by others, but I try to make 
+sure I use one with a friendly <a href="http://www.dataliberation.org/">data liberation</a>
+policy!</p>
+<h2 id="other-considerations">Other considerations</h2>
+<ul>
+<li><strong>backup</strong> - sure, it's almost a repeat of the prior point, but worth 
+  noting. It doesn't happen as often as before, but there is always the
+  possibility of <a href="http://blog.theoldreader.com/post/56209408824/important-update">data loss or service outage</a></li>
+<li><strong>version control</strong> - being a software developer, this is almost 
+  second nature to me - it's incredibly liberating to be able to throw
+  all my changes away and go back to a previous, known good version of
+  a post draft.</li>
+<li><strong>offline authoring</strong> - I do a lot of my writing and hobby coding 
+  during my train commute, with spotty internet connection at best.
+  Working locally on my laptop with my favorite text editor beats any
+  online editor widget. </li>
+<li><strong>full customizations</strong> - sure, probably there is a WordPress plugin
+  for anything I would want to do, but for a lot of the small checks, 
+  it takes longer to find, learn, and configure the one I need than
+  to implement it in <a href="http://python.org">python</a> - e.g.: checking the site for
+  broken links, custom reports, etc. I should probably mention the html
+  template customizations here too, though you might be able to tell
+  that is not yet the highest priority for me :)</li>
+</ul>]]></content:encoded>
+    </item>
     <item>
       <title>Some Metaprogramming (Reflection) In Bash</title>
       <link>http://zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
@@ -270,23 +341,6 @@ Peter
 <p>The car roads taken in order: 1, 117, 10, 11, mostly with traffic (there is one quality section road after Nyergesujfalu). The eurovelo crosses the danube at Pilismarot to Szob with a ferry (this time there was one every hour), but I continued to Visegrad on the 11, 'coz I haven't done this section of the road yet and because the friends I was staying that evening live in Nagymaros, with a ferry connection from Visegrad. Getting the bike up to their house in the hill was the most tiring!</p>
 <p>Overall it was 141km in 6:40 (7:15). The road is ok if you can handle traffic, but otherwise (or with kids) I would suggest an alternative (maybe on the Slovakian side of the river) till Szob (visit Esztergom for sightseeing from Sturovo via the bridge), where the road is dedicated for cyclists, protected from car traffic (and has a great sight).</p>
 <p>And probably was it not for catching up with friends I would have been in Budapest before daylight was out!</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Da 7: From Vienna to Gyor</title>
-      <link>http://zsoldosp.eu/2012/04/22/da-7-from-vienna-to-gyor/</link>
-      <pubDate>Sun, 22 Apr 2012 07:11:44 CEST</pubDate>
-      <category><![CDATA[outdoors]]></category>
-      <guid isPermaLink="false">http://zsoldosp.eu/2012/04/22/da-7-from-vienna-to-gyor/</guid>
-      <description>Da 7: From Vienna to Gyor</description>
-      <content:encoded><![CDATA[
-<p>As indicated, my breakfast-addiction have developed, so just about a kilometer from the camping's entrance I had to stop for eating some eggs at Toni's...</p>
-<p>The road from here to Bratislava is an old acquaintance, the surprises were that this time i didn't have to take a detour, but could cycle through oil-refinery in Lobau, which meant no dirt roads and was appreciated. The other thing was that this was the time I cycled this stretch alone, and have to say that the last 15-20 km straight road to Hainburg is a trying alone. There was headwind, but there always is on this section, so no problems there... Except that this time there were cyclist coming from the other direction, and they had backwind!</p>
-<p>After reaching Bratislava, the usual can't-find-my-way-out-of-the-city begun, and the road signs have been underutilized so to speak, but people were helpful and many spoke German (lot of them even better than I do :), so I got out. Essentially, if you want to continue the Donauradweg, after reaching the first bridge just keep following the road straight ahead, with its turns, and after some time you reach the recreational area, where there are two roads, one up on the flood defense hills (whatever they are called), the other below, on the side away from the river. After two or three Imbisses chose the lower one since there I know there is a sign at the end of it (where the poles are preventing cars entering) saying Rajka - that's the first village in Hungary.</p>
-<p>Take that road for four kilometers, and when you see a sign to the left advertising and adventure park, take the left - in this direction the sign is missing, and if you go further you reach a main Slovakian road with lots of traffic (though I saw people take that, but I rather turned back from there).</p>
-<p>From here on, both the road and the sign quality drops significantly, and even the EuroVelo 6 makes a lot of detours, e.g.: after reaching Bezenye, it takes a right and you reach Mosonmagyarovar after going through Hegyeshalom (take a left on the main road, even though there are no signs) confusing, given the same road you took from Rajka to Bezenye continues straight to Mosonmagyarovar...</p>
-<p>The cycling road is being built, so you have to go with the traffic, and the driving culture is really different here - with a bicycle you are treated as a second class citizen of the road, so be prepared to a lot of cars taking you over without giving you much side distance, and even not giving you the right of way when they should, e.g.: at pedestrian/cyclist crossings in towns, or when they do they might shout at you (it only happened the next day for me). It's inconvenient, but I only had to refresh my muscle memory - I have been cycling in Hungary for years...</p>
-<p>In Hegyeshalom I waited for my friend to join me for the section to Gyor (I was staying at his place), and the we got lost together and cycled to the Bahnhof club/restaurant on the local beach for dinner (it's *not* at the railway station!).</p>
-<p>The roads were pretty bad, with an occasional good section (the Slovakian road leading out from Bratislava - aside from the lack of signs - is awesome smooth &amp; flat!), but the weather was great (I have a sunburnt left ear to show :(). The sad part was that you really didn't see much of the Danube on this section...</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

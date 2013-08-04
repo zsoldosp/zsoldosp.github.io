@@ -10,10 +10,81 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 25 Jul 2013 09:05:26 GMT</pubDate>
+    <pubDate>Sun, 04 Aug 2013 12:22:34 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
+      <link>http://zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
+      <pubDate>Sun, 04 Aug 2013 14:25:00 CEST</pubDate>
+      <category><![CDATA[blog]]></category>
+      <category><![CDATA[outdoors]]></category>
+      <category><![CDATA[data]]></category>
+      <category><![CDATA[ownership]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
+      <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
+      <content:encoded><![CDATA[<p>This blog used to be two separate blogs, hosted at 
+<a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
+respectively. I've gone through some trouble to migrate their content,
+hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
+based setup. In the process, I have lost a considerable number of 
+features and conveniences - so why did I do this?</p>
+<h2 id="owning-my-data-and-platform">Owning my data and platform</h2>
+<p>As the saying goes, there is no such thing as a free lunch (or put more
+bluntly, if you are not paying for it, <em>you</em> are the product being 
+sold). A prime example is <a href="http://wordpress.com">WordPress.com</a>, which reserves the
+right to display ads on your freely hosted blog, while <a href="http://blogger.com">Blogger</a>
+probably enhances their advertisement profile of you - I don't know.</p>
+<p>Even if these platforms don't do anything bad at the moment, they can
+pretty much change the features available to you, or any other aspects
+of their terms of service - remember that story about the 
+<a href="http://news.cnet.com/8301-1023_3-57560370-93/instagram-rolls-back-terms-of-service-after-ownership-dustup/">Instagram ToS change regarding commercial use of your photos</a>?
+Sure, it turned out to be a misunderstanding and/or they backed down,
+but theoretically they can do it.</p>
+<p>Of course, this wasn't a concern when I started out with blogging, but 
+certainly is something to consider now that I am nearing post #42. </p>
+<p>These considerations are of course applicable for other service 
+providers beyond blogging, e.g.:</p>
+<ul>
+<li>(sports) tracking applications - while I have not yet gotten around 
+  to building up a website like <a href="http://www.susi-ralf.de/index.html">Suzi &amp; Ralf</a>, but I know 
+  eventually I will want to create something with the trails of all the
+  places I've been to, whether for fun or for an anniversary gift or
+  similar - and most sites make it rather hard to export your data 
+  conveniently (<a href="http://endomondo.com">endomondo</a> is particularly annoying, so I'm 
+  real grateful for the easy zip-export of <a href="http://runkeeper.com">runkeeper</a>!)</li>
+<li>social networks - does <a href="http://linkedin.com">LinkedIn</a>, <a href="http://facebook.com">Facebook</a>, 
+  <a href="http://xing.com">Xing</a>, etc. allow you to easily export your contacts and their
+  contact details? I would be pretty upset to find myself without a 
+  personal copy of that data</li>
+</ul>
+<p>Of course, I keep using services hosted by others, but I try to make 
+sure I use one with a friendly <a href="http://www.dataliberation.org/">data liberation</a>
+policy!</p>
+<h2 id="other-considerations">Other considerations</h2>
+<ul>
+<li><strong>backup</strong> - sure, it's almost a repeat of the prior point, but worth 
+  noting. It doesn't happen as often as before, but there is always the
+  possibility of <a href="http://blog.theoldreader.com/post/56209408824/important-update">data loss or service outage</a></li>
+<li><strong>version control</strong> - being a software developer, this is almost 
+  second nature to me - it's incredibly liberating to be able to throw
+  all my changes away and go back to a previous, known good version of
+  a post draft.</li>
+<li><strong>offline authoring</strong> - I do a lot of my writing and hobby coding 
+  during my train commute, with spotty internet connection at best.
+  Working locally on my laptop with my favorite text editor beats any
+  online editor widget. </li>
+<li><strong>full customizations</strong> - sure, probably there is a WordPress plugin
+  for anything I would want to do, but for a lot of the small checks, 
+  it takes longer to find, learn, and configure the one I need than
+  to implement it in <a href="http://python.org">python</a> - e.g.: checking the site for
+  broken links, custom reports, etc. I should probably mention the html
+  template customizations here too, though you might be able to tell
+  that is not yet the highest priority for me :)</li>
+</ul>]]></content:encoded>
+    </item>
     <item>
       <title>Some Metaprogramming (Reflection) In Bash</title>
       <link>http://zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
@@ -243,26 +314,6 @@ echo $FILE_NAME
       <description>Find The Test Structure That Fits Your Team</description>
       <content:encoded><![CDATA[
 <p>A number of recent posts by <a href="http://haacked.com/archive/2012/01/02/structuring-unit-tests.aspx">Phil Haack</a>, <a href="http://ayende.com/blog/152897/structuring-your-unit-tests-why">Ayende Rahien</a>, and <a href="http://www.typemock.com/blog/2012/01/11/do-tests-get-too-much-respect/">Gil Zilberfeld</a> dealt with the topic of test organization. Each approach has its pros and cons, but neither is a silver bullet. Your (and your team's, project's) context determines which approach is right.</p><br/><p>Without aiming to provide an exhaustive list, below are some questions that have influence on test organization:</p><br/><ul><br/><li>Is the team in a consulting project where test documentation is required as part of delivery? </li><br/><li>Is it a product team? Is the firm in its early stage or is it mature like Oracle with mature products?</li><br/><li>What is the turnover rate of the team? What are the plans for its growth? The team might have all the knowledge in their head, but if it'll double in size in a year, then the communication value of tests could increase.</li><br/><li>What is the maturity level of the team? How long have they been working together?</li><br/><li>How closely and often do team members collaborate? </li><br/><li>Is there <a href="http://www.extremeprogramming.org/rules/collective.html">collective code ownership</a>?</li><br/><li>How does the team and its customers communicate? Some customers can - and willing to - read code, some need English (Turkish/Hungarian/German/etc.). Some teams have a level of (grown and deserved) trust that just saying the software works is accepted, some need a more formal acceptance and regression process.</li><br/><li>Is there proper IDE support for discoverability? Do all people reporting bugs (as tests) have access to that IDE? If not so, how do they find examples of how to write the bug-report test?</li><br/></ul><br/><p>Feel free to add more questions in the comments!</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>That Is Not Your Decision to Make</title>
-      <link>http://zsoldosp.eu/2011/12/that-is-not-your-decision-to-make.html</link>
-      <pubDate>Thu, 01 Dec 2011 09:34:00 CET</pubDate>
-      <category><![CDATA[professionalism]]></category>
-      <category><![CDATA[work]]></category>
-      <category><![CDATA[business analysis]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">http://zsoldosp.eu/2011/12/that-is-not-your-decision-to-make.html</guid>
-      <description>That Is Not Your Decision to Make</description>
-      <content:encoded><![CDATA[
-<p>A recent <a href="http://secretsofconsulting.blogspot.com/2011/11/who-is-right-and-what-is-to-be-done.html">Weinberg blog</a> (there is a <a href="http://secretsofconsulting.blogspot.com/2011/11/who-is-right-and-what-is-to-be-done_24.html">part 2</a> too) reminded me that I meant to write about the antipattern of programmers making business decisions for some time - so here it goes! </p><br/><p>The linked example of a programmer purposefully implementing something other than what (s)he was asked to do - I hope - is not common, but there are other, more subtle situations where we make the same mistake of making decisions instead of our clients (which can be a customer, business analyst, product owner, etc.).</p><br/><h2>Not Specific Specifications</h2><br/><p>Project failure (or rework at best) happens when we don't deliver what we the customer wanted. One reason for that can be traced back to misunderstandings of requirements. I often say that our job as developers is to put on our detective hats and help our customers discover &amp; formalize their processes - which they know, do every day, but usually never had to articulate it precisely. Despite the best efforts, specifications/acceptance tests leave space for interpretation, which we, as programmers with a special attention to detail, will discover.</p><br/><p>And here comes the problem - another trait of us programmers is that <a href="http://xkcd.com/974/">we love solving difficult problems/puzzles</a>. Thus we will first think of a solution that <em>we would like to implement</em> and we often stick with the first idea that makes sense to us as the logical one. Now we are doing exactly what the programmer in the linked article did. There is a reason we are developers and our customers are lawyers/traders/salesmen/etc. - they know their problem domain better. And their perspective (ROI, time to market, cost vs. benefit, etc.) likely differs from ours (such a great puzzle to solve!).<br/>While it's hard to accept it as a programmer, it is a valid business decision to say we don't care about that or we are willing to take the risk - which to us would look bad, for being an imperfect system, an unhandled scenario. However, we might not actually be able to show an occurrence of the problem in the past 5 years' data... And it probably saved a week's worth of programmer work that was spent on some other feature important for the business.</p><br/><h2>The Road to Hell is Paved with Good Intentions</h2><br/><p>Has it ever occurred to you how the usability of the site could be improved, or how much better would be if there was a shortcut, or... It certainly has happened to me (and I hope will happen in the future). But again, even if we are right, and it would be a great improvement, that might not be needed, or not now. For instance, if you have a wizard form, where the first step is so beautiful it should be shown in the Louvre, and is super easy to use - almost reads the user's mind! - ... but it crashes as soon as you press the next button, have we really made a good decision? As the saying goes: shipping (functionality) is a feature too.</p><br/><p>I have yet to meet a client who didn't appreciate programmers taking initiatives and making suggestions for improvement in the application, but I have met ones that were furious when they learned that only 10% has been delivered due to having too many bells and whistles (though of course, there are <a href="http://thedailywtf.com/Articles/The-Cool-Cam.aspx">counterexample</a>s to everything - but in my experience they are the exception, not the rule).</p><br/><h2>Let them decide!</h2><br/><p>If you find yourself in any of the cases above, I suggest you stop, and consult with the person who should make that decision instead of coding away one that makes sense to you - even if eventually it turns out that the customer's decision is the same as the one you had come up with.</p><br/><p><strong>Caveat</strong>: I am not saying you should stall work, waiting on a decision from customers. You might not have instant access to your customer, they may be on holiday, etc. If so, talk with the most senior person you have available (tech lead, team lead, etc.) and have her/him make a decision. If you are the most senior person, make a decision, but keep it minimal (even if you see myriad of other issues this might lead to), and make it easily undoable if needed. </p><br/><p>To give a concrete example: recently while implementing a certain form, and the related business logic behind it, I realized that this action has different implications depending on the type of user that requests it - but it was not specified yet. The combinations I came up with were pretty big. But for my given feature, I just needed one of those combinations. I ended up using a single request handler class, but implemented the logic for each role as a separate mixin class, so when it comes to dealing with this issue, we don't have to spend the time excavating the code relating to each role from one class. Based on my prior experiences, I wouldn't be surprised if our customer will decide to simplify this feature, and say we only handle the two most common combinations, and don't make the feature available for the other users. If it'll turn out that is the case, it's rather a good thing that I haven't forged ahead and spent days writing a complex, composed object hierarchy to handle all possibilities.</p>
-<hr><ol>
-<li id="1">
-    <strong><a href="None">sn0wcat</strong></a> on <em>2011/12/01 11:15:49</em>: In my opinion there is also an another side of that medal. You say as well that you shouldn’t stall work, yet this is the most common outcome if we as programmers take a stance not to make decisions at all if something is unclear, which in my opinion is the most convenient way for a lot of people. <br/><br/>I have seen quite often an attitude of delegating decisions further up in the food chain, in such a way that the loss of time and additional cost spent of clarifications exceeds by a multitude the eventual saving of programmers work time for refactoring / redesigning a feature. <br/><br/>There is another thing that we as programmers often value our time spent on coding the most and don’t see the economic value of it. <br/><br/>As unflattering as it may seem, but a week of software developers work for a feature solution proposal and a week of redesigning/improving it that it fits the need may still cost less from a pure cost perspective than using up the sparse, more costly resources for additional specifications, not even counting the time loss.<br/><br/>I always tell to people to be software engineers and not code monkeys. <br/><br/>I don’t say don’t delegate the decisions to the customers / most senior people around, but I do say don’t do it without providing a solution suggestion.
-</li><li id="2">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2011/12/02 09:01:15</em>: @sn0wcat: thanks for bringing more emphasis to escalation - it deserves its own blog post (or more!).<br/><br/>I agree that my advice can be skewed to be used as an excuse for not doing work, but for Wally (from Dilbert) I could have said it's a nice day and he would be able to justify not working - so common sense is still needed.<br/><br/>Also, you are right we should consider costs vs. benefits when delegating decisions up - if it's just a phone call or walking over to the other room, its cheaper than if the Product Steering Committee needs to schedule a meeting to decide on it. That - in some respects - falls under my advice for leads: make a decision that is reversible/reworkable if needed. And to clarify: I didn't intend for the junior programmer to go all the way to the cusomter's CEO :)<br/><br/>One thing I should have emphasized more, and I'm glad you reminded me about this omission, is what to do after making a decision on such a gray are - you must communicate that decision to your stakeholders. That was the graver mistake of the programmer in the referenced articles.<br/><br/>The economics of proposals is an interesting aspect too - as long as writing a proposal doesn't actually take longer than implementing the proposed solution, makes sense. The danger of suggestions is that we often only provide one, which isn't a choice - and I have seen only a few developers who would propose only partially implementing something.<br/><br/>I personally actually prefer the term developer to software engineer, but that might be off topic here.
-</li></ol>
-]]></content:encoded>
     </item>
   </channel>
 </rss>

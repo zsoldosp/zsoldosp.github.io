@@ -302,10 +302,12 @@ def test_after_three_bad_login_attempts_cannot_log_in_with_good_password__becaus
             </div>
         </div>
   <script>
-      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+      if(window.location.href.indexOf("http://zsoldosp.eu") != -1) {
+          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      }
   </script>
     </body> 
 </html>

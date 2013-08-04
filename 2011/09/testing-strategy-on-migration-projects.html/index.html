@@ -49,10 +49,13 @@
         
 <p>It's common for migration projects (a.k.a.: rewrite) to specify scope initially as "to behave the same way as the old system does". Thus the testing approach to <em>automatically compare the new system's results to the old system's</em> seems to be a perfect choice (of course, in addition to the data migration, calculations should be reconciled too - at least for the records that were calculated using the latest version of the old system).</p><br/><p>However, once the application goes live and the old one is decommissioned, we cannot rely on these tests anymore (there is no old system anymore), and <em>we have no regression suite to rely on for the future change requests/enhancements</em>.</p><br/><p>Just to avoid any misunderstanding: I don't advocate not having automated reconciliation checks (verifications), on the contrary, I think they are immensely valuable. We can write the best specifications/code, but still miss some details, which, luckily for us, do pop up in the real data. These automated checks give everyone on the project team the peace of mind they so need before go-live. </p><br/><p>The point I'm trying to make here is that <em>while these checks are essential, they are not enough for the long term health of the system</em>. These are a good starting point, but just as we do with the specifications, as we work on the new system, when we find and uncovered logic case (e.g.: as part of the calculation reconciliation), we need to add a test case to the new application's test suite to ensure proper regression coverage that we can rely on in the years to come. And adding this test case is easy - we can just copypaste (after making it anonymous of course) the input that caused the problem with the verification into the unit/functional tests, implement the missing functionality, and move on. But saving on these few seconds costs a lot later down the road.</p><br/><p>Unit/functional/integration/system tests are supposed to be self contained - we would like to create (a) clean database(s), which we put into a known state before the tests (some frameworks support this out of the box, e.g.: Django, but we can easily implement this ourselves).  Migration reconciliations, by their very nature, need to work on the live (snapshot) data. Also, as described earlier, these reconciliation tests are temporary artifacts, while the other tests supposed to be permanent (at least until the client decides to change the requirements). Separation of Concerns also applies to the test suite - running tests in the same suite with different assumptions (live db we shouldn't touch vs. empty test db we can read/write as we wish) is more than risky - keep them physically separated, both at runtime and in source control.</p><br/><p>Even if the delivered project could be summed up in that vague sentence (does what the old does), this summary is never true - few start rewrite projects just to get the exact same functionality. Usually these projects are sponsored because the old application became unmaintainable and the client is missing opportunities, because the software is not supporting, but hindering their goals. Without the self-contained test suite, our shiny new migrated application is going to become another one of these.</p>
     </div>
-    
     <div class="meta">
-        Posted on <a href="/2011/09/testing-strategy-on-migration-projects.html/">September 19, 2011 at 05:30 PM</a> in <span class="blog_post_categories"><a href='/category/software/'>software</a>, <a href='/category/testing/'>testing</a>, <a href='/category/legacy-code/'>legacy code</a>, <a href='/category/rewrite/'>rewrite</a></span>
+        <p>What do you think? I would love if you would <strong>leave a comment</strong> - drop me an <strong>email</strong> at <strong><a href="mailto:hello@zsoldosp.eu">hello@zsoldosp.eu</a></strong>.
     </div>
+    <div class="meta">
+        <p>Posted on <a href="/2011/09/testing-strategy-on-migration-projects.html/">September 19, 2011 at 05:30 PM</a> in <span class="blog_post_categories"><a href='/category/software/'>software</a>, <a href='/category/testing/'>testing</a>, <a href='/category/legacy-code/'>legacy code</a>, <a href='/category/rewrite/'>rewrite</a></span></p>
+    </div>
+    
 
 
         </div>
@@ -80,10 +83,12 @@
             </div>
         </div>
   <script>
-      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+      if(window.location.href.indexOf("http://zsoldosp.eu") != -1) {
+          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      }
   </script>
     </body> 
 </html>

@@ -41,6 +41,10 @@
 
                     <table class="post_list">
                         <tr>
+                            <td class="date">August 04, 2013</td>
+                            <td><a href="/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress//">Own your data (or why did I move away from Blogger and WordPress?)</a></td>
+                        </tr>
+                        <tr>
                             <td class="date">July 25, 2013</td>
                             <td><a href="/2013/07/25/some-metaprogramming-reflection-in-bash//">Some Metaprogramming (Reflection) In Bash</a></td>
                         </tr>
@@ -232,10 +236,12 @@
             </div>
         </div>
   <script>
-      var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+      if(window.location.href.indexOf("http://zsoldosp.eu") != -1) {
+          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      }
   </script>
     </body> 
 </html>
