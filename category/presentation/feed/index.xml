@@ -8,22 +8,22 @@
      >
   <channel>
     <title>Do. Reflect. Learn. Repeat!</title>
-    <link>http://zsoldosp.eu</link>
+    <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 13 Jul 2013 12:38:07 GMT</pubDate>
+    <pubDate>Thu, 08 Aug 2013 05:31:45 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Slides for the Continuous Delivery talk</title>
-      <link>http://zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</link>
+      <link>http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</link>
       <pubDate>Sun, 10 Oct 2010 18:19:00 CEST</pubDate>
       <category><![CDATA[continuous delivery]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[presentation]]></category>
       <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[automation]]></category>
-      <guid isPermaLink="false">http://zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</guid>
+      <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</guid>
       <description>Slides for the Continuous Delivery talk</description>
       <content:encoded><![CDATA[
 I gave a talk on Friday at the firm tech user group about the build/release evolution towards Continuous Delivery. The <a href="http://github.com/zsoldosp/zsoldosp-presentations/raw/28f95532bdb57b7f9a95a358b7b8835d513856ba/ContinuousIntegrationDeployment/continuous-integration-deployment.pptx">slides</a> are up under <a href="http://github.com/zsoldosp/zsoldosp-presentations/">my github presentations project</a>. It was built on top of <a href="http://www.agilealliance.hu/szakmai-anyagok/eloadasok">the Continuous Integration presentation</a> I gave at the<a href="http://www.meetup.com/AgileHungary/"> Agile Hungary Meetup</a> earlier this year (also on github, Hungarian slides only). Contrary to that one, here I was talking of things I haven't yet accomplished and only am looking forward to do, which worried me a bit - however, declaring this upfront was well received and it didn't pressure me from that point on.<div><br/></div><div><div>Though I wasn't as good as <a href="http://www.build-doctor.com/.../continuous-deployment-video-tim-fitz/">Tim Fitz</a> (especially lacking the experience) the talk has generated questions and discussion, which was the purpose, so I'm quite happy with how it went.</div><div><br/></div><div>My only regret is forgetting to record the presentation to review my presentation skills.</div></div>]]></content:encoded>

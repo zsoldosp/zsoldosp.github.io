@@ -8,34 +8,34 @@
      >
   <channel>
     <title>Do. Reflect. Learn. Repeat!</title>
-    <link>http://zsoldosp.eu</link>
+    <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 13 Jul 2013 12:38:08 GMT</pubDate>
+    <pubDate>Thu, 08 Aug 2013 05:31:47 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Slides for the Continuous Delivery talk</title>
-      <link>http://zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</link>
+      <link>http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</link>
       <pubDate>Sun, 10 Oct 2010 18:19:00 CEST</pubDate>
       <category><![CDATA[continuous delivery]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[presentation]]></category>
       <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[automation]]></category>
-      <guid isPermaLink="false">http://zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</guid>
+      <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</guid>
       <description>Slides for the Continuous Delivery talk</description>
       <content:encoded><![CDATA[
 I gave a talk on Friday at the firm tech user group about the build/release evolution towards Continuous Delivery. The <a href="http://github.com/zsoldosp/zsoldosp-presentations/raw/28f95532bdb57b7f9a95a358b7b8835d513856ba/ContinuousIntegrationDeployment/continuous-integration-deployment.pptx">slides</a> are up under <a href="http://github.com/zsoldosp/zsoldosp-presentations/">my github presentations project</a>. It was built on top of <a href="http://www.agilealliance.hu/szakmai-anyagok/eloadasok">the Continuous Integration presentation</a> I gave at the<a href="http://www.meetup.com/AgileHungary/"> Agile Hungary Meetup</a> earlier this year (also on github, Hungarian slides only). Contrary to that one, here I was talking of things I haven't yet accomplished and only am looking forward to do, which worried me a bit - however, declaring this upfront was well received and it didn't pressure me from that point on.<div><br/></div><div><div>Though I wasn't as good as <a href="http://www.build-doctor.com/.../continuous-deployment-video-tim-fitz/">Tim Fitz</a> (especially lacking the experience) the talk has generated questions and discussion, which was the purpose, so I'm quite happy with how it went.</div><div><br/></div><div>My only regret is forgetting to record the presentation to review my presentation skills.</div></div>]]></content:encoded>
     </item>
     <item>
       <title>Executable documentation</title>
-      <link>http://zsoldosp.eu/2010/08/executable-documentation.html</link>
+      <link>http://blog.zsoldosp.eu/2010/08/executable-documentation.html</link>
       <pubDate>Thu, 19 Aug 2010 19:56:00 CEST</pubDate>
       <category><![CDATA[software]]></category>
       <category><![CDATA[executable documentation]]></category>
       <category><![CDATA[automation]]></category>
-      <guid isPermaLink="false">http://zsoldosp.eu/2010/08/executable-documentation.html</guid>
+      <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/08/executable-documentation.html</guid>
       <description>Executable documentation</description>
       <content:encoded><![CDATA[
 <span><div>It's good to see <a href="http://continuousdelivery.com/">build and release automation</a> becoming <a href="http://somic.org/2010/08/17/the-biggest-challenge-for-infrastructure-as-code/">more</a> and <a href="http://www.markhneedham.com/blog/2010/08/18/database-configuration-just-like-any-other-change/">more </a> common, but I'm curious to see whether this wave of automation will stop at just releasing or flow over to other areas of software development, and change the attitude in general.</div><div><br/></div><div>Though  automated testing and continuous integration took some time to spread - despite the fact that software developers (who spend their days automating mundane tasks so clients can focus on adding value, and thus should have been easily convinced)  have been (and some are still) opposed to the idea of automating the mundane tasks that <i>they</i> perform; I'm hoping that one of my pet peeves - stale documentation - will become more and more extinct as automation becomes more mainstream.</div><div><br/></div><div>Below are just some document types that could be made live and executable:</div><div><ul><li><b>Specifications</b>. I'm not the first to suggest this, acceptance testing, tools, and books have been around, but haven't caught on yet. I've been introduced to this concept by <a href="http://gojko.net/">Gojko Adzic</a>, and I can recommend his <a href="http://skillsmatter.com/expert/design-architecture/gojko-adzic">past talks/videos</a> or books for getting started on this topic.</li><li>New developer <b>getting started instructions</b>. In addition to local machine setup (though the approach <a href="http://twitter.com/sipostamas">Tamas Sipos</a> described of using virtual machines per project is even better than scripting it), this usually includes gaining access to all sorts of different file shares, web services, machines, databases, mapping them to proper local names, and so forth. This is usually presented in the form of list, where you actually copy-paste it into the command line. There is no reason this couldn't be scripted. <i>Mirroring</i> access from an existing developer is sometimes easier than keeping the setup scripts up to date.</li><li><b>Revoking access</b> from departing developers. This might be more applicable to bigger enterprise environments, but it is just as important as setting up a new developer. Script it.</li><li>Installation instructions, and <b>fixlogs/workarounds</b> for 3rd party applications (or even your own applications). These are the ones that warn you to only ever run this script as a given user. Or from a particular machine. And to execute the following commands, containing a loops and decision branches, written in plain text. And to make SQL calls, send xml/json messages, where you just need to substitue &lt;this&gt; with the current value, etc.  Script them, and make reduce the document to a single instruction - execute myFix.sh with the following two parameters.</li><li>Code review guidelines, <b>coding standards</b>. Naming conventions, indentations, method length/complexity, all sorts of other static code analysis (the domain shouldn't call the UI code directly! We shouldn't have commented out code! There should be no Windows Forms controls with Visible = false never ever changed elsewhere to true in the class! etc.) should not be done by hand if  can be automated - and there are quite a number of mature tools out there, all  extensible, such as <a href="http://stylecop.codeplex.com/">StyleCop</a>, <a href="http://msdn.microsoft.com/en-us/library/bb429476(v=VS.80).aspx">FxCop</a>, <a href="http://checkstyle.sourceforge.net/">Checkstyle</a>,  <a href="http://findbugs.sourceforge.net/">FindBugs</a>, <a href="http://www.xdepend.com/">xDepend</a>. Focus code reviews on the more important things. </li><li><b>Data flow</b> diagrams. For the live, production system, you are better off generating this dependency graph from the scheduling tool you use, which makes it surely represent production, as opposed to the manually maintained Visio diagram or similar.</li></ul><div>Hope it was inspiring :) Do you know more document types I have missed?</div></div></span>
