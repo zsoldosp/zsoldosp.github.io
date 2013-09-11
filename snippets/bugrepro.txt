@@ -1,0 +1,80 @@
+$ win_info
+OS Name:                   Microsoft Windows 7 Professional 
+OS Manufacturer:           Microsoft Corporation
+System Type:               x64-based PC
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+$ python --version
+Python 2.7.4
+$ pip freeze
+extras==0.0.3
+fixtures==0.3.14
+python-mimeparse==0.1.4
+python-subunit==0.0.15
+testrepository==0.0.17
+testtools==0.9.32
+$ git --version
+git version 1.8.1.msysgit.1
+$ grep ^ -nH bugrepro/test.py bugrepro/__init__.py
+bugrepro/test.py:1:import unittest
+bugrepro/test.py:2:
+bugrepro/test.py:3:
+bugrepro/test.py:4:class SampleTest(unittest.TestCase):
+bugrepro/test.py:5:
+bugrepro/test.py:6:    def test_one(self):
+bugrepro/test.py:7:        self.fail('one')
+bugrepro/test.py:8:
+bugrepro/test.py:9:    def test_two(self):
+bugrepro/test.py:10:        pass
+$ python -m unittest discover bugrepro
+F.
+======================================================================
+FAIL: test_one (test.SampleTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "c:\Users\zsoldosp_2\Documents\testint\bugrepro\test.py", line 7, in test_one
+    self.fail('one')
+AssertionError: one
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (failures=1)
+$ ls .testr.conf .testr.conf.swp .testr.conf~ .testrepository -l
+-rw-r--r--    1 zsoldosp Administ      205 Sep 11 14:46 .testr.conf
+-rw-r--r--    1 zsoldosp Administ    12288 Sep 11 14:44 .testr.conf.swp
+-rw-r--r--    1 zsoldosp Administ      212 Sep 11 14:45 .testr.conf~
+
+.testrepository:
+total 1
+-rw-r--r--    1 zsoldosp Administ        3 Sep 11 16:28 format
+-rw-r--r--    1 zsoldosp Administ        3 Sep 11 16:28 next-stream
+$ cat .testr.conf
+[DEFAULT]
+#test_command=python -m subunit.run discover . $LISTOPT $IDOPTION
+test_command=python -m subunit.run discover . $LISTOPT $IDOPTION
+test_id_option=--load-list $IDFILE
+test_list_option=--list
+$ testr run bugrepro
+running=python -m subunit.run discover . --list 
+'unicodeescape' codec can't decode bytes in position 56-57: truncated \uXXXX escape
+$ testr run
+running=python -m subunit.run discover .  
+======================================================================
+FAIL: bugrepro.test.SampleTest.test_one
+tags: worker-0
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "c:\Users\zsoldosp_2\Documents\testint\bugrepro\test.py", line 7, in test_one
+    self.fail('one')
+  File "c:\Python27\Lib\unittest\case.py", line 413, in fail
+    raise self.failureException(msg)
+AssertionError: one
+======================================================================
+FAIL: process-returncode
+tags: worker-0
+----------------------------------------------------------------------
+Binary content:
+  traceback (test/plain; charset="utf8")
+Ran 5 tests in 0.019s
+FAILED (id=0, failures=2)

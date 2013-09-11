@@ -10,10 +10,139 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 08 Aug 2013 05:31:47 GMT</pubDate>
+    <pubDate>Wed, 11 Sep 2013 15:21:02 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Quick script to help reporting bugs for python</title>
+      <link>http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/</link>
+      <pubDate>Wed, 11 Sep 2013 17:00:00 CEST</pubDate>
+      <category><![CDATA[code]]></category>
+      <category><![CDATA[note to self]]></category>
+      <category><![CDATA[bash]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
+      <description>Quick script to help reporting bugs for python</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>While poking around the
+<a class="reference external" href="https://pypi.python.org/pypi/testrepository/">testrepository</a>
+package I ran into the cryptic error message of <strong>'unicodeescape'
+codec can't decode bytes in position 56-57: truncated \uXXXX escape</strong>.
+I set out to reproduce the bug, but that is of course an iterative
+process, like anything else in coding, so I set out to script it. Since
+I expect I'll need this again, and someone else might need it too,
+I'm recording it here.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p>I eventually figured out the problem was that <a class="reference external" href="http://testrepository.readthedocs.org/en/latest/MANUAL.html#python">the recommended
+default for testrepository</a>
+has a different command line behavior from the built in unittest's
+runner:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal">python <span class="pre">-m</span> unittest discover bugrepro</tt></li>
+<li><tt class="docutils literal">testr run bugrepro</tt> doesn't get translated to the discover
+root, but into <tt class="docutils literal">LISTOPT</tt> variable (<tt class="docutils literal">python <span class="pre">-m</span> subunit.run
+discover . $LISTOPT $IDOPTION</tt>)</li>
+</ul>
+</blockquote>
+<p class="last">Sure, a nicer exception message would have been nice.</p>
+</div>
+<div class="section" id="my-environment">
+<h1>My Environment</h1>
+<p>While for serious development I use Linux VMs, for explorations/hobbies,
+I use the base Windows 7 on my command line from git-bash - it's enough
+for basic scripting things, plus I tend to use git anyway, and I don't
+like Powershell.</p>
+</div>
+<div class="section" id="the-script">
+<h1>The script</h1>
+<pre class="code bash literal-block">
+<span class="c">#!/bin/sh
+</span><span class="k">function </span>d<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;\$ $*&quot;</span>
+    <span class="nv">$*</span>
+<span class="o">}</span>
+
+<span class="k">function </span>win_info<span class="o">()</span> <span class="o">{</span>
+    systeminfo | grep <span class="s2">&quot;\(OS Name\|OS Manufacturer\|System Type\|Locale\)&quot;</span>
+<span class="o">}</span>
+
+<span class="nv">REPRO_FOLDER</span><span class="o">=</span>bugrepro
+d win_info
+d python --version
+d pip freeze
+d git --version
+d grep ^ -nH <span class="sb">`</span>find <span class="nv">$REPRO_FOLDER</span> -name <span class="se">\*</span>.py<span class="sb">`</span>
+d python -m unittest discover <span class="nv">$REPRO_FOLDER</span>
+d ls .testr* -l
+d cat .testr.conf
+d testr run <span class="nv">$REPRO_FOLDER</span>
+d testr run
+</pre>
+<p>Running <tt class="docutils literal">./bugrepro.sh <span class="pre">2&gt;&amp;1</span> | tee bugrepro.txt&nbsp; &gt; /dev/null</tt> produces
+the following output (cropped, you can see
+<a class="reference external" href="/snippets/bugrepro.txt">the full output here</a>):</p>
+<pre class="literal-block">
+$ win_info
+OS Name:                   Microsoft Windows 7 Professional 
+OS Manufacturer:           Microsoft Corporation
+System Type:               x64-based PC
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+$ python --version
+Python 2.7.4
+$ pip freeze
+extras==0.0.3
+
+</pre>
+</div>
+<div class="section" id="things-i-learned">
+<h1>Things I learned</h1>
+<p>While this took somewhat longer than expected (and writing this
+post wasn't even planned!) and I haven't even reported the actual
+bug yet (Yak shaving...), but I don't mind - especially because I
+did all this while recovering from a nasty cold :)</p>
+<ul class="simple">
+<li>for <tt class="docutils literal">cmd.exe</tt>, the <tt class="docutils literal">ver</tt> and <tt class="docutils literal">systeminfo</tt> commands are pretty neat
+and <a class="reference external" href="http://www.windows7password.net/all-windows-7-commands-cmd-exe/">there are more commands</a>:
+type <tt class="docutils literal">help</tt></li>
+<li>wrote my first blog post in
+<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>
+since it's a better fit for including snippets (<a class="reference external" href="/2010/08/executable-documentation.html/">executable
+documentation</a> is a pet peeve of mine!)</li>
+</ul>
+<p><strong>Open Questions</strong> (aka: do I want to shave further yaks?!):</p>
+<ul>
+<li><p class="first"><tt class="docutils literal">cmd.exe /C</tt> doesn't seem to behave as one would expect it when
+invoked from git-bash (msysgit, 1.8.1) - it doesn't exit and the
+execution to continue requires an <tt class="docutils literal">exit</tt> command!</p>
+</li>
+<li><p class="first">I always want to do
+<a class="reference external" href="/2013/07/25/some-metaprogramming-reflection-in-bash/">metaprogramming in bash</a>
+- how could I display
+the body of a bash function? I'm thinking of something similar to
+what one does with alias</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span><span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
+<span class="nv">$ </span>foo
+foo
+<span class="nv">$ </span><span class="nb">alias </span>foo
+<span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
+</pre>
+</li>
+<li><p class="first">is there a better way for passing arguments in bash? I ended up doing
+<tt class="docutils literal">grep ^</tt> because I went crazy trying to escape
+<tt class="docutils literal"><span class="pre">find...</span> <span class="pre">-exec...\;</span></tt>.
+and making the script use <tt class="docutils literal"><span class="pre">#!/bin/bash</span> <span class="pre">-x</span></tt> would be an overkill
+here, and I just want to echo back the command that was executed...</p>
+</li>
+</ul>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
       <link>http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
@@ -326,21 +455,6 @@ Peter
 <p>The weather was superb, and the cycling roads were quite crowded, but given the circumstances, it didn't bother me at all. With regards to the road quality - it isn't a smooth road, but has no cars, and the view is great. After Dunakeszi the road actually disappears (you should take the ferry to the right bank, there it continues), but having cycled this section many times I knew the back ways so we didn't have to take the #2 main road.</p>
 <p>And then all of a sudden I was back in our flat in Budapest :)</p>
 <p>It was 50 km with a net cycling time of 3:05 (h:mi). The gross time, of course, was much longer, but the ice cream break &amp; co. were essential and couldn't have been skipped :)</p>]]></content:encoded>
-    </item>
-    <item>
-      <title>Day 8: From Gyor to Nagymaros</title>
-      <link>http://blog.zsoldosp.eu/2012/04/22/day-8-from-gyor-to-nagymaros/</link>
-      <pubDate>Sun, 22 Apr 2012 07:36:19 CEST</pubDate>
-      <category><![CDATA[outdoors]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/04/22/day-8-from-gyor-to-nagymaros/</guid>
-      <description>Day 8: From Gyor to Nagymaros</description>
-      <content:encoded><![CDATA[
-<p>Managed to get an early start today, since my hosts had to leave around eight, and I preferred to be on the outside of the closed door (though they said I was free to choose...). After getting some munchies/bars/fruit for the day I was on the Eurovelo - again, which I promptly lost after leaving the inner city, but it goes along the car route 81 towards Tata. Actually, soon after getting out of the city, it goes on the road, and since it leads by the industrial district, there are tenwheeler trucks and lorries, and few signs.</p>
-<p>Some kilometers before reaching Babolna, the Eurovelo takes a left to Nagyszentjanos, on a bad road, and in the village takes a right just before the railway crossing to a dirt road, seemingly only traveled (and travelable by) agricultural and offroad vehicles. I made the mistake of turning back and following the paved road, hoping to take the next right to Acs/Komarom, but there I was greeted with a traffic sign forbidding cyclists from the road - there and back an 8 km detour. So the dirt road. Incredibly slow and frustrating, but only lasts a few km and then a paved (though old and abandoned, and thus potholed) road emerges towards Acs. In the village center in the T-crossing take the left (there is an eurovelo sign, but not easy to find, and after the rails go to the right - just follow the signs for Komarom for the cars. Beware: high traffic road!</p>
-<p>From here the signs are rare, but positioned at strategic locations, for some reason in the villages cyclist are forced off the road (which they rejoin just outside the village), which is painful with bags, since many of the forced alternatives are badly converted pedestrian roads, and there often isn't even a ramp at the crossing.</p>
-<p>The car roads taken in order: 1, 117, 10, 11, mostly with traffic (there is one quality section road after Nyergesujfalu). The eurovelo crosses the danube at Pilismarot to Szob with a ferry (this time there was one every hour), but I continued to Visegrad on the 11, 'coz I haven't done this section of the road yet and because the friends I was staying that evening live in Nagymaros, with a ferry connection from Visegrad. Getting the bike up to their house in the hill was the most tiring!</p>
-<p>Overall it was 141km in 6:40 (7:15). The road is ok if you can handle traffic, but otherwise (or with kids) I would suggest an alternative (maybe on the Slovakian side of the river) till Szob (visit Esztergom for sightseeing from Sturovo via the bridge), where the road is dedicated for cyclists, protected from car traffic (and has a great sight).</p>
-<p>And probably was it not for catching up with friends I would have been in Budapest before daylight was out!</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

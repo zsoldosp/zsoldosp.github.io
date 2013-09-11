@@ -164,3 +164,6 @@ pre {
 }
 
 .post_list td {padding-right: 1em;}
+
+.note { margin-left: 10%; margin-right: 10%; }
+.note .admonition-title {  100%; text-decoration: underline; text-align: center; }

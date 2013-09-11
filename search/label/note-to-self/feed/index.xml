@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Do. Reflect. Learn. Repeat!</title>
+    <link>http://blog.zsoldosp.eu</link>
+    <description>Excercises in public learning</description>
+    <pubDate>Wed, 11 Sep 2013 15:21:02 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Quick script to help reporting bugs for python</title>
+      <link>http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/</link>
+      <pubDate>Wed, 11 Sep 2013 17:00:00 CEST</pubDate>
+      <category><![CDATA[code]]></category>
+      <category><![CDATA[note to self]]></category>
+      <category><![CDATA[bash]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
+      <description>Quick script to help reporting bugs for python</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>While poking around the
+<a class="reference external" href="https://pypi.python.org/pypi/testrepository/">testrepository</a>
+package I ran into the cryptic error message of <strong>'unicodeescape'
+codec can't decode bytes in position 56-57: truncated \uXXXX escape</strong>.
+I set out to reproduce the bug, but that is of course an iterative
+process, like anything else in coding, so I set out to script it. Since
+I expect I'll need this again, and someone else might need it too,
+I'm recording it here.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p>I eventually figured out the problem was that <a class="reference external" href="http://testrepository.readthedocs.org/en/latest/MANUAL.html#python">the recommended
+default for testrepository</a>
+has a different command line behavior from the built in unittest's
+runner:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal">python <span class="pre">-m</span> unittest discover bugrepro</tt></li>
+<li><tt class="docutils literal">testr run bugrepro</tt> doesn't get translated to the discover
+root, but into <tt class="docutils literal">LISTOPT</tt> variable (<tt class="docutils literal">python <span class="pre">-m</span> subunit.run
+discover . $LISTOPT $IDOPTION</tt>)</li>
+</ul>
+</blockquote>
+<p class="last">Sure, a nicer exception message would have been nice.</p>
+</div>
+<div class="section" id="my-environment">
+<h1>My Environment</h1>
+<p>While for serious development I use Linux VMs, for explorations/hobbies,
+I use the base Windows 7 on my command line from git-bash - it's enough
+for basic scripting things, plus I tend to use git anyway, and I don't
+like Powershell.</p>
+</div>
+<div class="section" id="the-script">
+<h1>The script</h1>
+<pre class="code bash literal-block">
+<span class="c">#!/bin/sh
+</span><span class="k">function </span>d<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;\$ $*&quot;</span>
+    <span class="nv">$*</span>
+<span class="o">}</span>
+
+<span class="k">function </span>win_info<span class="o">()</span> <span class="o">{</span>
+    systeminfo | grep <span class="s2">&quot;\(OS Name\|OS Manufacturer\|System Type\|Locale\)&quot;</span>
+<span class="o">}</span>
+
+<span class="nv">REPRO_FOLDER</span><span class="o">=</span>bugrepro
+d win_info
+d python --version
+d pip freeze
+d git --version
+d grep ^ -nH <span class="sb">`</span>find <span class="nv">$REPRO_FOLDER</span> -name <span class="se">\*</span>.py<span class="sb">`</span>
+d python -m unittest discover <span class="nv">$REPRO_FOLDER</span>
+d ls .testr* -l
+d cat .testr.conf
+d testr run <span class="nv">$REPRO_FOLDER</span>
+d testr run
+</pre>
+<p>Running <tt class="docutils literal">./bugrepro.sh <span class="pre">2&gt;&amp;1</span> | tee bugrepro.txt&nbsp; &gt; /dev/null</tt> produces
+the following output (cropped, you can see
+<a class="reference external" href="/snippets/bugrepro.txt">the full output here</a>):</p>
+<pre class="literal-block">
+$ win_info
+OS Name:                   Microsoft Windows 7 Professional 
+OS Manufacturer:           Microsoft Corporation
+System Type:               x64-based PC
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+$ python --version
+Python 2.7.4
+$ pip freeze
+extras==0.0.3
+
+</pre>
+</div>
+<div class="section" id="things-i-learned">
+<h1>Things I learned</h1>
+<p>While this took somewhat longer than expected (and writing this
+post wasn't even planned!) and I haven't even reported the actual
+bug yet (Yak shaving...), but I don't mind - especially because I
+did all this while recovering from a nasty cold :)</p>
+<ul class="simple">
+<li>for <tt class="docutils literal">cmd.exe</tt>, the <tt class="docutils literal">ver</tt> and <tt class="docutils literal">systeminfo</tt> commands are pretty neat
+and <a class="reference external" href="http://www.windows7password.net/all-windows-7-commands-cmd-exe/">there are more commands</a>:
+type <tt class="docutils literal">help</tt></li>
+<li>wrote my first blog post in
+<a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a>
+since it's a better fit for including snippets (<a class="reference external" href="/2010/08/executable-documentation.html/">executable
+documentation</a> is a pet peeve of mine!)</li>
+</ul>
+<p><strong>Open Questions</strong> (aka: do I want to shave further yaks?!):</p>
+<ul>
+<li><p class="first"><tt class="docutils literal">cmd.exe /C</tt> doesn't seem to behave as one would expect it when
+invoked from git-bash (msysgit, 1.8.1) - it doesn't exit and the
+execution to continue requires an <tt class="docutils literal">exit</tt> command!</p>
+</li>
+<li><p class="first">I always want to do
+<a class="reference external" href="/2013/07/25/some-metaprogramming-reflection-in-bash/">metaprogramming in bash</a>
+- how could I display
+the body of a bash function? I'm thinking of something similar to
+what one does with alias</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span><span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
+<span class="nv">$ </span>foo
+foo
+<span class="nv">$ </span><span class="nb">alias </span>foo
+<span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
+</pre>
+</li>
+<li><p class="first">is there a better way for passing arguments in bash? I ended up doing
+<tt class="docutils literal">grep ^</tt> because I went crazy trying to escape
+<tt class="docutils literal"><span class="pre">find...</span> <span class="pre">-exec...\;</span></tt>.
+and making the script use <tt class="docutils literal"><span class="pre">#!/bin/bash</span> <span class="pre">-x</span></tt> would be an overkill
+here, and I just want to echo back the command that was executed...</p>
+</li>
+</ul>
+</div>
+</div>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
