@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Do. Reflect. Learn. Repeat!</title>
+    <link>http://blog.zsoldosp.eu</link>
+    <description>Excercises in public learning</description>
+    <pubDate>Fri, 27 Sep 2013 07:40:30 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Teach me refactoring from my commits!</title>
+      <link>http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/</link>
+      <pubDate>Fri, 27 Sep 2013 09:40:00 CEST</pubDate>
+      <category><![CDATA[things i wish existed]]></category>
+      <category><![CDATA[teaching]]></category>
+      <category><![CDATA[untested ideas]]></category>
+      <category><![CDATA[version control]]></category>
+      <category><![CDATA[refactoring]]></category>
+      <guid isPermaLink="false">GZ4JOnYZvQe5D8VUfKUh6eJAlkw=</guid>
+      <description>Teach me refactoring from my commits!</description>
+      <content:encoded><![CDATA[<p>I find it hard to learn purely by abstract theory - I need practical 
+examples to illustrate the theory I just learned. I also need practice,
+and preferably, supervised practice, so my mistakes can be caught early
+and/or more efficient ways can be shown to achieve the same thing I just
+did.</p>
+<p>With this background, it's not surprising that when I <a href="http://episodes.gitminutes.com/2013/06/gitminutes-14-pablo-santos-on.html">heard about a 
+product that started to do semantic diffs for version 
+control</a> I was reminded of the <a href="https://sc2010subs.wordpress.com/2010/08/13/refactoring-golf-dave-cleal-ivan-moore/">Refactoring 
+Golf</a> concept from the first <a href="http://www.codemanship.co.uk/parlezuml/softwarecraftsmanship/">Software Craftsmanship 
+London</a> conference - and the two ideas just clicked into this
+great (ok, I'm biased) idea to try to derive the most efficient
+refactoring steps for that particular commit I just made.</p>
+<p>The pieces required for this project are all already in place:</p>
+<ul>
+<li>we have parsers for languages, and many are available as libraries to
+  traverse <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">ASTs</a></li>
+<li>most version control systems have libraries to read from them</li>
+<li>there are tons of well-defined refactorings known, that can be used
+  as operations in the transformations from state <code>A</code> to <code>B</code></li>
+<li>optimization algorithms are plentiful - for a proof of concept, the
+  <a href="https://en.wikipedia.org/wiki/String_distance">String Distance</a> Transformation algorithm could be used</li>
+</ul>
+<p>Thus such a program script could be added as a post commit hook, or 
+simply could be run on the workspace copy, using the diff against last
+committed version, and it could tell me that I might have:</p>
+<ol>
+<li>renamed variable <code>login</code> to <code>username</code></li>
+<li>converted <code>username</code> from local variable to method parameter</li>
+<li>extracted method <code>lock_customer_acocunt</code> from method <code>login</code></li>
+</ol>
+<p>I'm pretty positive even experienced refactoring practitioners could 
+learn new tricks, and newbies would be delivered concrete refactoring
+examples tailored to their very codebase.</p>
+<p>Please, someone with enough free time, go and make such an app!</p>
+<p>Does this idea make sense for you too, or just me? Let me know via email
+(hello at site domain) or on twitter (<a href="https://twitter.com/zsepi">@zsepi</a>)!</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
