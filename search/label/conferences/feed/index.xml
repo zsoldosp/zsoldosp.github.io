@@ -10,10 +10,142 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 08 Aug 2013 05:31:47 GMT</pubDate>
+    <pubDate>Mon, 30 Sep 2013 07:21:54 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>CITCON Turin 2013</title>
+      <link>http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/</link>
+      <pubDate>Mon, 30 Sep 2013 09:13:00 CEST</pubDate>
+      <category><![CDATA[conferences]]></category>
+      <category><![CDATA[citcon]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">HBw_qzJLfvKDJyuEPItoFPtvMx8=</guid>
+      <description>CITCON Turin 2013</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>Prior <a href="http://citconf.com/">CITCON</a> experience posts:</p>
+<ul>
+<li><a href="/2010/11/my-citcon-london-2010-experience.html">London 2010</a></li>
+<li><a href="/2011/11/citcon-london-2011.html">London 2011</a></li>
+<li><a href="http://citconf.com/budapest2012">Budapest 2012</a> - didn't get around
+  to blog about it - since I was the local organizer, by the end of 
+  the conf I depleted my energy reserves :)</li>
+</ul>
+</blockquote>
+<p>Briefly about the conference - the open space format is still the best
+thing since sliced bread as far conferences go, and CITCON still brings
+together wonderfully smart people. Year after year I leave it being 
+thankful for pointing me to questions (and answers) waaay outside the 
+proverbial box....</p>
+<h2 id="sessions-attended">Sessions attended</h2>
+<p>This post does not contain session notes (I'm adding them to the 
+<a href="http://citconf.com/wiki/">wiki</a>) but rather just tries to convey the atmosphere/feel
+of the sessions.</p>
+<ul>
+<li>
+<p><strong>Are we doing improvement wrong</strong>? Proposed by <a href="https://twitter.com/Jeffrey">Jeffrey</a>, 
+  inspired by the <a href="http://www.amazon.com/Toyota-Kata-Managing-Improvement-Adaptiveness/dp/0071635238/">Toyota Kata</a> book, it described the two 
+  Katas, and illustrated why measuring improvement by the output 
+  (results) only can lead to missed improvement opportunities (e.g.: the
+  book describes that before an improvement effort, line managers were 
+  called in for troubleshooting 1000 times a shift, which then decreases
+  two 700 a shift. The leadership's response was that this means either</p>
+<ul>
+<li>people are hiding or working around failures, which is bad</li>
+<li>people stopped improving, which is bad too</li>
+</ul>
+</li>
+</ul>
+<p>so they adjusted the workload to enable taking full advantage of
+  the bandwidth of 1000 improvements/introspections the factory was
+  capable of.</p>
+<ul>
+<li>
+<p><strong>Continuous interruptions</strong> Proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, we dug deep
+  into how interruptions can be a wonderful tool for knowledge sharing,
+  mentoring and how they hide (or to be more precise, expose) risk 
+  factors. I wish I had mentioned the urban legend about <a href="https://en.wikipedia.org/wiki/QWERTY#cite_ref-5">the QWERTY 
+  keyboard layout's design origin</a>, but the point about 
+  interruptions slowing you down enough to force taking a step back 
+  didn't need analogies. And it seems we all have colleagues whose cell
+  phones only ring when their owners, unlike the phones, are not 
+  present...</p>
+</li>
+<li>
+<p><strong>What does the ideal software development process look like?</strong> 
+  proposed by <a href="https://twitter.com/aparker42">Andrew Parker</a>, closely linked to the first
+  session of the day about improvement (towards the ideal one to one
+  flow) is probably the one session that I left with more questions
+  than answers - not just about the topic, or its conclusions (shorten
+  the cycle time (effort) required for going from idea to getting
+  feedback), but even about the open spaces framework (what if the 
+  scribe wants to apply the law of two feet?).</p>
+</li>
+<li>
+<p><strong>Low level unit testing/assertion code patterns</strong> proposed by me,
+  driven by my desire to learn what new ideas are present in this
+  space. While I haven't learned of any new patterns, I left with a 
+  much better understanding of how language embedded and enforced pre-
+  and post-conditions (or code contracts in the C# world) can actually
+  been tested, contrary to my initial assumption</p>
+</li>
+<li>
+<p><strong>Are we testing too much? / What's the point of code coverage? /
+  Would a Test Tree Builder and Executor make sense?</strong> - this was a 
+  merge of three topics, proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, <a href="https://twitter.com/ajmolenaar">Arjan</a>,
+  and myself. It was the smallest session in attendance (it was the
+  three of us and <a href="https://twitter.com/sietstweets">Cirilo</a>, with <a href="https://twitter.com/Jeffrey">Jeffrey</a> also popping by
+  towards the end), but true to the spirit of open spaces, we were
+  totally engaged. Plus <a href="https://twitter.com/Jeffrey">Jeffrey</a> demonstrated the need for more
+  effectively transmitting information (when we brought him up to speed
+  of what is being discussed, he just said "CITCON Australia 2009") or
+  prior art - there is a kind of generational gap that exists between 
+  programmer generations that could benefit from a few more bridges
+  (though leaving enough of a divide so that people will still work on
+  and solve problems that were previously declared "unsolvable"!).</p>
+</li>
+</ul>
+<p>Had I not proposed any sessions, I would have loved to attend <em><a href="https://twitter.com/sf105">Steve 
+Freeman</a>'s TDD Clinic</em> - it's always a pleasure to see great 
+people perform, not to mention the learning opportunity. I also would
+have liked to listen to <em><a href="https://twitter.com/ivanrmoore">Ivan Moore</a> describing the build setup
+they have for their multi componented system</em> at work - I faced that 
+problem years ago, topped with the plugin compatibility across multiple
+versions problem, so would have loved to see what they did. And next 
+time I'm in Budapest, I'll probably try to visit <a href="http://prezi.com">Prezi</a> again 
+in case Jayson is around so I could take another look at their <code>fkt</code> 
+system (and to listen to the <em><code>please</code>, <code>simply</code>, and <code>fkt</code> machine 
+provisioning evolution story</em> again).  Luckily, <a href="https://twitter.com/zeljkofilipin">Zejko</a>'s 
+session's about how <a href="https://wikipedia.org/">Wikipedia</a> tests there system is easy to
+find online, since - like everything else <a href="https://wikipedia.org/">Wikipedia</a> does -,
+it is open. But as I always say, it's so much better to leave a conf 
+with too many good sessions than one with too little...</p>
+<p>Another great aspect of CITCON is the dinner afterwards - even though
+it splits into multiple small groups, it's real nice to talk with people
+directly, both about non-tech (like explaining why it would
+make a ton of sense for the Budapest Opera House to organize a summer
+Opera festival) and tech (thanks to all who listened to my pet project 
+ideas, and gave really useful feedback!)</p>
+<p>The reunion-like feeling <a href="https://twitter.com/PaulJulius">PJ</a> mentioned during his opening remarks
+was true for me too, but sadly I haven't prepared enough - I should have
+organized more explicit catch-up sessions outside the conference, for I
+couldn't chat with everyone I wanted to in enough depth - hard to do
+when we are running additional sessions even during the lunch break!
+Plus of course one doesn't want to give the conference itself an 
+exclusive atmosphere - I still vividly remember my nervousness at my 
+first CITCON, trying to overcome the inherent shyness to talk to people,
+attempting to join their conversations...</p>
+<p>In closing, I would like to thank <a href="https://twitter.com/capotribu">Marco Abis</a> again, who was
+the remote-local organizer of the conference, for making it happen. I 
+met wonderful new people, and learned (or refined my understanding) of 
+many topics!</p>
+<p>During the coming days, I will be adding my session notes to the 
+<a href="http://citconf.com/wiki/">conf wiki</a> coming days, and once I digested all the feedback I 
+got during and outside the sessions, I will be writing up the <em>Tree 
+Optimized Test Runner</em> and the <em>app-test DSLs to have multiple drivers
+for a single TestCase</em> ideas in more detail.</p>]]></content:encoded>
+    </item>
     <item>
       <title>CITCON London 2011</title>
       <link>http://blog.zsoldosp.eu/2011/11/citcon-london-2011.html</link>

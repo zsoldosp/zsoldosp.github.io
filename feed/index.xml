@@ -10,10 +10,142 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 27 Sep 2013 07:40:30 GMT</pubDate>
+    <pubDate>Mon, 30 Sep 2013 07:21:55 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>CITCON Turin 2013</title>
+      <link>http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/</link>
+      <pubDate>Mon, 30 Sep 2013 09:13:00 CEST</pubDate>
+      <category><![CDATA[conferences]]></category>
+      <category><![CDATA[citcon]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">HBw_qzJLfvKDJyuEPItoFPtvMx8=</guid>
+      <description>CITCON Turin 2013</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>Prior <a href="http://citconf.com/">CITCON</a> experience posts:</p>
+<ul>
+<li><a href="/2010/11/my-citcon-london-2010-experience.html">London 2010</a></li>
+<li><a href="/2011/11/citcon-london-2011.html">London 2011</a></li>
+<li><a href="http://citconf.com/budapest2012">Budapest 2012</a> - didn't get around
+  to blog about it - since I was the local organizer, by the end of 
+  the conf I depleted my energy reserves :)</li>
+</ul>
+</blockquote>
+<p>Briefly about the conference - the open space format is still the best
+thing since sliced bread as far conferences go, and CITCON still brings
+together wonderfully smart people. Year after year I leave it being 
+thankful for pointing me to questions (and answers) waaay outside the 
+proverbial box....</p>
+<h2 id="sessions-attended">Sessions attended</h2>
+<p>This post does not contain session notes (I'm adding them to the 
+<a href="http://citconf.com/wiki/">wiki</a>) but rather just tries to convey the atmosphere/feel
+of the sessions.</p>
+<ul>
+<li>
+<p><strong>Are we doing improvement wrong</strong>? Proposed by <a href="https://twitter.com/Jeffrey">Jeffrey</a>, 
+  inspired by the <a href="http://www.amazon.com/Toyota-Kata-Managing-Improvement-Adaptiveness/dp/0071635238/">Toyota Kata</a> book, it described the two 
+  Katas, and illustrated why measuring improvement by the output 
+  (results) only can lead to missed improvement opportunities (e.g.: the
+  book describes that before an improvement effort, line managers were 
+  called in for troubleshooting 1000 times a shift, which then decreases
+  two 700 a shift. The leadership's response was that this means either</p>
+<ul>
+<li>people are hiding or working around failures, which is bad</li>
+<li>people stopped improving, which is bad too</li>
+</ul>
+</li>
+</ul>
+<p>so they adjusted the workload to enable taking full advantage of
+  the bandwidth of 1000 improvements/introspections the factory was
+  capable of.</p>
+<ul>
+<li>
+<p><strong>Continuous interruptions</strong> Proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, we dug deep
+  into how interruptions can be a wonderful tool for knowledge sharing,
+  mentoring and how they hide (or to be more precise, expose) risk 
+  factors. I wish I had mentioned the urban legend about <a href="https://en.wikipedia.org/wiki/QWERTY#cite_ref-5">the QWERTY 
+  keyboard layout's design origin</a>, but the point about 
+  interruptions slowing you down enough to force taking a step back 
+  didn't need analogies. And it seems we all have colleagues whose cell
+  phones only ring when their owners, unlike the phones, are not 
+  present...</p>
+</li>
+<li>
+<p><strong>What does the ideal software development process look like?</strong> 
+  proposed by <a href="https://twitter.com/aparker42">Andrew Parker</a>, closely linked to the first
+  session of the day about improvement (towards the ideal one to one
+  flow) is probably the one session that I left with more questions
+  than answers - not just about the topic, or its conclusions (shorten
+  the cycle time (effort) required for going from idea to getting
+  feedback), but even about the open spaces framework (what if the 
+  scribe wants to apply the law of two feet?).</p>
+</li>
+<li>
+<p><strong>Low level unit testing/assertion code patterns</strong> proposed by me,
+  driven by my desire to learn what new ideas are present in this
+  space. While I haven't learned of any new patterns, I left with a 
+  much better understanding of how language embedded and enforced pre-
+  and post-conditions (or code contracts in the C# world) can actually
+  been tested, contrary to my initial assumption</p>
+</li>
+<li>
+<p><strong>Are we testing too much? / What's the point of code coverage? /
+  Would a Test Tree Builder and Executor make sense?</strong> - this was a 
+  merge of three topics, proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, <a href="https://twitter.com/ajmolenaar">Arjan</a>,
+  and myself. It was the smallest session in attendance (it was the
+  three of us and <a href="https://twitter.com/sietstweets">Cirilo</a>, with <a href="https://twitter.com/Jeffrey">Jeffrey</a> also popping by
+  towards the end), but true to the spirit of open spaces, we were
+  totally engaged. Plus <a href="https://twitter.com/Jeffrey">Jeffrey</a> demonstrated the need for more
+  effectively transmitting information (when we brought him up to speed
+  of what is being discussed, he just said "CITCON Australia 2009") or
+  prior art - there is a kind of generational gap that exists between 
+  programmer generations that could benefit from a few more bridges
+  (though leaving enough of a divide so that people will still work on
+  and solve problems that were previously declared "unsolvable"!).</p>
+</li>
+</ul>
+<p>Had I not proposed any sessions, I would have loved to attend <em><a href="https://twitter.com/sf105">Steve 
+Freeman</a>'s TDD Clinic</em> - it's always a pleasure to see great 
+people perform, not to mention the learning opportunity. I also would
+have liked to listen to <em><a href="https://twitter.com/ivanrmoore">Ivan Moore</a> describing the build setup
+they have for their multi componented system</em> at work - I faced that 
+problem years ago, topped with the plugin compatibility across multiple
+versions problem, so would have loved to see what they did. And next 
+time I'm in Budapest, I'll probably try to visit <a href="http://prezi.com">Prezi</a> again 
+in case Jayson is around so I could take another look at their <code>fkt</code> 
+system (and to listen to the <em><code>please</code>, <code>simply</code>, and <code>fkt</code> machine 
+provisioning evolution story</em> again).  Luckily, <a href="https://twitter.com/zeljkofilipin">Zejko</a>'s 
+session's about how <a href="https://wikipedia.org/">Wikipedia</a> tests there system is easy to
+find online, since - like everything else <a href="https://wikipedia.org/">Wikipedia</a> does -,
+it is open. But as I always say, it's so much better to leave a conf 
+with too many good sessions than one with too little...</p>
+<p>Another great aspect of CITCON is the dinner afterwards - even though
+it splits into multiple small groups, it's real nice to talk with people
+directly, both about non-tech (like explaining why it would
+make a ton of sense for the Budapest Opera House to organize a summer
+Opera festival) and tech (thanks to all who listened to my pet project 
+ideas, and gave really useful feedback!)</p>
+<p>The reunion-like feeling <a href="https://twitter.com/PaulJulius">PJ</a> mentioned during his opening remarks
+was true for me too, but sadly I haven't prepared enough - I should have
+organized more explicit catch-up sessions outside the conference, for I
+couldn't chat with everyone I wanted to in enough depth - hard to do
+when we are running additional sessions even during the lunch break!
+Plus of course one doesn't want to give the conference itself an 
+exclusive atmosphere - I still vividly remember my nervousness at my 
+first CITCON, trying to overcome the inherent shyness to talk to people,
+attempting to join their conversations...</p>
+<p>In closing, I would like to thank <a href="https://twitter.com/capotribu">Marco Abis</a> again, who was
+the remote-local organizer of the conference, for making it happen. I 
+met wonderful new people, and learned (or refined my understanding) of 
+many topics!</p>
+<p>During the coming days, I will be adding my session notes to the 
+<a href="http://citconf.com/wiki/">conf wiki</a> coming days, and once I digested all the feedback I 
+got during and outside the sessions, I will be writing up the <em>Tree 
+Optimized Test Runner</em> and the <em>app-test DSLs to have multiple drivers
+for a single TestCase</em> ideas in more detail.</p>]]></content:encoded>
+    </item>
     <item>
       <title>Teach me refactoring from my commits!</title>
       <link>http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/</link>
@@ -419,75 +551,6 @@ I've just posted a brief description of our first trip of the season over at the
 </li><li id="1-3">
     <strong><a href="/">Peter Zsoldos</strong></a> on <em>2012/09/30 17:12:58</em>: I don't know what the exact goal was behind creating the legacy coderetreat format. But I have always preferred learning not just a practice, but also its underpinning ideas and the limits of it. While I can practice refactoring on my own, there may not be someone around pointing out that not everything needs to be refactored. Both are important and have their places, and we seem to disagree about the latter. My thinking is influenced by seeing people (myself included) overdoing/overvaluing the latest pattern/practice they have came across (HelloWorldProxyFactoryImpl), without knowing the limits of their usefulness and knowing the difference between understanding something in theory versus doing that in practice - being told something is brittle/unreliable and understanding it on an intellectual level is very different from actually experiencing it. The latter tends to be easier to remember :)<br/><br/>But I might have fallen victim to offering a solution instead of raising a question. If the Nuremberg global code retreat will be a success, and there will be more following it, I'll be happy to immerse myself deeper into the code retreat community and see how I feel about this original idea after some time - one of the motivations for posting it was so that I can come back and revisit it later.
 </li></ol></li></ol>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>First impressions of the Gumotex Palava inflatable canoe</title>
-      <link>http://blog.zsoldosp.eu/2012/06/14/first-impressions-of-the-gumotex-palava-inflatable-canoe/</link>
-      <pubDate>Thu, 14 Jun 2012 18:25:37 CEST</pubDate>
-      <category><![CDATA[palava]]></category>
-      <category><![CDATA[canoe]]></category>
-      <category><![CDATA[review]]></category>
-      <category><![CDATA[germany]]></category>
-      <category><![CDATA[outdoors]]></category>
-      <category><![CDATA[gumotex]]></category>
-      <category><![CDATA[inflatable]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/06/14/first-impressions-of-the-gumotex-palava-inflatable-canoe/</guid>
-      <description>First impressions of the Gumotex Palava inflatable canoe</description>
-      <content:encoded><![CDATA[
-<p>Our Palava arrived Friday the week before last, and since the weather was nice enough (warm, with patches of rain on Sunday), we immediately took it on a proper test ride on the Altmühl for the weekend, repeating an earlier trip we had on the same section of the river. Below I describe <em>why we chose</em> an inflatable, <em>how we chose</em> it, and <em>how it lived up to our expectations</em> (<a href="https://en.wiktionary.org/wiki/TL;DR" title="too long; didn’t read">tl;dr</a>: we like the boat).</p>
-<p><img alt="" class="aligncenter size-medium wp-image-52" height="225" src="/2012/06/after-first-inflated.jpg?w=300" title="The Gumotex Palava after we've first inflated it" width="300"/>
-<h2></h2>
-<h2>Why did we buy a funny looking inflatable canoe?</h2>
-Guess after having a <a href="/2012/03/22/dahon-bullhead-with-aerobars/" title="Dahon Bullhead with Aerobars">folding bike</a> this is the next logical step (anyone knows about <a href="https://en.wikipedia.org/wiki/The_Jetsons">Jetsons style folding cars</a>? :)) - just kidding...</p>
-<p>While we have been canoeing for years, only moving to Germany made us think seriously about owning a canoe. The German canoe rental scene is rather different from what we were used to in Hungary, namely:
-<ul>
-<li>it requires more planning. You can't just decide in the morning that today you'd like to go paddling. Once we couldn't reserve a boat for the coming weekend on Thursday! Personalities aside (I've heard of people who like to plan their weekends in advance), even the weather forecast is not that reliable!</li>
-<li>it's significantly more expensive. A two day canoe rental with transportation was €100 last year (varies with the vendor and the river, but a reasonable ballpark). Thus the <a href="http://www.gumotexboote.de/schlauchkanu-palava">Palava</a> (list price €629) pays for itself in seven weekends. In Hungary, the same ratio would be about 30-40 days of rental (ballpark figure).</li>
-</ul>
-Thus having our boat would financially makes sense (would pay for itself in the worst case in two seasons) and would give us freedom in our weekend/day off planning.
-<h2>Choosing our canoe</h2>
-We first considered a regular canoe, but quickly dismissed as being impractical for two people without a car (even with a car it's cumbersome and involves and additional train/bus ride to fetch the car from the start and then drive back down for the boat, potentially with one person waiting there). And if one didn't have a garage/garden, storage would be an extra problem.</p>
-<p>Folding boats were also out of the question. A friend of mine has a folding kayak, and we didn't have a good experience with it: it is too heavy, takes up too much space to be carried without a car (and the actual design of the boat was too low seated, and thus it wasn't comfortable to paddle).</p>
-<p>Inflatable kayaks - while they are cheaper and there are many models to choose from - were not an option either, since my girlfriend doesn't like kayaking :). Thus we were looking at inflatable canoes - fewer (<a href="http://www.grabner-sports.at/ADVENTURE-SL.adventuresl_x.0.html?&amp;L=2">Grabner</a> was the only other alternative we have found) and more expensive (guess the smaller market/demand explains it) choices. Thus we settled on the <a href="http://www.gumotexboote.cz/">Gumatex</a> brand.
-<h2>Pre-Purchase Tests</h2>
-Last year we met a retired couple who had a Palava, and they were kind enough to let us try it out (thanks again!). We concluded that it is a usable boat - and it's durable (they had it for about 10 years, only problem is now it has to be pumped a bit each day, while in the past it could go for days without). However, initially we were looking at the <a href="http://www.gumotexboote.de/schlauchkanu-scout">Scout</a>, for having a proper canoe shape. But it was pretty pricey for a blind purchase, thus we were searching for a way to try it out.</p>
-<p>We found the opportunity by accident. The nice people at <a href="http://www.sport-schmidt-gmbh.de/">Sport Schmidt in Friedriechshafen</a> organized a test day in May, so we visited Lake Constance just for this occasion. Since it was there, we also tried the <a href="http://www.gumotexboote.de/schlauchraft-und-boot-baraka">Baraka</a>, but that is more suited for whitewater than the normal rivers we had in mind, so only the Palava is compared below with the Scout.
-<ul>
-<li><em>paddling comfort</em>: we kept rubbing our hands against the side of the Scout, which isn't pleasant. It might not be a problem for all - we are not tall (165/175 cms), and we have an unusual rear paddling style (normally I don't use the back seat of the canoe, but sit on the deck behind it - it provides a better line of sight and makes it easier to turn the boat. Maybe one gets used to it over time though, but the Palava - being much closer to the water - was a much more comfortable experience</li>
-<li><em>turning</em>: compared to a solid canoe, both models turn crazy fast and easy - almost like a short kayak</li>
-<li><em>going straight</em>: the Scout keeps direction almost like a normal canoe, but since I did two years whitewater kayaking and we have been canoeing for about 14 years, the Palava's ability is good enough for us</li>
-<li><em>space</em>: the Scout has more of it, both for people and for luggage, however, even the Palava has enough for two people and gear (we had the bags we brought for the weekend for the test, with sleeping mats and bags, tent, dry/warm clothes, etc.), and we were comfortable and had space for even more bags (e.g.: two more backpacks would easily fit). We have seen pictures with two small kids and two parents without luggage in the Palava, but for touring (even longer ones, since the luggage for a week long trip is not much more than for a weekend trip) I'd say two people. The Scout is the family boat (or two Palavas :)</li>
-<li><em>wind</em>: we couldn't test this, but we were somewhat concerned about how the Scout would handle wind, being light and being high out from the water. The Palava, with it's low height shouldn't be effected</li>
-<li><em>weight</em>: both are light enough, so the hauling over dams and the like shouldn't be an issue. Plus with the many ropes on them, it's easy to move them alone.</li>
-</ul>
-In the end, we decided against the Scout. It's a great boat, but the Palava meets our needs, so the only two useful features of the Scout would be the shape and the straighter path. These are nice to have, but together with paddling discomfort we didn't feel paying almost double would be worth it.
-<h2>The two days on the Altmühl &amp; impressions of the boat</h2>
-This river doesn't really flow, and there are many dams that require hauling the boat (5 on the Treuchtlingen - Dollnstein (29km) and 3-4 on the Dollnstein-Eichstät (17km) section).</p>
-<p>Putting the boat together is quick (<a href="http://www.gumotexboote.de/doppelhub-einhub-handpumpe-super-6-3">3L double chamber pump</a>) and intuitive, even when doing it for the first time. I wish the included bayonet-valve pump adapter had a loop (so we could secure it with a rope to the boat), but that's my only (and minor) complaint. One thing we should have purchased is a pressure gauge, but I expect we'll quickly get a feel for the right pressure. While talking about pumps: we've met a family with a <a href="http://www.sevylor-europe.com/p-73-hudson.aspx">Sevylor Hudson</a>, who were rather happy we had a pump they could use - they left theirs in the car, and the kayak somehow leaked air. Good reminder to always carry the pump in the boat!</p>
-<p>Comparing the two Treuchtlingen - Eichstät trips (here is <a href="http://www.everytrail.com/view_trip.php?trip_id=1264633">last year's log with a rented canoe</a> and here is <a href="http://www.everytrail.com/view_trip.php?trip_id=1624079">this trip's</a>), with the inflatable - to our surprise - we ended up being faster by about half an hour (5.5 vs 6 &amp; 3.5 vs 4 hours) both days (even though last year it was raining heavily, so we were quite motivated). We assume it's because of the hauling - getting out, picking up the boat's backpack (about 80L drybag, which fits our 60L backpack and more easily), getting the boat out (beware: leaning forward with an 80L backpack is going to impact your balance :)), walking, putting it back on the water is essentially a non-operation, almost like just walking a bit to stretch your legs. And of course, we were familiar with the river already, so there were no navigation problems.</p>
-<p>Paddling in the rear is somewhat harder - I did expect sour muscles in my back for the first canoeing of the year, but I was shocked to learn about the aching upper arm while attempting to drink a pint :) The boat turns quickly if you miss a beat or two, and thus much more corrections were needed. Also, I didn't have my custom made (by <a href="http://denescanoe.hu/">Denes Canoe</a>) paddle with me, and the standard size was just a bit too long for me in this boat.</p>
-<p>Supposedly one should be on the knees in this boat, with support from the seat, but I've got bad knees and I anyway I need to switch positions in a normal canoe too, luckily, it's possible to sit normally too (though that's when you need a shorter paddle or get the sour muscles in the arm - or at least I did and suspect the normal sitting position is a contributor). The classic position (thighs almost horizontal, shins vertical) is unattainable, but not bad. My girlfriend felt totally comfy in the front, so it might be just me.</p>
-<p>The ears have to be retrained, for the noises the boat makes when its scraping the bottom or a rock, but really few times does it do that - my non-scientific impression is that it copes well with really shallow water.</p>
-<p>The backpack that comes with the boat is OK, but carrying the 22 kg over longer distances is no fun (but not a horrible experience either). There is no padding and chest/waist straps, which I missed - I've been spoiled by the <a href="http://over-board.co.uk/backpacks/waterproof-backpacks.html">great waterproof backpacks from OverBoard</a>. However, it's a solid waterproof bag. I wish it had reflective stripes on it, since we leave early/arrive late with the train, and thus for the walk it'd be useful. The bag is bigger than strictly needed, so both of our three piece paddles could be comfortably packed there too. The pump doesn't fit in however, and there isn't a proper external attachment point for it. But the boat is perfectly transportable, and we are really happy about it!</p>
-<p>Packing away the boat takes about as long as a tent (plus the time required to clean it - and unless you had the time to properly dry it, it's worth drying it at home too).</p>
-<p>In the end, the Palava met all our expectations - we had a great weekend canoeing!</p>
-<hr><ol>
-<li id="1">
-    <strong><a href="">Rob Klaassen</strong></a> on <em>2012/11/27 11:02:12</em>: Yes, I've the same experience with the Palava in Norway, it`s great with 2+kid too (in his own inflatable chair!) and for 2 with a lot of luggage. Did you know its very durable cause it was developped for the army in Tjechie? Regards, Rob
-</li><li id="2">
-    <strong><a href="/category/outdoors/">zsepi</strong></a> on <em>2012/11/27 11:41:58</em>: Hey Rob,
-
-thanks for confirming it accommodates a child as well - though I guess that wasn't what the military designers originally had in mind :)
-
-Cheers,
-
-Peter
-</li><li id="3">
-    <strong><a href="">Dan</strong></a> on <em>2013/07/06 16:00:12</em>: Great to read the above. Just ordered our Palava and it will arrive soon hopefully. We just had the same thoughts about spontaneous renting and storage problems, even though we have an own garage. Also the weight and complicated transportation of a regular canoe on the cars roof made the decission easy. After your report we are really excited to discover the palava on our own soon!
-</li><li id="4">
-    <strong><a href="/category/outdoors/">zsepi</strong></a> on <em>2013/07/08 09:22:58</em>: Dan, thanks for letting me know – I’m glad sharing my experience and thought process helped! Have fun with the new boat!
-</ol>
 ]]></content:encoded>
     </item>
   </channel>
