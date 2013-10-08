@@ -1,0 +1,32 @@
+Low level unit testing patterns / bleeding edge of testing
+
+"bleeding edge" is relative 
+
+* some don't know beyond assertEquals/assertTrue
+* some use hamcrest 
+
+Hamcrest
+=====
+* don't couple your expected object to the actual object code, 'coz it makes tests fragile
+* write nice object assertors, so if the object under test gets a new required property, you don't have to update your tests (almost like duck typing, only interested in those properties)
+* nice failure messages
+* beware what you use it together with, e.g.: hamcrest + moquito has caused confusion for some!
+
+Fest framework - fixtures for easy software testing
+
+Pre/Post conditions verification embedded in languages
+=====
+
+* Eifel programming language
+* code contracts in C#/F#
+* problem: with the compiler level implementation, you lose testability - since the compiler fails compiling code that violates these constraints, you cannot add tests making sure these are invalid inputs. So there is no defense against accidentally removing such conditions from the code (no regressions)
+    => not all languages are like that, some of them are runtime checks and compile time warnings
+Gueva has something similar
+
+===
+
+Bounded model verification / theorem provers (Armin Biere)
+
+Read open source projects for their tests, e.g.: RavenDB scenario based testing
+
+model driven testing

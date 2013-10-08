@@ -1,0 +1,74 @@
+Question: can we improve [eg. system thinking] without bringing in external experts? What is required for it?
+
+* focus on the problem
+* belief that you can do it
+* slack
+* humility (your answer might be wrong)
+
+Jtf was recommended the Toyota Kata book 
+
+unexpectedly, only contains two katas
+
+1. The improvement kata
+2. The coaching kata (which is actually walking others through the improvement kata)
+
+Improvement kata
+======
+
+1. What is the target condition?
+    *NOT* the goal/result, but more like "How would we like to see the work/process being done"
+2. What is the current state
+3. What are the obstacles/impediments between #1 and #2
+4. Which one of #3 will you improve
+5. What is your next PDC (plan-do-check) cycle? When can we go and see what we have learned from that fact?
+
+Managing by means vs. managing by result
+
+* the famous "stop the line" idea was not the first line of defense, i.e.: before stopping the line, workers would first call in a supervisor (by pulling a string) to try to fix the issue locally, and only after this (timeboxed) attempt failed did they stop the line
+* in one factory, after some improvements the number of such inspections per shift dropped from 1000 to 700. Is that good? (question was asked to the prepped audience and hence we all answered it probably is a bad thing, though normally people think that if problems dropped by 300 is a Good Thing). In the factory's managements' interpretation it can mean two things:
+    1. People are hiding problems and not calling. This is bad, please don't do it!
+    2. The factory has improved! 
+        * but we are still not perfect!
+        * we are staffed to handle 1000 pulls per shift!
+        * .... so they reduced inventory and waste until the factory got back to 1000 pulls per shift again
+
+Resiliency is hiding problems - the more resilient a system is, the less tolerant it is of errors, and thus, ironically, the less resilient it is
+    similar to how you shouldn't do defensive programming (e.g.: explicit null checks), but let your tests catch such errors, and eliminate waste
+
+It's important to manage/lead for "True improvement" instead of outcomes 
+
+    TODO: aside: the coaching kata has a "loophole", i.e.: coaching stops once customer interests are effected (to address timeliness)
+
+one cannot jump to the ideal straight away
+
+retrospectives are backwards and usually try to improve too many ("all wrong") things at once. 
+
+E.g.: at prezi, they explicitly add cards to the wall that the business/product owner did not ask for but the team feels is necessary to do.
+
+Also, prezi did away with back-to-back iterations, and thus gave people slack time which they can use as they want - to think architecture, design, to refactor, or even to sleep if they want to
+
+Break up meetings to give people enough time to think - e.g.: the planning meeting was broken up into a short 30 minutes session on Friday, where ideas/features/etc. were proposed/briefly described, and on Monday morning they created the stories/cards from it.
+
+Problem with outcome metrics: like waterfall QA, it's too late to detect problems
+
+Foster improvements by the goals you set - e.g.: Toyota once told a supplier to cut costs by 80% - 'coz if they only set a target of 20%, the supplier would just do marginal improvements or cut corners ("cheat"), but for such a huge change, they must rethink how you do things!
+
+Working on the business is not something you do outside of work but it is work! allocate time for it
+
+don't wait for the retrospective, but when there is a problem, use it as an occasion for real improvement
+
+* have one person fix the root cause instead of band-aid quickfixes e.g.: 
+    * we have memory problems, let's not just increase the JVM's heap size, but take a look at why it's happening!
+    * failing/flickering tests often expose actual bugs (race conditions when two customers see the other's reports instead of their own due to a race condition bug... )
+* once you got one such person approach problems with root cause thinking, you can start have him/her do the coaching kata with someone else
+
+To ensure you can learn from the failures and turn them into a learning opportunity - let the failure go on a little longer, so you can gather evidence/diagnostics (profile, core dump, etc.) - even if the business is loosing money, because it'll pay off in the long term. Of course, use common sense, e.g.: route 90% of the traffick to an error page, and 10% to the failing server to get the needed diagnostic data
+
+Experiment at TIM group - to encourage systems thinking -: overstaff a project on purpose (didn't work). An understaffed project with more relaxed schedule has been much more promising
+
+Optimize for learning and not results!
+
+Look at facts/data points instead of statistics, since statistics can hide outliers. E.g.: routinely investigate the last 30 items
+
+There should be no sacred cows when optimizing for learning!
+

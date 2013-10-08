@@ -1,0 +1,29 @@
+Coverage 
+=======
+- measure on unit tests
+- target levels are not important/helpful
+- great negative metric (i.e.: if there is 0% coverage, we can say for a fact that that code is definitely NOT tested)
+
+Are we testing too much?
+========
+* manual assertions (checking) vs. human (exploratory testing)
+* execution time increase
+* fragile test, we spend more time fixing tests than writing code
+* a lot of tests never fail
+
+* solutions:
+
+    * intelligent test ordering + partial result feedback
+        - based on historic probability of failure
+        - coverage analysis of commit impact (take lines changed from diff & correlate past coverage data to unique tests)
+        - manually maintain test suites (quick tests, smoke tests, full tests), smoke test can change as different features are being developed, and run them on different schedule
+        - related past CITCON session - Josh Ram @ CITCON Australia 2008
+        - tools
+            - infitest
+            - team city or bamboo
+            - JTestMe, ProTest
+
+    * reused test step ordering: 
+        - tests can have overlepping steps, e.g.: scenario of "third attempt to log in with bad password locks account" has lot of overlap between steps
+        -> create a graph where the nodes are the steps (e.g.: login with correct_username, wrong_password), and the assertions hang off / are the values of the nodes
+            => faster execution / more effective failfast (TODO: [[Peter Zsoldos]] to write it up in more detail

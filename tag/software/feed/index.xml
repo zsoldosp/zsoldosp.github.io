@@ -10,10 +10,50 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 30 Sep 2013 07:21:54 GMT</pubDate>
+    <pubDate>Tue, 08 Oct 2013 11:48:16 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>CITCON Turin Session Notes</title>
+      <link>http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/</link>
+      <pubDate>Tue, 08 Oct 2013 13:30:00 CEST</pubDate>
+      <category><![CDATA[conferences]]></category>
+      <category><![CDATA[citcon]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">AWskB6wuNpU0UUAq1fII-TJYmS0=</guid>
+      <description>CITCON Turin Session Notes</description>
+      <content:encoded><![CDATA[<p>Finally got around to adding my notes for the <a href="/2013/09/30/citcon-turin-2013/">CITCON Turin 
+2013</a> sessions to the 
+<a href="http://citconf.com/wiki/index.php?title=CITCONEurope2013Sessions">wiki</a>.</p>
+<ul>
+<li><a href="http://citconf.com/wiki/index.php?title=Are_we_doing_improvement_wrong%3F">Are we doing improvement wrong?</a></li>
+<li><a href="http://citconf.com/wiki/index.php?title=Continuous_Interruptions">Continuous Interruptions</a></li>
+<li><a href="http://citconf.com/wiki/index.php?title=What_does_the_ideal_look_like%3F">What does the ideal look like?</a></li>
+<li><a href="http://citconf.com/wiki/index.php?title=Low_level_test_code_/_library_bleeding_edge">Low level test code / library bleeding edge / beyond assertEquals</a></li>
+<li><a href="http://citconf.com/wiki/index.php?title=Questions_on_the_right_level_and_amount_of_testing">What is code coverage good for? / Are we testing too much? / Does consolidated tree based test execution make sense?</a></li>
+</ul>
+<h2 id="notes-on-my-note-taking">Notes on my note taking</h2>
+<p>... or what took me so long to add the notes? Why didn't I take notes 
+directly in the conference wiki?</p>
+<p>After my second attended conference I became an analog/offline attendee.
+Note taking is much easier by hand - you can draw, arrow things into the
+right place, and I find deciphering abbreviations and shorthand much 
+easier in handwriting than in on-screen text.</p>
+<p>I don't like having a screen separating me from other attendees (and 
+cannot type on tablet keyboards effectively).</p>
+<p>Having to type up my written notes later forces me to revisit ideas in
+more detail than if I'm just re-reading old notes where I might skip 
+parts thinking "sure, I know what that was". It's a mind trick to force 
+me paying closer attention.</p>
+<p>On top of that, I become much more careful about what I put down into 
+the notes - sure, it's still rather raw and nowhere near blog post or
+article quality, still much closer to raw notes/brain dumps. But it's
+much improved compared to the raw notes I had in my notebook. Having the
+handwritten pages only makes sure I know it is <em>not</em> DONE, which I might
+fall into thinking had I written directly into the wiki.</p>
+<p>Of course, that's just me, your mileage may vary!</p>]]></content:encoded>
+    </item>
     <item>
       <title>CITCON Turin 2013</title>
       <link>http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/</link>
@@ -39,12 +79,12 @@ together wonderfully smart people. Year after year I leave it being
 thankful for pointing me to questions (and answers) waaay outside the 
 proverbial box....</p>
 <h2 id="sessions-attended">Sessions attended</h2>
-<p>This post does not contain session notes (I'm adding them to the 
+<p>This post does not contain <a href="/2013/10/08/citcon-turin-session-notes/">session notes</a> (I'm adding them to the 
 <a href="http://citconf.com/wiki/">wiki</a>) but rather just tries to convey the atmosphere/feel
 of the sessions.</p>
 <ul>
 <li>
-<p><strong>Are we doing improvement wrong</strong>? Proposed by <a href="https://twitter.com/Jeffrey">Jeffrey</a>, 
+<p><strong><a href="http://citconf.com/wiki/index.php?title=Are_we_doing_improvement_wrong%3F">Are we doing improvement wrong</a></strong>? Proposed by <a href="https://twitter.com/Jeffrey">Jeffrey</a>, 
   inspired by the <a href="http://www.amazon.com/Toyota-Kata-Managing-Improvement-Adaptiveness/dp/0071635238/">Toyota Kata</a> book, it described the two 
   Katas, and illustrated why measuring improvement by the output 
   (results) only can lead to missed improvement opportunities (e.g.: the
@@ -62,7 +102,7 @@ of the sessions.</p>
   capable of.</p>
 <ul>
 <li>
-<p><strong>Continuous interruptions</strong> Proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, we dug deep
+<p><strong><a href="http://citconf.com/wiki/index.php?title=Continuous_Interruptions">Continuous interruptions</a></strong> Proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, we dug deep
   into how interruptions can be a wonderful tool for knowledge sharing,
   mentoring and how they hide (or to be more precise, expose) risk 
   factors. I wish I had mentioned the urban legend about <a href="https://en.wikipedia.org/wiki/QWERTY#cite_ref-5">the QWERTY 
@@ -73,7 +113,7 @@ of the sessions.</p>
   present...</p>
 </li>
 <li>
-<p><strong>What does the ideal software development process look like?</strong> 
+<p><strong><a href="http://citconf.com/wiki/index.php?title=What_does_the_ideal_look_like%3F">What does the ideal software development process look like?</a></strong> 
   proposed by <a href="https://twitter.com/aparker42">Andrew Parker</a>, closely linked to the first
   session of the day about improvement (towards the ideal one to one
   flow) is probably the one session that I left with more questions
@@ -83,7 +123,7 @@ of the sessions.</p>
   scribe wants to apply the law of two feet?).</p>
 </li>
 <li>
-<p><strong>Low level unit testing/assertion code patterns</strong> proposed by me,
+<p><strong><a href="http://citconf.com/wiki/index.php?title=Low_level_test_code_/_library_bleeding_edge">Low level unit testing/assertion code patterns</a></strong> proposed by me,
   driven by my desire to learn what new ideas are present in this
   space. While I haven't learned of any new patterns, I left with a 
   much better understanding of how language embedded and enforced pre-
@@ -91,8 +131,8 @@ of the sessions.</p>
   been tested, contrary to my initial assumption</p>
 </li>
 <li>
-<p><strong>Are we testing too much? / What's the point of code coverage? /
-  Would a Test Tree Builder and Executor make sense?</strong> - this was a 
+<p><strong><a href="http://citconf.com/wiki/index.php?title=Questions_on_the_right_level_and_amount_of_testing">Are we testing too much? / What's the point of code coverage? /
+  Would a Test Tree Builder and Executor make sense?</a></strong> - this was a 
   merge of three topics, proposed by <a href="https://twitter.com/KishenPanday">Kishen</a>, <a href="https://twitter.com/ajmolenaar">Arjan</a>,
   and myself. It was the smallest session in attendance (it was the
   three of us and <a href="https://twitter.com/sietstweets">Cirilo</a>, with <a href="https://twitter.com/Jeffrey">Jeffrey</a> also popping by
@@ -507,29 +547,6 @@ echo $FILE_NAME
       <description>Book Review - Programming Collective Intelligence by Toby Segaran</description>
       <content:encoded><![CDATA[
 <div><img alt="Book cover photo" src="http://akamaicovers.oreilly.com/images/9780596529321/s.gif" style="float: left; margin: auto 20px 5px 20px"/> Disclaimer: I received a free (electronic) copy of this ebook (<a href="http://shop.oreilly.com/product/9780596529321.do">Programming Collective Intelligence by Toby Segaran</a>) from <a href="http://oreilly.com/">O'Reilly</a> as part of the <a href="http://oreilly.com/bloggers">O'Reilly Blogger Review Program</a>, which also requires me to write a review about it. That aside, I would have purchased this book this year anyway, and would have reviewed it on this blog too.</div><br/><h2 style="clear:left">About me and why I read this book</h2><br/><div>I've been programming professionally for ~7.5 years, mainly business applications and reporting, so I already have quite some love for data. While I haven't used math much in my day jobs, I liked (and was good at) it in high school, including taking extra classes - so I have learned basic statistics. Refreshing and advancing my data analytics skills is one of my goals this year, and reading this book was part of the plan.</div><br/><br/><h2>About the book</h2><br/><br/><div>The book introduces <a href="http://my.safaribooksonline.com/book/web-development/9780596529321?bookview=toc">lots of algorithms</a> that can be used to gain new insight into any kind of data one might come across. The explanations are broken up into digestible chunks, and are supported by great visualizations. While understanding of the previous chunks is required for the later ones, this allowed me to read through most of the book on the train to and from work.</div><br/><br/><div>Each of the algorithms is illustrated with real world application examples, and examples where applying them doesn't make sense are brought too. The exercises at the end of the chapters are applied and not purely theoretical - and coming up with exercises from the domain I work with every day was pretty easy! The book is really inspiring, which is great for an introductory book!</div><br/><br/><div>In addition to the well written, gradual introduction, the book has a concise algorithm reference at the end, so when one needs a quick refresher, there is no need to wade through the lengthy tutorials.</div><br/><br/><div>While the prose and the logic of the explanations are great, I have found the code samples hard to follow: <a href="http://www.codinghorror.com/blog/2006/05/code-smells.html">really short, cryptic variable names; leaky abstractions; inconsistent coding style</a> just to name a few. Some code samples are actually <a href="http://oreilly.com/catalog/errataunconfirmed.csp?isbn=9780596529321">incorrect implementations of the given algorithm</a> and there are antipatterns like <a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet">string sql concatenation</a> in the code without a warning comment to the reader to remind them it's a bad practice.</div><br/><br/><div>Nonetheless, it is great to have actual code to play with, just the initial reading and reviewing of it requires some extra effort.</div><br/><div>The book claims that you don't need previous Python knowledge to understand the code samples, which I can't confirm (I use Python at my day job), but I wouldn't be surprised if not knowing Python could make understanding the code even more difficult (I've actually learned a few new language features from the samples!). Also, the Python language has come a long way since 2.4, which is the version used in the book - and that old version makes the code feel dated.</div><br/><div>The book was written in 2007, but is not dated. First, the foundations of any topic tend to be timeless, and the most recent algorithm the book describes was published in 1990. The <a href="http://my.safaribooksonline.com/book/web-development/9780596529321?bookview=toc">Table of Contents</a> is comparable to more recently written ones (though I haven't read other introductory books yet).</div><br/><div>In summary: I would recommend it as a great introductory book!</div>]]></content:encoded>
-    </item>
-    <item>
-      <title>Inversion of Control for Continuous Integration</title>
-      <link>http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</link>
-      <pubDate>Fri, 17 Feb 2012 20:36:00 CET</pubDate>
-      <category><![CDATA[version control]]></category>
-      <category><![CDATA[ioc]]></category>
-      <category><![CDATA[continuous integration]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</guid>
-      <description>Inversion of Control for Continuous Integration</description>
-      <content:encoded><![CDATA[
-<h1>Problem Description</h1><br/><br/><p>Our build structure is pretty stable, but the exact content of the steps varies as we discover more smoke tests that we'd like to add to, or when we rearrange the location of these checks.</p><br/><br/><p>The CI servers I've used made this a rather cumbersome process:</p><br/><br/><ul class="simple"><br/><br/><li>First, I have to leave my development environment to go to the build servers configuration of choice - most of the time it is a web interface, and for some it is a config file</li><br/><br/><li>I have to point and click, and if it's a shell script, I have to make my modifications without syntax highlighting (for the config files usually take the shell command to execute as a string, so no syntax highlighting)</li><br/><br/><li>If it's a web interface, I have (or had) no versioning/backup/diff support for my changes (config files are better in this aspect).</li><br/><br/><li>If it's a config file, then I need to get it to the build server (we version control our config files), so that's at least one more command</li><br/><br/><li>I need to save my changes, and run a whole build to see whether my changes worked, which is a rather costly thing.</li><br/><br/><li>Most places have only one build server, so when I'm changing the step, I either edit the real job (bad idea) or make a copy of it, edit it, and then integrate it back to the real job. Of course, integrating back means: copy and paste.</li><br/><br/><li>If the build failed, I need to go back to the point and click and no syntax highlighting step to fix the failures</li><br/><br/><li>Last, but not least, with web interfaces, concurrent modifications of a build step lead to nasty surprises!</li><br/><br/></ul><br/><br/><br/><br/><h1>Normal development workflow</h1><br/><br/><ul class="simple"><br/><br/><li>I have an idea what I want to do</li><br/><br/><li>I write the tests and code to make it happen</li><br/><br/><li>I run the relevant tests and repeat until it's working</li><br/><br/><li>I check for source control updates</li><br/><br/><li>I run the pre-commit test suite (for dvcs people: pre-push)</li><br/><br/><li>Once all tests pass I commit, and move on to the next problem</li><br/><br/></ul><br/><br/><p>Quite a contrast, isn't it? And even the concurrent editing problem is solved!</p><br/><br/><br/><h1>Quick'n'Dirty Inversion of Control for builds</h1><br/><br/><p>Disclaimer: the solution described below is a really basic, low tech, proof of concept implementation.</p><br/><br/><p>Since most build servers at the end of the day</p><br/><br/><ul class="simple"><br/><br/><li>invoke a shell command</li><br/><br/><li>and interpret exit codes, <tt class="docutils literal">stdout</tt>, <tt class="docutils literal">stderr</tt>, and/or log files</li><br/><br/></ul><br/><br/><p>we defined the basic steps (update from version control, initialize database, run tests, run checks, generate documentation, notify) using the standard build server configuration, but the non-built in steps (all, except the version control update and the notification) are defined to invoke a shell script that resides in the project's own repository (e.g.: under bin/ci/oncommit/runchecks.sh). These shell scripts' results can be interpreted by the standard ways CI servers are familiar with - exceptions and stack traces, (unit)test output, and exit codes.</p><br/><br/><br/><h1>Benefits</h1><br/><br/><ul class="simple"><br/><br/><li>adding an extra smoke test doesn't require me to break my flow, and I can more easily test my changes locally and integrating it back into the main build means just committing it to the repository, and the next build will already pick this up</li><br/><br/><li>I can run the same checks locally if I would like to</li><br/><br/><li>if I were to support a bigger team/organization with their builds, this would make it rather easy to maintain a standard build across teams, yet allow each of them to customize their builds as they see it fit</li><br/><br/><li>if I were to evaluate a new build server product, I could easily and automatically see how it would work under production load, just by:<ul><br/><br/><li>creating a single parameterized build (checkout directory, source code repository)</li><br/><br/><li>defining the schedule for each build I have</li><br/><br/><li>and then replaying the past few weeks/months load - OK, I still would need to write the script that would queue the builds for the replay, but it still is more effective than to run the product only with a small pilot group and then see it crash under production load</li><br/><br/></ul><br/><br/></li><br/><br/></ul><br/><br/><br/><h1>Shortcomings, Possible Improvements</h1><br/><br/><p>As said, the above is a basic implementation, but has served a successful proof of concept for us. However, our builds are simple:</p><br/><br/><ul class="simple"><br/><br/><li>no dependencies between the build steps, it is simply chronological</li><br/><br/><li>no inter-project dependencies, such as component build hierarchy (if the server component is built successfully, rerun the UI component's integration tests in case the server's API changed, etc.)</li><br/><br/><li>the tests are executed in a single thread and process, on a single machine - no parallelization or sharding</li><br/><br/></ul><br/><br/><p>All of the above shortcomings could be addressed by writing a build server specific interpreter that would read our declarative build config file (map steps to scripts, define step/build dependencies/workflows), and would redefine the build's definition on the server. By creating a standard build definition format, we could just as easily move our builds between different servers as we can currently do with blogs - pity Google is not a player in the CI space, so the <a class="reference external" href="http://www.dataliberation.org/">Data Liberation Front</a> cannot help :).</p><br/><br/><br/><h1>Questions</h1><br/><br/><p>Does this idea make sense for you? Does such a solution already exist? Or are the required building blocks available? Let me know in the comments!</p>
-<hr><ol>
-<li id="1">
-    <strong><a href="http://www.blogger.com/profile/06859781419645954688">bridge</strong></a> on <em>2012/02/21 14:55:14</em>: What we do at our build server is something similar to this:<br/><br/>We have ant steps defined, e.g. build, run checkstyle, run unit tests. We have different Hudson jobs for the same branch, one for each purpose.<br/><br/>Applying this environment for your scenario (tell me if I missed something from the problem) would look like this:<br/>- we could create a new job for the integration tests.<br/>- for changing the integration tests, we could write new tests and add them to the corresponding ant step. We could write the code and the ant xml in our favorite IDE. We could run them in our environment before committing it.<br/>- we can use the output of the build step in the same way we usually do. This is right now stop/go; but I think there are other ways to do this out there.
-<ol>
-<li id="1-1">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2012/02/21 19:41:11</em>: Yup, your example achieves the same purpose as what I described. I have used the shell script in this example because a) I haven't worked on java projects in ages and I forgot it exists b) we have a number of scripts (both shell and django runscripts/management commands as well) that we reuse <br/><br/>When you say multiple jobs, you mean for one project (branch) you have 4-5 jobs or one job with multiple parallel steps?
-</li></ol></li><li id="2">
-    <strong><a href="http://www.blogger.com/profile/06859781419645954688">bridge</strong></a> on <em>2012/02/22 13:55:01</em>: When I say multiple jobs, we have 2 jobs for each branch. I don't know if we can make Hudson smarter - this is how the experts set it up initially, and nobody ever questioned it.<br/><br/>Having predefined scripts, as placeholders to invoke other scripts - that is poor-mans-ant: you have a layer of abstraction between the CI server and the scripts that are actually running. Say for instance, Hudson invokes the smoketest.sh, which invokes the low-level step, something like this:<br/><br/>#!/bin/bash<br/>compile.sh<br/>dist.sh<br/>run-unit-tests.sh<br/>check-login-ui.sh<br/>check-the-crazy-rollback-use-case.sh<br/><br/>So all you had to do would be add a new line to this shell/perl file.<br/><br/>Or, in perl (or python, whatever) you can add any other logic<br/>#!/usr/bin/perl<br/>if (system("dist.sh") != 0) {<br/>  exit;<br/>}<br/>if (system("run-unit-tests.sh") != 0) {<br/>  exit;<br/>}<br/>#...<br/><br/>Here you can add alternative and parallel flows too. A bit ugly, programmatic, but works. Even more, you can keep it clean if you keep the actual step's scripts and the flow's scripts in different files.<br/><br/>SoapUI is not a CI solution, but still, it's something similar as it's a testing tool. They suggest to use scripts in order to define custom logic between the test steps. http://www.soapui.org/Functional-Testing/controlling-flow.html
-</li></ol>
-]]></content:encoded>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,9 @@
+Continuous Interruptions
+=========================
+
+e.g.: 3 team, N features, shared build machine with parallel feature tests
+when the build is broken, everyone gets feedback about the broken build
+information overload => "it's broken again, but surely not by me"
+==> address feedback to specific committer (e.g.: mail/irc only to the committers involved in the changeset that triggered the build)
+is anyone working on fixing it? => put a sticky on the monitor "I'm fixing it"
+

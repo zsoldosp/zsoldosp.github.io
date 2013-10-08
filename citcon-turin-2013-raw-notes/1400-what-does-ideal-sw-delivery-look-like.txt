@@ -1,0 +1,154 @@
+== What does "ideal" look like? ==
+
+Related to the 10:00 session about improvement - what is our goal that we are striving towards?
+
+Toyota: it was the one-to-one flow (order placed, car is delivered)
+
+important differences with software:
+* no rework
+* one full process
+
+== So what does ideal look like, how software should be made? ==
+
+
+@PJ: after I make a change, I want to get immediate (1-2 seconds) feedback available to customer. Everything we do today is to get closer to that by parallelizing, removing human steps from delivery, and make delivery reliable
+
+When could such fast delivery be wrong?
+
+    [scribe notes, unspoken during the session, for it was too fast - e.g.: democracy was explicitly made slow with the checks and balances, plus being slow has made me realize on occasion that I'm solving the wrong problem]
+
+    capability/option should be there to put it to production so fast
+
+    is the business ready for? It's much better for a business to waste inventory than to wait on us [IT].
+
+    business competing with amazon - clearly, 1.5 years delivey is bad
+
+But to deliver reliably, there should be a clear view of *what* should be delivered (build the right thing)
+* lean manufacturing
+* by optimizing only the IT side of things you only get so far - business also needs to be doing it (i.e.: what's the point of pretty CI, fast releases of well tested features if they are unneeded/unused?)
+
+Ideal one to one flow in software: Waterfall!
+===============
+* analyze
+* define done
+* design
+* implement
+* check
+* deliver
+* train
+
+one flow for one person/pair/team
+many are already trying this (do only one thing and finish it instead of multitasking, because latter is much slower)
+
+Break features/tasks down to get feedback (or approximation of) fast enough, otherwise it takes too long to learn 
+
+> ideal is ideal because it's unachievable (maybe utopia is a better word?)
+
+Original waterfall paper actually requires these :)
+
+Is the one request a small enough size? i.e.: what do we do about the "unknown unknowns"?
+
+    the ideal system would fail/crash totally when an assumption is violated, i.e.: would fall apart before actual delivery
+
+Delivering features that were wanted when requested, but later not?  => iterations, adjustment, it's normal
+
+What if the business person can just "think it" and it exists?
+====
+    ok, in the staging environment (e.g.: like a wind-tunnel)
+    prior business person only things (SQL, etc.) all broke because of the pesky little technical details or corner cases
+    corner cases/human error will always be there, and for that we need checks and balances (like in double entry bookkeeping), but for non-technical aspects, software shouldn't be the bottleneck 
+
+    [unspoken scribe notes: essential complexity will always be there, but accidental complexity should be reduced/eliminated]
+
+The ideal software process should assume perfect requirements (even if later business learns differently, see iterations above)
+
+Eliminate the feedback cycles that slow us down
+
+i.e.: in the the process from idea - design - implementation - test - release- maintenance, the later steps should all require shorter and shorter times than the prior ones
+
+When is maintenance needed? 
+* development screwed something up
+* business environment (world) changed that made some assumptions void (e.g.: previously single country business goes global)
+* maintenance is the ceremony - logrotate, disk full, etc. operations
+
+ideal would be no CPU, memory, etc. limits
+
+Maintenance could also be addressed by "making a new thought"
+
+iterative analysis is needed
+
+everything between idea and profit/value is waste
+=======
+
+formal specifications are great, but by the time they become useful, they are essentially the code
+
+ideal: like in the matrix, via a plugin - give me racks of guns
+>> but why don't they think instead "my enemy should drop dead?" That's still "pesky technical detail/complexity that has to be addressed (i.e.: Neo actually performs the fight himself)
+
+but instant software delivery requirement would force software development to be more efficient
+
+What are we usually slowed down by?
+
+    1. legacy data (and its migration to a new schema)
+    2. incomplete requirements
+
+different thinking:
+
+business - I want 2 out 10 to be successful
+traditional IT - optimize for resource utilization, and thus there is no slack in the system when you would need it for something new
+lean - optimize for learning
+short cycles - single flow, feedback, then decide of next move (canning a project early due to learning can be a good/great decision!)
+
+Forward (the company): classic fake based development aka. market/customer validation
+
+1. buy a bunch of adwords, see what people click on (leading to empty/under construction pages)
+2. once figured out which ads are popular, create a static store / landing page with product pictures and all -> add to cart results in "internal server error"
+3. idea cristallized: people are willing to buy bird cages from us -> now we can go and start the business, supplies, and build the actual webshop, etc.
+
+
+idea -> build -> measure -> [back to] idea (can't see in the notes, but each step is a block, and build is intentionally much smaller than the idea/measure steps, to signify that it should take much less effort than the others)
+
+    note: measure is not enough, need to analyze
+
+Should the ideal be defined for every single project?
+==========
+different goals, different environments, etc.
+
+all the above is useful to actually give a framework in which it can be explained why TDD is useful (to keep the "build" box small)
+
+Use utilities! A.k.a.: focus on core competencies!
+
+* e.g.: like with electricity - we should move on from the state of "how do I get power here" to "what do we do with the energy that's available here?"
+* 10 years ago we installed Word on the PCs, twiki's on the servers, now we just use google docs and other online tools
+* heroku and others make deployment and much of operations a utility
+* remove choices/options that are not a competitive advantage for you (power of default) => faster development
+
+Ideal is a guiding light - sometimes removing a choice is the good thing, sometimes adding it
+
+remove non-human activities
+
+Model Driven Architecture
+======== 
+declarative
+
+* traditionally: UML -> code
+* restrict problem domain, so there is no need for code
+* state machines
+
+problem: using it bigger contexts,
+    * data driven apps
+    * frameworks handle persistence
+
+enables you to move faster
+mockup with the customer, go home and implement
+    * approximation
+    * specific domain
+
+future: cam't automate everything, but some things you shouldn't write at all
+
+turn your app's core into a DSL (domain specific language)
+
+one such framework: http://portofino.sf.nt / http://www.manydesigns.com
+
+Demming circle
+
