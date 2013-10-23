@@ -10,10 +10,194 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 08 Oct 2013 11:48:16 GMT</pubDate>
+    <pubDate>Wed, 23 Oct 2013 17:59:35 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
+      <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
+      <pubDate>Wed, 23 Oct 2013 19:28:00 CEST</pubDate>
+      <category><![CDATA[untested ideas]]></category>
+      <category><![CDATA[end-to-end]]></category>
+      <category><![CDATA[code]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
+      <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
+      <content:encoded><![CDATA[<p>At the end of this post, there is a list of reasons why to work with 
+end-to-end tests, but first please consider the post's idea on its own.
+After that, I'm glad to have discussions about alternative/better 
+solutions to the described (or omitted) contexts.</p>
+<p>Please, read it first ;)</p>
+<h1 id="terms-used">Terms used</h1>
+<p>The below points are not intended to be full blown definitions, but
+rather pointers.</p>
+<ul>
+<li>End-to-End testing - as <a href="http://gojko.net/2010/03/31/tdd-with-complex-infrastructures/">Nat Pryce has said in one of his 
+    presentations</a>, the ends are always farther apart than one 
+    thinks they are. The purpose is to execute the tests through as much
+    of the application stack as possible - from the front end at least
+    till the storage mechanism.</li>
+<li>Polymorphism - I use it here mostly in the way demonstrated by the 
+    <a href="https://en.wikipedia.org/wiki/Liskov_Substitution_Principle">Liskov Substitution Principle</a> - code written against an abstraction
+    should be unaffected regardless of the concrete implementation of 
+    that abstraction is given to it.</li>
+</ul>
+<h1 id="polymorphic-tests-we-are-already-doing-it">Polymorphic tests - we are already doing it</h1>
+<p>Some of us already run the same tests on top of different code - we can
+have multiple build platforms (x86 and x64, Windows and Linux, Python 2 
+and 3, etc.), multiple configurations (SQLite and PostgreSQL), as well
+as multiple versions of our dependent libraries (stable, latest release, 
+and latest). What's common though among these scenarios is that the 
+polymorphism happens largely <em>outside</em> of our codebase, and we don't 
+have to think much about it when writing tests. </p>
+<p>An example of executing multiple drivers <em>inside</em> our code is the use of 
+Selenium tests - the same tests are run against Chrome, Firefox, etc. 
+While each of the drivers is testing on the same level (Web UI), the 
+actual browser drivers have different implementations, exposed via a 
+common abstraction level - DOM selectors and event invocations.</p>
+<p>Of course, most test code uses some level of abstraction to separate
+the test logic from the actual page implementations.</p>
+<h1 id="abstractions-page-objects">Abstractions - Page objects</h1>
+<p>The <a href="http://martinfowler.com/bliki/PageObject.html">Page Object</a> pattern is used to help creating maintainable tests.
+Instead of writing tests coupled to the implementations (go to this 
+concrete url, wait <code>N</code> seconds for it to load, find and select the form
+elements for username and password, etc.), these implementation details 
+are hidden behind well named methods (e.g.: <code>open_login_form</code>, 
+<code>login_with_credentials</code>, etc.), and thus are domain (client) friendly
+and readable. And Page Objects can be composed together to build 
+Application Objects.</p>
+<p>Similar abstraction is used by the various Acceptance Testing tools,
+such as FitNesse, Cucumber, and the other Gherkin tools - the spec texts
+contain terms and values important for the business domain, and there
+is separate code translating the spec's values and terms to call into 
+the application and transforming its state into a format
+expected by the tool.</p>
+<h1 id="stripped-down-tests-only-the-script">Stripped down tests - only the script</h1>
+<p>As seen above, the AT tools separate application logic from the test 
+scenario's description.</p>
+<p>Assertions have also been separated from test cases - either by developer 
+choice, choosing to use a separate Assertions library like Hamcrest, 
+instead of the unit testing library's own <code>assertFoo</code> methods), or
+explicitly (<a href="http://visionmedia.github.io/mocha/#assertions">Mocha ships without an assertions library</a>).</p>
+<p>Thus tests can really be focused just on the scenario being tested.</p>
+<h1 id="fast-tests">Fast tests</h1>
+<p>The single biggest disadvantage of <a href="http://www.confreaks.com/videos/641-gogaruco2011-fast-rails-tests">end to end tests is their speed</a>. They are slow. And the more of them there are, the slower they are.</p>
+<p>This is one reason why the <a href="http://martinfowler.com/bliki/TestPyramid.html">Test Pyramid</a> recommends not having 
+too many of them. Many architectural approaches (<a href="http://alistair.cockburn.us/Hexagonal+architecture">hexagonal</a>, DDD, etc.) 
+suggest keeping a lightweight core application, and to attach the 
+persistence and UI layers to it at its boundaries, leaving these ports 
+and adapters lightweight too. Most of the testing then happens against
+the core, dependency independent code, making the tests fast. </p>
+<h1 id="fast-end-to-end-tests">Fast end to end tests</h1>
+<p>Drumroll... we'll do a bit of cheating, of course. </p>
+<p>Not all the tests have to run every single time. Performance tests are
+usually not done when TDDing - that kicks in either later in 
+the deployment pipeline, or runs daily. Teams organize their tests into
+fast, smoke, and slow suites. Locally (and as the first step in the build
+process) only the fast and smoke tests are run.</p>
+<p>Putting all the above together means that writing systems with two 
+self- contained cores (the app domain itself and the test scenarios) 
+easily lends itself to end-to-end testing that can be run on multiple 
+configurations, to give confidence that the app works with all its 
+components and dependencies in production - yet enable fast feedback
+required for developers. The same tests can be run:</p>
+<ul>
+<li>directly against the core application with mocks, stubs, etc.</li>
+<li>through the app's (http) UI via the given frameworks/libraries testing 
+  tools (e.g.: <code>django.test.client.Client</code>) with an in-memory database</li>
+<li>through selenium against the full stack</li>
+</ul>
+<p>And of course, we can mix and match - selenium against SQLite, etc.</p>
+<p>While TDDing, one can run the tests only against the fast core, after
+that is complete, we can run the relevant tests with the end-to-end
+driver, fix any mistakes that occur, check in, and let the build server
+run all the integrated tests (using existing build practices to 
+achieve speed)!</p>
+<h2 id="in-which-contexts-could-it-make-sense">In Which Contexts Could It Make Sense?</h2>
+<p>Thank you for reading this far - assuming you didn't just scroll 
+ahead :)</p>
+<p>The below list is by no means exhaustive, and as mentioned in the
+introduction, there might be alternative approaches (please, let me
+know!) - it's not a coincidence this blog is called "Exercises in 
+public learning"! </p>
+<p>With that out of the way, here are some contexts where this approach
+could make sense:</p>
+<ul>
+<li>
+<p>Working with a team where the skills both for testing and for writing
+    good code are (yet) missing (<a href="http://5whys.com/blog/the-3-maturity-stages-of-a-software-team-and-how-scrum-fails.html">Chaotic team phase</a>).</p>
+<p>As the joke goes, the only way to eat the elephant is one bite at a 
+time. Same goes for learning - people can be overwhelmed to make 
+the mental jump from manual to automated testing - throwing in good
+programming practices can be too much.</p>
+<p>Getting started with end to end tests that have decoupled driver
+methods (even if on the <code>TestCase</code> class itself) is a great start - by
+the time the tests become slow, if the team is bought into the idea
+of automated testing, it can be refactored towards a core domain -
+and inside that domain there still doesn't have to be proper clean
+code (one step at a time).</p>
+<p>In brief: for slow, gradual improvement.</p>
+</li>
+<li>
+<p>The app actually has multiple interfaces for the same thing.</p>
+<p>It can be due to A/B testing, or simply to accommodate the different
+needs of different users (e.g.: for a webshop - there is the public
+shop, the internal UI geared at the company's sales people, and the
+API), multi-platform application (e.g.: mobile and desktop web, iOS and 
+Android), etc.</p>
+<p>If you test the checkout process end-to-end, then running the same
+set of tests against each UI makes sense too - a single set of tests
+to maintain and you know immediately whether all features work 
+across all the views.</p>
+</li>
+<li>
+<p>Catching unexpected bugs.</p>
+<p>There is a class of bugs that can be caught by rigor, but I do slip
+occasionally, ending up in a place where the unit tests are all 
+green, but the application itself doesn't actually work.</p>
+<p>Some real life such bugs I have run into:</p>
+<ul>
+<li>forgetting to place the actual input element on the page</li>
+<li>encoding-persistence issues - an utf-8 database with a column
+    that is windows-1250 encoded is ... unexpected</li>
+<li>synchronizing data with another database where after the 
+    required mappings it turned out said other database truncates
+    our data</li>
+</ul>
+<p>All of the above can be addressed retroactively via adding targeted
+tests for that specific integration point, but if we are already
+testing the corner cases (length, encoding, etc.) in our code, it is 
+nicer not to have to learn about these "unknown unknowns" from 
+production problems...</p>
+</li>
+<li>
+<p>Finally some related posts from other people:</p>
+<ul>
+<li>Ayende has multiple posts: on <a href="http://ayende.com/blog/154273/limit-your-abstractions-and-how-do-you-handle-testing">swapping out the infrastructure</a>, <a href="http://ayende.com/blog/4218/scenario-driven-tests">separating assertions from tests</a>, and <a href="http://ayende.com/blog/4217/even-tests-has-got-to-justify-themselves">about which tests add value in his opinion</a></li>
+<li><a href="http://codebetter.com/sebastienlambla/2013/07/11/unit-testing-is-out-vertical-slice-testing-is-in/">Sebastien Lambla on Vertical Testing</a></li>
+</ul>
+</li>
+</ul>
+<p>There is much more to be said about other benefits of end to end 
+testing, but this post is already too long, so that will have to wait
+for another post (while waiting, you can read <a href="http://codemanship.co.uk/parlezuml/blog/?postid=1183">Jason Gorman's 101 Uses for Polymorphic testing</a>)!</p>
+<p>P.S.: I would like to thank (in (first name based) alphabetical order): 
+<a href="https://twitter.com/ajmolenaar">Arjan Molenaar</a>,
+<a href="https://twitter.com/sietstweets">Cirilo Wortel</a>,
+<a href="http://douglassquirrel.com/">Douglas Squirrel</a>,
+<a href="http://twitter.com/jtf">Jeffrey Frederick</a>,
+<a href="https://twitter.com/KishenPanday">Kishen Simbhoedatpanday</a>,
+<a href="http://twitter.com/marcoemrich">Marco Emrich</a>,
+<a href="https://twitter.com/mfeathers">Michael Feathers</a>,
+and of course my colleagues at <a href="http://www.paessler.com">Paessler AG</a> -  I much appreciate that you 
+all listened to me while I tried to figure out how to explain this and 
+gave feedback both about the content and the format (*). Thank you!</p>
+<hr />
+<p>(*) just to be crystal clear, this does not mean they endorsed it, 
+just that they listened and gave feedback!</p>]]></content:encoded>
+    </item>
     <item>
       <title>CITCON Turin Session Notes</title>
       <link>http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/</link>
@@ -533,20 +717,6 @@ echo $FILE_NAME
     <strong><a href="/">Peter Zsoldos</strong></a> on <em>2012/09/30 17:12:58</em>: I don't know what the exact goal was behind creating the legacy coderetreat format. But I have always preferred learning not just a practice, but also its underpinning ideas and the limits of it. While I can practice refactoring on my own, there may not be someone around pointing out that not everything needs to be refactored. Both are important and have their places, and we seem to disagree about the latter. My thinking is influenced by seeing people (myself included) overdoing/overvaluing the latest pattern/practice they have came across (HelloWorldProxyFactoryImpl), without knowing the limits of their usefulness and knowing the difference between understanding something in theory versus doing that in practice - being told something is brittle/unreliable and understanding it on an intellectual level is very different from actually experiencing it. The latter tends to be easier to remember :)<br/><br/>But I might have fallen victim to offering a solution instead of raising a question. If the Nuremberg global code retreat will be a success, and there will be more following it, I'll be happy to immerse myself deeper into the code retreat community and see how I feel about this original idea after some time - one of the motivations for posting it was so that I can come back and revisit it later.
 </li></ol></li></ol>
 ]]></content:encoded>
-    </item>
-    <item>
-      <title>Book Review - Programming Collective Intelligence by Toby Segaran</title>
-      <link>http://blog.zsoldosp.eu/2012/03/book-review-programming-collective.html</link>
-      <pubDate>Thu, 01 Mar 2012 20:31:00 CET</pubDate>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[machine learning]]></category>
-      <category><![CDATA[data]]></category>
-      <category><![CDATA[book review]]></category>
-      <category><![CDATA[data mining]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/03/book-review-programming-collective.html</guid>
-      <description>Book Review - Programming Collective Intelligence by Toby Segaran</description>
-      <content:encoded><![CDATA[
-<div><img alt="Book cover photo" src="http://akamaicovers.oreilly.com/images/9780596529321/s.gif" style="float: left; margin: auto 20px 5px 20px"/> Disclaimer: I received a free (electronic) copy of this ebook (<a href="http://shop.oreilly.com/product/9780596529321.do">Programming Collective Intelligence by Toby Segaran</a>) from <a href="http://oreilly.com/">O'Reilly</a> as part of the <a href="http://oreilly.com/bloggers">O'Reilly Blogger Review Program</a>, which also requires me to write a review about it. That aside, I would have purchased this book this year anyway, and would have reviewed it on this blog too.</div><br/><h2 style="clear:left">About me and why I read this book</h2><br/><div>I've been programming professionally for ~7.5 years, mainly business applications and reporting, so I already have quite some love for data. While I haven't used math much in my day jobs, I liked (and was good at) it in high school, including taking extra classes - so I have learned basic statistics. Refreshing and advancing my data analytics skills is one of my goals this year, and reading this book was part of the plan.</div><br/><br/><h2>About the book</h2><br/><br/><div>The book introduces <a href="http://my.safaribooksonline.com/book/web-development/9780596529321?bookview=toc">lots of algorithms</a> that can be used to gain new insight into any kind of data one might come across. The explanations are broken up into digestible chunks, and are supported by great visualizations. While understanding of the previous chunks is required for the later ones, this allowed me to read through most of the book on the train to and from work.</div><br/><br/><div>Each of the algorithms is illustrated with real world application examples, and examples where applying them doesn't make sense are brought too. The exercises at the end of the chapters are applied and not purely theoretical - and coming up with exercises from the domain I work with every day was pretty easy! The book is really inspiring, which is great for an introductory book!</div><br/><br/><div>In addition to the well written, gradual introduction, the book has a concise algorithm reference at the end, so when one needs a quick refresher, there is no need to wade through the lengthy tutorials.</div><br/><br/><div>While the prose and the logic of the explanations are great, I have found the code samples hard to follow: <a href="http://www.codinghorror.com/blog/2006/05/code-smells.html">really short, cryptic variable names; leaky abstractions; inconsistent coding style</a> just to name a few. Some code samples are actually <a href="http://oreilly.com/catalog/errataunconfirmed.csp?isbn=9780596529321">incorrect implementations of the given algorithm</a> and there are antipatterns like <a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet">string sql concatenation</a> in the code without a warning comment to the reader to remind them it's a bad practice.</div><br/><br/><div>Nonetheless, it is great to have actual code to play with, just the initial reading and reviewing of it requires some extra effort.</div><br/><div>The book claims that you don't need previous Python knowledge to understand the code samples, which I can't confirm (I use Python at my day job), but I wouldn't be surprised if not knowing Python could make understanding the code even more difficult (I've actually learned a few new language features from the samples!). Also, the Python language has come a long way since 2.4, which is the version used in the book - and that old version makes the code feel dated.</div><br/><div>The book was written in 2007, but is not dated. First, the foundations of any topic tend to be timeless, and the most recent algorithm the book describes was published in 1990. The <a href="http://my.safaribooksonline.com/book/web-development/9780596529321?bookview=toc">Table of Contents</a> is comparable to more recently written ones (though I haven't read other introductory books yet).</div><br/><div>In summary: I would recommend it as a great introductory book!</div>]]></content:encoded>
     </item>
   </channel>
 </rss>
