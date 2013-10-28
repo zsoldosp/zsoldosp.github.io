@@ -1,0 +1,217 @@
+
+
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide? | Do. Reflect. Learn. Repeat!</title>
+  <meta name="description" content="Excercises in public learning">
+  <meta name="author" content="Peter Zsoldos">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/zsoldosp" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
+
+</head>
+
+  <body>
+    <div id="header">
+      <div class="inner">
+                <ul>
+                    <li><a href="https://twitter.com/zsepi">@zsepi</a></li>
+                    <li><a href="/about.html">about me</a></li>
+                    <li><a href="/category/software/">software</a></li>
+                    <li><a href="/category/outdoors/">outdoors</a></li>
+                </ul>
+                <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
+                <h2>Excercises in public learning</h2>
+      </div>
+    </div>
+    <div id="content">
+        <div class="inner">
+            
+
+
+
+
+<div class="post">
+    <h3><a href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide//">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a></h3>
+  
+    <div class="body">
+        <p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
+End-to-End Testing</a> testing makes sense. In this post, I would
+like to take a step back and list a few additional benefits that could
+be derived from end to end testing in general, regardless of the fashion
+they were written in.</p>
+<p><em>Note: some of these points can also apply to non-end-to-end tests too,
+that were written in a black box style with proper test abstractions. 
+While it could be argued that then the system is that one component, I
+would rather just focus on the benefits we can derive on top of the 
+regression / specification of the system.</em></p>
+<p><em>Disclaimer:</em> note this post has been filed under <a href="/category/untested-ideas/">untested ideas</a>
+ - they sound good, but I haven't gotten around to implementing all of
+them.</p>
+<h2 id="big-refactorings-and-rewrites">Big Refactorings and Rewrites</h2>
+<p>Change is inevitable, and they often violate previous assumptions. 
+Sometimes whole components (or systems) have to be rewritten. Having a 
+set of tests that operate on a much higher abstraction level (e.g.: HTTP
+GET/POST requests) can provide the required safety net to avoid 
+regressions and making sure all relevant scenarios are addressed.</p>
+<p>Some changes where this Page (Application) Object abstraction has helped
+us:</p>
+<ul>
+<li>when converting a single page checkout process to a multi-step 
+    wizard style checkout</li>
+<li>when the article numbers used in our system changed</li>
+<li>when we had to synchronize data into a new system - we could just 
+    expand our assertions in the end-to-end tests to make sure that 
+    every known scenario is written correctly into the new system</li>
+</ul>
+<p><a href="http://blog.8thlight.com/uncle-bob/2013/09/23/Test-first.html">It's easy to reconstruct a system from its tests, but much harder to do
+it the other way around</a>. It has been
+great to only adjust a few driver API methods and get the same amount of
+functional coverage as before, without having to rewrite the test suite.</p>
+<h2 id="forces-the-team-to-think-about-the-user-interface-and-experience">Forces the team to think about the user interface (and experience)</h2>
+<p>While it is not required, it often made us reduce the complexity in 
+the UI - when we find that a certain step is being exercised by a 
+method with a single parameter from the tests, yet that method then 
+derives a bunch of additional parameters to POST against the page, it
+suggests one of two things: </p>
+<ol>
+<li>we are missing some test cases for these extra parameters</li>
+<li>maybe we don't need these parameters to be provided by the end user,
+    but we could derive them in the application too.</li>
+</ol>
+<p>Often the helper methods created can expose the need for additional 
+support interfaces that won't probably come up during the specifications
+phase, only after go-live.<br />
+</p>
+<p>Last, but not least, end-to-end gives us tests for the UI, yet the tests
+remain maintainable - usually a single test API method is all that needs
+to be fixed after template changes (and designers are even harder to get
+to write tests than developers :)). <a href="http://ayende.com/blog/160929/on-failing-tests">Don't be afraid of many test 
+failures!</a></p>
+<h2 id="correlate-tests-with-other-business-metrics">Correlate tests with other business metrics</h2>
+<p>While I recall people suggesting we run applications with a <a href="https://en.wikipedia.org/wiki/Code_coverage">coverage 
+profiler attached</a>, the performance penalty is usually 
+prohibiting.</p>
+<p>However, I haven't yet seen a web application without a ton of external
+metrics related to the urls in the app. If our tests are written against
+urls too, after some data munging (primary keys and actual form values
+surely won't match test values exactly, but translating them to <code>GET to 
+view 1</code>, <code>POST to view 2</code>) we can correlate our tests with these 
+metrics. </p>
+<p>Some such metrics:</p>
+<ul>
+<li>application (webserver) access logs</li>
+<li>Google Analytics or equivalent</li>
+<li>...</li>
+</ul>
+<p>What can we learn from these correlations/comparisons?</p>
+<ul>
+<li>are we concentrating our tests in the least visited areas?</li>
+<li>are we testing what our users are doing? Sure, it's nice that in our
+    tests people sequentially finish their checkout, without wondering
+    off the known path, but is this how they behave in production?</li>
+</ul>
+<h2 id="testcase-similarity-analysis">TestCase similarity analysis</h2>
+<p>Some test scenarios will come up in multiple aspects of the system. 
+Placing an order will trigger a bunch of actions in other modules - 
+fulfillment, customer profile updates, marketing classification, invoice
+rendering, notification emails, etc.</p>
+<p>Sometimes these features are added with big time gaps in between, maybe
+even the team members have changed over time. The ability to compare 
+the requests the different TestCases make, and say that these two 
+(three, four, etc.) TestCases seem to execute the same kind of requests
+up to a point as the TestCase being added, but they also have the 
+following extra paths they all execute, but the new TestCase doesn't...
+Causing the developer to realize - of course, there are special rules
+for orders from educational institutions!</p>
+<h2 id="reducing-the-gap-between-end-user-error-reports-and-tests">Reducing the gap between end user error reports and tests</h2>
+<p>Probably this is the least unexpected idea in the list, but worth 
+stating nonetheless.</p>
+<h2 id="in-place-help-for-trusted-users">In place help (for trusted users)</h2>
+<p>Sure, this might require careful considerations, but giving the users 
+the ability to browse the test cases/methods that matches their workflow
+up to the current page, in a searchable fashion (if I place an order 
+like this now, when will the X email be sent) could greatly reduce 
+support work for the developer team. <em>Note: the purpose of this is not 
+to isolate the developers from the users!!!</em></p>
+<h2 id="always-up-to-date-screenshots-and-videos">Always up-to-date screenshots and videos</h2>
+<p>Those manuals that have screenshots from many releases ago... Adding (or
+marking) some test cases to be linked against documentation sections, and
+having the tests actually take screenshots about them or record them as 
+video sounds like a pretty useful idea for me. One could go further, 
+such as highlighting the values/input fields where the test sends 
+input, and the parts of the page that are asserted against...</p>
+<p>And if the support team has access to the same API, they could even 
+create these screenshots/videos for the customer as they are answering
+their question (Here, take a look at this video, this is how the thing
+you asked for is done).</p>
+<hr />
+<p>There must be many more ideas out there - let me know about them, and 
+I'm happy to add them to this list (or link to wherever you published
+it)!</p>
+    </div>
+    <div class="meta">
+        <p>What do you think? I would love if you would <strong>leave a comment</strong> - drop me an <strong>email</strong> at <strong><a href="mailto:hello@zsoldosp.eu">hello@zsoldosp.eu</a></strong>, tell me on <a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/&text=@zsepi, in response to Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?">Twitter</a>!
+    </div>
+    <div class="meta">
+        <p>Posted on <a href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide//">October 28, 2013 at 08:05 AM</a> in <span class="blog_post_categories"><a href='/category/untested-ideas/'>untested ideas</a>, <a href='/category/code/'>code</a>, <a href='/category/business-analysis/'>business analysis</a>, <a href='/category/testing/'>testing</a>, <a href='/category/end-to-end/'>end-to-end</a>, <a href='/category/software/'>software</a></span></p>
+        <p>Share this post if you liked it - on 
+<a href="http://digg.com/submit?url=http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Digg</a>,
+<a href="http://facebook.com/sharer.php?u=http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Facebook</a>, 
+<a href="https://plus.google.com/share?url=http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Google+</a>, 
+<a href="http://reddit.com/submit?url=http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/&title=Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?">reddit</a>,
+or
+<a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/&text=Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?&via=zsepi">Twitter</a>
+
+ 
+    </p>
+    </div>
+    
+
+
+        </div>
+    </div>
+        <div id="footer" class="clearfix">
+            <div class="inner">
+                <div class="about">
+                    <h3><a href="/about.html">About Me</a></h3>
+                    
+                    <a href="/about.html"><img src="/img/me_small.jpg" alt="ME" /></a>
+                    <div>
+                        I'm a software developer and outdoors enthusiast among other things. <a href="/about.html">Read more</a>
+                    </div>
+                </div>
+            <div class="about">
+                <p>Powered by <a href="http://www.blogofile.com">Blogofile</a></p>
+                <p>Template from <a href="https://github.com/jamesyu/jamesyu_jekyll_template">James Yu's Jekyll template</a>
+
+<p>This is a personal weblog. The opinions expressed here are my own and not necessarily reflect those of my - current or former - employers'.
+
+<p>All posts - unless noted otherwise - are licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
+
+<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img alt="Creative Commons License" style="border-width: 0pt;" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></p>
+                
+            </div>
+        </div>
+  <script>
+      if(window.location.href.indexOf("http://blog.zsoldosp.eu") != -1) {
+          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      }
+  </script>
+    </body> 
+</html>
+

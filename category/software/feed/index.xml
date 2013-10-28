@@ -10,10 +10,137 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 23 Oct 2013 17:59:34 GMT</pubDate>
+    <pubDate>Mon, 28 Oct 2013 07:09:41 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
+      <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
+      <pubDate>Mon, 28 Oct 2013 08:05:00 CET</pubDate>
+      <category><![CDATA[untested ideas]]></category>
+      <category><![CDATA[code]]></category>
+      <category><![CDATA[business analysis]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[end-to-end]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
+      <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
+      <content:encoded><![CDATA[<p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
+End-to-End Testing</a> testing makes sense. In this post, I would
+like to take a step back and list a few additional benefits that could
+be derived from end to end testing in general, regardless of the fashion
+they were written in.</p>
+<p><em>Note: some of these points can also apply to non-end-to-end tests too,
+that were written in a black box style with proper test abstractions. 
+While it could be argued that then the system is that one component, I
+would rather just focus on the benefits we can derive on top of the 
+regression / specification of the system.</em></p>
+<p><em>Disclaimer:</em> note this post has been filed under <a href="/category/untested-ideas/">untested ideas</a>
+ - they sound good, but I haven't gotten around to implementing all of
+them.</p>
+<h2 id="big-refactorings-and-rewrites">Big Refactorings and Rewrites</h2>
+<p>Change is inevitable, and they often violate previous assumptions. 
+Sometimes whole components (or systems) have to be rewritten. Having a 
+set of tests that operate on a much higher abstraction level (e.g.: HTTP
+GET/POST requests) can provide the required safety net to avoid 
+regressions and making sure all relevant scenarios are addressed.</p>
+<p>Some changes where this Page (Application) Object abstraction has helped
+us:</p>
+<ul>
+<li>when converting a single page checkout process to a multi-step 
+    wizard style checkout</li>
+<li>when the article numbers used in our system changed</li>
+<li>when we had to synchronize data into a new system - we could just 
+    expand our assertions in the end-to-end tests to make sure that 
+    every known scenario is written correctly into the new system</li>
+</ul>
+<p><a href="http://blog.8thlight.com/uncle-bob/2013/09/23/Test-first.html">It's easy to reconstruct a system from its tests, but much harder to do
+it the other way around</a>. It has been
+great to only adjust a few driver API methods and get the same amount of
+functional coverage as before, without having to rewrite the test suite.</p>
+<h2 id="forces-the-team-to-think-about-the-user-interface-and-experience">Forces the team to think about the user interface (and experience)</h2>
+<p>While it is not required, it often made us reduce the complexity in 
+the UI - when we find that a certain step is being exercised by a 
+method with a single parameter from the tests, yet that method then 
+derives a bunch of additional parameters to POST against the page, it
+suggests one of two things: </p>
+<ol>
+<li>we are missing some test cases for these extra parameters</li>
+<li>maybe we don't need these parameters to be provided by the end user,
+    but we could derive them in the application too.</li>
+</ol>
+<p>Often the helper methods created can expose the need for additional 
+support interfaces that won't probably come up during the specifications
+phase, only after go-live.<br />
+</p>
+<p>Last, but not least, end-to-end gives us tests for the UI, yet the tests
+remain maintainable - usually a single test API method is all that needs
+to be fixed after template changes (and designers are even harder to get
+to write tests than developers :)). <a href="http://ayende.com/blog/160929/on-failing-tests">Don't be afraid of many test 
+failures!</a></p>
+<h2 id="correlate-tests-with-other-business-metrics">Correlate tests with other business metrics</h2>
+<p>While I recall people suggesting we run applications with a <a href="https://en.wikipedia.org/wiki/Code_coverage">coverage 
+profiler attached</a>, the performance penalty is usually 
+prohibiting.</p>
+<p>However, I haven't yet seen a web application without a ton of external
+metrics related to the urls in the app. If our tests are written against
+urls too, after some data munging (primary keys and actual form values
+surely won't match test values exactly, but translating them to <code>GET to 
+view 1</code>, <code>POST to view 2</code>) we can correlate our tests with these 
+metrics. </p>
+<p>Some such metrics:</p>
+<ul>
+<li>application (webserver) access logs</li>
+<li>Google Analytics or equivalent</li>
+<li>...</li>
+</ul>
+<p>What can we learn from these correlations/comparisons?</p>
+<ul>
+<li>are we concentrating our tests in the least visited areas?</li>
+<li>are we testing what our users are doing? Sure, it's nice that in our
+    tests people sequentially finish their checkout, without wondering
+    off the known path, but is this how they behave in production?</li>
+</ul>
+<h2 id="testcase-similarity-analysis">TestCase similarity analysis</h2>
+<p>Some test scenarios will come up in multiple aspects of the system. 
+Placing an order will trigger a bunch of actions in other modules - 
+fulfillment, customer profile updates, marketing classification, invoice
+rendering, notification emails, etc.</p>
+<p>Sometimes these features are added with big time gaps in between, maybe
+even the team members have changed over time. The ability to compare 
+the requests the different TestCases make, and say that these two 
+(three, four, etc.) TestCases seem to execute the same kind of requests
+up to a point as the TestCase being added, but they also have the 
+following extra paths they all execute, but the new TestCase doesn't...
+Causing the developer to realize - of course, there are special rules
+for orders from educational institutions!</p>
+<h2 id="reducing-the-gap-between-end-user-error-reports-and-tests">Reducing the gap between end user error reports and tests</h2>
+<p>Probably this is the least unexpected idea in the list, but worth 
+stating nonetheless.</p>
+<h2 id="in-place-help-for-trusted-users">In place help (for trusted users)</h2>
+<p>Sure, this might require careful considerations, but giving the users 
+the ability to browse the test cases/methods that matches their workflow
+up to the current page, in a searchable fashion (if I place an order 
+like this now, when will the X email be sent) could greatly reduce 
+support work for the developer team. <em>Note: the purpose of this is not 
+to isolate the developers from the users!!!</em></p>
+<h2 id="always-up-to-date-screenshots-and-videos">Always up-to-date screenshots and videos</h2>
+<p>Those manuals that have screenshots from many releases ago... Adding (or
+marking) some test cases to be linked against documentation sections, and
+having the tests actually take screenshots about them or record them as 
+video sounds like a pretty useful idea for me. One could go further, 
+such as highlighting the values/input fields where the test sends 
+input, and the parts of the page that are asserted against...</p>
+<p>And if the support team has access to the same API, they could even 
+create these screenshots/videos for the customer as they are answering
+their question (Here, take a look at this video, this is how the thing
+you asked for is done).</p>
+<hr />
+<p>There must be many more ideas out there - let me know about them, and 
+I'm happy to add them to this list (or link to wherever you published
+it)!</p>]]></content:encoded>
+    </item>
     <item>
       <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
       <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
@@ -180,9 +307,9 @@ production problems...</p>
 </ul>
 </li>
 </ul>
-<p>There is much more to be said about other benefits of end to end 
-testing, but this post is already too long, so that will have to wait
-for another post (while waiting, you can read <a href="http://codemanship.co.uk/parlezuml/blog/?postid=1183">Jason Gorman's 101 Uses for Polymorphic testing</a>)!</p>
+<p>There is much more to be said about other <a href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">benefits of end to end 
+testing</a>, but this post is already too long, so that will have to wait
+for <a href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">another post</a> (while waiting, you can read <a href="http://codemanship.co.uk/parlezuml/blog/?postid=1183">Jason Gorman's 101 Uses for Polymorphic testing</a>)!</p>
 <p>P.S.: I would like to thank (in (first name based) alphabetical order): 
 <a href="https://twitter.com/ajmolenaar">Arjan Molenaar</a>,
 <a href="https://twitter.com/sietstweets">Cirilo Wortel</a>,
@@ -693,30 +820,6 @@ echo $FILE_NAME
       <description>Book Review - Exploring Everyday Things with Ruby and R by Sau Sheong Chang</description>
       <content:encoded><![CDATA[
 <div style="text-align: center;"><img alt="Book cover image" src="http://akamaicovers.oreilly.com/images/9781449315153/s.gif" title=""/> </div><br/>Disclaimer: I received a free (electronic) copy of this ebook (<a href="http://shop.oreilly.com/product/0636920022626.do">Exploring Everyday Things with Ruby and R by Sau Sheong Chang</a>) from <a href="http://oreilly.com/">O'Reilly</a> as part of the <a href="http://oreilly.com/bloggers">O'Reilly Blogger Review Program</a>, which also requires me to write a review about it. That aside, I would have purchased this book this year anyway, and would have reviewed it on this blog too.<br/><h2>About me and why I read this book</h2>I have been programming professionally for about 8 years, mainly business applications and reporting, so I already have quite some love for data. While I haven't used math much in my day jobs, I liked (and was good at) it in high school, including taking extra classes - so I have learned basic statistics. Refreshing and advancing my data analytics skills is one of my goals this year, and reading this book was part of that plan - I have heard that R is one of the most powerful languages for statistical analysis currently available.<br/><h2>About the book</h2>The book is written assuming basic understanding of programming and sets two goals: <br/><ul><li>to awaken the curiosity in the reader to go out and explore things and search for explanation, models, and experiments to validate understanding; </li><li>to show you some basic, but practical R and Ruby.</li></ul>While the author intended each chapter to be more or less self sufficient, I have found it to be better read sequentially, especially the simulation chapters.<br/><h3>Ruby</h3>I had no trouble with the code examples, even though I have only programmed about half an hour total in my life in Ruby. Beware that the only knowledge you gain about Ruby is the bare minimum required, so you'll have to put aside your thirst for complete understanding of the language and its ecosystem. If you need to have a proper understanding to work in a language (which I don't think is necessary), you are better off either reading a Ruby book first or using your favorite language to obtain the data - the code is easy to port.<br/><h3>Making me curious</h3>I have had a lot of wow/a-ha moments, both about the topics chosen for discussion as well as the math/algorithmic ideas. You may find that you disagree with some of the conclusion the author draws, and it is emphasized during the introduction that the goal of the book is not to convince you about these conclusions, but to demonstrate the journey from question to conclusion in order to equip you with tools to enable you doing the same. This is mostly achieved. <br/>I award extra bonus points for mentioning the limitations of the used analytical tools - I don't think I would trust any book/article/blog post which presents something without its downsides!<br/>Not all examples are exactly everyday (e.g.: an analysis of going to work by car vs. public transportation would have been more everyday than how to simulate the flocking of birds), but they cover a wide breath of topics. The processing and analysis of the data is always challenging enough, plus your general knowledge is expanded.<br/>One thing I was missing is a description of a really important part - being a layman, how do I go about finding which algorithms to use? While it isn't a book about Research 101, a description of the search process would have been great. You can of course always google, but when entering a new topic I find guided search helpful - which are some of the trick keywords, which sites to prefer/avoid, etc. On the other hand, enough methods are described that just properly learning and understanding them would make me a much better statistician already. Once done with that I could just fall back reading through the R packages and methods, hoping that if I have seen a word before it would emerge from my passive knowledge when I'm faced with a matching problem.<br/><h3>The R language</h3>The book does a solid job to help you get started. It demonstrates enough language features to enable to you experiment with it for work projects (e.g.: use MySql as a datasource, create packages, etc.); points out the R component/library hubs to look for community packages; and recommends further learning resources. <br/>The <a href="https://github.com/sausheong/everyday">code examples</a> are like most programming book snippets - procedural, (mostly) everything is located in a single method/script. Not a tangled-spaghetti mess that makes one despise it in legacy code, only it makes for a lower signal/noise ratio and requires more effort from the reader. Guess its a genre problem, so if you have read other programming books, you shouldn't have any problems with this one. <br/><blockquote>Technical comment: the ebook isn't formatted to play nice with the Kindle DX, and while in print the code block might be only broken between left &amp; right pages, on the kindle it makes for awkward read.</blockquote>The exposed APIs suggest that R is a bit too ceremonial for my taste, but that could be abstracted away for the project that warrants R's use. I have also used a number of visually great .NET UI third party components that were a pain to work with from a programmer's perspective, yet helped us create a great product. Plus things that feel alien first become second nature after enough practice, so it isn't a big deal. I plan to take a look at NumPy as well, and defer the decision whether to dive deeper into R (possibly via using <a href="http://www.dotnetrocks.com/default.aspx?showNum=813">F# 3.0 type providers for R</a>).<br/><h3>Overall</h3>The book hasn't left me in awe, but it didn't feel like a chore to read as some other books. I got the taste of R that I wanted when I picked up my copy to read. On top of that, I have learned about fun things, and it also added books to my reading (wish)list (e.g.: <a href="http://www.amazon.com/The-Grammar-Graphics-Statistics-Computing/dp/0387245448/">The Grammar of Graphics by Leland Wilkinson</a>, <a href="http://www.amazon.com/Armchair-Economist-Economics-Everyday-Life/dp/1451651732/">Armchair Economist by Stephen E. Landsburg</a>, and more). This is no definitive guide on R, but to wet your appetite and get you started, it is a good one I can recommend without reservations.]]></content:encoded>
-    </item>
-    <item>
-      <title>My first Code Retreat - Legacy Code Retreat in Frankfurt on Sep 15, 2012</title>
-      <link>http://blog.zsoldosp.eu/2012/09/my-first-code-retreat-legacy-code.html</link>
-      <pubDate>Wed, 19 Sep 2012 19:44:00 CEST</pubDate>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[code retreat]]></category>
-      <category><![CDATA[legacy code]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/09/my-first-code-retreat-legacy-code.html</guid>
-      <description>My first Code Retreat - Legacy Code Retreat in Frankfurt on Sep 15, 2012</description>
-      <content:encoded><![CDATA[
-<blockquote><p>If you are not familiar with the concept of a  <a href="http://coderetreat.org/">code retreat</a>, listen to this  <a href="http://www.dotnetrocks.com/default.aspx?showNum=728">podcast</a> (or read the  <a href="http://s3.amazonaws.com/dnr/dotnetrocks_0728_corey_haines.pdf">transcript</a>).</p></blockquote><p>While I knew about <a href="http://coderetreat.org/">Code Retreats</a> for a while, this  was the first I actually managed to attend). It was organized by the  <a href="http://www.softwerkskammer.de/">German Software Craftsmanship community</a> group, hosted by <a href="http://namics.com">Namics</a>, and facilitated by <a href="https://twitter.com/NicoleRauch">Nicole Rauch</a> and <a href="https://twitter.com/leiderleider">Andreas Leidig</a>. And it was great, thanks to everyone involved in putting up the event!</p><p>The <a href="http://www.coderetreat-rhein-main.com/learnmore-legacy">format has been described by others</a>, so I won't cover that. I have to say though that I really like the format and I wish I started socializing (in software related matters) first at a  code retreat instead of conferences or usergroups - the format of the  event guarantees one doesn't have to worry about uncomfortable silences to be filled with smalltalk. The day starts with coding, the retrospective is group talk, and with the exception of the lunch, the breaks are only five minutes long, and you are searching for the next programming pair  during that time anyway. Great way to get more comfortable interacting  with strangers about software! (And if you do want to socialize, just come early for breakfast and stay after the event).</p><h2 id="i_wonder_if_being_familiar_with_automated_testing_is_a_pre-requisite">I wonder if being familiar with automated testing is a pre-requisite</h2><p>My assumption is that one could attend a legacy code retreat even if  (s)he has no experience with automated testing, since</p><ul><li>You could learn the basics of testing from the pairs you are working   with</li><li>You can see it applied <em>in the real world</em>. The most common objection   I hear from people recently introduced to automated testing/TDD is that    it might work on greenfield projects, but cannot be applied on their    existing project</li></ul><p>So if you are (or know of someone who is) a person who attended such a  code retreat with no prior testing experience, please let me know - I  would love to know whether the above hypothesis matches your experience! Unfortunately all my pairs had prior experience, so it's still just a hypothesis.</p><h2 id="iteration_impressions_lessons_learned">Iteration impressions, lessons learned</h2><ul><li>Dynamic language IDEs still have a long way to go, so for now I'll    probably stick to Vim for python</li><li>While it's interesting to take a guided tour of a language you don't   know, the focus of the codebase is not on datastructures (only uses   lists/arrays) and thus you only catch a glimpse of the language. I'll   have to attend a normal code retreat to see whether this would be    different there</li><li>Giving a language demo is interesting, and you learn a lot about the   language too. People new to a language tend to ask questions about    things you take for granted, yet you may not know the answer to</li><li>Taking baby steps and not assuming anything is a Good Thing ™ - the   codebase is devious one, crafted with care to make you trip over. I.e.:   it is a proper legacy codebase, despite its small size!</li><li>The "never assume" advice holds especially as you move between    iterations. During one iteration we made a mistake that wasn't caught by    the regression tests. Since in the previous iteration (with another    pair) we had 100% (line) coverage, the fact that in the next    iteration we might not have that didn't occur to me...</li><li>Discipline is hard. I was totally carried away refactoring during the   last iteration. I had this craving to actually make progress with the   refactoring, and I caught myself saying things "were we responsible   coders, we would now stop to write some tests, but let's just move on   now", as well as tugging multiple pieces of the spaghetti at the same   time. While here I might be forgiven (after all, the last iteration    was a free to choose what to do (with) this codebase), it's an   important reminder that I should watch myself at work - I would have   never expected myself to get so off track in a matter of 10-15 minutes.   And I used to pride myself that I realize when I'm in a dead end and   have no trouble throwing away code to start from the last known good   state!</li><li>The code retreat format is great for teaching people the importance of   prototypes, I will keep that in mind for the future. During the    functional iteration we haven't made much progress, but on the train    home I did a quick experiment to start making it functional from the   outside in, starting at the main() method, introducing the GameState   as a subclass of Game, and each step returning a new GameState (while   still modifying the old game state, since the refactoring was    incomplete, as it usually is the case). This approach didn't occur to    me the first time, and had I not started from a clean slate, I would   not have thought of it if I were to continue where I left off the    previous attempt.</li><li>While the facilitators keep going around, we didn't always get deep    into the issues they commented on (e.g.: I think if the test case and    the test name express clearly the domain and the scenario, it is   totally fine to use a variable called <em>sut</em>, etc.). </li><li>However, there is a lot of time available to discuss with your pair,   not having to worry whether or not the code will be finished, which    is great. One caveat is that you do have a time limit on the    discussion, since you don't want to bore your pair and want to    actually write code, so you are forced to condense your thoughts.    Luckily, this limit is not as bad as <a href="https://twitter.com">twitter</a>'s</li><li>Theory vs. practice, a.k.a. talking the talk vs. walking the walk.    I've been guilty of this myself, describing how my ideal test case    would look like in theory, and what guiding principles I follow while   writing an actual test case. Then the pair politely points out that the    theory is great, but what we have here in the code is not a    manifestation of those principles...</li></ul><h2 id="the_iteration_i_wish_was_there_-_working_towards_a_change_request">The Iteration I wish was there - working towards a change request</h2><p>Each iteration had a different focus, and I assume that there isn't a static final (pun intended) list of possible restrictions and it evolves. So despite this being my first ever code retreat and being told that  these ideas wouldn't fit the format, I'm documenting them here, so that I can refer back to it after my next code retreats to see whether I still feel the same about these, since now I think they would be similar  restrictions like during the traditional code retreat when one is not  allowed to speak or use <em>if</em> statements in the code.</p><p>I really missed having a clear functional goal for the iterations, since one usually refactors legacy code when some new feature/enhancement is  needed - and it has a huge impact on how one approaches a refactoring.</p><p>One mistake I have (seen) made when working with legacy code is going on  a <strong>refactoring spree</strong>, touching parts of the codebase which  we don't  need to change. The danger of it is that we can easily code ourselves  into a corner for days and slip on the original delivery. If it ain't  broken, don't fix it (and this doesn't contradict the  <a href="http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule">boyscout rule</a>). This issue has been exposed during the iterations, many of us refactored one part of the application that  wasn't business logic heavy, but was a low hanging fruit. While one  iteration wouldn't be enough time to finish testing that part, the  conversation around it (what test cases would be needed to provide  sufficient code coverage, what's the minimum refactoring we need to do  to achieve that, etc.).</p><p>I raised it during the final retrospective, and people agree it's an important aspect, but they suggested it's not fit for the format of the code retreat.</p><p>The other great benefit of having a clear goal is that they demonstrate how <strong>fragile</strong> the <strong>regression characterization tests</strong> can be. A  neat little change request to the core business logic would have left  us without the safety net again, and would have made us think back to  the previous iterations when we felt skipping writing a specific test  is safe. While everyone knows it, that doesn't mean we wouldn't fall  victim to it..</p><p>And if you prefer to see a concrete example, instead of just reading  through this abstract text, I have something like the <a href="http://anarchycreek.com/doubledawgdare-series/">Double Dawg  Dare</a> in mind.</p><h2 id="some_technical_notes_for_attending_a_code_retreat">Some technical notes for attending a code retreat:</h2><ul><li>doublecheck with the organizers what you'll need to attend. They    probably plan to send out a reminder/notification email before the   event, but I so rarely use my laptop in an online environment that   their notice was too late for me to actually prepare my laptop for   the event.</li><li>know your settings &amp; IDE. There are a ton of yaks to be shaved, and   many minutes have been wasted by setting things up. It doesn't take   away from the experience, but it did stress me a bit the first time</li><li><p>either know how to use git, or just create two copies of the codebase   so you can easily revert to a clean codebase after the sessions. We    had some problems with this.</p><p>git clean -x -f -n # remove -n to really remove them   git reset HEAD . # remove everything from the changelist in case you added it   git checkout -- . # revert everything below the </p></li><li><p>bring a USB stick, and if you are not using your own laptop during all    the sessions, make a copy of the golden master textfile onto it after    each of your sessions in a new programming language (my laptop was    only used during the first and the last iteration, so for the last we   had no sample output textfile we could work against, and it took some   time to obtain it.</p></li><li>bring your own keyboard and know how to change a mac/linux/windows    machine's keyboard layout (or install one). I have not been typing in    a number of sessions because of this (try typing on a German mac    keyboard, when you are used to windows US layout!)</li></ul><h2 id="in_summary">In Summary</h2><p>It's a great event, you meet great people, and I would be surprised if  you came away from a code retreat not having learnt anything new.</p>
-<hr><ol>
-<li id="1">
-    <strong><a href="http://www.blogger.com/profile/06671468907643091304">Adrian Bolboaca</strong></a> on <em>2012/09/21 10:44:14</em>: Thanks for the great write-up.<br/><br/>I have a kind of an answer for why I don't get to that session of change request. When I thought about the legacy code retreat and added a couple of sessions I wanted to have a more natural flow. I wanted to have this session also, sometimes in the end of the day. But as a facilitator I saw that the attendees do not really know the techniques so we are stuck into explaining the basics that they need in order to be able to handle a change request. During all the legacy code retreats I facilitated maybe the 7th iteration would have been the "change request constraint". <br/>I e-met Andreas and Nicole a couple early this year when we had a skype call about the legacy code retreat. Then I met them at the Socrates conference this year. I'm sure they are doing an excellent job as facilitators, and maybe they have some answers to this. My guess is that we need more legacy code retreats happening and only after a while when the attendees know better the basics we can start and introduce this session. Or maybe we can find together a solution on improving the current format.
-<ol>
-<li id="1-1">
-    <strong><a href="http://pboop.wordpress.com/">pboop</strong></a> on <em>2012/09/23 16:44:45</em>: I agree with you. In my opinion a leagcy code retreat is about HOW to change the code not WHY or WHICH WAY in order to open room for a new requirement.<br/><br/>Every participant is free to let her/his imagination grow after (or even during) the retreat and play around with the code base, inventing new requirements and so on.
-</li><li id="1-2">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2012/09/30 17:11:58</em>: Thanks for the comment and sorry for the late followup.<br/><br/>I didn't intend that section as a criticism for the facilitators. Since it can be misread, I would appreciate if you could point out where and how, so I can correct it to avoid anyone else misunderstanding my intent (re-reading my post didn't help, I'm afraid I have too much context about what I wanted to say).
-</li><li id="1-3">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2012/09/30 17:12:58</em>: I don't know what the exact goal was behind creating the legacy coderetreat format. But I have always preferred learning not just a practice, but also its underpinning ideas and the limits of it. While I can practice refactoring on my own, there may not be someone around pointing out that not everything needs to be refactored. Both are important and have their places, and we seem to disagree about the latter. My thinking is influenced by seeing people (myself included) overdoing/overvaluing the latest pattern/practice they have came across (HelloWorldProxyFactoryImpl), without knowing the limits of their usefulness and knowing the difference between understanding something in theory versus doing that in practice - being told something is brittle/unreliable and understanding it on an intellectual level is very different from actually experiencing it. The latter tends to be easier to remember :)<br/><br/>But I might have fallen victim to offering a solution instead of raising a question. If the Nuremberg global code retreat will be a success, and there will be more following it, I'll be happy to immerse myself deeper into the code retreat community and see how I feel about this original idea after some time - one of the motivations for posting it was so that I can come back and revisit it later.
-</li></ol></li></ol>
-]]></content:encoded>
     </item>
   </channel>
 </rss>
