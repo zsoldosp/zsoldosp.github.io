@@ -10,10 +10,38 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 08 Aug 2013 05:31:46 GMT</pubDate>
+    <pubDate>Sun, 19 Jan 2014 10:29:01 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Green Build Surprises</title>
+      <link>http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/</link>
+      <pubDate>Sun, 19 Jan 2014 11:30:00 CET</pubDate>
+      <category><![CDATA[monitoring]]></category>
+      <category><![CDATA[continuous integration]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
+      <description>Green Build Surprises</description>
+      <content:encoded><![CDATA[<p>Recently while working on our build process, I ran into an unexpected
+surprise - the build server reported no error (i.e.: it was displaying a
+green status, since all tests were passing), yet there was a major issue
+- not all of our tests were run!</p>
+<p>Given that the situation was caused by working on the build itself, the
+issue was discovered in time (<strike>though somewhat accidentally</strike>
+during <a href="https://en.wikipedia.org/wiki/Exploratory_testing">exploratory testing</a>). However, this was a
+nice reminder of the problem with the "unknown unknowns" - now that we
+know of this issue, of course we have configured alerting for the case
+when the current build ran less tests than the build before. But I
+wonder how many times we may have released on a green build with
+regression bugs...</p>
+<p>Asking some others and looking back on my past experiences, this topic
+hasn't come up, so while I hope it is obvious and not news for you, dear
+reader, I blog it just in case I wasn't the last to get the memo...</p>
+<p>And it turns out that every now and then we do mess up and commit code
+that makes some tests invisible to the test runner... So it wasn't just
+a one-off thing!</p>]]></content:encoded>
+    </item>
     <item>
       <title>Inversion of Control for Continuous Integration</title>
       <link>http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</link>

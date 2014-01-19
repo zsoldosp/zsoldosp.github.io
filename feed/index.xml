@@ -10,10 +10,38 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 28 Oct 2013 07:09:42 GMT</pubDate>
+    <pubDate>Sun, 19 Jan 2014 10:29:03 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Green Build Surprises</title>
+      <link>http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/</link>
+      <pubDate>Sun, 19 Jan 2014 11:30:00 CET</pubDate>
+      <category><![CDATA[monitoring]]></category>
+      <category><![CDATA[continuous integration]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
+      <description>Green Build Surprises</description>
+      <content:encoded><![CDATA[<p>Recently while working on our build process, I ran into an unexpected
+surprise - the build server reported no error (i.e.: it was displaying a
+green status, since all tests were passing), yet there was a major issue
+- not all of our tests were run!</p>
+<p>Given that the situation was caused by working on the build itself, the
+issue was discovered in time (<strike>though somewhat accidentally</strike>
+during <a href="https://en.wikipedia.org/wiki/Exploratory_testing">exploratory testing</a>). However, this was a
+nice reminder of the problem with the "unknown unknowns" - now that we
+know of this issue, of course we have configured alerting for the case
+when the current build ran less tests than the build before. But I
+wonder how many times we may have released on a green build with
+regression bugs...</p>
+<p>Asking some others and looking back on my past experiences, this topic
+hasn't come up, so while I hope it is obvious and not news for you, dear
+reader, I blog it just in case I wasn't the last to get the memo...</p>
+<p>And it turns out that every now and then we do mess up and commit code
+that makes some tests invisible to the test runner... So it wasn't just
+a one-off thing!</p>]]></content:encoded>
+    </item>
     <item>
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
       <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
@@ -824,32 +852,6 @@ echo $FILE_NAME
       <description>Opening the 2013 paddling season on the Kocher</description>
       <content:encoded><![CDATA[
 I've just posted a brief description of our first trip of the season over at the <a href="http://www.songofthepaddle.co.uk/forum/showthread.php?40272-Opening-the-2013-season-on-the-Kocher-Braunsbach-to-K%FCnzelsau&amp;p=465323">Song of the Paddle</a> forum, check it out!]]></content:encoded>
-    </item>
-    <item>
-      <title>Continuous Team Switching?</title>
-      <link>http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html</link>
-      <pubDate>Sat, 19 Jan 2013 13:35:00 CET</pubDate>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[programming]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html</guid>
-      <description>Continuous Team Switching?</description>
-      <content:encoded><![CDATA[
-<a href="http://douglassquirrel.com/">Douglas Squirrel</a> led <a href="http://www.citconf.com/wiki/index.php?title=Continuous_rewriting">a session at CITCON Budapest 2012 about Continuous Rewriting</a>, summarizing many ideas I've heard before from <a href="http://vimeo.com/43659070">Dan North</a> or <a href="http://forwardtechnology.co.uk/videos/32447325">Fred George</a> presentations into a really coherent evolutionary progression,  and took the concept even further. <br/><br/>Like other <em>Continuous</em> practices, this would be as much a  technical as an organizational-cultural change. It got me thinking about how this would change the team dynamics - not just inside a team, but in the context of the bigger organization.<br/><br/>The various <em>Continuous</em> practices always came about the realization that when something is rarely done, people will be bad at it and thus  it will be hard, ineffective and error prone. Thus if we simply do it  more often, we would get better at it.<br/><br/>Joining a new team and becoming an effective contributor is a process that is in need of improvement (on most teams). Getting to grips with the inherent domain complexity and the piled on technical complexity, learning the tricks and workarounds, etc. can hold back someone from being efficient for quite a while. On the other hand, having a fresh set of eyes can provide  a new perspective and expose much of the technical debt the team has.<br/><br/>All the continuous rewrite examples so far have reduced the code size, making it understandable (though often this reduction came thanks to better understanding of the domain).<br/><br/>Assuming the reduced code size enables speedier onboarding of new team members,  while still benefiting from the new perspective it brings, what would  more frequently rotating in and out rotation team members (while never completely  replacing any one team) result in?<br/><ul><li>Could this make spreading of ideas and practices within a company    more effective and faster than the current silo'd, departmental setups?</li><li>Would it speed up the on the job, just in time learning of every<br/>  developer in the company?</li><li>Would it improve the skill level of every developer, or would it   drag everyone down?</li><li>Would it strengthen the company culture, simply since each person    would know more other employees (given that many of us only socialize    within our own team)? </li><li>Would it spark more cross-departmental improvements - unlike    accountants or marketers, developers can jump between various areas    and domains of the company with relative ease, and thus could see    potential improvements. Would this make crazy IT processes (where the data   passes through, without enhancement, several different teams and applications,   modified effectively by only one at the middle, then be loaded back into    the original source) extinct, making IT governance easier?</li></ul>I don't know. But it certainly was a fun thought experiment! Feel free to add questions to the above list in the comments!
-<hr><ol>
-<li id="1">
-    <strong><a href="http://www.odd-e.com">Steven</strong></a> on <em>2013/01/19 15:42:41</em>: There are studies found that stable teams can improve as long as 3 years. From that I would recommend stable teams over switching team members in and out.
-<ol>
-<li id="1-1">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2013/01/19 17:08:12</em>: Steve,<br/><br/>thanks for the input! Could you give some pointers for these studies (titles or links)?<br/><br/>I don't understand your second sentence (not a native English speaker) - you suggest that based on these studies, having a stable team is better/more effective/etc. than having constantly changing team members (the thought experiment of this post)?
-</li></ol></li><li id="2">
-    <strong><a href="http://tamasrev.wordpress.com/">tamasrev</strong></a> on <em>2013/01/21 21:22:23</em>: Wow, this makes sense.<br/><br/>Let me add some anecdotal evidence: Every time I'm joining a team, I start to see tons of technical debt. Later I'm getting used to it. Sometimes I even miss the old code when switching to something new. This is the thing that makes _some_ outsourcing veterans (i.e. EPAM alumni) very efficient.
-</li><li id="3">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2013/01/23 20:38:18</em>: what is the thing that makes outsourcing veterans efficient? The ability to enter any codebase and identify the place(s) that need changing for the new feature/project? <br/><br/>To add to the anecdotes (hoping @jasongorman doesn't read comments :)) - you don't need outsourcing for that, enough if you work on maintenance teams that are responsible for more than one application. Though it might be more a question of attitude and/or confidence than experience with switches. E.g.: I never hesitate to follow a stacktrace into 3rd party code (or find out why I *don't* have a stacktrace) or simply load the source to compensate the unhelpful documentation. Kind of like the difference between junior and senior developers is that the latter are not afraid to voice their opinions/questions...
-</li><li id="4">
-    <strong><a href="http://tamasrev.wordpress.com/">tamasrev</strong></a> on <em>2013/01/29 19:37:44</em>: Didn't the blog just swallowed my comment? Here it is again:<br/><br/>What makes outsourcing veterans very efficient that they have to work with and maintain several projects written by other people. They will learn both continuously improve the code as well as do fuckin quick fixes. They also learn how to adapt to different coding styles they see in their project pool. They can relatively quickly identify the problematic parts of a codebase and they can come up with change suggestions. However, a typical outsourcing consumer isn't interested in their opinion.<br/><br/>It's worth to mention that outsourcing veterans only have a *chance* to learn all this stuff. They can also burn out due to the mind-numbing tasks they have to do.
-</li></ol>
-]]></content:encoded>
     </item>
   </channel>
 </rss>

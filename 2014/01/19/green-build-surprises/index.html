@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Do. Reflect. Learn. Repeat!</title>
+  <title>Green Build Surprises | Do. Reflect. Learn. Repeat!</title>
   <meta name="description" content="Excercises in public learning">
   <meta name="author" content="Peter Zsoldos">
 
@@ -39,20 +39,49 @@
         <div class="inner">
             
 
-                    <table class="post_list">
-                        <tr>
-                            <td class="date">January 19, 2014</td>
-                            <td><a href="/2014/01/19/green-build-surprises//">Green Build Surprises</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">February 17, 2012</td>
-                            <td><a href="/2012/01/inversion-of-control-for-continuous.html/">Inversion of Control for Continuous Integration</a></td>
-                        </tr>
-                        <tr>
-                            <td class="date">October 10, 2010</td>
-                            <td><a href="/2010/10/slides-for-continuous-delivery-talk.html/">Slides for the Continuous Delivery talk</a></td>
-                        </tr>
-                    </table>
+
+
+
+<div class="post">
+    <h3><a href="/2014/01/19/green-build-surprises//">Green Build Surprises</a></h3>
+  
+    <div class="body">
+        <p>Recently while working on our build process, I ran into an unexpected
+surprise - the build server reported no error (i.e.: it was displaying a
+green status, since all tests were passing), yet there was a major issue
+- not all of our tests were run!</p>
+<p>Given that the situation was caused by working on the build itself, the
+issue was discovered in time (<strike>though somewhat accidentally</strike>
+during <a href="https://en.wikipedia.org/wiki/Exploratory_testing">exploratory testing</a>). However, this was a
+nice reminder of the problem with the "unknown unknowns" - now that we
+know of this issue, of course we have configured alerting for the case
+when the current build ran less tests than the build before. But I
+wonder how many times we may have released on a green build with
+regression bugs...</p>
+<p>Asking some others and looking back on my past experiences, this topic
+hasn't come up, so while I hope it is obvious and not news for you, dear
+reader, I blog it just in case I wasn't the last to get the memo...</p>
+<p>And it turns out that every now and then we do mess up and commit code
+that makes some tests invisible to the test runner... So it wasn't just
+a one-off thing!</p>
+    </div>
+    <div class="meta">
+        <p>What do you think? I would love if you would <strong>leave a comment</strong> - drop me an <strong>email</strong> at <strong><a href="mailto:hello@zsoldosp.eu">hello@zsoldosp.eu</a></strong>, tell me on <a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/&text=@zsepi, in response to Green Build Surprises">Twitter</a>!
+    </div>
+    <div class="meta">
+        <p>Posted on <a href="/2014/01/19/green-build-surprises//">January 19, 2014 at 11:30 AM</a> in <span class="blog_post_categories"><a href='/category/monitoring/'>monitoring</a>, <a href='/category/continuous-integration/'>continuous integration</a>, <a href='/category/software/'>software</a></span></p>
+        <p>Share this post if you liked it - on 
+<a href="http://digg.com/submit?url=http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Digg</a>,
+<a href="http://facebook.com/sharer.php?u=http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Facebook</a>, 
+<a href="https://plus.google.com/share?url=http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Google+</a>, 
+<a href="http://reddit.com/submit?url=http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/&title=Green Build Surprises">reddit</a>,
+or
+<a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/&text=Green Build Surprises&via=zsepi">Twitter</a>
+
+ 
+    </p>
+    </div>
+    
 
 
         </div>
