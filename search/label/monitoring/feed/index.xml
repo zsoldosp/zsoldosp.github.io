@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sun, 19 Jan 2014 10:29:02 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:13 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -23,7 +23,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
       <description>Green Build Surprises</description>
-      <content:encoded><![CDATA[<p>Recently while working on our build process, I ran into an unexpected
+      <content:encoded><![CDATA[
+          <p>Recently while working on our build process, I ran into an unexpected
 surprise - the build server reported no error (i.e.: it was displaying a
 green status, since all tests were passing), yet there was a major issue
 - not all of our tests were run!</p>
@@ -40,7 +41,10 @@ hasn't come up, so while I hope it is obvious and not news for you, dear
 reader, I blog it just in case I wasn't the last to get the memo...</p>
 <p>And it turns out that every now and then we do mess up and commit code
 that makes some tests invisible to the test runner... So it wasn't just
-a one-off thing!</p>]]></content:encoded>
+a one-off thing!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Green Build Surprises</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>

@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 08 Aug 2013 05:31:46 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:12 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -24,7 +24,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>
-      <content:encoded><![CDATA[<p>I needed to write a function in bash that would set an environment 
+      <content:encoded><![CDATA[
+          <p>I needed to write a function in bash that would set an environment 
 variable to that value, unless the variable has been already set. 
 This is a typical metaprogramming (reflection, introspection, etc.) 
 task. </p>
@@ -81,7 +82,10 @@ this</a>:</p>
 
 random_file_name FILE_NAME
 echo $FILE_NAME
-</code></pre>]]></content:encoded>
+</code></pre>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/">Some Metaprogramming (Reflection) In Bash</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>

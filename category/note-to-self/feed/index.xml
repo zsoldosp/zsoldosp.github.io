@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 11 Sep 2013 15:21:01 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:11 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -24,7 +24,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
-      <content:encoded><![CDATA[<div class="document">
+      <content:encoded><![CDATA[
+          <div class="document">
 <p>While poking around the
 <a class="reference external" href="https://pypi.python.org/pypi/testrepository/">testrepository</a>
 package I ran into the cryptic error message of <strong>'unicodeescape'
@@ -141,7 +142,10 @@ here, and I just want to echo back the command that was executed...</p>
 </ul>
 </div>
 </div>
-]]></content:encoded>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/">Quick script to help reporting bugs for python</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>

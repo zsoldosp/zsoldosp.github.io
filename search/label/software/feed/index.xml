@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sun, 19 Jan 2014 10:29:03 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:13 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -23,7 +23,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
       <description>Green Build Surprises</description>
-      <content:encoded><![CDATA[<p>Recently while working on our build process, I ran into an unexpected
+      <content:encoded><![CDATA[
+          <p>Recently while working on our build process, I ran into an unexpected
 surprise - the build server reported no error (i.e.: it was displaying a
 green status, since all tests were passing), yet there was a major issue
 - not all of our tests were run!</p>
@@ -40,7 +41,10 @@ hasn't come up, so while I hope it is obvious and not news for you, dear
 reader, I blog it just in case I wasn't the last to get the memo...</p>
 <p>And it turns out that every now and then we do mess up and commit code
 that makes some tests invisible to the test runner... So it wasn't just
-a one-off thing!</p>]]></content:encoded>
+a one-off thing!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Green Build Surprises</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
@@ -54,7 +58,8 @@ a one-off thing!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
-      <content:encoded><![CDATA[<p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
+      <content:encoded><![CDATA[
+          <p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
 End-to-End Testing</a> testing makes sense. In this post, I would
 like to take a step back and list a few additional benefits that could
 be derived from end to end testing in general, regardless of the fashion
@@ -167,7 +172,10 @@ you asked for is done).</p>
 <hr />
 <p>There must be many more ideas out there - let me know about them, and 
 I'm happy to add them to this list (or link to wherever you published
-it)!</p>]]></content:encoded>
+it)!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
@@ -180,7 +188,8 @@ it)!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
-      <content:encoded><![CDATA[<p>At the end of this post, there is a list of reasons why to work with 
+      <content:encoded><![CDATA[
+          <p>At the end of this post, there is a list of reasons why to work with 
 end-to-end tests, but first please consider the post's idea on its own.
 After that, I'm glad to have discussions about alternative/better 
 solutions to the described (or omitted) contexts.</p>
@@ -351,7 +360,10 @@ all listened to me while I tried to figure out how to explain this and
 gave feedback both about the content and the format (*). Thank you!</p>
 <hr />
 <p>(*) just to be crystal clear, this does not mean they endorsed it, 
-just that they listened and gave feedback!</p>]]></content:encoded>
+just that they listened and gave feedback!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">A New Look At End-to-End Testing - Polymorphic and Fast</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>CITCON Turin Session Notes</title>
@@ -362,7 +374,8 @@ just that they listened and gave feedback!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">AWskB6wuNpU0UUAq1fII-TJYmS0=</guid>
       <description>CITCON Turin Session Notes</description>
-      <content:encoded><![CDATA[<p>Finally got around to adding my notes for the <a href="/2013/09/30/citcon-turin-2013/">CITCON Turin 
+      <content:encoded><![CDATA[
+          <p>Finally got around to adding my notes for the <a href="/2013/09/30/citcon-turin-2013/">CITCON Turin 
 2013</a> sessions to the 
 <a href="http://citconf.com/wiki/index.php?title=CITCONEurope2013Sessions">wiki</a>.</p>
 <ul>
@@ -391,7 +404,10 @@ article quality, still much closer to raw notes/brain dumps. But it's
 much improved compared to the raw notes I had in my notebook. Having the
 handwritten pages only makes sure I know it is <em>not</em> DONE, which I might
 fall into thinking had I written directly into the wiki.</p>
-<p>Of course, that's just me, your mileage may vary!</p>]]></content:encoded>
+<p>Of course, that's just me, your mileage may vary!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/">CITCON Turin Session Notes</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>CITCON Turin 2013</title>
@@ -402,7 +418,8 @@ fall into thinking had I written directly into the wiki.</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">HBw_qzJLfvKDJyuEPItoFPtvMx8=</guid>
       <description>CITCON Turin 2013</description>
-      <content:encoded><![CDATA[<blockquote>
+      <content:encoded><![CDATA[
+          <blockquote>
 <p>Prior <a href="http://citconf.com/">CITCON</a> experience posts:</p>
 <ul>
 <li><a href="/2010/11/my-citcon-london-2010-experience.html">London 2010</a></li>
@@ -523,7 +540,10 @@ many topics!</p>
 <a href="http://citconf.com/wiki/">conf wiki</a> coming days, and once I digested all the feedback I 
 got during and outside the sessions, I will be writing up the <em>Tree 
 Optimized Test Runner</em> and the <em>app-test DSLs to have multiple drivers
-for a single TestCase</em> ideas in more detail.</p>]]></content:encoded>
+for a single TestCase</em> ideas in more detail.</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/">CITCON Turin 2013</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Quick script to help reporting bugs for python</title>
@@ -535,7 +555,8 @@ for a single TestCase</em> ideas in more detail.</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
-      <content:encoded><![CDATA[<div class="document">
+      <content:encoded><![CDATA[
+          <div class="document">
 <p>While poking around the
 <a class="reference external" href="https://pypi.python.org/pypi/testrepository/">testrepository</a>
 package I ran into the cryptic error message of <strong>'unicodeescape'
@@ -652,7 +673,10 @@ here, and I just want to echo back the command that was executed...</p>
 </ul>
 </div>
 </div>
-]]></content:encoded>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/">Quick script to help reporting bugs for python</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
@@ -665,7 +689,8 @@ here, and I just want to echo back the command that was executed...</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
       <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
-      <content:encoded><![CDATA[<p>This blog used to be two separate blogs, hosted at 
+      <content:encoded><![CDATA[
+          <p>This blog used to be two separate blogs, hosted at 
 <a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
 respectively. I've gone through some trouble to migrate their content,
 hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
@@ -723,7 +748,10 @@ policy!</p>
   broken links, custom reports, etc. I should probably mention the html
   template customizations here too, though you might be able to tell
   that is not yet the highest priority for me :)</li>
-</ul>]]></content:encoded>
+</ul>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/">Own your data (or why did I move away from Blogger and WordPress?)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Some Metaprogramming (Reflection) In Bash</title>
@@ -735,7 +763,8 @@ policy!</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>
-      <content:encoded><![CDATA[<p>I needed to write a function in bash that would set an environment 
+      <content:encoded><![CDATA[
+          <p>I needed to write a function in bash that would set an environment 
 variable to that value, unless the variable has been already set. 
 This is a typical metaprogramming (reflection, introspection, etc.) 
 task. </p>
@@ -792,7 +821,10 @@ this</a>:</p>
 
 random_file_name FILE_NAME
 echo $FILE_NAME
-</code></pre>]]></content:encoded>
+</code></pre>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/">Some Metaprogramming (Reflection) In Bash</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Continuous Team Switching?</title>
@@ -804,6 +836,7 @@ echo $FILE_NAME
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html</guid>
       <description>Continuous Team Switching?</description>
       <content:encoded><![CDATA[
+          
 <a href="http://douglassquirrel.com/">Douglas Squirrel</a> led <a href="http://www.citconf.com/wiki/index.php?title=Continuous_rewriting">a session at CITCON Budapest 2012 about Continuous Rewriting</a>, summarizing many ideas I've heard before from <a href="http://vimeo.com/43659070">Dan North</a> or <a href="http://forwardtechnology.co.uk/videos/32447325">Fred George</a> presentations into a really coherent evolutionary progression,  and took the concept even further. <br/><br/>Like other <em>Continuous</em> practices, this would be as much a  technical as an organizational-cultural change. It got me thinking about how this would change the team dynamics - not just inside a team, but in the context of the bigger organization.<br/><br/>The various <em>Continuous</em> practices always came about the realization that when something is rarely done, people will be bad at it and thus  it will be hard, ineffective and error prone. Thus if we simply do it  more often, we would get better at it.<br/><br/>Joining a new team and becoming an effective contributor is a process that is in need of improvement (on most teams). Getting to grips with the inherent domain complexity and the piled on technical complexity, learning the tricks and workarounds, etc. can hold back someone from being efficient for quite a while. On the other hand, having a fresh set of eyes can provide  a new perspective and expose much of the technical debt the team has.<br/><br/>All the continuous rewrite examples so far have reduced the code size, making it understandable (though often this reduction came thanks to better understanding of the domain).<br/><br/>Assuming the reduced code size enables speedier onboarding of new team members,  while still benefiting from the new perspective it brings, what would  more frequently rotating in and out rotation team members (while never completely  replacing any one team) result in?<br/><ul><li>Could this make spreading of ideas and practices within a company    more effective and faster than the current silo'd, departmental setups?</li><li>Would it speed up the on the job, just in time learning of every<br/>  developer in the company?</li><li>Would it improve the skill level of every developer, or would it   drag everyone down?</li><li>Would it strengthen the company culture, simply since each person    would know more other employees (given that many of us only socialize    within our own team)? </li><li>Would it spark more cross-departmental improvements - unlike    accountants or marketers, developers can jump between various areas    and domains of the company with relative ease, and thus could see    potential improvements. Would this make crazy IT processes (where the data   passes through, without enhancement, several different teams and applications,   modified effectively by only one at the middle, then be loaded back into    the original source) extinct, making IT governance easier?</li></ul>I don't know. But it certainly was a fun thought experiment! Feel free to add questions to the above list in the comments!
 <hr><ol>
 <li id="1">
@@ -818,7 +851,10 @@ echo $FILE_NAME
 </li><li id="4">
     <strong><a href="http://tamasrev.wordpress.com/">tamasrev</strong></a> on <em>2013/01/29 19:37:44</em>: Didn't the blog just swallowed my comment? Here it is again:<br/><br/>What makes outsourcing veterans very efficient that they have to work with and maintain several projects written by other people. They will learn both continuously improve the code as well as do fuckin quick fixes. They also learn how to adapt to different coding styles they see in their project pool. They can relatively quickly identify the problematic parts of a codebase and they can come up with change suggestions. However, a typical outsourcing consumer isn't interested in their opinion.<br/><br/>It's worth to mention that outsourcing veterans only have a *chance* to learn all this stuff. They can also burn out due to the mind-numbing tasks they have to do.
 </li></ol>
-]]></content:encoded>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html">Continuous Team Switching?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Global Day of Coderetreat 2012 - Nuremberg</title>
@@ -832,8 +868,12 @@ echo $FILE_NAME
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/12/global-day-of-coderetreat-2012-nuremberg.html</guid>
       <description>Global Day of Coderetreat 2012 - Nuremberg</description>
       <content:encoded><![CDATA[
+          
 <br/><br/><header> <div id="global-day-of-coderetreat-2012-nuremberg"></div></header><div class="post_prose"><blockquote>If you are not familiar with the concept of a  <a href="http://coderetreat.org/">code retreat</a>, listen to this  <a href="http://www.dotnetrocks.com/default.aspx?showNum=728">podcast</a> (or read the  <a href="http://s3.amazonaws.com/dnr/dotnetrocks_0728_corey_haines.pdf">transcript</a>).</blockquote>As you may remember, I've attended <a href="/2012/09/my-first-code-retreat-legacy-code.html">my first code retreat earlier this year in Frankfurt</a>. One of the reasons for attending was  that I had a nagging thought throughout organizing <a href="http://citconf.com/budapest2012/">CITCON Budapest</a> that I should do something locally too, and a coderetreat sounded just like the perfect thing. So I've came back with enough enthusiasm from Frankfurt to approach our CEO (Dirk) about <a href="http://www.paessler.com/">Paessler AG</a> helping me organize one in Nuremberg - and he offered the office to host it in and to pay for the lunch. Thus  the biggest obstacle was cleared.<br/><blockquote>The importance of this couldn't be emphasized. As I've seen on the <a href="http://globalday.coderetreat.org/">Global Day of Coderetreat</a> organizers' list, it has caused some headache and  worry for fellow hosts. And in addition to the fiscal support, my  colleagues went way beyond anything I expected - our sysadmins arranging the required technical &amp; security infrastructure, running <a href="http://www.paessler.com/blog/2012/11/21/other/paessler-is-one-of-the-hosts-of-the-global-day-of-coderetreat">the GDCR event on the  company blog</a>, and even non-programmer colleagues offering to  come by Saturday to help with anything if needed.  Thank you all, you made it really easy! (by the way, <a href="http://www.paessler.com/company/jobs">Paessler is hiring!</a>)</blockquote>Anyhow, this post will not be about the organization process, but about what I have learned on this day as a co-facilitator &amp; participant about code and people.<br/><blockquote>Another big thanks goes to <a href="http://twitter.com/marcoemrich">Marco Emrich</a>, a seasoned coderetreat facilitator, who helped getting the event off the ground and helped me getting  started facilitating (thanks to <a href="https://twitter.com/NicoleRauch">Nicole</a> &amp; <a href="http://twitter.com/Ookami86">Johannes</a>  for introducing me to Marco!)</blockquote>The attendance was low (next time we'll schedule the start 30-60 minutes later), but I was surprised to learn how well the coderetreat functioned with so few participants. To ensure there is enough variety and that people have new pairs, we took turns with Marco coding (which we planned anyway in case of odd number of participants).<br/><h2 id="the-sessions">The Sessions</h2><ol><li>no constraints, getting familiar with the problem</li><li><a href="https://github.com/zsoldosp/zsoldosp-dotfiles/blob/master/bin/snippets/python/unitsofmeasure.py">no primitives</a> &amp; focus on the rules (fake out the world if needed at all)</li><li>Ping-Pong TDD &amp; naive implementation (with a switch at half time)</li><li>no conditional &amp; no mouse</li><li>baby steps</li><li>free to choose session</li></ol><h2 id="its-the-global-day-of-coderetreat">It's the <strong>Global</strong> Day of Coderetreat</h2>Even though we were only a few people here, it's been great to chat to the others elsewhere worldwide, saying hi to people doing exactly the same thing we do, just in various other  locations. While there were audio problems sometime, we didn't mind it. And next year we won't  bother with trying to schedule exact times for the calls, since we all will miss those times  anyway, but rather just rely on improvising video calls.<br/><h2 id="code-related-observations">Code Related Observations</h2><ul><li>It's really interesting to see other people programming. It is certainly not    something one gets to do during their day jobs (except maybe trainers, team leads, and mentors).   It is even more interesting to contrast the external observer's impressions/understanding   with the understanding of the people involved in the programming - the difference can be   huge. This might help understanding how many developers feel bosses/managers always misunderstand   their progress...</li><li>It's also interesting to track people across the different pairs and see whether    they bring their firm opinions (battle scars?) to each session or let go of them    to allow the opportunity to learn a different approach. This is not necessarily a bad    thing, but if you have plans to learn, beware of this and be explicit what you want to    learn - know whether you want to explore one idea and bounce it off/get it challenged by    many people or whether you want to simply see how others program and see if any of that    could be applicable to you. E.g.: it was pretty interesting to see how my F#/Scala inspired   ideas (case classes &amp; types) could be materialized in clojure. However, I have certainly   learned less about clojure than I would have had I let my partner do it as he would   in clojure natively (though the <em>no primitives</em> restriction was screaming   for types in my opinion).</li><li>We developers are really creative at finding (or at least looking for) loopholes in the   constraints. During the <em>no conditional</em> session one pair TDD'd a function returning a boolean   and claimed they had no conditionals in their code and were trying to convince us that   even the rest of the system wouldn't need conditionals to use this code... Or that returning   booleans is not an issue since they could refactor it into something that doesn't need to    return booleans once they get to the rest of the system... I'm certainly looking forward running    a <em>no return values allowed</em> session and see how people will circumvent that (and rationalize it   away)!</li><li>The longer you have worked with a tool/language, the more readily you accept and work around   its quirks. When we wanted to structure our tests the way we would describe <a href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life">the four rules   of Conway's Game of Life</a> in writing (heading, then four subheadings, and then the concrete    examples under the subheadings) it didn't match RSpec's expectations at all. We agreed that both    structures (RSpec vs. the natural) make sense and we can understand how &amp; why RSpec evolved this way,   but we couldn't make it match the natural structure. This lead to a nice brief discussion about when    you want to deviate from standard tooling/processes and when one is better off following it.</li><li>Some people just can't put off the desire to finish the task. I will have to be conscious of this   in the future, and prod people more - e.g.: to ask whether this test &amp; app code meets their definition of   perfect.</li><li>Sometimes when things are hard, it is an indication that you are doing the wrong thing or solving the   wrong problem. E.g.: I wanted to write a test for our function to ensure that the function fails unless    it gets exactly 8 parameters (number of neighbors) but we were not supposed to use primitives. It felt   like enlightenment when my pair pointed out that there is nothing in the rules that mandate that requirement!</li><li><a href="http://www.infoq.com/presentations/TDD-as-if-You-Meant-It">TDD as if you meant it</a> is really hard unless both of you are good at the chosen   language. I assumed Ruby and Python are rather similar, but learned quickly it is not the    case. While we had great conversations during the session, and I've learned some interesting things about   Ruby, we have not made much progress with the actual constraint.</li><li>It seems most people work on their desktop machines/docking stations, and thus their laptop is   a secondary device, where they have not invested in their environments that much, and thus   the no mouse constraint is much harder (e.g.: having ReSharper installed at work, but not on   the personal laptop).</li></ul>... and I could go on much longer :) Certainly, the coderetreat format is great, and I enjoyed both programming and facilitating (though the fact my German is not strong enough makes it somewhat difficult),  and I'm sure we'll do more coderetreats in Nuremberg. So keep an eye out for it on the <a href="http://coderetreat.org/events/event/search?q=Nuremberg">coderetreat  site</a> or on the <a href="http://www.softwerkskammer.de/">Softwarekammer</a> events page.</div>
-]]></content:encoded>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2012/12/global-day-of-coderetreat-2012-nuremberg.html">Global Day of Coderetreat 2012 - Nuremberg</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>

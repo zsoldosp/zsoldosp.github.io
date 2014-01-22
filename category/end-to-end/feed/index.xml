@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 28 Oct 2013 07:09:40 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:11 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -26,7 +26,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
-      <content:encoded><![CDATA[<p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
+      <content:encoded><![CDATA[
+          <p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
 End-to-End Testing</a> testing makes sense. In this post, I would
 like to take a step back and list a few additional benefits that could
 be derived from end to end testing in general, regardless of the fashion
@@ -139,7 +140,10 @@ you asked for is done).</p>
 <hr />
 <p>There must be many more ideas out there - let me know about them, and 
 I'm happy to add them to this list (or link to wherever you published
-it)!</p>]]></content:encoded>
+it)!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
@@ -152,7 +156,8 @@ it)!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
-      <content:encoded><![CDATA[<p>At the end of this post, there is a list of reasons why to work with 
+      <content:encoded><![CDATA[
+          <p>At the end of this post, there is a list of reasons why to work with 
 end-to-end tests, but first please consider the post's idea on its own.
 After that, I'm glad to have discussions about alternative/better 
 solutions to the described (or omitted) contexts.</p>
@@ -323,7 +328,10 @@ all listened to me while I tried to figure out how to explain this and
 gave feedback both about the content and the format (*). Thank you!</p>
 <hr />
 <p>(*) just to be crystal clear, this does not mean they endorsed it, 
-just that they listened and gave feedback!</p>]]></content:encoded>
+just that they listened and gave feedback!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">A New Look At End-to-End Testing - Polymorphic and Fast</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>

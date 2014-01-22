@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Thu, 08 Aug 2013 05:31:46 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:12 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -25,7 +25,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
       <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
-      <content:encoded><![CDATA[<p>This blog used to be two separate blogs, hosted at 
+      <content:encoded><![CDATA[
+          <p>This blog used to be two separate blogs, hosted at 
 <a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
 respectively. I've gone through some trouble to migrate their content,
 hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
@@ -83,7 +84,10 @@ policy!</p>
   broken links, custom reports, etc. I should probably mention the html
   template customizations here too, though you might be able to tell
   that is not yet the highest priority for me :)</li>
-</ul>]]></content:encoded>
+</ul>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/">Own your data (or why did I move away from Blogger and WordPress?)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>

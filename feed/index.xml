@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sun, 19 Jan 2014 10:29:03 GMT</pubDate>
+    <pubDate>Wed, 22 Jan 2014 21:40:13 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -23,7 +23,8 @@
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
       <description>Green Build Surprises</description>
-      <content:encoded><![CDATA[<p>Recently while working on our build process, I ran into an unexpected
+      <content:encoded><![CDATA[
+          <p>Recently while working on our build process, I ran into an unexpected
 surprise - the build server reported no error (i.e.: it was displaying a
 green status, since all tests were passing), yet there was a major issue
 - not all of our tests were run!</p>
@@ -40,7 +41,10 @@ hasn't come up, so while I hope it is obvious and not news for you, dear
 reader, I blog it just in case I wasn't the last to get the memo...</p>
 <p>And it turns out that every now and then we do mess up and commit code
 that makes some tests invisible to the test runner... So it wasn't just
-a one-off thing!</p>]]></content:encoded>
+a one-off thing!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Green Build Surprises</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
@@ -54,7 +58,8 @@ a one-off thing!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
-      <content:encoded><![CDATA[<p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
+      <content:encoded><![CDATA[
+          <p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
 End-to-End Testing</a> testing makes sense. In this post, I would
 like to take a step back and list a few additional benefits that could
 be derived from end to end testing in general, regardless of the fashion
@@ -167,7 +172,10 @@ you asked for is done).</p>
 <hr />
 <p>There must be many more ideas out there - let me know about them, and 
 I'm happy to add them to this list (or link to wherever you published
-it)!</p>]]></content:encoded>
+it)!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
@@ -180,7 +188,8 @@ it)!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
-      <content:encoded><![CDATA[<p>At the end of this post, there is a list of reasons why to work with 
+      <content:encoded><![CDATA[
+          <p>At the end of this post, there is a list of reasons why to work with 
 end-to-end tests, but first please consider the post's idea on its own.
 After that, I'm glad to have discussions about alternative/better 
 solutions to the described (or omitted) contexts.</p>
@@ -351,7 +360,10 @@ all listened to me while I tried to figure out how to explain this and
 gave feedback both about the content and the format (*). Thank you!</p>
 <hr />
 <p>(*) just to be crystal clear, this does not mean they endorsed it, 
-just that they listened and gave feedback!</p>]]></content:encoded>
+just that they listened and gave feedback!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">A New Look At End-to-End Testing - Polymorphic and Fast</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>CITCON Turin Session Notes</title>
@@ -362,7 +374,8 @@ just that they listened and gave feedback!</p>]]></content:encoded>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">AWskB6wuNpU0UUAq1fII-TJYmS0=</guid>
       <description>CITCON Turin Session Notes</description>
-      <content:encoded><![CDATA[<p>Finally got around to adding my notes for the <a href="/2013/09/30/citcon-turin-2013/">CITCON Turin 
+      <content:encoded><![CDATA[
+          <p>Finally got around to adding my notes for the <a href="/2013/09/30/citcon-turin-2013/">CITCON Turin 
 2013</a> sessions to the 
 <a href="http://citconf.com/wiki/index.php?title=CITCONEurope2013Sessions">wiki</a>.</p>
 <ul>
@@ -391,7 +404,10 @@ article quality, still much closer to raw notes/brain dumps. But it's
 much improved compared to the raw notes I had in my notebook. Having the
 handwritten pages only makes sure I know it is <em>not</em> DONE, which I might
 fall into thinking had I written directly into the wiki.</p>
-<p>Of course, that's just me, your mileage may vary!</p>]]></content:encoded>
+<p>Of course, that's just me, your mileage may vary!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/">CITCON Turin Session Notes</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>CITCON Turin 2013</title>
@@ -402,7 +418,8 @@ fall into thinking had I written directly into the wiki.</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">HBw_qzJLfvKDJyuEPItoFPtvMx8=</guid>
       <description>CITCON Turin 2013</description>
-      <content:encoded><![CDATA[<blockquote>
+      <content:encoded><![CDATA[
+          <blockquote>
 <p>Prior <a href="http://citconf.com/">CITCON</a> experience posts:</p>
 <ul>
 <li><a href="/2010/11/my-citcon-london-2010-experience.html">London 2010</a></li>
@@ -523,7 +540,10 @@ many topics!</p>
 <a href="http://citconf.com/wiki/">conf wiki</a> coming days, and once I digested all the feedback I 
 got during and outside the sessions, I will be writing up the <em>Tree 
 Optimized Test Runner</em> and the <em>app-test DSLs to have multiple drivers
-for a single TestCase</em> ideas in more detail.</p>]]></content:encoded>
+for a single TestCase</em> ideas in more detail.</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/">CITCON Turin 2013</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Teach me refactoring from my commits!</title>
@@ -536,7 +556,8 @@ for a single TestCase</em> ideas in more detail.</p>]]></content:encoded>
       <category><![CDATA[refactoring]]></category>
       <guid isPermaLink="false">GZ4JOnYZvQe5D8VUfKUh6eJAlkw=</guid>
       <description>Teach me refactoring from my commits!</description>
-      <content:encoded><![CDATA[<p>I find it hard to learn purely by abstract theory - I need practical 
+      <content:encoded><![CDATA[
+          <p>I find it hard to learn purely by abstract theory - I need practical 
 examples to illustrate the theory I just learned. I also need practice,
 and preferably, supervised practice, so my mistakes can be caught early
 and/or more efficient ways can be shown to achieve the same thing I just
@@ -571,7 +592,10 @@ learn new tricks, and newbies would be delivered concrete refactoring
 examples tailored to their very codebase.</p>
 <p>Please, someone with enough free time, go and make such an app!</p>
 <p>Does this idea make sense for you too, or just me? Let me know via email
-(hello at site domain) or on twitter (<a href="https://twitter.com/zsepi">@zsepi</a>)!</p>]]></content:encoded>
+(hello at site domain) or on twitter (<a href="https://twitter.com/zsepi">@zsepi</a>)!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/">Teach me refactoring from my commits!</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Quick script to help reporting bugs for python</title>
@@ -583,7 +607,8 @@ examples tailored to their very codebase.</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
-      <content:encoded><![CDATA[<div class="document">
+      <content:encoded><![CDATA[
+          <div class="document">
 <p>While poking around the
 <a class="reference external" href="https://pypi.python.org/pypi/testrepository/">testrepository</a>
 package I ran into the cryptic error message of <strong>'unicodeescape'
@@ -700,7 +725,10 @@ here, and I just want to echo back the command that was executed...</p>
 </ul>
 </div>
 </div>
-]]></content:encoded>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/">Quick script to help reporting bugs for python</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
@@ -713,7 +741,8 @@ here, and I just want to echo back the command that was executed...</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
       <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
-      <content:encoded><![CDATA[<p>This blog used to be two separate blogs, hosted at 
+      <content:encoded><![CDATA[
+          <p>This blog used to be two separate blogs, hosted at 
 <a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
 respectively. I've gone through some trouble to migrate their content,
 hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
@@ -771,7 +800,10 @@ policy!</p>
   broken links, custom reports, etc. I should probably mention the html
   template customizations here too, though you might be able to tell
   that is not yet the highest priority for me :)</li>
-</ul>]]></content:encoded>
+</ul>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/">Own your data (or why did I move away from Blogger and WordPress?)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Some Metaprogramming (Reflection) In Bash</title>
@@ -783,7 +815,8 @@ policy!</p>
       <category><![CDATA[software]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>
-      <content:encoded><![CDATA[<p>I needed to write a function in bash that would set an environment 
+      <content:encoded><![CDATA[
+          <p>I needed to write a function in bash that would set an environment 
 variable to that value, unless the variable has been already set. 
 This is a typical metaprogramming (reflection, introspection, etc.) 
 task. </p>
@@ -840,7 +873,10 @@ this</a>:</p>
 
 random_file_name FILE_NAME
 echo $FILE_NAME
-</code></pre>]]></content:encoded>
+</code></pre>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/">Some Metaprogramming (Reflection) In Bash</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
     <item>
       <title>Opening the 2013 paddling season on the Kocher</title>
@@ -851,7 +887,11 @@ echo $FILE_NAME
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2013/03/10/opening-the-2013-paddling-season-on-the-kocher/</guid>
       <description>Opening the 2013 paddling season on the Kocher</description>
       <content:encoded><![CDATA[
-I've just posted a brief description of our first trip of the season over at the <a href="http://www.songofthepaddle.co.uk/forum/showthread.php?40272-Opening-the-2013-season-on-the-Kocher-Braunsbach-to-K%FCnzelsau&amp;p=465323">Song of the Paddle</a> forum, check it out!]]></content:encoded>
+          
+I've just posted a brief description of our first trip of the season over at the <a href="http://www.songofthepaddle.co.uk/forum/showthread.php?40272-Opening-the-2013-season-on-the-Kocher-Braunsbach-to-K%FCnzelsau&amp;p=465323">Song of the Paddle</a> forum, check it out!
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2013/03/10/opening-the-2013-paddling-season-on-the-kocher/">Opening the 2013 paddling season on the Kocher</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
     </item>
   </channel>
 </rss>
