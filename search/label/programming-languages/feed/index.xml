@@ -10,10 +10,103 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 22 Jan 2014 21:40:13 GMT</pubDate>
+    <pubDate>Fri, 31 Jan 2014 10:49:58 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Why I chose Elixir to learn this year (and initial impressions)</title>
+      <link>http://blog.zsoldosp.eu/2014/01/31/why-i-chose-elixir-to-learn-this-year-and-initial-impressions/</link>
+      <pubDate>Fri, 31 Jan 2014 11:46:00 CET</pubDate>
+      <category><![CDATA[elixir]]></category>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">_J8kM8aoHGnkBPYQ285TytaSHOE=</guid>
+      <description>Why I chose Elixir to learn this year (and initial impressions)</description>
+      <content:encoded><![CDATA[
+          <p>Because I liked the color. Just kidding - but I didn't invest too much
+time into making the choice - though I'm sure that all the things I read
+or heard during this past year influenced me.</p>
+<p>It quickly boiled down to <a href="http://golang.org/">Go</a> or <a href="http://www.elixir-lang.org/">Elixir</a></p>
+<p>Elixir won because:</p>
+<ul>
+<li><a href="https://youtu.be/hht9s6nAAx8">Prag Dave recommends it</a></li>
+<li>I wanted to finally follow through on a functional language (
+  I've played with <a href="http://www.scala-lang.org/">Scala</a> and <a href="http://fsharp.org/">F#</a> before, but
+  somehow I didn't fall in love)</li>
+<li>For one reason or another I never got excited about <a href="https://www.ruby-lang.org/en/">Ruby</a>, 
+  but people keep telling me how nice its syntax is, and Elixir's
+  is inspired by Ruby's, so I should get a taste. And semicolons are
+  not required!</li>
+<li>it's running on the Erlang VM, which seems to be quite different
+  from the things I've used in the past</li>
+</ul>
+<h2 id="first-impressions">First impressions</h2>
+<p>So far, I haven't yet finished the second page of the <a href="http://elixir-lang.org/getting_started/1.html">tutorial</a>,
+have solved the first few <a href="https://projecteuler.net">Euler problems</a>, subscribed to the 
+<a href="http://groups.google.com/group/elixir-lang-talk">elixir-talk</a> mailing list, and have asked for help on the IRC
+channel. So I'm quite at the beginning.</p>
+<p>Some of the things that were a "culture shock" or at least 
+unexpected/confusing for me were:</p>
+<ul>
+<li>To quit the REPL (<code>iex</code>), one has to do <code>CTRL-C</code>. Not <code>CTRL-D</code>, 
+   or type exit. Since at first I didn't read the startup message,
+   I had the "get me out of here" desperation first time <a href="http://www.vim.org/">Vim</a>
+   users are famous for.</li>
+<li>Different types require different pattern matching - 
+  <code>{head | tail } = {1, 2, 3}</code> does not work, it only works on lists
+  <code>[head | tail ] = [1, 2, 3]</code>.</li>
+<li>Operators that should be the same are not. For concatenating strings,
+   you use <code>&lt;&gt;</code>, but for joining two lists, you use <code>++</code>. My python
+   roots rebel - even if this likely provides helpful type
+   hints once I'm familiar with it</li>
+<li>Strong (<code>and</code>, <code>or</code>, and <code>not</code>) and weak (<code>&amp;&amp;</code>, <code>||</code>, and <code>!</code>)
+   boolean comparisons. I'm quite afraid of the mistakes I'll go,
+   not realizing whether I check for strict boolean values or just 
+   against <code>nil/false</code>. Scary...</li>
+<li>Unlike in Python, the REPL (<code>iex</code>) and the script executor (<code>elixir</code>)
+   are two separate commands.</li>
+<li>There are no semicolons alright, but there are too many <code>end</code>s required
+   for my taste. Python did spoil me in this aspect...</li>
+<li>Blocks need to be parenthesized properly otherwise some nasty surprises
+   happen, e.g.: <code>is_number if true do 1 + 2 end</code> is parsed as
+   <code>is_number(if true) do 1 + 2 end</code></li>
+<li>Pattern matching is powerful on one hand, but quite limited in others.
+   Probably once I understand how it works, I won't try to do things like<br>
+   <code>a = 1</code><br>
+   <code>(^a + 1) = 2</code><br> as match. Though I'm still curious why
+   <code>^a = (2 - 1)</code> works</li>
+<li>Guard clauses - probably the list of what you can and cannot do is due
+   to some Erlang VM internals, but I dislike memorizing things...</li>
+<li>Maybe it's too early for me to read <a href="https://github.com/elixir-lang/elixir/blob/master/CHANGELOG.md#v0123-dev">release notes</a> - reading
+   "The list <code>[1, 2, three: :four]</code> now correctly expands to 
+   <code>[1, 2, {:three, :four}]</code>" makes me feel again that I have to be super
+   careful when reading code...</li>
+</ul>
+<p>But there are really nice and fun moments, such as:</p>
+<ul>
+<li>The installation was easy - thanks to <a href="http://devblog.avdi.org/2013/07/05/installing-elixir-on-ubuntu-13-04/">Avdi Grim's post</a>.</li>
+<li>I was able to quickly understand the structure of the exceptions -
+   the &lt;function name&gt;/&lt;N&gt; refers to the number of arguments
+   of the function.</li>
+<li>Nice utf support - though since all strings are bytes, I have to keep
+   this in mind for pattern matching - <code>&lt;&lt;f, rest :: binary&gt;&gt;</code> matches
+   differently from <code>&lt;&lt;f :: utf8, rest :: binary &gt;&gt;</code>. So maybe this belongs
+   to the above list :)</li>
+<li>I love how anonymous functions can be turned into full blocks, unlike in
+   Python.</li>
+<li><code>fib = Stream.unfold({0, 1}, fn {a, b} -&gt; {a, {b, a + b}} end)</code></li>
+<li><code>#elixirlang</code> on freenode is great and super helpful</li>
+</ul>
+<h2 id="in-summary">In summary</h2>
+<p>"It's your foot". But I'll keep with learning the language, for I know a ton 
+of people who can't imagine writing maintainable programs without static type
+checking, yet I know it's possible. Back in the days of <a href="http://thatextramile.be/blog/2010/01/as-a-movement-alt-net-has-been-dead-for-a-while">Alt.NET</a>,
+the motto was that we are adults, so we can use knives and scissors...</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/01/31/why-i-chose-elixir-to-learn-this-year-and-initial-impressions/">Why I chose Elixir to learn this year (and initial impressions)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>When in Rome, do as the Romans do</title>
       <link>http://blog.zsoldosp.eu/2010/12/when-in-rome-do-as-romans-do.html</link>
