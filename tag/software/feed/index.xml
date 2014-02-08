@@ -10,10 +10,159 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 31 Jan 2014 10:49:58 GMT</pubDate>
+    <pubDate>Sat, 08 Feb 2014 14:26:49 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</title>
+      <link>http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/</link>
+      <pubDate>Sat, 08 Feb 2014 15:10:00 CET</pubDate>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[elixir]]></category>
+      <category><![CDATA[oop]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">4mQOP4Y091_HZpmnEdjhq0LThyc=</guid>
+      <description>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</description>
+      <content:encoded><![CDATA[
+          <div class="document">
+<p>I was struggling to understand <a class="reference external" href="http://stackoverflow.com/questions/18011784/why-are-there-two-kinds-of-functions-in-elixir/18023790#18023790">the differences between anonymous
+and named functions</a>
+in Elixir - only to eventually realize that a lot of it is due
+to the incorrect mental model I had about <a class="reference external" href="https://en.wikipedia.org/wiki/Method_overloading">method overloading</a>
+from before.</p>
+<p>As the saying goes, <em>&quot;for every hard problem, there is a logical, yet
+completely wrong explanation&quot;</em>.</p>
+<div class="section" id="examples-of-function-arity-overloading">
+<h1>Examples of function arity overloading</h1>
+<p><em>Arity is just the term used to refer to the number of arguments the
+function has.</em></p>
+<p><strong>Java</strong></p>
+<pre class="code java literal-block">
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingArity</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">join</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="s">&quot; &quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">,</span> <span class="n">String</span> <span class="n">sep</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s%s%s&quot;</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">sep</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+<p><strong>Elixir</strong></p>
+<pre class="code elixir literal-block">
+<span class="k">defmodule</span> <span class="no">MethodOverloadingArity</span> <span class="k">do
+
+    def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">do
+        </span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span> <span class="k">do
+        </span><span class="n">a</span> <span class="o">&lt;&gt;</span> <span class="n">sep</span> <span class="o">&lt;&gt;</span> <span class="n">b</span>  <span class="c1"># string concatenation</span>
+    <span class="k">end</span>
+
+<span class="k">end</span>
+</pre>
+</div>
+<div class="section" id="my-wrong-mental-model">
+<h1>My wrong mental model</h1>
+<p>I was thinking that since in interviews, tutorials, etc. method
+overloading always comes up, there must be something special about it.
+It makes for dynamic dispatch - which gets bound at compile time in
+regular Java, but when invoked dynamically, it will resolve to the
+appropriate overload. I.e.: the following pseudocode would be valid:</p>
+<pre class="code elixir literal-block">
+<span class="n">foo</span> <span class="o">=</span> <span class="no">MethodOverloadingArity</span><span class="o">.</span><span class="n">join</span>
+<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">)</span>
+</pre>
+<p>You can tell just from the heading that of course, it's is not valid.
+And this is what we get from Elixir:</p>
+<pre class="literal-block">
+** (UndefinedFunctionError) undefined function: MethodOverloadingArity.join/0
+    MethodOverloadingArity.join()
+    MethodOverloadingArity.exs:13: (file)
+    (elixir) src/elixir_lexical.erl:17: :elixir_lexical.run/2
+    (elixir) lib/code.ex:301: Code.require_file/2
+
+
+</pre>
+<p>In the language, the functions are only unique with the combination of
+the function name and the number of arguments - it fails because it
+cannot find an overload which takes 0 arguments. Thus at the time I
+store a reference to it in a variable, I have to resolve the arity.</p>
+<p>Initially I thought it's just a special behavior for Elixir (Erlang),
+so I set out to explore how it works in Java</p>
+<pre class="code java literal-block">
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.IllegalArgumentException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingMain</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&quot;MethodOverloadingArity&quot;</span><span class="o">);</span>
+        <span class="n">Method</span><span class="o">[]</span> <span class="n">declaredMethods</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getDeclaredMethods</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Method</span> <span class="n">method</span> <span class="o">:</span> <span class="n">declaredMethods</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">!=</span> <span class="s">&quot;join&quot;</span><span class="o">)</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (2 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (2 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">,</span> <span class="s">&quot; - &quot;</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (3 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (3 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+<p>(<em>Yes, it reminds me how much more elegant metaprogramming is in Python.
+But Python has no method overloading</em>)</p>
+<p>To my surprise (though in retrospect, it's obvious), arity also plays a
+role in identifying methods in Java - notice how there are two methods
+returned:</p>
+<pre class="literal-block">
+public static java.lang.String MethodOverloadingArity.join(java.lang.String,java.lang.String)
+... invocation result (2 args): first second
+... (3 args) java.lang.IllegalArgumentException: wrong number of arguments
+public static java.lang.String MethodOverloadingArity.join(java.lang.String,java.lang.String,java.lang.String)
+... (2 args) java.lang.IllegalArgumentException: wrong number of arguments
+... invocation result (3 args): first - second
+
+</pre>
+<p>So in Java function overloading works the exact same way as it does in
+Elixir (and based on my quick hallway research, in most other languages)
+- an actual method is only identified by its name and arity (and in typed
+languages, by type). Thus there is no dynamic method invocation based on
+just its name.</p>
+<p>So method overloading is just a convention, or if you wish to call it, a
+hack.  I wish I learned of name and arity instead of method overloading
+first!</p>
+<p><em>This is yet another example why learning other languages benefits you even
+if you won't end up using the new language in your day job!</em></p>
+<p>With regardso to using method overloading, I think I prefer the Ruby/Python
+approach - one name, one function, period. For most usecases, default argument
+values allow for enough flexibility, and prevent abuse of this convention
+(giving two wildly different implementations for the various overloads).</p>
+<p><em>Disclaimer</em>: of course, I might still be entirely wrong. If so, please let
+me know!</p>
+<p>Also, I would like to thank <em>chrismccord</em>, <em>josevalim</em>, and <em>ericmj</em> from
+the <cite>#elixir-lang</cite> IRC channel for patiently putting up with me and
+helping me understand all this.</p>
+</div>
+</div>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/">What Elixir Taught Me About Java - Method Overloading Is Just a Convention</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>Why I chose Elixir to learn this year (and initial impressions)</title>
       <link>http://blog.zsoldosp.eu/2014/01/31/why-i-chose-elixir-to-learn-this-year-and-initial-impressions/</link>
@@ -198,8 +347,7 @@ suggests one of two things: </p>
 </ol>
 <p>Often the helper methods created can expose the need for additional 
 support interfaces that won't probably come up during the specifications
-phase, only after go-live.<br />
-</p>
+phase, only after go-live.  </p>
 <p>Last, but not least, end-to-end gives us tests for the UI, yet the tests
 remain maintainable - usually a single test API method is all that needs
 to be fixed after template changes (and designers are even harder to get
@@ -917,36 +1065,6 @@ echo $FILE_NAME
 </code></pre>
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/">Some Metaprogramming (Reflection) In Bash</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Continuous Team Switching?</title>
-      <link>http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html</link>
-      <pubDate>Sat, 19 Jan 2013 13:35:00 CET</pubDate>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[programming]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html</guid>
-      <description>Continuous Team Switching?</description>
-      <content:encoded><![CDATA[
-          
-<a href="http://douglassquirrel.com/">Douglas Squirrel</a> led <a href="http://www.citconf.com/wiki/index.php?title=Continuous_rewriting">a session at CITCON Budapest 2012 about Continuous Rewriting</a>, summarizing many ideas I've heard before from <a href="http://vimeo.com/43659070">Dan North</a> or <a href="http://forwardtechnology.co.uk/videos/32447325">Fred George</a> presentations into a really coherent evolutionary progression,  and took the concept even further. <br/><br/>Like other <em>Continuous</em> practices, this would be as much a  technical as an organizational-cultural change. It got me thinking about how this would change the team dynamics - not just inside a team, but in the context of the bigger organization.<br/><br/>The various <em>Continuous</em> practices always came about the realization that when something is rarely done, people will be bad at it and thus  it will be hard, ineffective and error prone. Thus if we simply do it  more often, we would get better at it.<br/><br/>Joining a new team and becoming an effective contributor is a process that is in need of improvement (on most teams). Getting to grips with the inherent domain complexity and the piled on technical complexity, learning the tricks and workarounds, etc. can hold back someone from being efficient for quite a while. On the other hand, having a fresh set of eyes can provide  a new perspective and expose much of the technical debt the team has.<br/><br/>All the continuous rewrite examples so far have reduced the code size, making it understandable (though often this reduction came thanks to better understanding of the domain).<br/><br/>Assuming the reduced code size enables speedier onboarding of new team members,  while still benefiting from the new perspective it brings, what would  more frequently rotating in and out rotation team members (while never completely  replacing any one team) result in?<br/><ul><li>Could this make spreading of ideas and practices within a company    more effective and faster than the current silo'd, departmental setups?</li><li>Would it speed up the on the job, just in time learning of every<br/>  developer in the company?</li><li>Would it improve the skill level of every developer, or would it   drag everyone down?</li><li>Would it strengthen the company culture, simply since each person    would know more other employees (given that many of us only socialize    within our own team)? </li><li>Would it spark more cross-departmental improvements - unlike    accountants or marketers, developers can jump between various areas    and domains of the company with relative ease, and thus could see    potential improvements. Would this make crazy IT processes (where the data   passes through, without enhancement, several different teams and applications,   modified effectively by only one at the middle, then be loaded back into    the original source) extinct, making IT governance easier?</li></ul>I don't know. But it certainly was a fun thought experiment! Feel free to add questions to the above list in the comments!
-<hr><ol>
-<li id="1">
-    <strong><a href="http://www.odd-e.com">Steven</strong></a> on <em>2013/01/19 15:42:41</em>: There are studies found that stable teams can improve as long as 3 years. From that I would recommend stable teams over switching team members in and out.
-<ol>
-<li id="1-1">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2013/01/19 17:08:12</em>: Steve,<br/><br/>thanks for the input! Could you give some pointers for these studies (titles or links)?<br/><br/>I don't understand your second sentence (not a native English speaker) - you suggest that based on these studies, having a stable team is better/more effective/etc. than having constantly changing team members (the thought experiment of this post)?
-</li></ol></li><li id="2">
-    <strong><a href="http://tamasrev.wordpress.com/">tamasrev</strong></a> on <em>2013/01/21 21:22:23</em>: Wow, this makes sense.<br/><br/>Let me add some anecdotal evidence: Every time I'm joining a team, I start to see tons of technical debt. Later I'm getting used to it. Sometimes I even miss the old code when switching to something new. This is the thing that makes _some_ outsourcing veterans (i.e. EPAM alumni) very efficient.
-</li><li id="3">
-    <strong><a href="/">Peter Zsoldos</strong></a> on <em>2013/01/23 20:38:18</em>: what is the thing that makes outsourcing veterans efficient? The ability to enter any codebase and identify the place(s) that need changing for the new feature/project? <br/><br/>To add to the anecdotes (hoping @jasongorman doesn't read comments :)) - you don't need outsourcing for that, enough if you work on maintenance teams that are responsible for more than one application. Though it might be more a question of attitude and/or confidence than experience with switches. E.g.: I never hesitate to follow a stacktrace into 3rd party code (or find out why I *don't* have a stacktrace) or simply load the source to compensate the unhelpful documentation. Kind of like the difference between junior and senior developers is that the latter are not afraid to voice their opinions/questions...
-</li><li id="4">
-    <strong><a href="http://tamasrev.wordpress.com/">tamasrev</strong></a> on <em>2013/01/29 19:37:44</em>: Didn't the blog just swallowed my comment? Here it is again:<br/><br/>What makes outsourcing veterans very efficient that they have to work with and maintain several projects written by other people. They will learn both continuously improve the code as well as do fuckin quick fixes. They also learn how to adapt to different coding styles they see in their project pool. They can relatively quickly identify the problematic parts of a codebase and they can come up with change suggestions. However, a typical outsourcing consumer isn't interested in their opinion.<br/><br/>It's worth to mention that outsourcing veterans only have a *chance* to learn all this stuff. They can also burn out due to the mind-numbing tasks they have to do.
-</li></ol>
-
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2013/01/continuous-team-switching.html">Continuous Team Switching?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>

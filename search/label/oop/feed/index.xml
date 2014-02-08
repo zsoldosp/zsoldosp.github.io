@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Do. Reflect. Learn. Repeat!</title>
+    <link>http://blog.zsoldosp.eu</link>
+    <description>Excercises in public learning</description>
+    <pubDate>Sat, 08 Feb 2014 14:26:49 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</title>
+      <link>http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/</link>
+      <pubDate>Sat, 08 Feb 2014 15:10:00 CET</pubDate>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[elixir]]></category>
+      <category><![CDATA[oop]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">4mQOP4Y091_HZpmnEdjhq0LThyc=</guid>
+      <description>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</description>
+      <content:encoded><![CDATA[
+          <div class="document">
+<p>I was struggling to understand <a class="reference external" href="http://stackoverflow.com/questions/18011784/why-are-there-two-kinds-of-functions-in-elixir/18023790#18023790">the differences between anonymous
+and named functions</a>
+in Elixir - only to eventually realize that a lot of it is due
+to the incorrect mental model I had about <a class="reference external" href="https://en.wikipedia.org/wiki/Method_overloading">method overloading</a>
+from before.</p>
+<p>As the saying goes, <em>&quot;for every hard problem, there is a logical, yet
+completely wrong explanation&quot;</em>.</p>
+<div class="section" id="examples-of-function-arity-overloading">
+<h1>Examples of function arity overloading</h1>
+<p><em>Arity is just the term used to refer to the number of arguments the
+function has.</em></p>
+<p><strong>Java</strong></p>
+<pre class="code java literal-block">
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingArity</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">join</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="s">&quot; &quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">,</span> <span class="n">String</span> <span class="n">sep</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s%s%s&quot;</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">sep</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+<p><strong>Elixir</strong></p>
+<pre class="code elixir literal-block">
+<span class="k">defmodule</span> <span class="no">MethodOverloadingArity</span> <span class="k">do
+
+    def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">do
+        </span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span> <span class="k">do
+        </span><span class="n">a</span> <span class="o">&lt;&gt;</span> <span class="n">sep</span> <span class="o">&lt;&gt;</span> <span class="n">b</span>  <span class="c1"># string concatenation</span>
+    <span class="k">end</span>
+
+<span class="k">end</span>
+</pre>
+</div>
+<div class="section" id="my-wrong-mental-model">
+<h1>My wrong mental model</h1>
+<p>I was thinking that since in interviews, tutorials, etc. method
+overloading always comes up, there must be something special about it.
+It makes for dynamic dispatch - which gets bound at compile time in
+regular Java, but when invoked dynamically, it will resolve to the
+appropriate overload. I.e.: the following pseudocode would be valid:</p>
+<pre class="code elixir literal-block">
+<span class="n">foo</span> <span class="o">=</span> <span class="no">MethodOverloadingArity</span><span class="o">.</span><span class="n">join</span>
+<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">)</span>
+</pre>
+<p>You can tell just from the heading that of course, it's is not valid.
+And this is what we get from Elixir:</p>
+<pre class="literal-block">
+** (UndefinedFunctionError) undefined function: MethodOverloadingArity.join/0
+    MethodOverloadingArity.join()
+    MethodOverloadingArity.exs:13: (file)
+    (elixir) src/elixir_lexical.erl:17: :elixir_lexical.run/2
+    (elixir) lib/code.ex:301: Code.require_file/2
+
+
+</pre>
+<p>In the language, the functions are only unique with the combination of
+the function name and the number of arguments - it fails because it
+cannot find an overload which takes 0 arguments. Thus at the time I
+store a reference to it in a variable, I have to resolve the arity.</p>
+<p>Initially I thought it's just a special behavior for Elixir (Erlang),
+so I set out to explore how it works in Java</p>
+<pre class="code java literal-block">
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.IllegalArgumentException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingMain</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&quot;MethodOverloadingArity&quot;</span><span class="o">);</span>
+        <span class="n">Method</span><span class="o">[]</span> <span class="n">declaredMethods</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getDeclaredMethods</span><span class="o">();</span>
+        <span class="k">for</span><span class="o">(</span><span class="n">Method</span> <span class="n">method</span> <span class="o">:</span> <span class="n">declaredMethods</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">!=</span> <span class="s">&quot;join&quot;</span><span class="o">)</span>
+                <span class="k">continue</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (2 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (2 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">,</span> <span class="s">&quot; - &quot;</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (3 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (3 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre>
+<p>(<em>Yes, it reminds me how much more elegant metaprogramming is in Python.
+But Python has no method overloading</em>)</p>
+<p>To my surprise (though in retrospect, it's obvious), arity also plays a
+role in identifying methods in Java - notice how there are two methods
+returned:</p>
+<pre class="literal-block">
+public static java.lang.String MethodOverloadingArity.join(java.lang.String,java.lang.String)
+... invocation result (2 args): first second
+... (3 args) java.lang.IllegalArgumentException: wrong number of arguments
+public static java.lang.String MethodOverloadingArity.join(java.lang.String,java.lang.String,java.lang.String)
+... (2 args) java.lang.IllegalArgumentException: wrong number of arguments
+... invocation result (3 args): first - second
+
+</pre>
+<p>So in Java function overloading works the exact same way as it does in
+Elixir (and based on my quick hallway research, in most other languages)
+- an actual method is only identified by its name and arity (and in typed
+languages, by type). Thus there is no dynamic method invocation based on
+just its name.</p>
+<p>So method overloading is just a convention, or if you wish to call it, a
+hack.  I wish I learned of name and arity instead of method overloading
+first!</p>
+<p><em>This is yet another example why learning other languages benefits you even
+if you won't end up using the new language in your day job!</em></p>
+<p>With regardso to using method overloading, I think I prefer the Ruby/Python
+approach - one name, one function, period. For most usecases, default argument
+values allow for enough flexibility, and prevent abuse of this convention
+(giving two wildly different implementations for the various overloads).</p>
+<p><em>Disclaimer</em>: of course, I might still be entirely wrong. If so, please let
+me know!</p>
+<p>Also, I would like to thank <em>chrismccord</em>, <em>josevalim</em>, and <em>ericmj</em> from
+the <cite>#elixir-lang</cite> IRC channel for patiently putting up with me and
+helping me understand all this.</p>
+</div>
+</div>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/">What Elixir Taught Me About Java - Method Overloading Is Just a Convention</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
+  </channel>
+</rss>

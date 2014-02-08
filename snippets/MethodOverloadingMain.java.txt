@@ -1,0 +1,6 @@
+public static java.lang.String MethodOverloadingArity.join(java.lang.String,java.lang.String)
+... invocation result (2 args): first second
+... (3 args) java.lang.IllegalArgumentException: wrong number of arguments
+public static java.lang.String MethodOverloadingArity.join(java.lang.String,java.lang.String,java.lang.String)
+... (2 args) java.lang.IllegalArgumentException: wrong number of arguments
+... invocation result (3 args): first - second
