@@ -10,10 +10,290 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 08 Feb 2014 14:26:49 GMT</pubDate>
+    <pubDate>Sat, 15 Feb 2014 16:12:45 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>End-to-End Testing - A Code Example</title>
+      <link>http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/</link>
+      <pubDate>Sat, 15 Feb 2014 17:15:00 CET</pubDate>
+      <category><![CDATA[django]]></category>
+      <category><![CDATA[end-to-end]]></category>
+      <category><![CDATA[code]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">VQdt1K4VFfD0lxpX8wRk-1HuUSE=</guid>
+      <description>End-to-End Testing - A Code Example</description>
+      <content:encoded><![CDATA[
+          <div class="document">
+<dl class="docutils">
+<dt>Prior posts in <a class="reference external" href="/category/end-to-end/">this series</a>:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">A New Look At End-to-End Testing - Polymorphic and Fast</a></li>
+<li><a class="reference external" href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a></li>
+</ul>
+</dd>
+</dl>
+<p>Abstract concepts are always easier to learn with concrete examples.
+This is the first code-heavy post in the series, and it is intended to
+illustrate the mechanics of the concept, not yet how it is applied to
+the problem domain. For this reason, I use the example of <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci
+Numbers</a>, with a naive
+implementation - the business logic is not the emphasis here, but how we
+test them on multiple levels.</p>
+<p>I chose <a class="reference external" href="https://www.djangoproject.com/">Django</a> to write the code,
+in because of its lovely built in end-to-end testing support, but
+knowing that not everyone is a Django developer (yet!), I chose <em>not</em>
+to use any of the more idiomatic <a class="reference external" href="https://docs.djangoproject.com/en/1.6/topics/class-based-views/">Django class based views</a>,
+since the purpose of this post is not to teach idiomatic Django.</p>
+<p>Enough of the disclaimers, on to the code!</p>
+<div class="section" id="the-specs-for-the-app">
+<h1>The Specs for the App</h1>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">FibonacciCalculatorTests</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">test_cannot_calculate_sequence_elements_less_than_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_can_calculate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_currently_we_cannot_calculate_numbers_greater_than_10</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_can_calculate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="mi">7895</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_can_calculate_the_first_ten_fibonacci_numbers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_can_only_calculate_fibonacci_for_integers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="s">'not a number'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">assert_can_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNotNone</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre>
+<p>We'll get to the implementation of <strong>assert_cannot_calculate</strong> next.</p>
+</div>
+<div class="section" id="the-business-logic">
+<h1>The Business Logic</h1>
+<p>Let's add the actual test implementation</p>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">simple_fibonacci</span> <span class="kn">import</span> <span class="n">calculator</span><span class="p">,</span> <span class="n">urls</span>
+
+
+<span class="k">class</span> <span class="nc">InMemory</span><span class="p">(</span><span class="n">FibonacciCalculatorTests</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">assert_cannot_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">calculator</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre>
+<p>Followed by the calculator fibonacci logic</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c"># don't do this in production</span>
+    <span class="c"># use https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">'value (</span><span class="si">%r</span><span class="s">) too low'</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">'value (</span><span class="si">%r</span><span class="s">) too high'</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</pre>
+</div>
+<div class="section" id="this-is-a-webservice-let-s-test-the-json-api">
+<h1>This is a webservice, let's test the JSON API!</h1>
+<p>You can probably guess, this is where we add the second implementation
+for the FibonacciCaulcatorTests:</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">simple_fibonacci</span>
+<span class="kn">from</span> <span class="nn">django.test.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="k">class</span> <span class="nc">JsonHttpResponse</span><span class="p">(</span><span class="n">FibonacciCalculatorTests</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="n">urls</span> <span class="o">=</span> <span class="n">simple_fibonacci</span><span class="o">.</span><span class="n">urls</span>
+
+    <span class="k">def</span> <span class="nf">assert_cannot_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_parsed_json_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s">'result'</span> <span class="ow">in</span> <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s">'ERROR'</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'status'</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">get_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_parsed_json_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s">'error'</span> <span class="ow">in</span> <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s">'OK'</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'status'</span><span class="p">],</span> <span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'result'</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_fibonacci_parsed_json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s">'fibonacci'</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">},</span> <span class="n">HTTP_ACCEPT</span><span class="o">=</span><span class="s">'application/json'</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">allowed_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">'status'</span><span class="p">,</span> <span class="s">'n'</span><span class="p">,</span> <span class="s">'error'</span><span class="p">,</span> <span class="s">'result'</span><span class="p">])</span>
+        <span class="n">data_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="nb">set</span><span class="p">([]),</span> <span class="n">data_keys</span> <span class="o">-</span> <span class="n">allowed_keys</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s">'n'</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">data</span>
+</pre>
+<p>As you can see, on top of the assertions in the base class, I've added
+a few additional assertions, for the api contract (invariants) - this
+api shouldn't return extra fields, or if it does, I should be notified
+and then decided whether that's a bug that needs correction or a feature,
+in which case I'll adjust the <strong>allowed_keys</strong> variable</p>
+<p>And here is the implementation:</p>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">View</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">simple_fibonacci</span> <span class="kn">import</span> <span class="n">calculator</span>
+
+
+<span class="k">class</span> <span class="nc">FibonacciView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">'n'</span><span class="p">]</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_response_content_and_type_function</span><span class="p">(</span><span class="n">request</span><span class="p">)(</span>
+                <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_response</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_response_content_and_type_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_response</span>
+
+    <span class="k">def</span> <span class="nf">json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="n">response_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'ERROR'</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'OK'</span>
+            <span class="n">response_data</span><span class="p">[</span><span class="s">'result'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response_data</span><span class="p">),</span> <span class="s">'application/json'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">response</span><span class="p">[</span><span class="s">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">content_type</span>
+        <span class="k">return</span> <span class="n">response</span>
+</pre>
+</div>
+<div class="section" id="let-s-expose-this-feature-to-normal-user-as-html">
+<h1>Let's expose this feature to normal user as HTML!</h1>
+<p>The order of the events is sometimes the other way around, but sooner
+or later the point comes when the same functionality must be exposed
+through a different channel - whether it's a simplified/more efficient
+power user interface for your internal support people as opposed to
+your first time customers through the public web shop, or adding a
+mobile app for your web service, it will happen. And it's nice to know
+we can execute the same set of tests against all implementations.</p>
+<p>Let's update the tests first:</p>
+<pre class="code python literal-block">
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">class</span> <span class="nc">HtmlUserFriendlyHttpResponse</span><span class="p">(</span><span class="n">FibonacciCalculatorTests</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="n">urls</span> <span class="o">=</span> <span class="n">urls</span>
+
+    <span class="k">def</span> <span class="nf">assert_cannot_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;error&quot;&gt;'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;success&quot;&gt;'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;success&quot;&gt;'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;error&quot;&gt;'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span>
+            <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+                <span class="s">r'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+            <span class="p">)</span> <span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">get_fibonacci_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s">'fibonacci'</span><span class="p">)</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">HTTP_ACCEPT</span><span class="o">=</span><span class="s">'text/html'</span><span class="p">)</span>  <span class="c"># as the user, we first load the page</span>
+        <span class="n">post_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">},</span> <span class="n">HTTP_ACCEPT</span><span class="o">=</span><span class="s">'text/html'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s">'text/html'</span><span class="p">,</span> <span class="n">post_response</span><span class="p">[</span><span class="s">'Content-Type'</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">post_response</span>
+</pre>
+<p>And update our implementation:</p>
+<pre class="code python literal-block">
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">View</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">simple_fibonacci</span> <span class="kn">import</span> <span class="n">calculator</span>
+
+
+<span class="k">class</span> <span class="nc">FibonacciView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">'n'</span><span class="p">]</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span> <span class="o">=</span> \
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_response_content_and_type_function</span><span class="p">(</span><span class="n">request</span><span class="p">)(</span>
+                <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_response</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_response_content_and_type_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_response</span>
+
+    <span class="k">def</span> <span class="nf">json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="n">response_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'ERROR'</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'OK'</span>
+            <span class="n">response_data</span><span class="p">[</span><span class="s">'result'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response_data</span><span class="p">),</span> <span class="s">'application/json'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">response</span><span class="p">[</span><span class="s">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">content_type</span>
+        <span class="k">return</span> <span class="n">response</span>
+</pre>
+<hr class="docutils" />
+<p>That's the concept. The <a class="reference external" href="/category/end-to-end/">series</a> will
+continue with me developing an app, and sharing relevant snippets
+and lessons learned from that project. Stay tuned!</p>
+</div>
+</div>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/">End-to-End Testing - A Code Example</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</title>
       <link>http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/</link>
@@ -969,81 +1249,6 @@ here, and I just want to echo back the command that was executed...</p>
 
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/">Quick script to help reporting bugs for python</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
-      <link>http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
-      <pubDate>Sun, 04 Aug 2013 14:25:00 CEST</pubDate>
-      <category><![CDATA[blog]]></category>
-      <category><![CDATA[outdoors]]></category>
-      <category><![CDATA[data]]></category>
-      <category><![CDATA[ownership]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
-      <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
-      <content:encoded><![CDATA[
-          <p>This blog used to be two separate blogs, hosted at 
-<a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
-respectively. I've gone through some trouble to migrate their content,
-hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
-based setup. In the process, I have lost a considerable number of 
-features and conveniences - so why did I do this?</p>
-<h2 id="owning-my-data-and-platform">Owning my data and platform</h2>
-<p>As the saying goes, there is no such thing as a free lunch (or put more
-bluntly, if you are not paying for it, <em>you</em> are the product being 
-sold). A prime example is <a href="http://wordpress.com">WordPress.com</a>, which reserves the
-right to display ads on your freely hosted blog, while <a href="http://blogger.com">Blogger</a>
-probably enhances their advertisement profile of you - I don't know.</p>
-<p>Even if these platforms don't do anything bad at the moment, they can
-pretty much change the features available to you, or any other aspects
-of their terms of service - remember that story about the 
-<a href="http://news.cnet.com/8301-1023_3-57560370-93/instagram-rolls-back-terms-of-service-after-ownership-dustup/">Instagram ToS change regarding commercial use of your photos</a>?
-Sure, it turned out to be a misunderstanding and/or they backed down,
-but theoretically they can do it.</p>
-<p>Of course, this wasn't a concern when I started out with blogging, but 
-certainly is something to consider now that I am nearing post #42. </p>
-<p>These considerations are of course applicable for other service 
-providers beyond blogging, e.g.:</p>
-<ul>
-<li>(sports) tracking applications - while I have not yet gotten around 
-  to building up a website like <a href="http://www.susi-ralf.de/index.html">Suzi &amp; Ralf</a>, but I know 
-  eventually I will want to create something with the trails of all the
-  places I've been to, whether for fun or for an anniversary gift or
-  similar - and most sites make it rather hard to export your data 
-  conveniently (<a href="http://endomondo.com">endomondo</a> is particularly annoying, so I'm 
-  real grateful for the easy zip-export of <a href="http://runkeeper.com">runkeeper</a>!)</li>
-<li>social networks - does <a href="http://linkedin.com">LinkedIn</a>, <a href="http://facebook.com">Facebook</a>, 
-  <a href="http://xing.com">Xing</a>, etc. allow you to easily export your contacts and their
-  contact details? I would be pretty upset to find myself without a 
-  personal copy of that data</li>
-</ul>
-<p>Of course, I keep using services hosted by others, but I try to make 
-sure I use one with a friendly <a href="http://www.dataliberation.org/">data liberation</a>
-policy!</p>
-<h2 id="other-considerations">Other considerations</h2>
-<ul>
-<li><strong>backup</strong> - sure, it's almost a repeat of the prior point, but worth 
-  noting. It doesn't happen as often as before, but there is always the
-  possibility of <a href="http://blog.theoldreader.com/post/56209408824/important-update">data loss or service outage</a></li>
-<li><strong>version control</strong> - being a software developer, this is almost 
-  second nature to me - it's incredibly liberating to be able to throw
-  all my changes away and go back to a previous, known good version of
-  a post draft.</li>
-<li><strong>offline authoring</strong> - I do a lot of my writing and hobby coding 
-  during my train commute, with spotty internet connection at best.
-  Working locally on my laptop with my favorite text editor beats any
-  online editor widget. </li>
-<li><strong>full customizations</strong> - sure, probably there is a WordPress plugin
-  for anything I would want to do, but for a lot of the small checks, 
-  it takes longer to find, learn, and configure the one I need than
-  to implement it in <a href="http://python.org">python</a> - e.g.: checking the site for
-  broken links, custom reports, etc. I should probably mention the html
-  template customizations here too, though you might be able to tell
-  that is not yet the highest priority for me :)</li>
-</ul>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/">Own your data (or why did I move away from Blogger and WordPress?)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>
