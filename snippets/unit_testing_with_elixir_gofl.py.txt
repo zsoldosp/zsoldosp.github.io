@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_survival_a_living_cell_with_2_or_3_neighbours_survives (__main__.GoflRulesTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "unit_testing_with_elixir_gofl.py", line 22, in test_survival_a_living_cell_with_2_or_3_neighbours_survives
+    self.assertEquals(DEAD, cell_next_state(curr_state=DEAD, live_neighbour_cnt=2))
+AssertionError: False != True
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

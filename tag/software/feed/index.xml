@@ -10,10 +10,187 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 15 Feb 2014 16:12:44 GMT</pubDate>
+    <pubDate>Wed, 05 Mar 2014 18:34:35 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Unit Testing In Elixir</title>
+      <link>http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/</link>
+      <pubDate>Wed, 05 Mar 2014 19:30:00 CET</pubDate>
+      <category><![CDATA[elixir]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">0o-82cbUaxJeza1AWri2hAjNJqg=</guid>
+      <description>Unit Testing In Elixir</description>
+      <content:encoded><![CDATA[
+          <div class="document">
+<p><em>Note that all of this was written at the time of Elixir
+0.12.5-dev, so things might have changed since.</em></p>
+<p>Since the <a class="reference external" href="http://elixir-lang.org/getting_started/ex_unit/1.html">tutorial</a>
+covers the mechanics pretty well, this post is more about my
+impressions of Elixir's approach to this topic.</p>
+<div class="section" id="built-in">
+<h1>Built-in</h1>
+<p>Unit testing is built into the language and the tools, as well as the
+tutorial - I love this approach. When you create a new project with
+<tt class="docutils literal">mix</tt>, this is the output you get:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>mix new myproject
+...
+Your mix project was created successfully.
+You can use mix to compile it, <span class="nb">test </span>it, and more:
+
+    <span class="nb">cd </span>myproject
+    mix compile
+    mix <span class="nb">test
+
+</span>Run <span class="sb">`</span>mix <span class="nb">help</span><span class="sb">`</span> <span class="k">for </span>more information.
+</pre>
+</div>
+<div class="section" id="the-test-skeleton-is-not-beginner-friendly">
+<h1>The test skeleton is not beginner friendly</h1>
+<p>The skeleton unit test suffers the same problems like the <a class="reference external" href="http://djangoproject.com">Django</a>
+equivalent - it is aimed at those who get unit testing already. If you
+are new to automated testing, seeing code like</p>
+<pre class="code elixir literal-block">
+<span class="k">defmodule</span> <span class="no">FooTest</span> <span class="k">do
+  </span><span class="kn">use</span> <span class="no">ExUnit</span><span class="o">.</span><span class="no">Case</span>
+
+  <span class="n">test</span> <span class="s2">&quot;the truth&quot;</span> <span class="k">do
+    </span><span class="n">assert</span><span class="p">(</span><span class="no">true</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+<p>won't really make you say <em>&quot;yes, this makes me understand and love testing!&quot;</em>.
+Granted, the whole Elixir tutorial is aimed at people who can already
+program.</p>
+</div>
+<div class="section" id="simplified-yet-flexible-assertions">
+<h1>Simplified, yet flexible assertions</h1>
+<p>Unlike classic unit testing frameworks, which come bundled with
+numerous <tt class="docutils literal">assertWhatever</tt> and <tt class="docutils literal">assertNotWhatever</tt> etc. methods,
+(various overloads for each type), ExUnit mostly only uses <tt class="docutils literal">assert</tt> and
+<tt class="docutils literal">assert_raise</tt> (though there are some more - see
+<a class="reference external" href="http://elixir-lang.org/docs/stable/ExUnit.Assertions.html">ExUnit.Assertions</a>).
+Rather, it relies on pattern matching and the assert macro being
+smart enough to figure out how to provide a good (enough) failure
+message - in this aspect, it reminds me of <a class="reference external" href="http://pytest.org/latest/">py.test</a></p>
+<p>I'm curious to see whether it will stay this way - custom assertions
+are superb for writing DSL-like code that experts can read (e.g.:
+<a class="reference external" href="http://hamcrest.org/">Hamcrest</a>), and I really like the protocol-based extensibility
+model used in Elixir elsewhere.</p>
+</div>
+<div class="section" id="constraint-of-the-failure-messages">
+<h1>Constraint of the failure messages</h1>
+<p>Your opinion of this feature might differ from mine, but it's worth
+pointing this out. While the assertions are pretty flexible,
+the actual error message will become the <strong>values</strong> on the left- and right
+hand side of the pattern matching. This takes away the information of
+exactly which method was called with what parameters, which
+I have grown to rely on in Python. Consider the following tests and
+the resulting failure messages - which one is more helpful?</p>
+<p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.exs">Elixir</a>:</p>
+<pre class="code elixir literal-block">
+    <span class="n">test</span> <span class="s2">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span> <span class="k">do
+        </span><span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:alive</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:alive</span>
+        <span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:alive</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:alive</span>
+        <span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:dead</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:alive</span>
+        <span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:dead</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:dead</span>
+    <span class="k">end</span>
+</pre>
+<pre class="code bash literal-block">
+  1<span class="o">)</span> <span class="nb">test </span>survival - a living cell with 2 or 3 neighbours survives <span class="o">(</span>GoflRulesTest<span class="o">)</span>
+     ** <span class="o">(</span>ExUnit.ExpectationError<span class="o">)</span>
+                  expected: :alive
+       to be equal to <span class="o">(==)</span>: :dead
+     at unit_testing_with_elixir_gofl.exs:17
+
+
+
+Finished in 0.05 seconds <span class="o">(</span>0.04s on load, 0.01s on tests<span class="o">)</span>
+1 tests, 1 failures
+</pre>
+<p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.py">Python</a>:</p>
+<pre class="code python literal-block">
+    <span class="k">def</span> <span class="nf">test_survival_a_living_cell_with_2_or_3_neighbours_survives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">DEAD</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">DEAD</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">DEAD</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre>
+<pre class="code bash literal-block">
+<span class="nv">F</span>
+<span class="o">======================================================================</span>
+FAIL: test_survival_a_living_cell_with_2_or_3_neighbours_survives <span class="o">(</span>__main__.GoflRulesTest<span class="o">)</span>
+----------------------------------------------------------------------
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line 22, in test_survival_a_living_cell_with_2_or_3_neighbours_survives
+    self.assertEquals<span class="o">(</span>DEAD, cell_next_state<span class="o">(</span><span class="nv">curr_state</span><span class="o">=</span>DEAD, <span class="nv">live_neighbour_cnt</span><span class="o">=</span>2<span class="o">))</span>
+AssertionError: False !<span class="o">=</span> True
+
+----------------------------------------------------------------------
+Ran 1 <span class="nb">test </span>in 0.000s
+
+FAILED <span class="o">(</span><span class="nv">failures</span><span class="o">=</span>1<span class="o">)</span>
+</pre>
+<p>Granted, Python is unique in this regard, IIRC I wouldn't get such
+useful stacktraces in C# or Java either, but since I've been mostly
+working in Python lately, it certainly was a surprise - not necessarily
+for discouraging multiple assertions per test (it's a valid approach),
+but more the hiding of the call site information.</p>
+<p>However, since <tt class="docutils literal">assert</tt> itself is a macro, its technically possible
+to change the assertion - added to my list of things to try :)</p>
+</div>
+<div class="section" id="async">
+<h1>:async</h1>
+<p>Test isolation is almost always hard, and these issues tend to only come
+out from hiding once tests need to run in parallel for speed - good things
+never come alone :) So having concurrent test running built in from the
+start is a great way to have the one big (future) problem broken into
+many minor inconveniences.</p>
+<p>I also like that instead of a test runner command line switch, it is
+declared on the TestCase level whether it's OK to run it in parallel
+- giving finer control to the test author.</p>
+<pre class="code elixir literal-block">
+<span class="k">defmodule</span> <span class="no">GoflRulesTest</span> <span class="k">do
+    </span><span class="kn">use</span> <span class="no">ExUnit</span><span class="o">.</span><span class="no">Case</span><span class="p">,</span> <span class="ss">async:</span> <span class="no">true</span>
+</pre>
+<p>I just wish it was true by default!</p>
+</div>
+<div class="section" id="cool-things-i-would-like-to-explore-further">
+<h1>Cool things I would like to explore further</h1>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>This short exploration hasn't allowed me figure what kind of</dt>
+<dd><p class="first last"><strong>differences</strong> there are <strong>between</strong> testing <strong>functional</strong>-
+and <strong>object oriented</strong> programs. My gut feeling is there
+shouldn't be many: black box, transformation (state) based should
+be the same. Interaction testing (mocking) seems an odd fit, however
+it might just turn out to be as easy as passing in a &quot;mock&quot; function
+as an argument.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Property-based testing</strong> has been on my radar for a while to be</dt>
+<dd><p class="first last">tried - and its use seems to be more common in functional programming,
+and it's appropriate I should try it in a context where it's set up
+to succeed. This is when I'm thankful for Elixir being
+built/run on top of a mature platform - otherwise there wouldn't yet
+be an available library.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/">Unit Testing In Elixir</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>End-to-End Testing - A Code Example</title>
       <link>http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/</link>
@@ -1197,81 +1374,6 @@ here, and I just want to echo back the command that was executed...</p>
 
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/">Quick script to help reporting bugs for python</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
-      <link>http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
-      <pubDate>Sun, 04 Aug 2013 14:25:00 CEST</pubDate>
-      <category><![CDATA[blog]]></category>
-      <category><![CDATA[outdoors]]></category>
-      <category><![CDATA[data]]></category>
-      <category><![CDATA[ownership]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
-      <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
-      <content:encoded><![CDATA[
-          <p>This blog used to be two separate blogs, hosted at 
-<a href="http://blogger.com">Blogger</a> and <a href="http://wordpress.com">WordPress.com</a>,
-respectively. I've gone through some trouble to migrate their content,
-hopefully without breaking urls to this <a href="http://blogofile.com">Blogofile</a> 
-based setup. In the process, I have lost a considerable number of 
-features and conveniences - so why did I do this?</p>
-<h2 id="owning-my-data-and-platform">Owning my data and platform</h2>
-<p>As the saying goes, there is no such thing as a free lunch (or put more
-bluntly, if you are not paying for it, <em>you</em> are the product being 
-sold). A prime example is <a href="http://wordpress.com">WordPress.com</a>, which reserves the
-right to display ads on your freely hosted blog, while <a href="http://blogger.com">Blogger</a>
-probably enhances their advertisement profile of you - I don't know.</p>
-<p>Even if these platforms don't do anything bad at the moment, they can
-pretty much change the features available to you, or any other aspects
-of their terms of service - remember that story about the 
-<a href="http://news.cnet.com/8301-1023_3-57560370-93/instagram-rolls-back-terms-of-service-after-ownership-dustup/">Instagram ToS change regarding commercial use of your photos</a>?
-Sure, it turned out to be a misunderstanding and/or they backed down,
-but theoretically they can do it.</p>
-<p>Of course, this wasn't a concern when I started out with blogging, but 
-certainly is something to consider now that I am nearing post #42. </p>
-<p>These considerations are of course applicable for other service 
-providers beyond blogging, e.g.:</p>
-<ul>
-<li>(sports) tracking applications - while I have not yet gotten around 
-  to building up a website like <a href="http://www.susi-ralf.de/index.html">Suzi &amp; Ralf</a>, but I know 
-  eventually I will want to create something with the trails of all the
-  places I've been to, whether for fun or for an anniversary gift or
-  similar - and most sites make it rather hard to export your data 
-  conveniently (<a href="http://endomondo.com">endomondo</a> is particularly annoying, so I'm 
-  real grateful for the easy zip-export of <a href="http://runkeeper.com">runkeeper</a>!)</li>
-<li>social networks - does <a href="http://linkedin.com">LinkedIn</a>, <a href="http://facebook.com">Facebook</a>, 
-  <a href="http://xing.com">Xing</a>, etc. allow you to easily export your contacts and their
-  contact details? I would be pretty upset to find myself without a 
-  personal copy of that data</li>
-</ul>
-<p>Of course, I keep using services hosted by others, but I try to make 
-sure I use one with a friendly <a href="http://www.dataliberation.org/">data liberation</a>
-policy!</p>
-<h2 id="other-considerations">Other considerations</h2>
-<ul>
-<li><strong>backup</strong> - sure, it's almost a repeat of the prior point, but worth 
-  noting. It doesn't happen as often as before, but there is always the
-  possibility of <a href="http://blog.theoldreader.com/post/56209408824/important-update">data loss or service outage</a></li>
-<li><strong>version control</strong> - being a software developer, this is almost 
-  second nature to me - it's incredibly liberating to be able to throw
-  all my changes away and go back to a previous, known good version of
-  a post draft.</li>
-<li><strong>offline authoring</strong> - I do a lot of my writing and hobby coding 
-  during my train commute, with spotty internet connection at best.
-  Working locally on my laptop with my favorite text editor beats any
-  online editor widget. </li>
-<li><strong>full customizations</strong> - sure, probably there is a WordPress plugin
-  for anything I would want to do, but for a lot of the small checks, 
-  it takes longer to find, learn, and configure the one I need than
-  to implement it in <a href="http://python.org">python</a> - e.g.: checking the site for
-  broken links, custom reports, etc. I should probably mention the html
-  template customizations here too, though you might be able to tell
-  that is not yet the highest priority for me :)</li>
-</ul>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/">Own your data (or why did I move away from Blogger and WordPress?)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>
