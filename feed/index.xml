@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 05 Mar 2014 18:34:35 GMT</pubDate>
+    <pubDate>Wed, 05 Mar 2014 19:06:40 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -102,15 +102,15 @@ the resulting failure messages - which one is more helpful?</p>
 </pre>
 <pre class="code bash literal-block">
   1<span class="o">)</span> <span class="nb">test </span>survival - a living cell with 2 or 3 neighbours survives <span class="o">(</span>GoflRulesTest<span class="o">)</span>
-     ** <span class="o">(</span>ExUnit.ExpectationError<span class="o">)</span>
-                  expected: :alive
-       to be equal to <span class="o">(==)</span>: :dead
-     at unit_testing_with_elixir_gofl.exs:17
+     ** <span class="o">(</span>ExUnit.ExpectationError<span class="o">)</span>
+                  expected: :alive
+       to be equal to <span class="o">(==)</span>: :dead
+     at unit_testing_with_elixir_gofl.exs:18
 
 
 
 Finished in 0.05 seconds <span class="o">(</span>0.04s on load, 0.01s on tests<span class="o">)</span>
-1 tests, 1 failures
+1 tests, 1 failures
 </pre>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.py">Python</a>:</p>
 <pre class="code python literal-block">

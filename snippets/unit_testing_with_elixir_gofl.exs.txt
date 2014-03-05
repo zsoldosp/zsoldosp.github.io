@@ -1,12 +1,12 @@
 
 
   1) test survival - a living cell with 2 or 3 neighbours survives (GoflRulesTest)
-     ** (ExUnit.ExpectationError)
-                  expected: :alive
-       to be equal to (==): :dead
-     at unit_testing_with_elixir_gofl.exs:17
+     ** (ExUnit.ExpectationError)
+                  expected: :alive
+       to be equal to (==): :dead
+     at unit_testing_with_elixir_gofl.exs:18
 
 
 
 Finished in 0.05 seconds (0.04s on load, 0.01s on tests)
-1 tests, 1 failures
+1 tests, 1 failures
