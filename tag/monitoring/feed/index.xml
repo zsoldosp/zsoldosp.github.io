@@ -10,10 +10,50 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 22 Jan 2014 21:40:12 GMT</pubDate>
+    <pubDate>Fri, 07 Mar 2014 17:16:56 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Adding New Quality Checks to the Build</title>
+      <link>http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/</link>
+      <pubDate>Fri, 07 Mar 2014 18:30:00 CET</pubDate>
+      <category><![CDATA[monitoring]]></category>
+      <category><![CDATA[continuous integration]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">9rF-hsbe0atxBuu7AZyCQbL-x34=</guid>
+      <description>Adding New Quality Checks to the Build</description>
+      <content:encoded><![CDATA[
+          <p>I just got around to listening to <a href="http://theshipshow.com/2014/02/scaling-your-self-service-as-a-service/">The Ship Show #37</a>, and
+one of the topics they've discussed was adding new quality checks
+to the build. Or to be more precise, they've discussed an anti-pattern
+way of adding new checks to the build, namely:</p>
+<ol>
+<li>Find a new quality check (e.g.: let's not have compiler warnings)</li>
+<li>Get team buy in </li>
+<li>Modify the build to fail on these violations</li>
+<li>Have a broken build for the coming months - and have developers
+   ignore <strong>real</strong> build failures (<em>ah, it's broken only due to the new
+   checks!</em>)</li>
+<li>Abandon this new quality check so that a failed build actually
+   means the build is actually broken</li>
+</ol>
+<p>One way to avoid the above scenario is to focus on gradual improvement,
+i.e.: after steps #1 and #2 (which shouldn't be skipped!), in step #3, 
+instead of a <em>zero-tolerance</em> policy, you <strong>set the limit for the new check 
+violations at the current level</strong> - i.e.: the team commits to not making the
+situation any worse, and trying to improve it. Exceeding this limit will 
+make the build fail, and thus there are no more false alarms - all build 
+failures have to be taken seriously.</p>
+<p>If your monitoring/build tool doesn't support "continuously decreasing limits"
+out of the box, you'll have to adjust this limit manually, let's say every morning.
+Be careful to only ever <em>lower</em> the limit though!</p>
+<p>And there are other <a href="/2014/01/19/green-build-surprises/">things you should be monitoring about your build</a>
+too!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/">Adding New Quality Checks to the Build</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>Green Build Surprises</title>
       <link>http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/</link>

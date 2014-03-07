@@ -10,10 +10,50 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 05 Mar 2014 19:06:40 GMT</pubDate>
+    <pubDate>Fri, 07 Mar 2014 17:16:56 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Adding New Quality Checks to the Build</title>
+      <link>http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/</link>
+      <pubDate>Fri, 07 Mar 2014 18:30:00 CET</pubDate>
+      <category><![CDATA[monitoring]]></category>
+      <category><![CDATA[continuous integration]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">9rF-hsbe0atxBuu7AZyCQbL-x34=</guid>
+      <description>Adding New Quality Checks to the Build</description>
+      <content:encoded><![CDATA[
+          <p>I just got around to listening to <a href="http://theshipshow.com/2014/02/scaling-your-self-service-as-a-service/">The Ship Show #37</a>, and
+one of the topics they've discussed was adding new quality checks
+to the build. Or to be more precise, they've discussed an anti-pattern
+way of adding new checks to the build, namely:</p>
+<ol>
+<li>Find a new quality check (e.g.: let's not have compiler warnings)</li>
+<li>Get team buy in </li>
+<li>Modify the build to fail on these violations</li>
+<li>Have a broken build for the coming months - and have developers
+   ignore <strong>real</strong> build failures (<em>ah, it's broken only due to the new
+   checks!</em>)</li>
+<li>Abandon this new quality check so that a failed build actually
+   means the build is actually broken</li>
+</ol>
+<p>One way to avoid the above scenario is to focus on gradual improvement,
+i.e.: after steps #1 and #2 (which shouldn't be skipped!), in step #3, 
+instead of a <em>zero-tolerance</em> policy, you <strong>set the limit for the new check 
+violations at the current level</strong> - i.e.: the team commits to not making the
+situation any worse, and trying to improve it. Exceeding this limit will 
+make the build fail, and thus there are no more false alarms - all build 
+failures have to be taken seriously.</p>
+<p>If your monitoring/build tool doesn't support "continuously decreasing limits"
+out of the box, you'll have to adjust this limit manually, let's say every morning.
+Be careful to only ever <em>lower</em> the limit though!</p>
+<p>And there are other <a href="/2014/01/19/green-build-surprises/">things you should be monitoring about your build</a>
+too!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/">Adding New Quality Checks to the Build</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>Unit Testing In Elixir</title>
       <link>http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/</link>
@@ -1241,58 +1281,6 @@ Optimized Test Runner</em> and the <em>app-test DSLs to have multiple drivers
 for a single TestCase</em> ideas in more detail.</p>
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/">CITCON Turin 2013</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Teach me refactoring from my commits!</title>
-      <link>http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/</link>
-      <pubDate>Fri, 27 Sep 2013 09:40:00 CEST</pubDate>
-      <category><![CDATA[things i wish existed]]></category>
-      <category><![CDATA[teaching]]></category>
-      <category><![CDATA[untested ideas]]></category>
-      <category><![CDATA[version control]]></category>
-      <category><![CDATA[refactoring]]></category>
-      <guid isPermaLink="false">GZ4JOnYZvQe5D8VUfKUh6eJAlkw=</guid>
-      <description>Teach me refactoring from my commits!</description>
-      <content:encoded><![CDATA[
-          <p>I find it hard to learn purely by abstract theory - I need practical 
-examples to illustrate the theory I just learned. I also need practice,
-and preferably, supervised practice, so my mistakes can be caught early
-and/or more efficient ways can be shown to achieve the same thing I just
-did.</p>
-<p>With this background, it's not surprising that when I <a href="http://episodes.gitminutes.com/2013/06/gitminutes-14-pablo-santos-on.html">heard about a 
-product that started to do semantic diffs for version 
-control</a> I was reminded of the <a href="https://sc2010subs.wordpress.com/2010/08/13/refactoring-golf-dave-cleal-ivan-moore/">Refactoring 
-Golf</a> concept from the first <a href="http://www.codemanship.co.uk/parlezuml/softwarecraftsmanship/">Software Craftsmanship 
-London</a> conference - and the two ideas just clicked into this
-great (ok, I'm biased) idea to try to derive the most efficient
-refactoring steps for that particular commit I just made.</p>
-<p>The pieces required for this project are all already in place:</p>
-<ul>
-<li>we have parsers for languages, and many are available as libraries to
-  traverse <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">ASTs</a></li>
-<li>most version control systems have libraries to read from them</li>
-<li>there are tons of well-defined refactorings known, that can be used
-  as operations in the transformations from state <code>A</code> to <code>B</code></li>
-<li>optimization algorithms are plentiful - for a proof of concept, the
-  <a href="https://en.wikipedia.org/wiki/String_distance">String Distance</a> Transformation algorithm could be used</li>
-</ul>
-<p>Thus such a program script could be added as a post commit hook, or 
-simply could be run on the workspace copy, using the diff against last
-committed version, and it could tell me that I might have:</p>
-<ol>
-<li>renamed variable <code>login</code> to <code>username</code></li>
-<li>converted <code>username</code> from local variable to method parameter</li>
-<li>extracted method <code>lock_customer_acocunt</code> from method <code>login</code></li>
-</ol>
-<p>I'm pretty positive even experienced refactoring practitioners could 
-learn new tricks, and newbies would be delivered concrete refactoring
-examples tailored to their very codebase.</p>
-<p>Please, someone with enough free time, go and make such an app!</p>
-<p>Does this idea make sense for you too, or just me? Let me know via email
-(hello at site domain) or on twitter (<a href="https://twitter.com/zsepi">@zsepi</a>)!</p>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/">Teach me refactoring from my commits!</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>
