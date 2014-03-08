@@ -10,24 +10,27 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 07 Mar 2014 17:16:56 GMT</pubDate>
+    <pubDate>Sat, 08 Mar 2014 10:51:52 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <item>
       <title>Adding New Quality Checks to the Build</title>
       <link>http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/</link>
-      <pubDate>Fri, 07 Mar 2014 18:30:00 CET</pubDate>
+      <pubDate>Fri, 07 Mar 2014 18:17:00 CET</pubDate>
       <category><![CDATA[monitoring]]></category>
       <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">9rF-hsbe0atxBuu7AZyCQbL-x34=</guid>
+      <guid isPermaLink="false">HCF28j7b4oOFWdUd2ZzJi66jW7s=</guid>
       <description>Adding New Quality Checks to the Build</description>
       <content:encoded><![CDATA[
-          <p>I just got around to listening to <a href="http://theshipshow.com/2014/02/scaling-your-self-service-as-a-service/">The Ship Show #37</a>, and
-one of the topics they've discussed was adding new quality checks
-to the build. Or to be more precise, they've discussed an anti-pattern
-way of adding new checks to the build, namely:</p>
+          <p><small><strong>update</strong> (2014-03-08): added reference to podcast time segments
+and clarified ambiguity </small></p>
+<p>I just got around to listening to <a href="http://theshipshow.com/2014/02/scaling-your-self-service-as-a-service/">The Ship Show #37</a>, and
+one of the topics they've discussed (47:00-48:00, 49:30-50:00) was
+adding new quality checks to the build. Or to be more precise, they've
+<strike>discussed</strike> talked about a case which exhibits the
+anti-pattern way of adding new checks to the build, namely:</p>
 <ol>
 <li>Find a new quality check (e.g.: let's not have compiler warnings)</li>
 <li>Get team buy in </li>
