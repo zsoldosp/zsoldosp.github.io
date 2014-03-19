@@ -10,10 +10,161 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 07 Mar 2014 17:16:56 GMT</pubDate>
+    <pubDate>Wed, 19 Mar 2014 07:46:02 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Podcasts I Listen To</title>
+      <link>http://blog.zsoldosp.eu/2014/03/19/podcasts-i-listen-to/</link>
+      <pubDate>Wed, 19 Mar 2014 08:30:00 CET</pubDate>
+      <category><![CDATA[outdoors]]></category>
+      <category><![CDATA[podcasts]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">LZVxlPekUBiw_pI1RaC0HDD6pkk=</guid>
+      <description>Podcasts I Listen To</description>
+      <content:encoded><![CDATA[
+          <p>Initially I started listening to podcasts to keep up with news in
+the software development space, but it has expanded way beyond that.
+Recently <a href="https://twitter.com/zeljkofilipin/status/444052979172507648">Zeljko has asked for podcast recommendations</a>,
+so instead of shooting a private email I thought I would share the
+casts I listen to publicly in a post.</p>
+<p>Note it's a <em>long</em> list - but I don't hesitate to skip/delete an episode
+based on its description or its first few minutes (caveat: some casts
+by their structure are less exciting in the first few minutes).</p>
+<p>I've grouped the list, but of course there are many of them that would
+fit multiple categories - no taxonomy ever is perfect.</p>
+<p>Hope you find something you'll like!</p>
+<h2 id="software-development">Software Development</h2>
+<ul>
+<li><a href="http://dotnetrocks.com/">.NET Rocks</a> was one of the first podcasts I've listened to. As the
+  name suggests, it's focused on the Microsoft development space, but the hosts
+  are critical enough when needed, and many episodes are tech agnostic. Disclaimer:
+  I'm a happy owner of a .NET Rocks mug</li>
+<li><a href="http://thetabletshow.com/">The Tablet Show</a> - the sister show to .NET Rocks, with focus on mobile
+  and tablets. The Microsoft focus doesn't come through that heavily
+  (though it's there)</li>
+<li><a href="http://devopscafe.org/">DevOps Cafe</a> - there are some great interviews on here, though the format 
+  (sound quality?) took me some getting used to. It exposes me to topics I'm
+  a total n00b about, whether its security or networking.</li>
+<li>
+<p><a href="http://hanselminutes.com/">Hanselminutes</a> - Scott started this with the tagline "the podcast that doesn't
+  waste your time". The episodes are limited to around half an hour, and while
+  the topics stay around tech, they also touch on the social/human side, such as</p>
+<ul>
+<li>Scott interviewing his wife about how it is to live with a geek</li>
+<li>interviews with developers from publicly underrepresented developer
+  groups (women, world class climbers, you name it :)</li>
+</ul>
+</li>
+<li>
+<p><a href="http://rubyrouges.com/">Ruby Rogues</a> - a panel discussion about things Ruby related, but many of
+  the discussions are applicable to other programming languages, or at the very
+  least inspire one to learn how the thing discussed works in the listener's 
+  language. Add on top of this they bring up cultural topics that should be
+  discussed in the software development community.</p>
+</li>
+<li><a href="http://javaposse.com/">The Java Posse</a> - it used to be a mix of panel discussion of java/scala programmers,
+  and recordings of sessions from the yearly open spaces conferences of 
+  the same name, but lately it's just the conference stuff. So great for learning, but
+  I miss the chat shows.</li>
+<li><a href="http://theshipshow.com/">The Ship Show</a> - build and release engineering, devops, and everything else in 
+  between. Panel discussions, news and views, listener questions, as well as 
+  interviews. It definitely fills a niche.</li>
+<li><a href="http://cognitect.com/podcast">ThinkRelevance/CogniCast</a> - anything and everything related to Clojure or Datomic,
+  produced professionally by the company where Rich Hickey works. Sometimes 
+  it's too Clojure heavy for me (though you might find that a good thing), but it
+  has blown my mind a few times.</li>
+</ul>
+<h2 id="pop-science">(Pop-)Science</h2>
+<ul>
+<li><a href="http://www.bbc.co.uk/programmes/b00srz5b">A Brief History of Mathematics</a> - a former BBC Radio4 programme archived in podcast
+  form. Short episodes on the various influential people in mathematics. I'm planning
+  to re-listen to this series soon.</li>
+<li><a href="http://www.bbc.co.uk/programmes/b006qshd">More or Less</a> - Statistical CSI :) Produced by (among others) Tim Harford, 
+  this show takes a look at public statistical claims from any aspect of life, 
+  and go after digging up sources for these claims as well as verifying them
+  and the methodology used. Listener topic suggestions are encouraged!</li>
+<li><a href="http://www.npr.org/templates/story/story.php?storyId=127413729">NPR Planet Money</a> - Awesome economics podcast, with short and entertaining 
+  episodes. They have provided the best economics coverage of the EU debt crisis
+  for laymen like me.</li>
+</ul>
+<h2 id="social-politics">Social, Politics</h2>
+<ul>
+<li><a href="http://www.bbc.co.uk/podcasts/series/analysis">Analysis</a> - another BBC Radio 4 programme. Each episode presents one person's
+  research and conclusion/opinion of a given topic. Expect lot of source 
+  interviews.</li>
+<li><a href="http://www.bbc.co.uk/programmes/b010q0n0">Four Thought</a> - personal speeches about personal experiences, delivered to a live
+  audience, followed by a few questions and answers. It keeps reminding me how
+  little I know about the world and people.</li>
+<li><a href="http://www.bbc.co.uk/programmes/b006qk11">Moral Maze</a> - a panel hearing out witnesses on moral questions, arguing with
+  the witnesses and with themselves, exploring different these difficult topics, which
+  usually don't have clearcut answers. Great topics, great points, and some
+  heated debate.</li>
+<li><a href="http://www.npr.org/series/6263392/intelligence-squared-u-s">Intelligence Squared</a> - recording of live, superbly moderated debates, published
+  as podcasts. The structure (uninterrupted opening statements, Q &amp; A, uninterrupted 
+  closing statements, voting) is wonderful, and the moderator is on top of his game. The
+  topics are timely and interesting, the debaters are amazingly authentic, and the
+  voting results do show that people can change their minds.</li>
+<li><a href="http://www.onbeing.org/">On Being with Krista Tippett</a> - exploring open and tolerant faith. Whether by interviewing
+  atheists, the translator of the Dalai Lama, a marine biologist, civil right movement
+  participants, or marketing guru Seth Godin. Superb auto quality and Krista does have
+  a voice which in itself makes it worth listening to any episode - not to mention the
+  positive thinking that radiates from the talks.</li>
+<li><a href="http://www.bbc.co.uk/programmes/b006qy05">Thinking Allowed</a> - short BBC Radio4 programme reporting on recent papers or books
+  in the field of sociology on various subjects.</li>
+</ul>
+<h2 id="outdoors">Outdoors</h2>
+<ul>
+<li><a href="http://www.theoutdoorsstation.co.uk/">The Outdoors Station</a> - an irregular podcast. I tend to skip the product episodes,
+  and prefer the interview ones. While irregular, the archive does hold quite a 
+  few gems - if you are into outdoor stories.</li>
+</ul>
+<h2 id="business-chatting">Business, chatting</h2>
+<ul>
+<li><a href="http://www.startupsfortherestofus.com/">Startups for the Rest Of Us</a> - if you ever wanted to understand how small software business 
+  owners and marketers think, and need an occasional reminder that we as software
+  people are there to deliver solutions, not to write software, it's a great one. On
+  top of this, there is a bunch of practical advice if you are trying yourself out 
+  in internet marketing. And you can follow Mike and Rob as they develop their respective
+  businesses</li>
+<li><a href="http://techzinglive.com/">techzing</a> - while lately it has become more of a weekly recorded talk of two friends, 
+  which presents new listeners with a steep learning curve during the first few episodes,
+  in the past they had wonderful interviews - and even now their hobbies are exciting
+  and inspiring enough to listen to (have you ever considered coaching your children's
+  school's math team? They actually do that).</li>
+</ul>
+<h2 id="career">Career</h2>
+<ul>
+<li><a href="http://manager-tools.com/">Career tools, Manager Tools</a> - I would say this is mandatory listening to anyone who
+  wants to make progress in an enterprise environment. Especially if you want to 
+  become an executive. Their advice is quite prescriptive (they are ex-military after
+  all), but they present their reasoning in (sometimes too) much detail. </li>
+<li><a href="http://www.kalzumeus.com/category/podcasts/">Kalzumeus Software</a> - the once-in-a-rare-while podcast of Patrick McKenzie (a.k.a.: patio11).
+  There is everything from living in Japan to superb advice to furthering your career,
+  especially if you are a freelancer. Since there aren't too many episodes, you can go back 
+  and listen to all of them!</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<p>These casts I don't regularly listen to anymore, but have them
+bookmarked in case I would want to dive deeper in the topics they
+address, for the episodes I've listened to convinced me of its
+quality.</p>
+<ul>
+<li><a href="http://beingtheworst.com/">Being the Worst</a> - for event sourcing and Domain Driven Design</li>
+<li><a href="http://marketingforfounders.com/">Marketing for Founders</a> - Feels like marketing 10x-20x lectures.
+  Not super exciting to listen to if you don't do this, but probably
+  superb to pick up the basic ideas fast.</li>
+</ul>
+<h2 id="and-the-best-podcasts-theme-music-award-goes-to">And the Best Podcasts Theme Music Award Goes To...</h2>
+<p>Hard to tell. Obviously, the Cognicast has the advantage that guests 
+choose their own intro and exit music... So I have to disqualify it :)
+From the rest, I can narrow it down to the Ruby Rogues and The Ship Show,
+but not any further...</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2014/03/19/podcasts-i-listen-to/">Podcasts I Listen To</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
       <link>http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
@@ -315,36 +466,6 @@ Peter
 <p>Anyhow, I rode 130km in 6h 50mi (8h 30mi), and had a roof above my head for the night. Clothes haven't dried, but eh. Now I should push today and tomorrow, while the good weather lasts!</p>
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2012/04/18/day-4-from-straubing-to-engelhartszell/">Day 4: From Straubing to Engelhartszell</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Day 3: from Nuestadt to Straubing</title>
-      <link>http://blog.zsoldosp.eu/2012/04/17/day-3-from-nuestadt-to-straubing/</link>
-      <pubDate>Tue, 17 Apr 2012 20:28:49 CEST</pubDate>
-      <category><![CDATA[outdoors]]></category>
-      <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/04/17/day-3-from-nuestadt-to-straubing/</guid>
-      <description>Day 3: from Nuestadt to Straubing</description>
-      <content:encoded><![CDATA[
-          
-<p>So the day started with rain - no surprises there. I took down the tent, and because the camping was rather empty, I took all my wet stuff into the showers building, where it is heated and got dedicated drying racks too. It meant a later start, but not cycling in wet clothes and having a dry tent is worth it.</p>
-<p>It also meant I got time to repair the tubes from the prior flats :) the caretaker suggested to turn them into an artistic exhibit :)</p>
-<p>And then I ran into one of those how-do-you-say-no situations: one of the retired residents, with whom we already discussed how "difficult" it is to answer the where do you come from question (Hungary or Crailsheim), came up and gave me money so that I have a nice dinner, 'coz he likes Hungarians. First, I wish the camping was not in the middle of the nowhere, so I could have told him to just buy me a beer. There are some flattering and less flattering explanations - I still look super young and broken; or my German is totally broken -, but nonetheless I couldn't get the message across that please, don't do this - least I threw the money in his face. And I didn't want to hurt him - after all, he could have complained about the smell of the wet cycling gear...</p>
-<p>Once packed up, I got to the neighboring bike shop in Bad Göggingen, and got a Schwalbe Marathon for the front - no exact size match, but I had enough of the flats not to search for an exact fit anymore :)</p>
-<p>There was a bit of a maze until I got to Weltenburg, but I have found the signs easy to follow. After a quick flat tire change (yay, new tires front &amp; back now!). There was a slight confusion when I - like the guy who roamed the desert for long - hallucinated a Bratwurst (roasted sausage) sign instead of the actual "Blutwurz" (herb black liquor) that was actually sold there. The salesman suggested postcards as the most edible thing I could get there, which I politely turned down.</p>
-<p>I managed to miss the boat to Kelheim, so that must see section of the Danube has to wait. But guess it's better seen together with my girlfriend anyways. And anyways, it's only 6 km! Ok, a bit hilly, according the guidebook, but so what?</p>
-<p>So I ignored the road signs warning about the hard climbs. And I learned the lesson: won't ignore them anymore! The climbs are one thing, by now I don't have a problem pushing the bike instead of riding it, but what the sign didn't say was that this was in the forest, and not a dirt based cycling road, but just dirt hiking path, which turns out to be travelable by a bike. Less so after rain and with 20kg luggage. But it's beautiful though. Towards the end, I realized that going downhill is actually worse than up, and the relief when it was over is great (now, looking back, some pride is there that yes, I've done it!, but back then it was just a relief it's over).</p>
-<p>After this I didn't hesitate for a moment when McDonalds Kelheim came into view :)</p>
-<p>after the cheeseburgers, I saw the Altmühl (paddled a significant part of it) join the Danube, and was a bit touched. But pushed on the gravel road next to the river, thinking at this rate and road quality the question is not whether I make it to Budapest, but to Passau at all! :)</p>
-<p>But it's possible to get used to these roads and keep going between 20-25 kmh, and it's a huge plus that it has no car traffic.</p>
-<p>After leaving Regensburg (have I mentioned already how i dislike going through cities?) the roads have significantly improved, and there was a shortcut to the Donauradweg that the guidebook wasn't aware of, so I managed to finish that long (40-50km) stretch after Regensburg that had no camping. I even had tail wind sometimes!</p>
-<p>I ran out of water halfway, and was pleasantly surprised how kind people are: when I asked a lady standing outside her house if she could fill my Flask with water, she actually offered mineral water!</p>
-<p>Straubing is well marked, except for the camping, good thing I know it exists and can ask the locals about it, otherwise I would have cycled more. Though on the last two km it was marked well.</p>
-<p>Luckily, i don't have to rush, there are still places (i.e.: I am the only guest in the whole camping).</p>
-<p>Dinner was the perfect Italian restaurant: while I was looking at the menu outside the waitress came out and explained it (wasn't trivial) and invited me in. Nicely setup tables, jazz in the background, good food, good wine - a lovely end to day!</p>
-<p>110 km, 6.1 hours net, 8.5 hours gross travel time.</p>
-<p>P.s.: late blogging it because I spent the morning on the phone instead of blogging. Priorities, sorry. I'll blog today tomorrow morning, as usual, I am already in Austria!</p>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2012/04/17/day-3-from-nuestadt-to-straubing/">Day 3: from Nuestadt to Straubing</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>
