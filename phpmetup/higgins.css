@@ -1,0 +1,70 @@
+* { padding:0px; margin:0px;}
+
+html,body { 
+	font-family:Calibri, Arial, Helvetica, "sans-serif", "Comic Sans MS"; 
+	text-align:center; 
+	font-size:32pt;
+	color:#027;
+	height:100%;
+}
+
+.slide {
+	display:none;
+	padding-top:30px;
+	height:100%
+}
+.notes { 
+	display:none;
+}
+blockquote {
+    background: #FFE url('image/qu.gif') no-repeat;
+    padding: 0em 1em 0.2em 40px;
+    margin-top:20px;
+    border-top:3px solid #EEE;
+    border-bottom:3px solid #EEE;
+    color:#444;
+}
+.bord { 
+    border: 1px solid #888; 
+}
+pre {
+	text-align: left;
+	font-size:24pt
+}
+p { 
+	margin-top:0px;
+}
+#num a {
+	color:#DDD;
+	float:left;
+	padding-left:10px;
+	text-decoration:none;
+}	
+
+#notes {
+   float:right;
+   color:#DDD;
+}
+
+.solution {
+	background-color:#000; 
+	color: #0F0 
+}
+.lesson{ 
+	background-color:#000; 
+	color: #F00 
+}
+
+#noteDetail, #notes {
+    display:none;
+}
+
+#noteDetail{
+    font-size:small;
+    background-color:#FFD;
+    color:#333;
+    border-bottom:1px solid #888;
+    width:100%;
+    text-align:left;
+    padding:5px;
+}

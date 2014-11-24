@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<head>
+<title>Continuous Delivery - the tech part is "easy"</title>
+<meta name="viewport" content="height=device-height,width=device-width" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/higgins.js"></script>
+<link rel="stylesheet" type="text/css" href="higgins.css"></link>
+</head><body>
+<div id='noteDetail'></div><div id='notes' onclick='showNotes();'>n</div><div id='num'>#0</div>
+<!-- The higgins slide presenter, licensed MS-PL, by Leon Bambrick, http://secretGeek.net -->
+<!-- Get your own higgins from http://higgins.CodePlex.com -->
+<!-- Put your collection of slides here... -->
+
+<div class='slide'>
+<h1>Continuous Delivery</h1>
+<p>the tech part is "easy"</p>
+<p><a href="https://twitter.com/zsepi">@zsepi</a></p>
+</div>
+
+<div class='slide'>
+<p><a href="https://citconf.com/budapest2012/">CITCON Budapest</a> </p>
+<p>10+ years as software developer</p>
+<p>ba | spec | dev | test | deploy | support</p>
+<p><a href='http://zsoldosp.eu'>zsoldosp.eu</a></p>
+</div>
+
+<div class='slide'>
+<h1>easy????</h1>
+</div>
+
+<div class='slide'>
+<p>What is CD</p>
+<p>Mistaeks We've Made (*): Tech/People</p>
+
+<p><br><strong>tl;dr</strong>: it's just like software development</p>
+<p><br>(*) it's <a href="http://natpryce.com/">@natpryce</a>'s blog/tagline!
+</div>
+
+<div class='slide'>
+<h1>define:CD</h1>
+<p>from idea to results</p>
+<p>deployment vs. delivery</p>
+<p>talking vs. doing vs. being able to do</p>
+</div>
+
+
+<div class='slide'>
+<h1>cd basics</h1>
+<p><a href="http://12factor.net">12 factor app</a></p>
+<p>pipeline promotion (to|in) prod</p>
+<p>externalize config</p>
+</div>
+
+
+<div class='slide'>
+<p>&nbsp;</p>
+<p>scope creep</p>
+<p>gold plating</p>
+<h1>mistakes</h1>
+</div>
+
+<div class='slide'>
+<p>&nbsp;</p>
+<p>separate projects/teams</p>
+<h1>mistakes</h1>
+<p><a href="https://en.wikipedia.org/wiki/Conway's_law">conway's law</a></p>
+<p>accidental complexity / rework</p>
+</div>
+
+
+<div class='slide'>
+<h1>mistakes</h1>
+<p>similar != same</p>
+<p>apt-get != infra</p>
+<p>libxml-dev</p>
+</div>
+
+<div class='slide'>
+<p>&nbsp;</p>
+<p>CD as a one off project</p>
+<h1>mistakes</h1>
+</div>
+
+<div class='slide'>
+<p>you can bring a horse to the water...</p>
+<p>standardization as an antipattern (!!!)</p>
+<h1>mistakes</h1>
+<p>if improves acceptance, embrace rework</p>
+</div>
+
+
+<div class='slide'>
+<p>if it's not run, it doesn't work</p>
+<h1>mistakes</h1>
+</div>
+
+<div class='slide'>
+<h1>mistakes</h1>
+<p>noone ever rolls back</p>
+</div>
+
+<div class='slide lesson'>
+<h1>can't test infra ;-)</h1>
+</div>
+
+<div class='slide'>
+<h1>can't test infra</h1>
+<p>config or behavior?</p>
+<p>monitoring</p>
+<p>alerting</p>
+</div>
+
+<div class='slide'>
+<p>deploy time != go live time</p>
+<p>fallacies of distributed computing</p>
+<h1>mistakes</h1>
+</div>
+
+<div class='slide'>
+<h1>mistakes</h1>
+<p>prod != dev</p>
+</div>
+
+<div class='slide'>
+<p>mutable machines</p>
+<h1>mistakes</h1>
+</div>
+
+<div class='slide lesson'>
+<h1>assumptions</h1>
+</div>
+
+<div class='slide'>
+<p>you keep using that word. i don't think it means what you think it means.</p>
+<h1>mistakes</h1>
+<p>who would ever do that</p>
+<p><code>&gt;&gt;&gt; import this</code></p>
+</div>
+
+<div class='slide lesson'>
+<p>it's a tech problem</p>
+</div>
+
+<div class='slide'>
+<p>it's a tech problem</p>
+<h1>mistakes</h1>
+<p>ask pr, sales, or sales support :)</p>
+<p>tech pipeline vs. lead time vs. cycle time</p>
+</div>
+
+
+<div class='slide solution'>
+<p>&nbsp;</p>
+<p>one app</p>
+<p>one team</p>
+<p>one repo</p>
+<p>one branch</p>
+</div>
+
+<div class='slide solution'>
+<p>&nbsp;</p>
+<p>components vs. application</p>
+<p>&nbsp;</p>
+<p>role == component (library)</p>
+<p>&nbsp;</p>
+<p>main() == machines inventory/overview (wiring)</p>
+</div>
+
+<div class='slide solution'>
+<p>&nbsp;</p>
+<p>iterative</p>
+<p>walking skeleton</p>
+<p>baby steps</p>
+<p><strong>CONTINUOUS</strong> delivery</p>
+</div>
+
+<div class='slide'>
+<h1>questions?</h1>
+</div>
+
+<div class='slide lesson'>
+<h1>why do cd at all?!</h1>
+</div>
+
+<div class='slide solution'>
+<h1>suggested books</h1>
+<p>Eliyahu M. Goldratt, Jeff Cox: The Goal</p>
+<p>Gene Kim, Kevin Behr, George Spafford: The Phoenix Project</p>
+</div>
+
+<div class='slide'>
+</div>
+</body>
+</html>
