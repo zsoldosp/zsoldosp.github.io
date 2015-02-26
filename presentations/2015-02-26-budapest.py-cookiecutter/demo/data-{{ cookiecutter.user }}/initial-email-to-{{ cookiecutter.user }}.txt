@@ -1,0 +1,12 @@
+Hello {{ cookiecutter.user }}!
+
+This is a templated letter to you, because you gave 
+us permission to SPAM you at {{ cookiecutter.event }}.
+
+Of course, I could be using Word, or MailChimp, or
+some other fancy software, but I like Jinja!
+
+Best,
+
+Peter & Budapest.py meetup
+

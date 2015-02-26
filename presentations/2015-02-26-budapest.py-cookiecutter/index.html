@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<head>
+<title>Cookiecutter</title>
+<meta name="viewport" content="height=device-height,width=device-width" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/higgins.js"></script>
+<link rel="stylesheet" type="text/css" href="higgins.css"></link>
+</head><body>
+<div id='noteDetail'></div><div id='notes' onclick='showNotes();'>n</div><div id='num'>#0</div>
+<!-- The higgins slide presenter, licensed MS-PL, by Leon Bambrick, http://secretGeek.net -->
+<!-- Get your own higgins from http://higgins.CodePlex.com -->
+<!-- Put your collection of slides here... -->
+
+<div class='slide'>
+<h1>{{ cookiecutter }}</h1>
+<p>Standard project templates for everyone</p>
+<p>#noboilerplate</p>
+<p><a href="https://twitter.com/zsepi">@zsepi</a></p>
+<p><a href="http://zsoldosp.eu">zsoldosp.eu</a></p>
+</div>
+
+<div class='slide'>
+<h1>Me</h1>
+<p>Working with Django since 2011</p>
+<p><a href="http://2014.djangocon.eu/">DjangoCon EU 2014</a></p>
+<p><a href="http://djangogirls.org/budapest/">DjangoGirls Budapest 2014</a></p>
+<p>10+ years as software developer</p>
+<p>ba | spec | dev | test | deploy | support</p>
+<p><a href='http://zsoldosp.eu'>zsoldosp.eu</a></p>
+</div>
+
+<div class='slide'>
+<h1>Why would you use from cookiecutter?</h1>
+<p>Enterprise/Agency &amp; standardization</p>
+<p>Breaking up a big monolith project</p>
+<p>Many small projects</p>
+<p>Being smart :-) </p>
+</div>
+
+<div class='slide'>
+<h1>Find & install</h1>
+<p><code>pip install cookiecutter</code></p>
+<p><a href="https://pypi.python.org/pypi/cookiecutter/0.9.1">https://pypi.python.org/pypi/cookiecutter/0.9.1</a></p>
+<p><a href="https://github.com/audreyr/cookiecutter">https://github.com/audreyr/cookiecutter</a></p>
+</div>
+
+<div class='slide'>
+<h1>Usage</h1>
+<p><kbd>$ cookiecutter https://github.com/&lt;you>/&lt;your template></kbd></p>
+<p><kbd>$ cookiecutter /path/to/your/local/template/dir/</kbd></p>
+</div>
+
+<div class='slide'>
+<h1>Advanced usage</h1>
+<blockquote><pre><code>>>> from cookiecutter.main import cookiecutter
+>>> cookiecutter('/path/to/template/dir/')
+</code></pre></blockquote>
+</div>
+
+<div class='slide'>
+<h1>Template with Jinja2</h1>
+<p>File content</p>
+<p>File/folder names</p>
+</div>
+
+<div class='slide'>
+<h1>Variables & defaults</h1>
+<p><code>cookiecutter.json<code> file inside the template dir
+<blockquote><pre><code>{
+    "full_name": "Audrey Roy",
+    "email": "audreyr@gmail.com",
+    "project_name": "Complexity",
+    "repo_name": "complexity",
+    "release_date": "2013-07-10",
+    "version": "0.1.1"
+}</code></pre></blockquote>
+</p>
+<p><kbd>--no-input</kbd> or you will be prompted</p>
+</div>
+
+<div class='slide'>
+<h1>Not just for Python!</h1>
+<p>Works for anything</p>
+</div>
+
+</body>
+</html>
