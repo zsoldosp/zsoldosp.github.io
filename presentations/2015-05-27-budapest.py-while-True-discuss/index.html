@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<head>
+<title>>>> while True: discuss()  # a way to end the antipattern</title>
+<meta name="viewport" content="height=device-height,width=device-width" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/higgins.js"></script>
+<link rel="stylesheet" type="text/css" href="higgins.css"></link>
+<link rel="stylesheet" type="text/css" href="pres.css"></link>
+</head><body>
+<div id='noteDetail'></div><div id='notes' onclick='showNotes();'>n</div><div id='num'>#0</div>
+<!-- The higgins slide presenter, licensed MS-PL, by Leon Bambrick, http://secretGeek.net -->
+<!-- Get your own higgins from http://higgins.CodePlex.com -->
+<!-- Put your collection of slides here... -->
+
+<div class='slide'>
+<code><pre>&gt;&gt;&gt; # antipattern
+&gt;&gt;&gt; while True:
+...     discuss()
+</code></pre>
+</div>
+
+<div class='slide'>
+<h1>the passive<br>
+<img src="pa-puppy.jpg" alt="image of a puppy"><br>
+aggressive puppy</h1>
+</div>
+
+<div class='slide'>
+<p>...<strike> all </strike>some of us<strike> are </strike>know some</p>
+<p>&nbsp;</p>
+<p>teams with more than 3 people?</p>
+<p>&lt;strong&gt; opinions?</p>
+<p>recurring, endless, unfruitful discussions?</p>
+</ul>
+</div>
+
+<div class='slide'>
+<h1>also tried</h1>
+<p>moderator/facilitator</p>
+<p>timeboxing</p>
+<p><br>...needs situatianal awareness</p>
+</div>
+
+<div class='slide'>
+<h1>Nip it in the bud!</h1>
+<code><pre>
+&gt;&gt;&gt; topic = ('color of the bikeshed')
+&gt;&gt;&gt; qd = QuickDiscuss(topic)
+&gt;&gt;&gt; qd.discuss()
+&gt;&gt;&gt; print(qd.decision_as_string())
+</pre></code>
+</div>
+
+<div class='slide'>
+<code class="long"><pre>class QuickDiscuss:
+
+    def __init__(self, proposal):
+        self.proposal = proposal
+
+    def discuss(self):
+        for round in ['first', 'second']:
+            self.vote()
+            if self.has_decision():
+                return
+            self.argue()
+        self.vote()</pre></code>
+</div>
+
+<div class='slide thumbs'>
+<img src="up.png" alt="thumbs up">
+<img src="down.png" alt="thumbs down">
+<img src="can-live-with.png" alt="thumbs horizontal">
+</div>
+
+<div class='slide'>
+<code class='long'><pre>def vote(self):
+    self.for_ = [...]
+    self.against = [...]
+    self.can_live_with = [...]
+    
+    if not self.for_:
+        self.accept_proposal = False
+    elif not self.against:
+        self.accept_proposal = True
+    else:
+        self.accept_proposal = None</pre></code>
+</div>
+
+<div class='slide'>
+<code><pre>
+def has_decision(self):
+    return self.accept_proposal is not None
+</pre></code>
+</div>
+
+<div class='slide'>
+<code><pre>def argue(self):
+    import random
+    with timeout(minutes=1):
+        random.choice(self.for_).argue()
+    with timeout(minutes=1):
+        random.choice(self.against).argue()</pre></code>
+</div>
+
+<div class='slide'>
+<code class="long"><pre>def decision_as_string(self):
+    if not self.has_decision():
+        return "the team couldn't agree, thus we stay with the status quo"
+    if self.accept_proposal():
+        return "we'll give it a try"
+    return "as noone was in favor of it, we stay with the status quo"</pre></code>
+</div>
+
+<div class='slide'>
+<h1>Questions?</h1>
+<img src="pa-puppy.jpg" alt="image of a puppy">
+</div>
+
+
+<div class='slide'>
+<h1>Thank you!</h1>
+<a href='http://twitter.com/zsepi'>@zsepi</a>
+<br>10+ years as software developer
+<br>ba | spec | dev | test | deploy | support
+<br><a href='http://zsoldosp.eu'>zsoldosp.eu</a>
+<br>
+<br><a href='http://2014.djangocon.eu'>http://2014.djangocon.eu</a>
+<br><a href='http://djangogirls.org/budapest/'>http://djangogirls.org/budapest/</a>
+</div>
+
+<div class='slide'>
+<h1>images</h1>
+<p>from wikimedia (CC license)</p>
+<p><a href="http://commons.wikimedia.org/wiki/File:Dive_hand_signal_Ascend.png">up</a>,
+<a href="http://commons.wikimedia.org/wiki/File:Dive_hand_signal_Descend.png">down</a>,
+<a href="http://commons.wikimedia.org/wiki/File:Dive_hand_signal_Which_Way.png">can live with</a>,
+<a href="http://commons.wikimedia.org/wiki/File:BraxtonPuggle-edit1.jpg">puppy</a></p>
+
+</div>
+  <script>
+      if(window.location.href.indexOf("http://blog.zsoldosp.eu") != -1) {
+          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      }
+  </script>
+</body>
+</html>
