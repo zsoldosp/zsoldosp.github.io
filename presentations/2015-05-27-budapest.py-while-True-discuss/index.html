@@ -83,7 +83,8 @@ aggressive puppy</h1>
 <div class='slide'>
 <code><pre>
 def has_decision(self):
-    return self.accept_proposal is not None
+    return self.accept_proposal \
+        is not None
 </pre></code>
 </div>
 
@@ -91,18 +92,22 @@ def has_decision(self):
 <code><pre>def argue(self):
     import random
     with timeout(minutes=1):
-        random.choice(self.for_).argue()
+        random.choice(
+            self.for_).argue()
     with timeout(minutes=1):
-        random.choice(self.against).argue()</pre></code>
+        random.choice(self.against
+            ).argue()</pre></code>
 </div>
 
 <div class='slide'>
 <code class="long"><pre>def decision_as_string(self):
     if not self.has_decision():
-        return "the team couldn't agree, thus we stay with the status quo"
+        return "the team couldn't agree, thus "\
+               "we stay with the status quo"
     if self.accept_proposal():
         return "we'll give it a try"
-    return "as noone was in favor of it, we stay with the status quo"</pre></code>
+    return "as noone was in favor of it, "\
+           "we stay with the status quo"</pre></code>
 </div>
 
 <div class='slide'>
