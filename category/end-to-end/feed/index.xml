@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 15 Feb 2014 16:12:44 GMT</pubDate>
+    <pubDate>Sun, 15 Nov 2015 12:01:00 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -353,7 +353,8 @@ suggests one of two things: </p>
 </ol>
 <p>Often the helper methods created can expose the need for additional 
 support interfaces that won't probably come up during the specifications
-phase, only after go-live.  </p>
+phase, only after go-live.<br />
+</p>
 <p>Last, but not least, end-to-end gives us tests for the UI, yet the tests
 remain maintainable - usually a single test API method is all that needs
 to be fixed after template changes (and designers are even harder to get
