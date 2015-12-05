@@ -10,10 +10,80 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sun, 15 Nov 2015 12:01:01 GMT</pubDate>
+    <pubDate>Sat, 05 Dec 2015 12:42:21 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>The Power of (Open Source) Blueprints</title>
+      <link>http://blog.zsoldosp.eu/2015/12/05/the-power-of-open-source-blueprints/</link>
+      <pubDate>Sat, 05 Dec 2015 13:41:00 CET</pubDate>
+      <category><![CDATA[coderetreat]]></category>
+      <category><![CDATA[community]]></category>
+      <category><![CDATA[change]]></category>
+      <category><![CDATA[teaching]]></category>
+      <category><![CDATA[organizing]]></category>
+      <category><![CDATA[citcon]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">TmQscoJEA-SD6hw3sIe4T-DcJt4=</guid>
+      <description>The Power of (Open Source) Blueprints</description>
+      <content:encoded><![CDATA[
+          <h2 id="what-are-blueprints">What are blueprints</h2>
+<p>As per Wikipedia, a <a href="https://en.wikipedia.org/wiki/Blueprint">blueprint</a> is something that <em>allowed
+rapid and accurate reproduction of documents</em>. I have heard it used (and
+used myself) for processes too.</p>
+<p>They are powerful because they allow me or anyone else to recreate
+someone else's tried and tested idea, which in turn allows the idea
+to spread (scale) to unimaginable numbers and reach places (and provide
+benefits to) the original inventor could have never dreamed of.</p>
+<p>It allows a complete novice to the field to organize a successful event.
+Think of it like a <a href="https://en.wikipedia.org/wiki/Franchising">franchise</a>. You yourself do put in the
+work, and your success benefits the franchise as well as yourself.
+However, you don't have to start from scratch; you have a process you
+follow, that has been proven to work. When advertising your event, there
+is the social proof that the brand exists that makes it easier to sell
+it.</p>
+<h2 id="examples">Examples</h2>
+<p>Some such blueprints I've come across and worked with are</p>
+<ul>
+<li>the <a href="http://citconf.com/">CITCON</a> meta wiki about <a href="http://citconf.com/wiki/index.php?title=ConferencePlanning">organizing the open space
+  conference</a> - and <a href="http://citconf.com/archive/budapest2012//">CITCON Budapest</a> was
+  quite a success, which I couldn't have pulled off without having
+  the process to follow</li>
+<li><a href="http://coderetreat.org/">Coderetreats</a> - I've participated and facilitated in
+  public &amp; firm-internal events. The educational sessions and the superb
+  detailed documentation the coderetreat community provides make it
+  almost too easy to run such an event - no surprise that in 2015 there
+  were <a href="http://coderetreat.org/events/event/listByType?type=gdcr15">at least 158 events</a> on a single day!</li>
+<li><a href="https://djangogirls.org/">Django Girls</a> - it started in June 2014 in Berlin, and
+  by now it already took place on all continents - simply because they 
+  have a wonderfully detailed tutorial on how to organize such an event!</li>
+<li>the <a href="http://alistair.cockburn.us/Elephant+carpaccio">Elephant Carpaccio</a> also has a super detailed
+  <a href="https://docs.google.com/document/d/1TCuuu-8Mm14oxsOnlk8DqfZAA1cvtYu9WGv67Yj_sSk/pub">facilitation guide</a></li>
+</ul>
+<p>... but I'm sure there are many more out there.</p>
+<h2 id="benefits">Benefits</h2>
+<p>If you are trying to bring change in your company/team, but you haven't
+done it before, you don't have to necessarily invent workshops yourself
+(of course, if you want, you can), but can simply take off established
+ones "from the shelf".</p>
+<p><em>Caution</em>: while you could theoretically run an event just from the
+tutorials, it might be beneficial to have attended such a workshop
+before running it. I've cooked my first <a href="https://en.wikipedia.org/wiki/Paella"><em>paella</em></a> from a 
+cookbook, without ever having eaten one before. While everyone agreed
+I've cooked something delicious, later we had to acknowledge it had 
+little to do with a real paella :)</p>
+<h2 id="if-you-are-already-organizing-something">If you are already organizing something</h2>
+<p>If you can afford it, I highly suggest you publicly document it (and
+license it openly), so others have a chance to do the same. E.g.: many
+user groups struggle finding speakers or sponsors - it would be great to
+have a handbook on your sponsor/speaker attraction tactics. It won't
+take away from the success of your event or the benefits to your
+reputation, you simply just enable more people elsewhere to do the same!</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2015/12/05/the-power-of-open-source-blueprints/">The Power of (Open Source) Blueprints</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>Facilitating the Global Day of Coderetreat Zagreb (and a little Nuremberg) 2015</title>
       <link>http://blog.zsoldosp.eu/2015/11/15/facilitating-the-global-day-of-coderetreat-zagreb-and-a-little-nuremberg-2015/</link>
@@ -919,7 +989,7 @@ unexpected/confusing for me were:</p>
    roots rebel - even if this likely provides helpful type
    hints once I'm familiar with it</li>
 <li>Strong (<code>and</code>, <code>or</code>, and <code>not</code>) and weak (<code>&amp;&amp;</code>, <code>||</code>, and <code>!</code>)
-   boolean comparisons. I'm quite afraid of the mistakes I'll go,
+   boolean comparisons. I'm quite afraid of the mistakes I'll do,
    not realizing whether I check for strict boolean values or just 
    against <code>nil/false</code>. Scary...</li>
 <li>Unlike in Python, the REPL (<code>iex</code>) and the script executor (<code>elixir</code>)
@@ -1126,194 +1196,6 @@ I'm happy to add them to this list (or link to wherever you published
 it)!</p>
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
-      <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
-      <pubDate>Wed, 23 Oct 2013 19:28:00 CEST</pubDate>
-      <category><![CDATA[untested ideas]]></category>
-      <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[code]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
-      <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
-      <content:encoded><![CDATA[
-          <p>At the end of this post, there is a list of reasons why to work with 
-end-to-end tests, but first please consider the post's idea on its own.
-After that, I'm glad to have discussions about alternative/better 
-solutions to the described (or omitted) contexts.</p>
-<p>Please, read it first ;)</p>
-<h1 id="terms-used">Terms used</h1>
-<p>The below points are not intended to be full blown definitions, but
-rather pointers.</p>
-<ul>
-<li>End-to-End testing - as <a href="http://gojko.net/2010/03/31/tdd-with-complex-infrastructures/">Nat Pryce has said in one of his 
-    presentations</a>, the ends are always farther apart than one 
-    thinks they are. The purpose is to execute the tests through as much
-    of the application stack as possible - from the front end at least
-    till the storage mechanism.</li>
-<li>Polymorphism - I use it here mostly in the way demonstrated by the 
-    <a href="https://en.wikipedia.org/wiki/Liskov_Substitution_Principle">Liskov Substitution Principle</a> - code written against an abstraction
-    should be unaffected regardless of the concrete implementation of 
-    that abstraction is given to it.</li>
-</ul>
-<h1 id="polymorphic-tests-we-are-already-doing-it">Polymorphic tests - we are already doing it</h1>
-<p>Some of us already run the same tests on top of different code - we can
-have multiple build platforms (x86 and x64, Windows and Linux, Python 2 
-and 3, etc.), multiple configurations (SQLite and PostgreSQL), as well
-as multiple versions of our dependent libraries (stable, latest release, 
-and latest). What's common though among these scenarios is that the 
-polymorphism happens largely <em>outside</em> of our codebase, and we don't 
-have to think much about it when writing tests. </p>
-<p>An example of executing multiple drivers <em>inside</em> our code is the use of 
-Selenium tests - the same tests are run against Chrome, Firefox, etc. 
-While each of the drivers is testing on the same level (Web UI), the 
-actual browser drivers have different implementations, exposed via a 
-common abstraction level - DOM selectors and event invocations.</p>
-<p>Of course, most test code uses some level of abstraction to separate
-the test logic from the actual page implementations.</p>
-<h1 id="abstractions-page-objects">Abstractions - Page objects</h1>
-<p>The <a href="http://martinfowler.com/bliki/PageObject.html">Page Object</a> pattern is used to help creating maintainable tests.
-Instead of writing tests coupled to the implementations (go to this 
-concrete url, wait <code>N</code> seconds for it to load, find and select the form
-elements for username and password, etc.), these implementation details 
-are hidden behind well named methods (e.g.: <code>open_login_form</code>, 
-<code>login_with_credentials</code>, etc.), and thus are domain (client) friendly
-and readable. And Page Objects can be composed together to build 
-Application Objects.</p>
-<p>Similar abstraction is used by the various Acceptance Testing tools,
-such as FitNesse, Cucumber, and the other Gherkin tools - the spec texts
-contain terms and values important for the business domain, and there
-is separate code translating the spec's values and terms to call into 
-the application and transforming its state into a format
-expected by the tool.</p>
-<h1 id="stripped-down-tests-only-the-script">Stripped down tests - only the script</h1>
-<p>As seen above, the AT tools separate application logic from the test 
-scenario's description.</p>
-<p>Assertions have also been separated from test cases - either by developer 
-choice, choosing to use a separate Assertions library like Hamcrest, 
-instead of the unit testing library's own <code>assertFoo</code> methods), or
-explicitly (<a href="http://visionmedia.github.io/mocha/#assertions">Mocha ships without an assertions library</a>).</p>
-<p>Thus tests can really be focused just on the scenario being tested.</p>
-<h1 id="fast-tests">Fast tests</h1>
-<p>The single biggest disadvantage of <a href="http://www.confreaks.com/videos/641-gogaruco2011-fast-rails-tests">end to end tests is their speed</a>. They are slow. And the more of them there are, the slower they are.</p>
-<p>This is one reason why the <a href="http://martinfowler.com/bliki/TestPyramid.html">Test Pyramid</a> recommends not having 
-too many of them. Many architectural approaches (<a href="http://alistair.cockburn.us/Hexagonal+architecture">hexagonal</a>, DDD, etc.) 
-suggest keeping a lightweight core application, and to attach the 
-persistence and UI layers to it at its boundaries, leaving these ports 
-and adapters lightweight too. Most of the testing then happens against
-the core, dependency independent code, making the tests fast. </p>
-<h1 id="fast-end-to-end-tests">Fast end to end tests</h1>
-<p>Drumroll... we'll do a bit of cheating, of course. </p>
-<p>Not all the tests have to run every single time. Performance tests are
-usually not done when TDDing - that kicks in either later in 
-the deployment pipeline, or runs daily. Teams organize their tests into
-fast, smoke, and slow suites. Locally (and as the first step in the build
-process) only the fast and smoke tests are run.</p>
-<p>Putting all the above together means that writing systems with two 
-self- contained cores (the app domain itself and the test scenarios) 
-easily lends itself to end-to-end testing that can be run on multiple 
-configurations, to give confidence that the app works with all its 
-components and dependencies in production - yet enable fast feedback
-required for developers. The same tests can be run:</p>
-<ul>
-<li>directly against the core application with mocks, stubs, etc.</li>
-<li>through the app's (http) UI via the given frameworks/libraries testing 
-  tools (e.g.: <code>django.test.client.Client</code>) with an in-memory database</li>
-<li>through selenium against the full stack</li>
-</ul>
-<p>And of course, we can mix and match - selenium against SQLite, etc.</p>
-<p>While TDDing, one can run the tests only against the fast core, after
-that is complete, we can run the relevant tests with the end-to-end
-driver, fix any mistakes that occur, check in, and let the build server
-run all the integrated tests (using existing build practices to 
-achieve speed)!</p>
-<h2 id="in-which-contexts-could-it-make-sense">In Which Contexts Could It Make Sense?</h2>
-<p>Thank you for reading this far - assuming you didn't just scroll 
-ahead :)</p>
-<p>The below list is by no means exhaustive, and as mentioned in the
-introduction, there might be alternative approaches (please, let me
-know!) - it's not a coincidence this blog is called "Exercises in 
-public learning"! </p>
-<p>With that out of the way, here are some contexts where this approach
-could make sense:</p>
-<ul>
-<li>
-<p>Working with a team where the skills both for testing and for writing
-    good code are (yet) missing (<a href="http://5whys.com/blog/the-3-maturity-stages-of-a-software-team-and-how-scrum-fails.html">Chaotic team phase</a>).</p>
-<p>As the joke goes, the only way to eat the elephant is one bite at a 
-time. Same goes for learning - people can be overwhelmed to make 
-the mental jump from manual to automated testing - throwing in good
-programming practices can be too much.</p>
-<p>Getting started with end to end tests that have decoupled driver
-methods (even if on the <code>TestCase</code> class itself) is a great start - by
-the time the tests become slow, if the team is bought into the idea
-of automated testing, it can be refactored towards a core domain -
-and inside that domain there still doesn't have to be proper clean
-code (one step at a time).</p>
-<p>In brief: for slow, gradual improvement.</p>
-</li>
-<li>
-<p>The app actually has multiple interfaces for the same thing.</p>
-<p>It can be due to A/B testing, or simply to accommodate the different
-needs of different users (e.g.: for a webshop - there is the public
-shop, the internal UI geared at the company's sales people, and the
-API), multi-platform application (e.g.: mobile and desktop web, iOS and 
-Android), etc.</p>
-<p>If you test the checkout process end-to-end, then running the same
-set of tests against each UI makes sense too - a single set of tests
-to maintain and you know immediately whether all features work 
-across all the views.</p>
-</li>
-<li>
-<p>Catching unexpected bugs.</p>
-<p>There is a class of bugs that can be caught by rigor, but I do slip
-occasionally, ending up in a place where the unit tests are all 
-green, but the application itself doesn't actually work.</p>
-<p>Some real life such bugs I have run into:</p>
-<ul>
-<li>forgetting to place the actual input element on the page</li>
-<li>encoding-persistence issues - an utf-8 database with a column
-    that is windows-1250 encoded is ... unexpected</li>
-<li>synchronizing data with another database where after the 
-    required mappings it turned out said other database truncates
-    our data</li>
-</ul>
-<p>All of the above can be addressed retroactively via adding targeted
-tests for that specific integration point, but if we are already
-testing the corner cases (length, encoding, etc.) in our code, it is 
-nicer not to have to learn about these "unknown unknowns" from 
-production problems...</p>
-</li>
-<li>
-<p>Finally some related posts from other people:</p>
-<ul>
-<li>Ayende has multiple posts: on <a href="http://ayende.com/blog/154273/limit-your-abstractions-and-how-do-you-handle-testing">swapping out the infrastructure</a>, <a href="http://ayende.com/blog/4218/scenario-driven-tests">separating assertions from tests</a>, and <a href="http://ayende.com/blog/4217/even-tests-has-got-to-justify-themselves">about which tests add value in his opinion</a></li>
-<li><a href="http://codebetter.com/sebastienlambla/2013/07/11/unit-testing-is-out-vertical-slice-testing-is-in/">Sebastien Lambla on Vertical Testing</a></li>
-</ul>
-</li>
-</ul>
-<p>There is much more to be said about other <a href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">benefits of end to end 
-testing</a>, but this post is already too long, so that will have to wait
-for <a href="/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">another post</a> (while waiting, you can read <a href="http://codemanship.co.uk/parlezuml/blog/?postid=1183">Jason Gorman's 101 Uses for Polymorphic testing</a>)!</p>
-<p>P.S.: I would like to thank (in (first name based) alphabetical order): 
-<a href="https://twitter.com/ajmolenaar">Arjan Molenaar</a>,
-<a href="https://twitter.com/sietstweets">Cirilo Wortel</a>,
-<a href="http://douglassquirrel.com/">Douglas Squirrel</a>,
-<a href="http://twitter.com/jtf">Jeffrey Frederick</a>,
-<a href="https://twitter.com/KishenPanday">Kishen Simbhoedatpanday</a>,
-<a href="http://twitter.com/marcoemrich">Marco Emrich</a>,
-<a href="https://twitter.com/mfeathers">Michael Feathers</a>,
-and of course my colleagues at <a href="http://www.paessler.com">Paessler AG</a> -  I much appreciate that you 
-all listened to me while I tried to figure out how to explain this and 
-gave feedback both about the content and the format (*). Thank you!</p>
-<hr />
-<p>(*) just to be crystal clear, this does not mean they endorsed it, 
-just that they listened and gave feedback!</p>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">A New Look At End-to-End Testing - Polymorphic and Fast</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>

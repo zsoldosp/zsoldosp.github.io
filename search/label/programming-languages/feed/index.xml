@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sun, 15 Nov 2015 12:01:00 GMT</pubDate>
+    <pubDate>Sat, 05 Dec 2015 12:42:21 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -387,7 +387,7 @@ unexpected/confusing for me were:</p>
    roots rebel - even if this likely provides helpful type
    hints once I'm familiar with it</li>
 <li>Strong (<code>and</code>, <code>or</code>, and <code>not</code>) and weak (<code>&amp;&amp;</code>, <code>||</code>, and <code>!</code>)
-   boolean comparisons. I'm quite afraid of the mistakes I'll go,
+   boolean comparisons. I'm quite afraid of the mistakes I'll do,
    not realizing whether I check for strict boolean values or just 
    against <code>nil/false</code>. Scary...</li>
 <li>Unlike in Python, the REPL (<code>iex</code>) and the script executor (<code>elixir</code>)
