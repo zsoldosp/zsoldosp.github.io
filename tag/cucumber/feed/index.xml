@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>Do. Reflect. Learn. Repeat!</title>
+    <link>http://blog.zsoldosp.eu</link>
+    <description>Excercises in public learning</description>
+    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>A few thoughts on BDDon't</title>
+      <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
+      <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
+      <category><![CDATA[bdd]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[behave]]></category>
+      <category><![CDATA[cucumber]]></category>
+      <category><![CDATA[gherkin]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
+      <description>A few thoughts on BDDon't</description>
+      <content:encoded><![CDATA[
+          <p><strong>Note</strong>: apparently I wrote this blog post, but forgot to publish it
+back in december. I will publish it nonetheless together with the 
+<a href="/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/">python warnings</a> post, and keep the publish/create date the 
+original from last year.</p>
+<hr />
+<p>Kevin Dishman wrote an article titled <a href="https://www.thoughtworks.com/p2magazine/issue12/bdd-dont/">BDDon't</a>, in which he
+raises a few objections against issues common with the tools and common
+practices of them. As recently at the <a href="https://www.softwerkskammer.org/">Softwerkskammer</a> Nuremberg
+user group we've just talked about Gherkin style testing after my 
+<a href="https://github.com/zsoldosp/polytesting-taskboard">polytesting talk</a>, I'm now doubly prompted to blog some
+thoughts.</p>
+<div class="toc">
+<ul>
+<li><a href="#contextdisclaimer">Context/Disclaimer</a></li>
+<li><a href="#i-agree-with-kevins-problem-statements">I agree with Kevin's problem statements</a></li>
+<li><a href="#despite-that-i-still-like-gherkin-tools">Despite that, I still like Gherkin tools</a><ul>
+<li><a href="#it-forces-separation-of-test-test-glue-and-app-code">It forces separation of test, test glue, and app code</a></li>
+<li><a href="#gherkin-docs-can-be-useful-beyond-dev">Gherkin docs can be useful beyond dev</a></li>
+<li><a href="#dont-have-to-test-things-on-the-full-stack-level">Don't have to test things on the full stack level</a></li>
+</ul>
+</li>
+<li><a href="#reduce-the-pain-for-gherkin">Reduce the pain for Gherkin</a><ul>
+<li><a href="#regular-expression-mapping-parameter-variance">Regular-expression mapping - Parameter variance</a><ul>
+<li><a href="#different-abstraction-levels">Different abstraction levels</a></li>
+<li><a href="#relying-on-the-applications-own-defaults">Relying on the application's own defaults</a></li>
+<li><a href="#using-step-tables-beware-this-is-defaults-in-disguise">Using step tables (beware, this is defaults in disguise!)</a></li>
+</ul>
+</li>
+<li><a href="#global-state">Global state</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="contextdisclaimer">Context/Disclaimer</h2>
+<ul>
+<li>I've only used <a href="https://github.com/behave/behave">behave</a>, so it's entirely possible it has
+  different behavior from the tool implementation(s) Kevin used</li>
+<li>I don't run the behave tests on the selenium level</li>
+<li>I have never worked for an airline, though flew enough times already.
+  But to be consistent with Kevin's examples, I will use this domain to
+  illustrate points</li>
+<li>I don't exclusively use only BDD tests</li>
+</ul>
+<h2 id="i-agree-with-kevins-problem-statements">I agree with Kevin's problem statements</h2>
+<ul>
+<li>Regular-expression mapping can become complex and error prone
+  and should be avoided</li>
+<li>Global state and step interdependencies are also error prone
+  and should be avoided</li>
+<li>
+<blockquote>
+<p>If the business is really interested in participating in test
+specification, this would be a great opportunity for them to
+pair with someone familiar and comfortable with the test suites the
+team has created.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="despite-that-i-still-like-gherkin-tools">Despite that, I still like Gherkin tools</h2>
+<h3 id="it-forces-separation-of-test-test-glue-and-app-code">It forces separation of test, test glue, and app code</h3>
+<p>Writing readable tests are hard. While on a team with a great culture
+and strong discipline this isn't a challenge, on teams that are not yet
+experts in testing I find this constraint really helpful.</p>
+<h3 id="gherkin-docs-can-be-useful-beyond-dev">Gherkin docs can be useful beyond dev</h3>
+<p>As stated above, I've found that motivated stakeholders, BAs, etc. will
+be fine reading Java, Ruby, Python test code. However, other people can
+find value from an existing - and filterable/navigable (!) - Gherkin
+documents, e.g.: tech/customer support people could appreciate
+<a href="/2010/08/executable-documentation.html">living documents</a>. A new support person would need the same
+info as a new developer making changes in that area! Or imagine if your
+processes need to be audited - persuading an auditor to read natural
+text might be easier than getting them to navigate codebases.</p>
+<h3 id="dont-have-to-test-things-on-the-full-stack-level">Don't have to test things on the full stack level</h3>
+<p>Even if Gherkin is used for acceptance testing, some
+algorithms/calculations can be tested on the unit/component level, never
+even touching the UI to provide the confidence the developers (business)
+need(s). As time goes on, it's even possible to transition tests up and
+down the test pyramid (thanks to <a href="https://twitter.com/clepce">Stefan Clepce</a> for bringing
+<a href="http://pythonhosted.org/behave/new_and_noteworthy_v1.2.5.html#test-stages">behave stages</a> to my attention)!</p>
+<h2 id="reduce-the-pain-for-gherkin">Reduce the pain for Gherkin</h2>
+<h3 id="regular-expression-mapping-parameter-variance">Regular-expression mapping - Parameter variance</h3>
+<h4 id="different-abstraction-levels">Different abstraction levels</h4>
+<p>The problem of complex test data isn't unique to BDD tools - integrated
+tests written in any tool will face the same problem. And the solutions
+are similar - in the tests where I care about the concrete values, I
+specify all the test values explicitly, and in tests where I don't care
+about those details and operate at a higher level abstraction, I create
+sample (random) data for that - a'la <a href="http://pytest.org/latest/fixture.html">pytest fixtures</a></p>
+<p>E.g.: instead of </p>
+<p><code>Given I have booked 2 flights</code></p>
+<p>I might say</p>
+<pre><code>Given I booked a valid flight
+And I booked another valid flight
+</code></pre>
+
+<p>both these steps can match to the same step implementation - whether via
+regex, multiple methods calling the same actual implementation, or via
+some other way. Here I quite like <a href="https://github.com/behave/behave">behave</a>'s annotations, i.e.:
+I can say </p>
+<pre><code>@given('I booked a valid flight')
+@given('I booked another valid flight')
+def booked_a_valid_flight(context):
+    ....
+</code></pre>
+
+<p>Or I might even test things in isolation, not even sharing step
+implementations - I might test that the OLTP model gets translated 
+to the correct reporting model, and for the report I only test things
+on the report data model (see step tables below).</p>
+<h4 id="relying-on-the-applications-own-defaults">Relying on the application's own defaults</h4>
+<p>I have never booked a flight for an unaccompanied minor. Until reading
+Kevin's article, it hasn't even occurred to me that is a use case to
+consider, yet I've booked quite a number of flights.</p>
+<p>I'm sure there is an option to specify that. However, that option by
+default is not check in the application for the checkout - the customer
+explicitly has to request it to be able to specify such a scenario.</p>
+<p>Thus for such a scenario, I likely would include an explicit step for
+booking with an unaccompanied minor.</p>
+<h4 id="using-step-tables-beware-this-is-defaults-in-disguise">Using step tables (beware, this is defaults in disguise!)</h4>
+<p><a href="https://github.com/behave/behave">Behave</a> supports <a href="http://pythonhosted.org/behave/gherkin.html#table">step table data</a></p>
+<pre><code>Given I have booked a flight
+   | type                     | return |
+   | with unaccompanied minor | true   |
+</code></pre>
+
+<p><em>technically, the above would need a header, but in the step implementation,
+the header could be treated as the first row, if that aids readability.</em></p>
+<p>This can cause more complex test code, but if each step corresponds to
+an actual action in the application (a'la <a href="https://pragprog.com/magazines/2010-08/page-objects-in-python">Page Object</a>), then
+there should be no extra logic in the step handler - each line here
+corresponds to a form input (or HTTP POST) entry.</p>
+<h3 id="global-state">Global state</h3>
+<p>In <a href="https://github.com/behave/behave">behave</a>, each step implementation method receives a
+<a href="https://github.com/behave/behave/blob/11757e7/behave/runner.py#L33">Context</a> object to store its state (changes) in,</p>
+<blockquote>
+<p>This object is a place to store information related to the tests you're
+running. You may add arbitrary attributes to it of whatever value you need.</p>
+<p>During the running of your tests the object will have additional layers of
+namespace added and removed automatically. There is a "root" namespace and
+additional namespaces for features and scenarios.</p>
+</blockquote>
+<p>This is unlike it is implemented e.g.: in <a href="https://cucumber.io/docs/reference/jvm#java">cucumber-jvm</a>, and
+maybe that's why I haven't run into this issue (though external global
+state, such as a database can still be shared).</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/">A few thoughts on BDDon't</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
+  </channel>
+</rss>

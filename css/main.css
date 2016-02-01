@@ -167,3 +167,10 @@ pre {
 
 .note { margin-left: 10%; margin-right: 10%; }
 .note .admonition-title {  100%; text-decoration: underline; text-align: center; }
+
+
+blockquote {
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+}

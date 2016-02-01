@@ -10,10 +10,269 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 05 Dec 2015 12:42:21 GMT</pubDate>
+    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>warnings.warn - some DeprecationWarning gotchas</title>
+      <link>http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/</link>
+      <pubDate>Mon, 01 Feb 2016 11:17:00 CET</pubDate>
+      <category><![CDATA[deprecation]]></category>
+      <category><![CDATA[warnings]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[gotcha]]></category>
+      <category><![CDATA[til]]></category>
+      <category><![CDATA[executable documentation]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">bQ24ZuZG1n9rOMCSVN81UBv0wpU=</guid>
+      <description>warnings.warn - some DeprecationWarning gotchas</description>
+      <content:encoded><![CDATA[
+          <h2 id="deprecationwarnings"><code>DeprecationWarning</code>s</h2>
+<p>It's a good practice to gradually deprecate one's library's API, so that 
+users get advance warning of coming changes. The built in way to
+do so is Python's <a href="https://docs.python.org/3.5/library/warnings.html"><code>warnings</code> module</a></p>
+<pre><code>import warnings
+
+if __name__ == '__main__':
+    warnings.warn('deprecation', DeprecationWarning)
+</code></pre>
+<h2 id="by-default-they-are-not-reported">By default, they are not reported!</h2>
+<p>However, if I run this code, there is no output.</p>
+<pre><code>$ python3.5 demo.py
+$ echo $?
+0
+</code></pre>
+<p>The <a href="https://docs.python.org/3.5/library/warnings.html#default-warning-filters">documentation on default warning filters</a> explains: </p>
+<blockquote>
+<p>By default, Python installs several warning filters, which can be overridden by the command-line 
+options passed to <code>-W</code> and calls to <code>filterwarnings()</code>.</p>
+<ul>
+<li><code>DeprecationWarning</code> and <code>PendingDeprecationWarning</code>, and <code>ImportWarning</code> are ignored.</li>
+<li><code>BytesWarning</code> is ignored unless the <code>-b</code> option is given once or twice; in this case
+   this warning is either printed (<code>-b</code>) or turned into an exception (<code>-bb</code>).</li>
+<li><code>ResourceWarning</code> is ignored unless Python was built in debug mode.</li>
+</ul>
+</blockquote>
+<h2 id="forcing-defaults-from-the-command-line-makes-them-reported">Forcing defaults from the command line makes them reported</h2>
+<p>However, if we force the <a href="https://docs.python.org/3.5/using/cmdline.html#cmdoption-W"><em>default</em> warning behavior from the command line</a>,
+we get the warnings - even though theoretically we only specified <em>how often</em> the warnings
+should be reported, not <em>which</em> warnings to be reported!</p>
+<pre><code>$ python3.5 -W d demo.py
+demo.py:4: DeprecationWarning: deprecation
+  warnings.warn('warning', DeprecationWarning)
+$ echo $?
+0
+</code></pre>
+<p>Before reading the docs, I suspected the operating system maintainers didn't want to 'spam'
+the end users of their systems with python library warnings while going about their daily 
+tasks, but apparently this is built into python itself.</p>
+<h2 id="so-how-should-i-deprecate-things">So how should I deprecate things?</h2>
+<p>I'm a big fan of <a href="/2010/08/executable-documentation.html">executable documentation</a>, but this might be one of those cases
+where good old fashioned documentation might be more effective, as we can't expect users of
+our library to run with warnings enabled.</p>
+<p>I would still leave in these deprecations for the project's developers as well as for the
+pedant users of the library.</p>
+<h2 id="checking-against-deprecations-of-our-dependencies">Checking against deprecations of our dependencies</h2>
+<p>That's easier, as we own that code. I would run my builds and tests with <code>-W d</code> at the very
+least, but I would like to try to run with <code>-W error</code>. Except that I don't want to fail the
+build if one of my dependencies is using deprecated apis, so probably I would just have a
+custom <code>main.py</code> where I would explicitly set and reset my warning filters. E.g.: updating
+the above demo code would give me the following:</p>
+<pre><code>import warnings
+import os
+
+if os.environ.get('TEST', '0') == '1':
+    warnings.filterwarnings(module='.*', action='ignore')
+    warnings.filterwarnings(module=__name__, action='error')
+
+if __name__ == '__main__':
+    warnings.warn('deprecation', DeprecationWarning)
+</code></pre>
+<p>&nbsp;</p>
+<pre><code>$ TEST=1 python3.5 demo.py
+Traceback (most recent call last):
+  File "demo.py", line 8, in &lt;module&gt;
+    warnings.warn('deprecation', DeprecationWarning)
+DeprecationWarning: deprecation
+$ echo $?
+1
+</code></pre>
+<p>I yet have to test how feasible it is when our library supports multiple versions of a 
+dependent library, e.g.: <a href="https://www.djangoproject.com/">Django</a>, but my gut feeling is that it should be doable</p>
+<h3 id="beware-of-the-ordering-of-warning-filters">Beware of the ordering of warning filters</h3>
+<p>If in the above example we got the order reversed, then our own <code>DeprecationWarning</code>s would
+be ignored too!</p>
+<pre><code>if os.environ.get('TEST', '0') == '1':
+    warnings.filterwarnings(module=__name__, action='error')
+    warnings.filterwarnings(module='.*', action='ignore')
+</code></pre>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/">warnings.warn - some DeprecationWarning gotchas</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
+    <item>
+      <title>A few thoughts on BDDon't</title>
+      <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
+      <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
+      <category><![CDATA[bdd]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[behave]]></category>
+      <category><![CDATA[cucumber]]></category>
+      <category><![CDATA[gherkin]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
+      <description>A few thoughts on BDDon't</description>
+      <content:encoded><![CDATA[
+          <p><strong>Note</strong>: apparently I wrote this blog post, but forgot to publish it
+back in december. I will publish it nonetheless together with the 
+<a href="/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/">python warnings</a> post, and keep the publish/create date the 
+original from last year.</p>
+<hr />
+<p>Kevin Dishman wrote an article titled <a href="https://www.thoughtworks.com/p2magazine/issue12/bdd-dont/">BDDon't</a>, in which he
+raises a few objections against issues common with the tools and common
+practices of them. As recently at the <a href="https://www.softwerkskammer.org/">Softwerkskammer</a> Nuremberg
+user group we've just talked about Gherkin style testing after my 
+<a href="https://github.com/zsoldosp/polytesting-taskboard">polytesting talk</a>, I'm now doubly prompted to blog some
+thoughts.</p>
+<div class="toc">
+<ul>
+<li><a href="#contextdisclaimer">Context/Disclaimer</a></li>
+<li><a href="#i-agree-with-kevins-problem-statements">I agree with Kevin's problem statements</a></li>
+<li><a href="#despite-that-i-still-like-gherkin-tools">Despite that, I still like Gherkin tools</a><ul>
+<li><a href="#it-forces-separation-of-test-test-glue-and-app-code">It forces separation of test, test glue, and app code</a></li>
+<li><a href="#gherkin-docs-can-be-useful-beyond-dev">Gherkin docs can be useful beyond dev</a></li>
+<li><a href="#dont-have-to-test-things-on-the-full-stack-level">Don't have to test things on the full stack level</a></li>
+</ul>
+</li>
+<li><a href="#reduce-the-pain-for-gherkin">Reduce the pain for Gherkin</a><ul>
+<li><a href="#regular-expression-mapping-parameter-variance">Regular-expression mapping - Parameter variance</a><ul>
+<li><a href="#different-abstraction-levels">Different abstraction levels</a></li>
+<li><a href="#relying-on-the-applications-own-defaults">Relying on the application's own defaults</a></li>
+<li><a href="#using-step-tables-beware-this-is-defaults-in-disguise">Using step tables (beware, this is defaults in disguise!)</a></li>
+</ul>
+</li>
+<li><a href="#global-state">Global state</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="contextdisclaimer">Context/Disclaimer</h2>
+<ul>
+<li>I've only used <a href="https://github.com/behave/behave">behave</a>, so it's entirely possible it has
+  different behavior from the tool implementation(s) Kevin used</li>
+<li>I don't run the behave tests on the selenium level</li>
+<li>I have never worked for an airline, though flew enough times already.
+  But to be consistent with Kevin's examples, I will use this domain to
+  illustrate points</li>
+<li>I don't exclusively use only BDD tests</li>
+</ul>
+<h2 id="i-agree-with-kevins-problem-statements">I agree with Kevin's problem statements</h2>
+<ul>
+<li>Regular-expression mapping can become complex and error prone
+  and should be avoided</li>
+<li>Global state and step interdependencies are also error prone
+  and should be avoided</li>
+<li>
+<blockquote>
+<p>If the business is really interested in participating in test
+specification, this would be a great opportunity for them to
+pair with someone familiar and comfortable with the test suites the
+team has created.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="despite-that-i-still-like-gherkin-tools">Despite that, I still like Gherkin tools</h2>
+<h3 id="it-forces-separation-of-test-test-glue-and-app-code">It forces separation of test, test glue, and app code</h3>
+<p>Writing readable tests are hard. While on a team with a great culture
+and strong discipline this isn't a challenge, on teams that are not yet
+experts in testing I find this constraint really helpful.</p>
+<h3 id="gherkin-docs-can-be-useful-beyond-dev">Gherkin docs can be useful beyond dev</h3>
+<p>As stated above, I've found that motivated stakeholders, BAs, etc. will
+be fine reading Java, Ruby, Python test code. However, other people can
+find value from an existing - and filterable/navigable (!) - Gherkin
+documents, e.g.: tech/customer support people could appreciate
+<a href="/2010/08/executable-documentation.html">living documents</a>. A new support person would need the same
+info as a new developer making changes in that area! Or imagine if your
+processes need to be audited - persuading an auditor to read natural
+text might be easier than getting them to navigate codebases.</p>
+<h3 id="dont-have-to-test-things-on-the-full-stack-level">Don't have to test things on the full stack level</h3>
+<p>Even if Gherkin is used for acceptance testing, some
+algorithms/calculations can be tested on the unit/component level, never
+even touching the UI to provide the confidence the developers (business)
+need(s). As time goes on, it's even possible to transition tests up and
+down the test pyramid (thanks to <a href="https://twitter.com/clepce">Stefan Clepce</a> for bringing
+<a href="http://pythonhosted.org/behave/new_and_noteworthy_v1.2.5.html#test-stages">behave stages</a> to my attention)!</p>
+<h2 id="reduce-the-pain-for-gherkin">Reduce the pain for Gherkin</h2>
+<h3 id="regular-expression-mapping-parameter-variance">Regular-expression mapping - Parameter variance</h3>
+<h4 id="different-abstraction-levels">Different abstraction levels</h4>
+<p>The problem of complex test data isn't unique to BDD tools - integrated
+tests written in any tool will face the same problem. And the solutions
+are similar - in the tests where I care about the concrete values, I
+specify all the test values explicitly, and in tests where I don't care
+about those details and operate at a higher level abstraction, I create
+sample (random) data for that - a'la <a href="http://pytest.org/latest/fixture.html">pytest fixtures</a></p>
+<p>E.g.: instead of </p>
+<p><code>Given I have booked 2 flights</code></p>
+<p>I might say</p>
+<pre><code>Given I booked a valid flight
+And I booked another valid flight
+</code></pre>
+
+<p>both these steps can match to the same step implementation - whether via
+regex, multiple methods calling the same actual implementation, or via
+some other way. Here I quite like <a href="https://github.com/behave/behave">behave</a>'s annotations, i.e.:
+I can say </p>
+<pre><code>@given('I booked a valid flight')
+@given('I booked another valid flight')
+def booked_a_valid_flight(context):
+    ....
+</code></pre>
+
+<p>Or I might even test things in isolation, not even sharing step
+implementations - I might test that the OLTP model gets translated 
+to the correct reporting model, and for the report I only test things
+on the report data model (see step tables below).</p>
+<h4 id="relying-on-the-applications-own-defaults">Relying on the application's own defaults</h4>
+<p>I have never booked a flight for an unaccompanied minor. Until reading
+Kevin's article, it hasn't even occurred to me that is a use case to
+consider, yet I've booked quite a number of flights.</p>
+<p>I'm sure there is an option to specify that. However, that option by
+default is not check in the application for the checkout - the customer
+explicitly has to request it to be able to specify such a scenario.</p>
+<p>Thus for such a scenario, I likely would include an explicit step for
+booking with an unaccompanied minor.</p>
+<h4 id="using-step-tables-beware-this-is-defaults-in-disguise">Using step tables (beware, this is defaults in disguise!)</h4>
+<p><a href="https://github.com/behave/behave">Behave</a> supports <a href="http://pythonhosted.org/behave/gherkin.html#table">step table data</a></p>
+<pre><code>Given I have booked a flight
+   | type                     | return |
+   | with unaccompanied minor | true   |
+</code></pre>
+
+<p><em>technically, the above would need a header, but in the step implementation,
+the header could be treated as the first row, if that aids readability.</em></p>
+<p>This can cause more complex test code, but if each step corresponds to
+an actual action in the application (a'la <a href="https://pragprog.com/magazines/2010-08/page-objects-in-python">Page Object</a>), then
+there should be no extra logic in the step handler - each line here
+corresponds to a form input (or HTTP POST) entry.</p>
+<h3 id="global-state">Global state</h3>
+<p>In <a href="https://github.com/behave/behave">behave</a>, each step implementation method receives a
+<a href="https://github.com/behave/behave/blob/11757e7/behave/runner.py#L33">Context</a> object to store its state (changes) in,</p>
+<blockquote>
+<p>This object is a place to store information related to the tests you're
+running. You may add arbitrary attributes to it of whatever value you need.</p>
+<p>During the running of your tests the object will have additional layers of
+namespace added and removed automatically. There is a "root" namespace and
+additional namespaces for features and scenarios.</p>
+</blockquote>
+<p>This is unlike it is implemented e.g.: in <a href="https://cucumber.io/docs/reference/jvm#java">cucumber-jvm</a>, and
+maybe that's why I haven't run into this issue (though external global
+state, such as a database can still be shared).</p>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/">A few thoughts on BDDon't</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>The Power of (Open Source) Blueprints</title>
       <link>http://blog.zsoldosp.eu/2015/12/05/the-power-of-open-source-blueprints/</link>
@@ -1033,169 +1292,6 @@ checking, yet I know it's possible. Back in the days of <a href="http://thatextr
 the motto was that we are adults, so we can use knives and scissors...</p>
           <hr />
           The post <a hef="http://blog.zsoldosp.eu/2014/01/31/why-i-chose-elixir-to-learn-this-year-and-initial-impressions/">Why I chose Elixir to learn this year (and initial impressions)</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Green Build Surprises</title>
-      <link>http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/</link>
-      <pubDate>Sun, 19 Jan 2014 11:30:00 CET</pubDate>
-      <category><![CDATA[monitoring]]></category>
-      <category><![CDATA[continuous integration]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
-      <description>Green Build Surprises</description>
-      <content:encoded><![CDATA[
-          <p>Recently while working on our build process, I ran into an unexpected
-surprise - the build server reported no error (i.e.: it was displaying a
-green status, since all tests were passing), yet there was a major issue
-- not all of our tests were run!</p>
-<p>Given that the situation was caused by working on the build itself, the
-issue was discovered in time (<strike>though somewhat accidentally</strike>
-during <a href="https://en.wikipedia.org/wiki/Exploratory_testing">exploratory testing</a>). However, this was a
-nice reminder of the problem with the "unknown unknowns" - now that we
-know of this issue, of course we have configured alerting for the case
-when the current build ran less tests than the build before. But I
-wonder how many times we may have released on a green build with
-regression bugs...</p>
-<p>Asking some others and looking back on my past experiences, this topic
-hasn't come up, so while I hope it is obvious and not news for you, dear
-reader, I blog it just in case I wasn't the last to get the memo...</p>
-<p>And it turns out that every now and then we do mess up and commit code
-that makes some tests invisible to the test runner... So it wasn't just
-a one-off thing!</p>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/">Green Build Surprises</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
-        ]]></content:encoded>
-    </item>
-    <item>
-      <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
-      <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
-      <pubDate>Mon, 28 Oct 2013 08:05:00 CET</pubDate>
-      <category><![CDATA[untested ideas]]></category>
-      <category><![CDATA[code]]></category>
-      <category><![CDATA[business analysis]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[software]]></category>
-      <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
-      <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
-      <content:encoded><![CDATA[
-          <p>In last week's post, I gave a few examples about when <a href="/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/">Polymorphic
-End-to-End Testing</a> testing makes sense. In this post, I would
-like to take a step back and list a few additional benefits that could
-be derived from end to end testing in general, regardless of the fashion
-they were written in.</p>
-<p><em>Note: some of these points can also apply to non-end-to-end tests too,
-that were written in a black box style with proper test abstractions. 
-While it could be argued that then the system is that one component, I
-would rather just focus on the benefits we can derive on top of the 
-regression / specification of the system.</em></p>
-<p><em>Disclaimer:</em> note this post has been filed under <a href="/category/untested-ideas/">untested ideas</a>
- - they sound good, but I haven't gotten around to implementing all of
-them.</p>
-<h2 id="big-refactorings-and-rewrites">Big Refactorings and Rewrites</h2>
-<p>Change is inevitable, and they often violate previous assumptions. 
-Sometimes whole components (or systems) have to be rewritten. Having a 
-set of tests that operate on a much higher abstraction level (e.g.: HTTP
-GET/POST requests) can provide the required safety net to avoid 
-regressions and making sure all relevant scenarios are addressed.</p>
-<p>Some changes where this Page (Application) Object abstraction has helped
-us:</p>
-<ul>
-<li>when converting a single page checkout process to a multi-step 
-    wizard style checkout</li>
-<li>when the article numbers used in our system changed</li>
-<li>when we had to synchronize data into a new system - we could just 
-    expand our assertions in the end-to-end tests to make sure that 
-    every known scenario is written correctly into the new system</li>
-</ul>
-<p><a href="http://blog.8thlight.com/uncle-bob/2013/09/23/Test-first.html">It's easy to reconstruct a system from its tests, but much harder to do
-it the other way around</a>. It has been
-great to only adjust a few driver API methods and get the same amount of
-functional coverage as before, without having to rewrite the test suite.</p>
-<h2 id="forces-the-team-to-think-about-the-user-interface-and-experience">Forces the team to think about the user interface (and experience)</h2>
-<p>While it is not required, it often made us reduce the complexity in 
-the UI - when we find that a certain step is being exercised by a 
-method with a single parameter from the tests, yet that method then 
-derives a bunch of additional parameters to POST against the page, it
-suggests one of two things: </p>
-<ol>
-<li>we are missing some test cases for these extra parameters</li>
-<li>maybe we don't need these parameters to be provided by the end user,
-    but we could derive them in the application too.</li>
-</ol>
-<p>Often the helper methods created can expose the need for additional 
-support interfaces that won't probably come up during the specifications
-phase, only after go-live.<br />
-</p>
-<p>Last, but not least, end-to-end gives us tests for the UI, yet the tests
-remain maintainable - usually a single test API method is all that needs
-to be fixed after template changes (and designers are even harder to get
-to write tests than developers :)). <a href="http://ayende.com/blog/160929/on-failing-tests">Don't be afraid of many test 
-failures!</a></p>
-<h2 id="correlate-tests-with-other-business-metrics">Correlate tests with other business metrics</h2>
-<p>While I recall people suggesting we run applications with a <a href="https://en.wikipedia.org/wiki/Code_coverage">coverage 
-profiler attached</a>, the performance penalty is usually 
-prohibiting.</p>
-<p>However, I haven't yet seen a web application without a ton of external
-metrics related to the urls in the app. If our tests are written against
-urls too, after some data munging (primary keys and actual form values
-surely won't match test values exactly, but translating them to <code>GET to 
-view 1</code>, <code>POST to view 2</code>) we can correlate our tests with these 
-metrics. </p>
-<p>Some such metrics:</p>
-<ul>
-<li>application (webserver) access logs</li>
-<li>Google Analytics or equivalent</li>
-<li>...</li>
-</ul>
-<p>What can we learn from these correlations/comparisons?</p>
-<ul>
-<li>are we concentrating our tests in the least visited areas?</li>
-<li>are we testing what our users are doing? Sure, it's nice that in our
-    tests people sequentially finish their checkout, without wondering
-    off the known path, but is this how they behave in production?</li>
-</ul>
-<h2 id="testcase-similarity-analysis">TestCase similarity analysis</h2>
-<p>Some test scenarios will come up in multiple aspects of the system. 
-Placing an order will trigger a bunch of actions in other modules - 
-fulfillment, customer profile updates, marketing classification, invoice
-rendering, notification emails, etc.</p>
-<p>Sometimes these features are added with big time gaps in between, maybe
-even the team members have changed over time. The ability to compare 
-the requests the different TestCases make, and say that these two 
-(three, four, etc.) TestCases seem to execute the same kind of requests
-up to a point as the TestCase being added, but they also have the 
-following extra paths they all execute, but the new TestCase doesn't...
-Causing the developer to realize - of course, there are special rules
-for orders from educational institutions!</p>
-<h2 id="reducing-the-gap-between-end-user-error-reports-and-tests">Reducing the gap between end user error reports and tests</h2>
-<p>Probably this is the least unexpected idea in the list, but worth 
-stating nonetheless.</p>
-<h2 id="in-place-help-for-trusted-users">In place help (for trusted users)</h2>
-<p>Sure, this might require careful considerations, but giving the users 
-the ability to browse the test cases/methods that matches their workflow
-up to the current page, in a searchable fashion (if I place an order 
-like this now, when will the X email be sent) could greatly reduce 
-support work for the developer team. <em>Note: the purpose of this is not 
-to isolate the developers from the users!!!</em></p>
-<h2 id="always-up-to-date-screenshots-and-videos">Always up-to-date screenshots and videos</h2>
-<p>Those manuals that have screenshots from many releases ago... Adding (or
-marking) some test cases to be linked against documentation sections, and
-having the tests actually take screenshots about them or record them as 
-video sounds like a pretty useful idea for me. One could go further, 
-such as highlighting the values/input fields where the test sends 
-input, and the parts of the page that are asserted against...</p>
-<p>And if the support team has access to the same API, they could even 
-create these screenshots/videos for the customer as they are answering
-their question (Here, take a look at this video, this is how the thing
-you asked for is done).</p>
-<hr />
-<p>There must be many more ideas out there - let me know about them, and 
-I'm happy to add them to this list (or link to wherever you published
-it)!</p>
-          <hr />
-          The post <a hef="http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/">Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
         ]]></content:encoded>
     </item>
   </channel>

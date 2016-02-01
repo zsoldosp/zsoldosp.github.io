@@ -10,10 +10,107 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Sat, 05 Dec 2015 12:42:20 GMT</pubDate>
+    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>warnings.warn - some DeprecationWarning gotchas</title>
+      <link>http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/</link>
+      <pubDate>Mon, 01 Feb 2016 11:17:00 CET</pubDate>
+      <category><![CDATA[deprecation]]></category>
+      <category><![CDATA[warnings]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[gotcha]]></category>
+      <category><![CDATA[til]]></category>
+      <category><![CDATA[executable documentation]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">bQ24ZuZG1n9rOMCSVN81UBv0wpU=</guid>
+      <description>warnings.warn - some DeprecationWarning gotchas</description>
+      <content:encoded><![CDATA[
+          <h2 id="deprecationwarnings"><code>DeprecationWarning</code>s</h2>
+<p>It's a good practice to gradually deprecate one's library's API, so that 
+users get advance warning of coming changes. The built in way to
+do so is Python's <a href="https://docs.python.org/3.5/library/warnings.html"><code>warnings</code> module</a></p>
+<pre><code>import warnings
+
+if __name__ == '__main__':
+    warnings.warn('deprecation', DeprecationWarning)
+</code></pre>
+<h2 id="by-default-they-are-not-reported">By default, they are not reported!</h2>
+<p>However, if I run this code, there is no output.</p>
+<pre><code>$ python3.5 demo.py
+$ echo $?
+0
+</code></pre>
+<p>The <a href="https://docs.python.org/3.5/library/warnings.html#default-warning-filters">documentation on default warning filters</a> explains: </p>
+<blockquote>
+<p>By default, Python installs several warning filters, which can be overridden by the command-line 
+options passed to <code>-W</code> and calls to <code>filterwarnings()</code>.</p>
+<ul>
+<li><code>DeprecationWarning</code> and <code>PendingDeprecationWarning</code>, and <code>ImportWarning</code> are ignored.</li>
+<li><code>BytesWarning</code> is ignored unless the <code>-b</code> option is given once or twice; in this case
+   this warning is either printed (<code>-b</code>) or turned into an exception (<code>-bb</code>).</li>
+<li><code>ResourceWarning</code> is ignored unless Python was built in debug mode.</li>
+</ul>
+</blockquote>
+<h2 id="forcing-defaults-from-the-command-line-makes-them-reported">Forcing defaults from the command line makes them reported</h2>
+<p>However, if we force the <a href="https://docs.python.org/3.5/using/cmdline.html#cmdoption-W"><em>default</em> warning behavior from the command line</a>,
+we get the warnings - even though theoretically we only specified <em>how often</em> the warnings
+should be reported, not <em>which</em> warnings to be reported!</p>
+<pre><code>$ python3.5 -W d demo.py
+demo.py:4: DeprecationWarning: deprecation
+  warnings.warn('warning', DeprecationWarning)
+$ echo $?
+0
+</code></pre>
+<p>Before reading the docs, I suspected the operating system maintainers didn't want to 'spam'
+the end users of their systems with python library warnings while going about their daily 
+tasks, but apparently this is built into python itself.</p>
+<h2 id="so-how-should-i-deprecate-things">So how should I deprecate things?</h2>
+<p>I'm a big fan of <a href="/2010/08/executable-documentation.html">executable documentation</a>, but this might be one of those cases
+where good old fashioned documentation might be more effective, as we can't expect users of
+our library to run with warnings enabled.</p>
+<p>I would still leave in these deprecations for the project's developers as well as for the
+pedant users of the library.</p>
+<h2 id="checking-against-deprecations-of-our-dependencies">Checking against deprecations of our dependencies</h2>
+<p>That's easier, as we own that code. I would run my builds and tests with <code>-W d</code> at the very
+least, but I would like to try to run with <code>-W error</code>. Except that I don't want to fail the
+build if one of my dependencies is using deprecated apis, so probably I would just have a
+custom <code>main.py</code> where I would explicitly set and reset my warning filters. E.g.: updating
+the above demo code would give me the following:</p>
+<pre><code>import warnings
+import os
+
+if os.environ.get('TEST', '0') == '1':
+    warnings.filterwarnings(module='.*', action='ignore')
+    warnings.filterwarnings(module=__name__, action='error')
+
+if __name__ == '__main__':
+    warnings.warn('deprecation', DeprecationWarning)
+</code></pre>
+<p>&nbsp;</p>
+<pre><code>$ TEST=1 python3.5 demo.py
+Traceback (most recent call last):
+  File "demo.py", line 8, in &lt;module&gt;
+    warnings.warn('deprecation', DeprecationWarning)
+DeprecationWarning: deprecation
+$ echo $?
+1
+</code></pre>
+<p>I yet have to test how feasible it is when our library supports multiple versions of a 
+dependent library, e.g.: <a href="https://www.djangoproject.com/">Django</a>, but my gut feeling is that it should be doable</p>
+<h3 id="beware-of-the-ordering-of-warning-filters">Beware of the ordering of warning filters</h3>
+<p>If in the above example we got the order reversed, then our own <code>DeprecationWarning</code>s would
+be ignored too!</p>
+<pre><code>if os.environ.get('TEST', '0') == '1':
+    warnings.filterwarnings(module=__name__, action='error')
+    warnings.filterwarnings(module='.*', action='ignore')
+</code></pre>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/">warnings.warn - some DeprecationWarning gotchas</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>Executable bug tracker</title>
       <link>http://blog.zsoldosp.eu/2010/08/executable-bug-tracker.html</link>
