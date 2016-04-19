@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <pubDate>Tue, 19 Apr 2016 10:39:20 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -39,30 +39,30 @@ completely wrong explanation&quot;</em>.</p>
 function has.</em></p>
 <p><strong>Java</strong></p>
 <pre class="code java literal-block">
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingArity</span> <span class="o">{</span>
+<span class="keyword declaration">public</span> <span class="keyword declaration">class</span> <span class="name class">MethodOverloadingArity</span> <span class="operator">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">join</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="s">&quot; &quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+    <span class="keyword declaration">public</span> <span class="keyword declaration">static</span> <span class="name">String</span> <span class="name function">join</span><span class="operator">(</span><span class="name">String</span> <span class="name">a</span><span class="operator">,</span> <span class="name">String</span> <span class="name">b</span><span class="operator">)</span> <span class="operator">{</span>
+        <span class="keyword">return</span> <span class="name">join</span><span class="operator">(</span><span class="name">a</span><span class="operator">,</span> <span class="name">b</span><span class="operator">,</span> <span class="literal string">&quot; &quot;</span><span class="operator">);</span>
+    <span class="operator">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">,</span> <span class="n">String</span> <span class="n">sep</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s%s%s&quot;</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">sep</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="keyword declaration">public</span> <span class="keyword declaration">static</span> <span class="name">String</span> <span class="name function">join</span><span class="operator">(</span><span class="name">String</span> <span class="name">a</span><span class="operator">,</span> <span class="name">String</span> <span class="name">b</span><span class="operator">,</span> <span class="name">String</span> <span class="name">sep</span><span class="operator">)</span> <span class="operator">{</span>
+        <span class="keyword">return</span> <span class="name">String</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;%s%s%s&quot;</span><span class="operator">,</span> <span class="name">a</span><span class="operator">,</span> <span class="name">sep</span><span class="operator">,</span> <span class="name">b</span><span class="operator">);</span>
+    <span class="operator">}</span>
+<span class="operator">}</span>
 </pre>
 <p><strong>Elixir</strong></p>
 <pre class="code elixir literal-block">
-<span class="k">defmodule</span> <span class="no">MethodOverloadingArity</span> <span class="k">do
+<span class="keyword declaration">defmodule</span> <span class="name class">MethodOverloadingArity</span> <span class="keyword">do</span>
 
-    def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">do
-        </span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="k">end</span>
+    <span class="keyword declaration">def</span> <span class="name">join</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">)</span> <span class="keyword">do</span>
+        <span class="name">join</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">,</span> <span class="literal string double">&quot; &quot;</span><span class="punctuation">)</span>
+    <span class="keyword">end</span>
 
-    <span class="k">def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span> <span class="k">do
-        </span><span class="n">a</span> <span class="o">&lt;&gt;</span> <span class="n">sep</span> <span class="o">&lt;&gt;</span> <span class="n">b</span>  <span class="c1"># string concatenation</span>
-    <span class="k">end</span>
+    <span class="keyword declaration">def</span> <span class="name">join</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">,</span> <span class="name">sep</span><span class="punctuation">)</span> <span class="keyword">do</span>
+        <span class="name">a</span> <span class="operator">&lt;&gt;</span> <span class="name">sep</span> <span class="operator">&lt;&gt;</span> <span class="name">b</span>  <span class="comment single"># string concatenation</span>
+    <span class="keyword">end</span>
 
-<span class="k">end</span>
+<span class="keyword">end</span>
 </pre>
 </div>
 <div class="section" id="my-wrong-mental-model">
@@ -73,9 +73,9 @@ It makes for dynamic dispatch - which gets bound at compile time in
 regular Java, but when invoked dynamically, it will resolve to the
 appropriate overload. I.e.: the following pseudocode would be valid:</p>
 <pre class="code elixir literal-block">
-<span class="n">foo</span> <span class="o">=</span> <span class="no">MethodOverloadingArity</span><span class="o">.</span><span class="n">join</span>
-<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
-<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">)</span>
+<span class="name">foo</span> <span class="operator">=</span> <span class="name class">MethodOverloadingArity</span><span class="operator">.</span><span class="name">join</span>
+<span class="name">foo</span><span class="operator">.</span><span class="punctuation">(</span><span class="literal string double">&quot;a&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot;b&quot;</span><span class="punctuation">)</span>
+<span class="name">foo</span><span class="operator">.</span><span class="punctuation">(</span><span class="literal string double">&quot;a&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot;b&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot; - &quot;</span><span class="punctuation">)</span>
 </pre>
 <p>You can tell just from the heading that of course, it's is not valid.
 And this is what we get from Elixir:</p>
@@ -95,33 +95,33 @@ store a reference to it in a variable, I have to resolve the arity.</p>
 <p>Initially I thought it's just a special behavior for Elixir (Erlang),
 so I set out to explore how it works in Java</p>
 <pre class="code java literal-block">
-<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.lang.IllegalArgumentException</span><span class="o">;</span>
+<span class="keyword namespace">import</span> <span class="name namespace">java.lang.reflect.Method</span><span class="operator">;</span>
+<span class="keyword namespace">import</span> <span class="name namespace">java.lang.IllegalArgumentException</span><span class="operator">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingMain</span> <span class="o">{</span>
+<span class="keyword declaration">public</span> <span class="keyword declaration">class</span> <span class="name class">MethodOverloadingMain</span> <span class="operator">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&quot;MethodOverloadingArity&quot;</span><span class="o">);</span>
-        <span class="n">Method</span><span class="o">[]</span> <span class="n">declaredMethods</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getDeclaredMethods</span><span class="o">();</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">Method</span> <span class="n">method</span> <span class="o">:</span> <span class="n">declaredMethods</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">!=</span> <span class="s">&quot;join&quot;</span><span class="o">)</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">);</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (2 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (2 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">,</span> <span class="s">&quot; - &quot;</span><span class="o">);</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (3 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (3 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="keyword declaration">public</span> <span class="keyword declaration">static</span> <span class="keyword type">void</span> <span class="name function">main</span><span class="operator">(</span><span class="name">String</span><span class="operator">[]</span> <span class="name">args</span><span class="operator">)</span> <span class="keyword declaration">throws</span> <span class="name">Exception</span> <span class="operator">{</span>
+        <span class="name">Class</span><span class="operator">&lt;?&gt;</span> <span class="name">c</span> <span class="operator">=</span> <span class="name">Class</span><span class="operator">.</span><span class="name attribute">forName</span><span class="operator">(</span><span class="literal string">&quot;MethodOverloadingArity&quot;</span><span class="operator">);</span>
+        <span class="name">Method</span><span class="operator">[]</span> <span class="name">declaredMethods</span> <span class="operator">=</span> <span class="name">c</span><span class="operator">.</span><span class="name attribute">getDeclaredMethods</span><span class="operator">();</span>
+        <span class="keyword">for</span><span class="operator">(</span><span class="name">Method</span> <span class="name">method</span> <span class="operator">:</span> <span class="name">declaredMethods</span><span class="operator">)</span> <span class="operator">{</span>
+            <span class="keyword">if</span> <span class="operator">(</span><span class="name">method</span><span class="operator">.</span><span class="name attribute">getName</span><span class="operator">()</span> <span class="operator">!=</span> <span class="literal string">&quot;join&quot;</span><span class="operator">)</span>
+                <span class="keyword">continue</span><span class="operator">;</span>
+            <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">println</span><span class="operator">(</span><span class="name">method</span><span class="operator">.</span><span class="name attribute">toString</span><span class="operator">());</span>
+            <span class="keyword">try</span> <span class="operator">{</span>
+                <span class="name">Object</span> <span class="name">result</span> <span class="operator">=</span> <span class="name">method</span><span class="operator">.</span><span class="name attribute">invoke</span><span class="operator">(</span><span class="name">c</span><span class="operator">,</span> <span class="literal string">&quot;first&quot;</span><span class="operator">,</span> <span class="literal string">&quot;second&quot;</span><span class="operator">);</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... invocation result (2 args): %s\n&quot;</span><span class="operator">,</span> <span class="name">result</span><span class="operator">);</span>
+            <span class="operator">}</span> <span class="keyword">catch</span><span class="operator">(</span><span class="name">IllegalArgumentException</span> <span class="name">e</span><span class="operator">)</span> <span class="operator">{</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... (2 args) %s\n&quot;</span><span class="operator">,</span> <span class="name">e</span><span class="operator">);</span>
+            <span class="operator">}</span>
+            <span class="keyword">try</span> <span class="operator">{</span>
+                <span class="name">Object</span> <span class="name">result</span> <span class="operator">=</span> <span class="name">method</span><span class="operator">.</span><span class="name attribute">invoke</span><span class="operator">(</span><span class="name">c</span><span class="operator">,</span> <span class="literal string">&quot;first&quot;</span><span class="operator">,</span> <span class="literal string">&quot;second&quot;</span><span class="operator">,</span> <span class="literal string">&quot; - &quot;</span><span class="operator">);</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... invocation result (3 args): %s\n&quot;</span><span class="operator">,</span> <span class="name">result</span><span class="operator">);</span>
+            <span class="operator">}</span> <span class="keyword">catch</span><span class="operator">(</span><span class="name">IllegalArgumentException</span> <span class="name">e</span><span class="operator">)</span> <span class="operator">{</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... (3 args) %s\n&quot;</span><span class="operator">,</span> <span class="name">e</span><span class="operator">);</span>
+            <span class="operator">}</span>
+        <span class="operator">}</span>
+    <span class="operator">}</span>
+<span class="operator">}</span>
 </pre>
 <p>(<em>Yes, it reminds me how much more elegant metaprogramming is in Python.
 But Python has no method overloading</em>)</p>

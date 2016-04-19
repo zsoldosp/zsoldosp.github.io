@@ -10,10 +10,147 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <pubDate>Tue, 19 Apr 2016 10:39:21 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>CITCON Cluj 2016</title>
+      <link>http://blog.zsoldosp.eu/2016/04/18/citcon-cluj-2016/</link>
+      <pubDate>Mon, 18 Apr 2016 12:32:00 CEST</pubDate>
+      <category><![CDATA[conferences]]></category>
+      <category><![CDATA[citcon]]></category>
+      <category><![CDATA[software]]></category>
+      <guid isPermaLink="false">Ak8DsCUnbn3-fj05vbRCp36P4OI=</guid>
+      <description>CITCON Cluj 2016</description>
+      <content:encoded><![CDATA[
+          <style type="text/css">
+.post img {
+   width: 100%;
+   height: auto;
+}
+</style>
+
+<div class="toc">
+<ul>
+<li><a href="#monorepos">Monorepos</a></li>
+<li><a href="#is-there-a-limit-to-self-organization">Is there a limit to self organization?</a></li>
+<li><a href="#randomized-testingrandom-data-generation">Randomized testing/random data generation</a></li>
+<li><a href="#continuous-deliverydeploymnet-side-effects">Continuous Delivery/Deploymnet side effects</a></li>
+<li><a href="#how-do-you-test-your-organization">How do you test your organization?</a></li>
+<li><a href="#elephant-carpaccio">Elephant Carpaccio</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#books-of-citcon-cluj">Books of CITCON Cluj</a></li>
+</ul>
+</div>
+<p>Cluj was the seventh CITCON I attended, and it's the second CITCON organized by people who first attended the conference series in Budapest (which I organized :)). But it's not about reunion of old friends, it's a super open and welcoming event, where I still keep learning, so without further ado, here are my learnings from the sessions I've attended.</p>
+<h2 id="monorepos">Monorepos</h2>
+<p>(It was a lunch session, which I didn't attend, but we've talked about it Friday evening)</p>
+<p><a href="https://twitter.com/ivanrmoore">Ivan Moore</a> suggested (and has done so in his past project(s)) not to break up your team's repo into different repos, but just have a single one and keep modules separated. Essentially he suggests a single repo per team.</p>
+<p>The benefit of this is that you save a lot of time by not having to deal with a bunch of things, especially in the build, packaging and dependency versioning/management area - the compatible versions are always kept together.</p>
+<p>It's recommended that you CD the artifacts, but it's actually not a requirement.</p>
+<p>We disagreed whether the physical separation  of repos is a better tool to teach people proper modularization, Ivan argued that it should be addressed on a team dynamic/process level (reviews, pairing, etc.), and not make delivery (and refactoring) harder. Note on refactoring: in Java, the equivalent of <code>pip install -e &lt;folder|git url&gt;</code> is much less practical than in Python.</p>
+<h2 id="is-there-a-limit-to-self-organization">Is there a limit to self organization?</h2>
+<p>It turns out that the team I work with is quite self organizing, but only within the unit of the team. <a href="https://twitter.com/jtf">@Jtf</a> suggested to rephrase the question as <em>Is there a limit to self organization or only to how big the self is?</em>.</p>
+<p>I also learned that one should be careful with terminology - the question of who owns the solution and who owns the goal is totally orthogonal to how any given team is organizes work.</p>
+<p>At <a href="https://twitter.com/jtf">@Jtf</a>'s company they run something similar to how <a href="http://www.valvesoftware.com/jobs/index.html">Valve</a> operates - there is an internal project fair, where PO(s) propose projects, and then developers sign up for them - and it's perfectly OK if a project gets no signups.</p>
+<p>To address the divide between who owns the goal and who the solution, properly cross functional teams can be the answer, i.e.: the PO should be part of the team and should really own goals and priorization of the goals.</p>
+<p>There was a rather interesting quote from Alistair Cockburn that <a href="https://t.co/KvYJjkQMtL">"Self organization is mutiny"</a>, because self organizing will inevitebly be pushing the boundaries.</p>
+<p>The technique called <a href="http://blog.jeffreyfredrick.com/2016/04/08/coherence-busting-explained/">Coherence Busting</a> was suggested, which in high level translates to empathy/understanding where people's actions are coming from, i.e.: What has to be true for this behavior to make sense. But if you can, just ask directly :)</p>
+<h2 id="randomized-testingrandom-data-generation">Randomized testing/random data generation</h2>
+<p>On the train ride to Cluj, I was <a href="https://github.com/zsoldosp/spike-pytest-fixtures">playing around with py.test's test fixtures</a> and how one can combine that, e.g.: in a shopping cart, how can one specify in a test that "I need an order for an electroncics items that is sold to an end user who paid by credit card and who used a fixed amount coupon". I've found that generating all combinations is rather easy, but to filter out the scenarios I need for a given test is hard if I don't want to write a lot of specific fixtures (e.g.: <code>electronics_item_for_end_user_with_creditcard_with_fixed_discount</code>), which could get out of hand fast.</p>
+<p>One possibility could be to do some (model driven) code generation to generate all these specific fixtures, but I had the impression it might become unmaintainable/hard to understand quickly.</p>
+<p>During the session, I used the analogy that "as if I was writing a SQL query to select the test scenarios I need", which - with the input from the other participants led to the realization that I could separate the generation of scenarios from the selection of scenarios, i.e.: I could generate all possible combinations, serialize the results somewhere before running the tests, and then inside the tests I could just query the generated ones and load them. Certainly something to experiment with further!</p>
+<h2 id="continuous-deliverydeploymnet-side-effects">Continuous Delivery/Deploymnet side effects</h2>
+<p>This session was run by <a href="http://www.pauljulius.com/">PJ</a>, CTO of an online advertising firm, who described their one year journey to CD, and the kind of interesting side effects he has observed.</p>
+<p>He has mapped out the full process from idea to profit, and looked where they could speed it up. As a CTO, he started in the domain under his control, i.e.: from commit to released to production, though as it turned out, that's quite a small slice of the full process. Later when he showed the chart to fellow executives, they were surprised by the complexity of the project. Most likely it was the result of organic growth that comes from the human/firm behavior that when one encounters a problem/road block, often the solution to fix it is to add more process to it. Quickly there was buyin to automate a solution to the root causes for which the processes were introduced.</p>
+<p><img alt="Paul Julius describing an ideas path from idea to profit" src="/img/citcon-cluj/pj-cd-side-effects.jpg" /></p>
+<p>PJ told the engineers to spend the bulk of their coding time refactoring. Which people initially didn't. So he then <em>required that 50% of the time was to be spent on refactoring, as well as 50% of the time should be pair programming</em>. The business did protest initially (this was before the full value map), but the results quickly proved it was worth it. Before this change, it took 12.5 days to from a time the story made it to the implementation backlog to production down to 3.5 days (average), which led to happy stakeholders.</p>
+<p>They achieved this by:</p>
+<ul>
+<li>integrating devs, testers, operations, etc. into a mixed teams, now everyone's title is "Software Creator"</li>
+<li>slicing stories smaller</li>
+<li>ship the done story when it's done, and not the end of the two weeks iteration</li>
+<li>to fill out the refactoring time, they've actually reduced the pure build time from 90 minutes to 3 minutes, and the commit to build ready feedback cycle from 2.5 hours (due to pending builds) to just under a cup of coffeee</li>
+</ul>
+<p>PJ's observation is that if you give people metrics to strive for, they will game the system to achieve it, so if you give the right targets, great things will happen (note: it's not always easy to get the right targets :))</p>
+<p>The refactoring eliminated the fear people had before to change the codebase.</p>
+<p>Once they got to the time where it took 3 minutes to deploy, and 1 minute to roll back, the team actually decided to get rid of the slow end to end tests, as they could get faster feedback from production than the time it took to run those tests. However, as an online ad agency, they do have 1000s of events per second (or minutes), so they have enough data. We couldn't pin down an exact formula when exactly one can switch to production monitoring to replace their end to end tests, but the ratio of the time the team needs to go from change idea to deploy in production (<code>i2p</code>, idea to production) and the time the team needs to get feedback whether the change was good once it was deployed (<code>p2f</code>, production to feedback) is a useful one to consider where to invest your time. E.g.: if <code>i2p</code> = 30 mins and <code>p2f</code> is 3 minutes, optimizing <code>i2p</code> could make sense. But if <code>i2p</code> is an hour, and <code>p2f</code> is a day, maybe it doesn't. If anyone knows of some mathematics that could help here, please let me know!</p>
+<p>As they dropped their end to end tests tests, unit tests did skyrocket in number too.</p>
+<p>Also, just to emphasize, while in retrospect and in this presentation it could sound like smooth sailing, it wasn't, there were many mistakes. But that quickly teaches the team to focus on resiliency and recovery, i.e.: they changed there processes around to reduce the cost of an error (fine-grained feature flags (on off, enable for only some groups, etc.), rolling out to a few servers and then to the whole cluster, etc.). </p>
+<p>Apparently New Relic supports a/b testing with monitoring, so one could compare the new release against the old one, so that's something to look into.</p>
+<h2 id="how-do-you-test-your-organization">How do you test your organization?</h2>
+<p><img alt="Andy Parker's notes from the session" src="/img/citcon-cluj/ap-testing-your-org.jpg" /></p>
+<p><a href="https://twitter.com/aparker42">Andy Parker</a> is an engineering manager in a self organizing organization, so the question arose: what exactly should a manager do there? His answer is to gather data that could be an additional input into the kaizen (continuous improvement).</p>
+<p>When one joins the organization, it helps to map out the company - look at the org chart, as well as how actually work gets done. Who are the key communicators? Who are people actually working with (usually across the hierarchy, even whent he only common manager they have is the CEO). This is easy to do when one is starting out, but should be remembered an actualized even when one is already part of the "daily mill". See also: static vs. dynamic org. situation</p>
+<p>Before one starts out collecting organization, one should always start with a hypothesis (as per the scientific method). This can be the null hypothesis, i.e.: there is nothing interesting here, so observing it I'll find that everything is OK and I will just confirm that.</p>
+<p>Some tools to do this is</p>
+<ul>
+<li>take notes - raw data when possible, even though you can't be an impartial observer of course</li>
+<li>beware that observation changes things, but that in itself can be valuable information. E.g.: oh, people are pairing there, let's see what they are working on! Hmm, now that I observe them, they stopped pairing and went back to working alone. Why is that?</li>
+<li>(with permission), record conversations and re-listen to them</li>
+<li>
+<p>in a meeting, draw a communication matrix -</p>
+</li>
+<li>
+<p>who talks to whom</p>
+</li>
+<li>are they making statements or questions?</li>
+<li>
+<p>how long do they talk?</p>
+</li>
+<li>
+<p>interview team members - what is your responsibility in the team? what is others' responsibility? You can find that not everyone has the same understaning</p>
+</li>
+<li>one, especially developers/engineers, should be careful to start with qualitative analysis, and not quantitative</li>
+</ul>
+<h2 id="elephant-carpaccio">Elephant Carpaccio</h2>
+<p>It's a workshop that was <a href="http://alistair.cockburn.us/Elephant+carpaccio">originally run by Alistair Cockburn</a>, but <a href="http://douglassquirrel.com/">Douglas Squirrel</a> has adopted it to fit the one hour session limit.</p>
+<p>As we've walked into the room, everyone was required to add a single feature to the drawing of an elephant (which started out as with a circle (head) and 4 lines (body, two legs, and the trump)). Surely we didn't create the masterpiece, but it started to resemble the elephant more and more, and as Squirrel observed, it was looking like an elephant throughout the whole process, it was just getting better/more detailed with each iteration.</p>
+<p><img alt="Squirrel showing the original and final elphants" src="/img/citcon-cluj/squirrel-elephants.jpg" /></p>
+<p>His client is working with a simple kanban board that has the following columns: idea, dev working on it, testing, and live. Their goal is (which they meet more often than not) to go from idea to live in a single developer day for a story.</p>
+<p>E.g.: their app shows graphs, and they've introduced the color picker to allow users to choose the color of the lines of their graph via the following cards:</p>
+<ul>
+<li>behind a feature toggle, release a UI button for the color picker (to learn whether or not people will actually click on it)</li>
+<li>when clicked, pop up a static image (to learn whether people just close the dialog, or actually click on a color)</li>
+<li>a functional color picker widget, which allows choosing a color, but the selected value is not used anywhere (to do UX testing with real users over the phone)</li>
+<li>actually persist the selected color and display that on the graph (done)</li>
+</ul>
+<p>In each step, they've implemented a slice which either provided value or provided fast feedback. One benefit of fast feedback is that you can discover early enough if you are working on a feature noone needs, and can concentrate your efforts elsewhere. As opposed to layered development, where first the data storage is implemented, then the backend is implemented, and finally something is shown to the users. It's important to slice the elephant not parallel to the ground, but vertically along the line from its trump to it tail, so that it keeps looking like an elephant.</p>
+<p>Slices work even if you only release them internally or to selected users only.</p>
+<p>It's important how you slice - e.g.: one could say we start with a single (or two) color(s) color picker, but that would require us to implement a rather thick slice.</p>
+<p>There is a nice <a href="http://agileforall.com/wp-content/uploads/2012/01/Story-Splitting-Flowchart.pdf">flowchart to decide on how to slice stories</a>.</p>
+<p>In Squirrel's experience people don't tend to slice too thin, but rather they often slice the wrong way</p>
+<p>There can be tension and tradeoff in slicing whether we take the smallest next slice to implement or we take the thing that gets us to market/money fastest. That's why the slicing session happens together with the PO and the devs.</p>
+<p>The benefit of this approach is that estimation is eliminated, and delivery becomes more predicatable (each card is one dev day).</p>
+<p>Usually they only plan ahead like a week or so, so they can respond to feedback without too much rework.</p>
+<p>Context: his client is a startup still getting to the proper product - market fit.</p>
+<p>After this overview, we did a slicing/planning session for a price calculator (each drink has a price, and there is vat, which varies from country to country).</p>
+<p>The following cards were derived:</p>
+<ul>
+<li>calculate price on command line, in ireland only, for 1 pint of beer with a fixed price and fixed percent tax</li>
+<li>for <code>N</code> beers</li>
+<li>at a variable price (coming from the user)</li>
+<li>move from the command line to a (web) API (assume CD infrastructure is present already)</li>
+<li>and whisky and  wine, but calculation can only be done for a single type at a time</li>
+<li>multiple types per calculation</li>
+<li>expand to have the UK prices/taxes too</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>CITCON Cluj was a blast, I've learned way more than what I squeezed into this blog post, so many thanks to Adina and the local organizers for finding a great venue and making the event happen! </p>
+<p>Hope to see you at a CITCON next year!</p>
+<h2 id="books-of-citcon-cluj">Books of CITCON Cluj</h2>
+<p>These are books that were recommended either during the sessions or conversations around the conf, in no particular order</p>
+<ul>
+<li><a href="http://www.strategy-business.com/article/00344?gko=10921">The Future Of Management Is Teal</a></li>
+<li>Why we can't learn anything from Google / Toyota (???)</li>
+<li><a href="http://www.amazon.com/Jonathan-Lethem-Author-Occasional-Music/dp/B0036YCMOE/">Gun, with Occassional Music</a></li>
+<li><a href="http://www.amazon.com/Research-Methods-Anthropology-Qualitative-Quantitative/dp/0759108692/">Research methods in anthropolgy - qualitative and quantitative approaches</a></li>
+</ul>
+          <hr />
+          The post <a hef="http://blog.zsoldosp.eu/2016/04/18/citcon-cluj-2016/">CITCON Cluj 2016</a> first appeared on <a href="http://blog.zsoldosp.eu">http://blog.zsoldosp.eu</a>.
+        ]]></content:encoded>
+    </item>
     <item>
       <title>CITCON Turin Session Notes</title>
       <link>http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/</link>

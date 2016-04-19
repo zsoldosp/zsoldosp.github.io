@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <pubDate>Tue, 19 Apr 2016 10:39:21 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -51,7 +51,8 @@ options passed to <code>-W</code> and calls to <code>filterwarnings()</code>.</p
 <li><code>DeprecationWarning</code> and <code>PendingDeprecationWarning</code>, and <code>ImportWarning</code> are ignored.</li>
 <li><code>BytesWarning</code> is ignored unless the <code>-b</code> option is given once or twice; in this case
    this warning is either printed (<code>-b</code>) or turned into an exception (<code>-bb</code>).</li>
-<li><code>ResourceWarning</code> is ignored unless Python was built in debug mode.</li>
+<li><code>ResourceWarning</code> is ignored unless Python was built in debug mode.
+</li>
 </ul>
 </blockquote>
 <h2 id="forcing-defaults-from-the-command-line-makes-them-reported">Forcing defaults from the command line makes them reported</h2>

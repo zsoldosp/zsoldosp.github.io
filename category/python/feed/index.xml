@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <pubDate>Tue, 19 Apr 2016 10:39:19 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -51,7 +51,8 @@ options passed to <code>-W</code> and calls to <code>filterwarnings()</code>.</p
 <li><code>DeprecationWarning</code> and <code>PendingDeprecationWarning</code>, and <code>ImportWarning</code> are ignored.</li>
 <li><code>BytesWarning</code> is ignored unless the <code>-b</code> option is given once or twice; in this case
    this warning is either printed (<code>-b</code>) or turned into an exception (<code>-bb</code>).</li>
-<li><code>ResourceWarning</code> is ignored unless Python was built in debug mode.</li>
+<li><code>ResourceWarning</code> is ignored unless Python was built in debug mode.
+</li>
 </ul>
 </blockquote>
 <h2 id="forcing-defaults-from-the-command-line-makes-them-reported">Forcing defaults from the command line makes them reported</h2>
@@ -320,26 +321,26 @@ like Powershell.</p>
 <div class="section" id="the-script">
 <h1>The script</h1>
 <pre class="code bash literal-block">
-<span class="c">#!/bin/sh
-</span><span class="k">function </span>d<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&quot;\$ $*&quot;</span>
-    <span class="nv">$*</span>
-<span class="o">}</span>
+<span class="comment hashbang">#!/bin/sh
+</span><span class="keyword">function</span> d<span class="operator">()</span> <span class="operator">{</span>
+    <span class="name builtin">echo</span> <span class="literal string double">&quot;\$ </span><span class="name variable">$*</span><span class="literal string double">&quot;</span>
+    <span class="name variable">$*</span>
+<span class="operator">}</span>
 
-<span class="k">function </span>win_info<span class="o">()</span> <span class="o">{</span>
-    systeminfo | grep <span class="s2">&quot;\(OS Name\|OS Manufacturer\|System Type\|Locale\)&quot;</span>
-<span class="o">}</span>
+<span class="keyword">function</span> win_info<span class="operator">()</span> <span class="operator">{</span>
+    systeminfo <span class="punctuation">|</span> grep <span class="literal string double">&quot;\(OS Name\|OS Manufacturer\|System Type\|Locale\)&quot;</span>
+<span class="operator">}</span>
 
-<span class="nv">REPRO_FOLDER</span><span class="o">=</span>bugrepro
+<span class="name variable">REPRO_FOLDER</span><span class="operator">=</span>bugrepro
 d win_info
 d python --version
 d pip freeze
 d git --version
-d grep ^ -nH <span class="sb">`</span>find <span class="nv">$REPRO_FOLDER</span> -name <span class="se">\*</span>.py<span class="sb">`</span>
-d python -m unittest discover <span class="nv">$REPRO_FOLDER</span>
+d grep ^ -nH <span class="literal string backtick">`</span>find <span class="name variable">$REPRO_FOLDER</span> -name <span class="literal string escape">\*</span>.py<span class="literal string backtick">`</span>
+d python -m unittest discover <span class="name variable">$REPRO_FOLDER</span>
 d ls .testr* -l
 d cat .testr.conf
-d testr run <span class="nv">$REPRO_FOLDER</span>
+d testr run <span class="name variable">$REPRO_FOLDER</span>
 d testr run
 </pre>
 <p>Running <tt class="docutils literal">./bugrepro.sh <span class="pre">2&gt;&amp;1</span> | tee bugrepro.txt&nbsp; &gt; /dev/null</tt> produces
@@ -386,11 +387,11 @@ execution to continue requires an <tt class="docutils literal">exit</tt> command
 the body of a bash function? I'm thinking of something similar to
 what one does with alias</p>
 <pre class="code bash literal-block">
-<span class="nv">$ </span><span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
-<span class="nv">$ </span>foo
+$ <span class="name builtin">alias</span> <span class="name variable">foo</span><span class="operator">=</span><span class="literal string single">'echo foo'</span>
+$ foo
 foo
-<span class="nv">$ </span><span class="nb">alias </span>foo
-<span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
+$ <span class="name builtin">alias</span> foo
+<span class="name builtin">alias</span> <span class="name variable">foo</span><span class="operator">=</span><span class="literal string single">'echo foo'</span>
 </pre>
 </li>
 <li><p class="first">is there a better way for passing arguments in bash? I ended up doing

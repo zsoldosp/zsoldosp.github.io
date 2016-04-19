@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <pubDate>Tue, 19 Apr 2016 10:39:19 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -51,38 +51,38 @@ since the purpose of this post is not to teach idiomatic Django.</p>
 <div class="section" id="the-specs-for-the-app">
 <h1>The Specs for the App</h1>
 <pre class="code python literal-block">
-<span class="k">class</span> <span class="nc">FibonacciCalculatorTests</span><span class="p">:</span>
+<span class="keyword">class</span> <span class="name class">FibonacciCalculatorTests</span><span class="punctuation">:</span>
 
-    <span class="k">def</span> <span class="nf">test_cannot_calculate_sequence_elements_less_than_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_can_calculate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">test_cannot_calculate_sequence_elements_less_than_one</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name">n</span><span class="operator">=-</span><span class="literal number integer">1</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name">n</span><span class="operator">=</span><span class="literal number integer">0</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_can_calculate</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">test_currently_we_cannot_calculate_numbers_greater_than_10</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_can_calculate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="mi">7895</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">test_currently_we_cannot_calculate_numbers_greater_than_10</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_can_calculate</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal number integer">11</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal number integer">7895</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">test_can_calculate_the_first_ten_fibonacci_numbers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+    <span class="keyword">def</span> <span class="name function">test_can_calculate_the_first_ten_fibonacci_numbers</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">2</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">3</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">3</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">4</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">5</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">5</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">8</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">6</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">13</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">7</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">21</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">8</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">34</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">9</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal number integer">55</span><span class="punctuation">,</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">))</span>
 
-    <span class="k">def</span> <span class="nf">test_can_only_calculate_fibonacci_for_integers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="s">'not a number'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assert_cannot_calculate</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">test_can_only_calculate_fibonacci_for_integers</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal number float">3.14</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal string single">'not a number'</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">None</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">assert_can_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNotNone</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">assert_can_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertIsNotNone</span><span class="punctuation">(</span><span class="name">result</span><span class="punctuation">)</span>
 </pre>
 <p>We'll get to the implementation of <strong>assert_cannot_calculate</strong> next.</p>
 </div>
@@ -90,31 +90,31 @@ since the purpose of this post is not to teach idiomatic Django.</p>
 <h1>The Business Logic</h1>
 <p>Let's add the actual test implementation</p>
 <pre class="code python literal-block">
-<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">TestCase</span>
-<span class="kn">from</span> <span class="nn">simple_fibonacci</span> <span class="kn">import</span> <span class="n">calculator</span><span class="p">,</span> <span class="n">urls</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.test</span> <span class="keyword namespace">import</span> <span class="name">TestCase</span>
+<span class="keyword namespace">from</span> <span class="name namespace">simple_fibonacci</span> <span class="keyword namespace">import</span> <span class="name">calculator</span><span class="punctuation">,</span> <span class="name">urls</span>
 
 
-<span class="k">class</span> <span class="nc">InMemory</span><span class="p">(</span><span class="n">FibonacciCalculatorTests</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+<span class="keyword">class</span> <span class="name class">InMemory</span><span class="punctuation">(</span><span class="name">FibonacciCalculatorTests</span><span class="punctuation">,</span> <span class="name">TestCase</span><span class="punctuation">):</span>
 
-    <span class="k">def</span> <span class="nf">assert_cannot_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="keyword">with</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertRaises</span><span class="punctuation">(</span><span class="name exception">ValueError</span><span class="punctuation">):</span>
+            <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">get_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">calculator</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">get_fibonacci</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
 </pre>
 <p>Followed by the calculator fibonacci logic</p>
 <pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="c"># don't do this in production</span>
-    <span class="c"># use https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">'value (</span><span class="si">%r</span><span class="s">) too low'</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">'value (</span><span class="si">%r</span><span class="s">) too high'</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="keyword">def</span> <span class="name function">fibonacci</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">):</span>
+    <span class="comment single"># don't do this in production</span>
+    <span class="comment single"># use https://en.wikipedia.org/wiki/Fibonacci_number#Closed-form_expression</span>
+    <span class="keyword">if</span> <span class="name">n</span> <span class="operator">&lt;</span> <span class="literal number integer">1</span><span class="punctuation">:</span>
+        <span class="keyword">raise</span> <span class="name exception">ValueError</span><span class="punctuation">(</span><span class="literal string single">'value (</span><span class="literal string interpol">%r</span><span class="literal string single">) too low'</span> <span class="operator">%</span> <span class="name">n</span><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="name">n</span> <span class="operator">&gt;</span> <span class="literal number integer">10</span><span class="punctuation">:</span>
+        <span class="keyword">raise</span> <span class="name exception">ValueError</span><span class="punctuation">(</span><span class="literal string single">'value (</span><span class="literal string interpol">%r</span><span class="literal string single">) too high'</span> <span class="operator">%</span> <span class="name">n</span><span class="punctuation">)</span>
+    <span class="keyword">if</span> <span class="name">n</span> <span class="operator word">in</span> <span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">1</span>
+    <span class="keyword">return</span> <span class="name">fibonacci</span><span class="punctuation">(</span><span class="name">n</span> <span class="operator">-</span> <span class="literal number integer">1</span><span class="punctuation">)</span> <span class="operator">+</span> <span class="name">fibonacci</span><span class="punctuation">(</span><span class="name">n</span> <span class="operator">-</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
 </pre>
 </div>
 <div class="section" id="this-is-a-webservice-let-s-test-the-json-api">
@@ -122,37 +122,37 @@ since the purpose of this post is not to teach idiomatic Django.</p>
 <p>You can probably guess, this is where we add the second implementation
 for the FibonacciCaulcatorTests:</p>
 <pre class="code python literal-block">
-<span class="kn">import</span> <span class="nn">simple_fibonacci</span>
-<span class="kn">from</span> <span class="nn">django.test.client</span> <span class="kn">import</span> <span class="n">Client</span>
-<span class="kn">from</span> <span class="nn">django.core.urlresolvers</span> <span class="kn">import</span> <span class="n">reverse</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<span class="keyword namespace">import</span> <span class="name namespace">simple_fibonacci</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.test.client</span> <span class="keyword namespace">import</span> <span class="name">Client</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.core.urlresolvers</span> <span class="keyword namespace">import</span> <span class="name">reverse</span>
+<span class="keyword namespace">import</span> <span class="name namespace">json</span>
 
 
-<span class="k">class</span> <span class="nc">JsonHttpResponse</span><span class="p">(</span><span class="n">FibonacciCalculatorTests</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+<span class="keyword">class</span> <span class="name class">JsonHttpResponse</span><span class="punctuation">(</span><span class="name">FibonacciCalculatorTests</span><span class="punctuation">,</span> <span class="name">TestCase</span><span class="punctuation">):</span>
 
-    <span class="n">urls</span> <span class="o">=</span> <span class="n">simple_fibonacci</span><span class="o">.</span><span class="n">urls</span>
+    <span class="name">urls</span> <span class="operator">=</span> <span class="name">simple_fibonacci</span><span class="operator">.</span><span class="name">urls</span>
 
-    <span class="k">def</span> <span class="nf">assert_cannot_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_parsed_json_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s">'result'</span> <span class="ow">in</span> <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s">'ERROR'</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'status'</span><span class="p">])</span>
+    <span class="keyword">def</span> <span class="name function">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">data</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci_parsed_json_response</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertFalse</span><span class="punctuation">(</span><span class="literal string single">'result'</span> <span class="operator word">in</span> <span class="name">data</span><span class="punctuation">,</span> <span class="name">data</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal string single">'ERROR'</span><span class="punctuation">,</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">])</span>
 
-    <span class="k">def</span> <span class="nf">get_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_parsed_json_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="s">'error'</span> <span class="ow">in</span> <span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s">'OK'</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'status'</span><span class="p">],</span> <span class="n">data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">'result'</span><span class="p">]</span>
+    <span class="keyword">def</span> <span class="name function">get_fibonacci</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">data</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci_parsed_json_response</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertFalse</span><span class="punctuation">(</span><span class="literal string single">'error'</span> <span class="operator word">in</span> <span class="name">data</span><span class="punctuation">,</span> <span class="name">data</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal string single">'OK'</span><span class="punctuation">,</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">],</span> <span class="name">data</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'result'</span><span class="punctuation">]</span>
 
-    <span class="k">def</span> <span class="nf">get_fibonacci_parsed_json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s">'fibonacci'</span><span class="p">)</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">},</span> <span class="n">HTTP_ACCEPT</span><span class="o">=</span><span class="s">'application/json'</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-        <span class="n">allowed_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s">'status'</span><span class="p">,</span> <span class="s">'n'</span><span class="p">,</span> <span class="s">'error'</span><span class="p">,</span> <span class="s">'result'</span><span class="p">])</span>
-        <span class="n">data_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="nb">set</span><span class="p">([]),</span> <span class="n">data_keys</span> <span class="o">-</span> <span class="n">allowed_keys</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s">'n'</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">data</span>
+    <span class="keyword">def</span> <span class="name function">get_fibonacci_parsed_json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">client</span> <span class="operator">=</span> <span class="name">Client</span><span class="punctuation">()</span>
+        <span class="name">url</span> <span class="operator">=</span> <span class="name">reverse</span><span class="punctuation">(</span><span class="literal string single">'fibonacci'</span><span class="punctuation">)</span>
+        <span class="name">response</span> <span class="operator">=</span> <span class="name">client</span><span class="operator">.</span><span class="name">post</span><span class="punctuation">(</span><span class="name">url</span><span class="punctuation">,</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">},</span> <span class="name">HTTP_ACCEPT</span><span class="operator">=</span><span class="literal string single">'application/json'</span><span class="punctuation">)</span>
+        <span class="name">data</span> <span class="operator">=</span> <span class="name">json</span><span class="operator">.</span><span class="name">loads</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">.</span><span class="name">content</span><span class="punctuation">)</span>
+        <span class="name">allowed_keys</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal string single">'status'</span><span class="punctuation">,</span> <span class="literal string single">'n'</span><span class="punctuation">,</span> <span class="literal string single">'error'</span><span class="punctuation">,</span> <span class="literal string single">'result'</span><span class="punctuation">])</span>
+        <span class="name">data_keys</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">(</span><span class="name">data</span><span class="operator">.</span><span class="name">keys</span><span class="punctuation">())</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name builtin">set</span><span class="punctuation">([]),</span> <span class="name">data_keys</span> <span class="operator">-</span> <span class="name">allowed_keys</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">),</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">])</span>
+        <span class="keyword">return</span> <span class="name">data</span>
 </pre>
 <p>As you can see, on top of the assertions in the base class, I've added
 a few additional assertions, for the api contract (invariants) - this
@@ -161,44 +161,44 @@ and then decided whether that's a bug that needs correction or a feature,
 in which case I'll adjust the <strong>allowed_keys</strong> variable</p>
 <p>And here is the implementation:</p>
 <pre class="code python literal-block">
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">View</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
-<span class="kn">from</span> <span class="nn">simple_fibonacci</span> <span class="kn">import</span> <span class="n">calculator</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.views.generic</span> <span class="keyword namespace">import</span> <span class="name">View</span>
+<span class="keyword namespace">import</span> <span class="name namespace">json</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.http</span> <span class="keyword namespace">import</span> <span class="name">HttpResponse</span>
+<span class="keyword namespace">from</span> <span class="name namespace">simple_fibonacci</span> <span class="keyword namespace">import</span> <span class="name">calculator</span>
 
 
-<span class="k">class</span> <span class="nc">FibonacciView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<span class="keyword">class</span> <span class="name class">FibonacciView</span><span class="punctuation">(</span><span class="name">View</span><span class="punctuation">):</span>
 
-    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">'n'</span><span class="p">]</span>
-        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">error</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span> <span class="o">=</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_response_content_and_type_function</span><span class="p">(</span><span class="n">request</span><span class="p">)(</span>
-                <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_response</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">post</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
+        <span class="name">n</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">POST</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">]</span>
+        <span class="name">error</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="keyword">try</span><span class="punctuation">:</span>
+            <span class="name">result</span> <span class="operator">=</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name builtin">int</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">))</span>
+        <span class="keyword">except</span> <span class="name exception">ValueError</span> <span class="keyword">as</span> <span class="name">e</span><span class="punctuation">:</span>
+            <span class="name">error</span> <span class="operator">=</span> <span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
+        <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span> <span class="operator">=</span> \
+            <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name">request</span><span class="punctuation">)(</span>
+                <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span>
+            <span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">to_response</span><span class="punctuation">(</span><span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">get_response_content_and_type_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_response</span>
+    <span class="keyword">def</span> <span class="name function">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">json_response</span>
 
-    <span class="k">def</span> <span class="nf">json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-        <span class="n">response_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
-        <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'ERROR'</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'OK'</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s">'result'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response_data</span><span class="p">),</span> <span class="s">'application/json'</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span><span class="punctuation">):</span>
+        <span class="name">response_data</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">}</span>
+        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+            <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'ERROR'</span>
+        <span class="keyword">else</span><span class="punctuation">:</span>
+            <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'OK'</span>
+            <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'result'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="name">result</span>
+        <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">json</span><span class="operator">.</span><span class="name">dumps</span><span class="punctuation">(</span><span class="name">response_data</span><span class="punctuation">),</span> <span class="literal string single">'application/json'</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-        <span class="n">response</span><span class="p">[</span><span class="s">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">content_type</span>
-        <span class="k">return</span> <span class="n">response</span>
+    <span class="keyword">def</span> <span class="name function">to_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span><span class="punctuation">):</span>
+        <span class="name">response</span> <span class="operator">=</span> <span class="name">HttpResponse</span><span class="punctuation">(</span><span class="name">content</span><span class="punctuation">)</span>
+        <span class="name">response</span><span class="punctuation">[</span><span class="literal string single">'Content-Type'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="name">content_type</span>
+        <span class="keyword">return</span> <span class="name">response</span>
 </pre>
 </div>
 <div class="section" id="let-s-expose-this-feature-to-normal-user-as-html">
@@ -212,76 +212,76 @@ mobile app for your web service, it will happen. And it's nice to know
 we can execute the same set of tests against all implementations.</p>
 <p>Let's update the tests first:</p>
 <pre class="code python literal-block">
-<span class="kn">import</span> <span class="nn">re</span>
+<span class="keyword namespace">import</span> <span class="name namespace">re</span>
 
 
-<span class="k">class</span> <span class="nc">HtmlUserFriendlyHttpResponse</span><span class="p">(</span><span class="n">FibonacciCalculatorTests</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+<span class="keyword">class</span> <span class="name class">HtmlUserFriendlyHttpResponse</span><span class="punctuation">(</span><span class="name">FibonacciCalculatorTests</span><span class="punctuation">,</span> <span class="name">TestCase</span><span class="punctuation">):</span>
 
-    <span class="n">urls</span> <span class="o">=</span> <span class="n">urls</span>
+    <span class="name">urls</span> <span class="operator">=</span> <span class="name">urls</span>
 
-    <span class="k">def</span> <span class="nf">assert_cannot_calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;error&quot;&gt;'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;success&quot;&gt;'</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">response</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci_response</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertContains</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">=</span><span class="name">response</span><span class="punctuation">,</span> <span class="name">text</span><span class="operator">=</span><span class="literal string single">'&lt;p class=&quot;error&quot;&gt;'</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertNotContains</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">=</span><span class="name">response</span><span class="punctuation">,</span> <span class="name">text</span><span class="operator">=</span><span class="literal string single">'&lt;p class=&quot;success&quot;&gt;'</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">get_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_fibonacci_response</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;success&quot;&gt;'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotContains</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">'&lt;p class=&quot;error&quot;&gt;'</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span>
-            <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-                <span class="s">r'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
-            <span class="p">)</span> <span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="keyword">def</span> <span class="name function">get_fibonacci</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">response</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci_response</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertContains</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">=</span><span class="name">response</span><span class="punctuation">,</span> <span class="name">text</span><span class="operator">=</span><span class="literal string single">'&lt;p class=&quot;success&quot;&gt;'</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertNotContains</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">=</span><span class="name">response</span><span class="punctuation">,</span> <span class="name">text</span><span class="operator">=</span><span class="literal string single">'&lt;p class=&quot;error&quot;&gt;'</span><span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="name builtin">int</span><span class="punctuation">(</span>
+            <span class="name">re</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span>
+                <span class="literal string single">r'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="punctuation">,</span> <span class="name">response</span><span class="operator">.</span><span class="name">content</span>
+            <span class="punctuation">)</span> <span class="operator">.</span><span class="name">groups</span><span class="punctuation">()[</span><span class="literal number integer">0</span><span class="punctuation">])</span>
 
-    <span class="k">def</span> <span class="nf">get_fibonacci_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s">'fibonacci'</span><span class="p">)</span>
-        <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">HTTP_ACCEPT</span><span class="o">=</span><span class="s">'text/html'</span><span class="p">)</span>  <span class="c"># as the user, we first load the page</span>
-        <span class="n">post_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-            <span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">},</span> <span class="n">HTTP_ACCEPT</span><span class="o">=</span><span class="s">'text/html'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s">'text/html'</span><span class="p">,</span> <span class="n">post_response</span><span class="p">[</span><span class="s">'Content-Type'</span><span class="p">])</span>
-        <span class="k">return</span> <span class="n">post_response</span>
+    <span class="keyword">def</span> <span class="name function">get_fibonacci_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
+        <span class="name">client</span> <span class="operator">=</span> <span class="name">Client</span><span class="punctuation">()</span>
+        <span class="name">url</span> <span class="operator">=</span> <span class="name">reverse</span><span class="punctuation">(</span><span class="literal string single">'fibonacci'</span><span class="punctuation">)</span>
+        <span class="name">client</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="name">url</span><span class="punctuation">,</span> <span class="name">HTTP_ACCEPT</span><span class="operator">=</span><span class="literal string single">'text/html'</span><span class="punctuation">)</span>  <span class="comment single"># as the user, we first load the page</span>
+        <span class="name">post_response</span> <span class="operator">=</span> <span class="name">client</span><span class="operator">.</span><span class="name">post</span><span class="punctuation">(</span>
+            <span class="name">url</span><span class="punctuation">,</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">},</span> <span class="name">HTTP_ACCEPT</span><span class="operator">=</span><span class="literal string single">'text/html'</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="literal string single">'text/html'</span><span class="punctuation">,</span> <span class="name">post_response</span><span class="punctuation">[</span><span class="literal string single">'Content-Type'</span><span class="punctuation">])</span>
+        <span class="keyword">return</span> <span class="name">post_response</span>
 </pre>
 <p>And update our implementation:</p>
 <pre class="code python literal-block">
-<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">View</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
-<span class="kn">from</span> <span class="nn">simple_fibonacci</span> <span class="kn">import</span> <span class="n">calculator</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.views.generic</span> <span class="keyword namespace">import</span> <span class="name">View</span>
+<span class="keyword namespace">import</span> <span class="name namespace">json</span>
+<span class="keyword namespace">from</span> <span class="name namespace">django.http</span> <span class="keyword namespace">import</span> <span class="name">HttpResponse</span>
+<span class="keyword namespace">from</span> <span class="name namespace">simple_fibonacci</span> <span class="keyword namespace">import</span> <span class="name">calculator</span>
 
 
-<span class="k">class</span> <span class="nc">FibonacciView</span><span class="p">(</span><span class="n">View</span><span class="p">):</span>
+<span class="keyword">class</span> <span class="name class">FibonacciView</span><span class="punctuation">(</span><span class="name">View</span><span class="punctuation">):</span>
 
-    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s">'n'</span><span class="p">]</span>
-        <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">fibonacci</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">error</span> <span class="o">=</span> <span class="nb">unicode</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span> <span class="o">=</span> \
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_response_content_and_type_function</span><span class="p">(</span><span class="n">request</span><span class="p">)(</span>
-                <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_response</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">post</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
+        <span class="name">n</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">POST</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">]</span>
+        <span class="name">error</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="keyword">try</span><span class="punctuation">:</span>
+            <span class="name">result</span> <span class="operator">=</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name builtin">int</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">))</span>
+        <span class="keyword">except</span> <span class="name exception">ValueError</span> <span class="keyword">as</span> <span class="name">e</span><span class="punctuation">:</span>
+            <span class="name">error</span> <span class="operator">=</span> <span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
+        <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span> <span class="operator">=</span> \
+            <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name">request</span><span class="punctuation">)(</span>
+                <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span>
+            <span class="punctuation">)</span>
+        <span class="keyword">return</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">to_response</span><span class="punctuation">(</span><span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">get_response_content_and_type_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_response</span>
+    <span class="keyword">def</span> <span class="name function">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">json_response</span>
 
-    <span class="k">def</span> <span class="nf">json_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-        <span class="n">response_data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'n'</span><span class="p">:</span> <span class="n">n</span><span class="p">}</span>
-        <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'ERROR'</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s">'status'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'OK'</span>
-            <span class="n">response_data</span><span class="p">[</span><span class="s">'result'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response_data</span><span class="p">),</span> <span class="s">'application/json'</span><span class="p">)</span>
+    <span class="keyword">def</span> <span class="name function">json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span><span class="punctuation">):</span>
+        <span class="name">response_data</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">}</span>
+        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+            <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'ERROR'</span>
+        <span class="keyword">else</span><span class="punctuation">:</span>
+            <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'OK'</span>
+            <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'result'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="name">result</span>
+        <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">json</span><span class="operator">.</span><span class="name">dumps</span><span class="punctuation">(</span><span class="name">response_data</span><span class="punctuation">),</span> <span class="literal string single">'application/json'</span><span class="punctuation">)</span>
 
-    <span class="k">def</span> <span class="nf">to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">content_type</span><span class="p">):</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-        <span class="n">response</span><span class="p">[</span><span class="s">'Content-Type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">content_type</span>
-        <span class="k">return</span> <span class="n">response</span>
+    <span class="keyword">def</span> <span class="name function">to_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span><span class="punctuation">):</span>
+        <span class="name">response</span> <span class="operator">=</span> <span class="name">HttpResponse</span><span class="punctuation">(</span><span class="name">content</span><span class="punctuation">)</span>
+        <span class="name">response</span><span class="punctuation">[</span><span class="literal string single">'Content-Type'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="name">content_type</span>
+        <span class="keyword">return</span> <span class="name">response</span>
 </pre>
 <hr class="docutils" />
 <p>That's the concept. The <a class="reference external" href="/category/end-to-end/">series</a> will
@@ -353,8 +353,7 @@ suggests one of two things: </p>
 </ol>
 <p>Often the helper methods created can expose the need for additional 
 support interfaces that won't probably come up during the specifications
-phase, only after go-live.<br />
-</p>
+phase, only after go-live.  </p>
 <p>Last, but not least, end-to-end gives us tests for the UI, yet the tests
 remain maintainable - usually a single test API method is all that needs
 to be fixed after template changes (and designers are even harder to get

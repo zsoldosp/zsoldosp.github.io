@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Mon, 01 Feb 2016 10:54:13 GMT</pubDate>
+    <pubDate>Tue, 19 Apr 2016 10:39:21 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -37,16 +37,16 @@ impressions of Elixir's approach to this topic.</p>
 tutorial - I love this approach. When you create a new project with
 <tt class="docutils literal">mix</tt>, this is the output you get:</p>
 <pre class="code bash literal-block">
-<span class="nv">$ </span>mix new myproject
+$ mix new myproject
 ...
 Your mix project was created successfully.
-You can use mix to compile it, <span class="nb">test </span>it, and more:
+You can use mix to compile it, <span class="name builtin">test</span> it, and more:
 
-    <span class="nb">cd </span>myproject
+    <span class="name builtin">cd</span> myproject
     mix compile
-    mix <span class="nb">test
+    mix <span class="name builtin">test</span>
 
-</span>Run <span class="sb">`</span>mix <span class="nb">help</span><span class="sb">`</span> <span class="k">for </span>more information.
+Run <span class="literal string backtick">`</span>mix <span class="name builtin">help</span><span class="literal string backtick">`</span> <span class="keyword">for</span> more information.
 </pre>
 </div>
 <div class="section" id="the-test-skeleton-is-not-beginner-friendly">
@@ -55,13 +55,13 @@ You can use mix to compile it, <span class="nb">test </span>it, and more:
 equivalent - it is aimed at those who get unit testing already. If you
 are new to automated testing, seeing code like</p>
 <pre class="code elixir literal-block">
-<span class="k">defmodule</span> <span class="no">FooTest</span> <span class="k">do
-  </span><span class="kn">use</span> <span class="no">ExUnit</span><span class="o">.</span><span class="no">Case</span>
+<span class="keyword declaration">defmodule</span> <span class="name class">FooTest</span> <span class="keyword">do</span>
+  <span class="keyword namespace">use</span> <span class="name class">ExUnit.Case</span>
 
-  <span class="n">test</span> <span class="s2">&quot;the truth&quot;</span> <span class="k">do
-    </span><span class="n">assert</span><span class="p">(</span><span class="no">true</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+  <span class="name">test</span> <span class="literal string double">&quot;the truth&quot;</span> <span class="keyword">do</span>
+    <span class="name">assert</span><span class="punctuation">(</span><span class="name constant">true</span><span class="punctuation">)</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
 </pre>
 <p>won't really make you say <em>&quot;yes, this makes me understand and love testing!&quot;</em>.
 Granted, the whole Elixir tutorial is aimed at people who can already
@@ -93,47 +93,47 @@ I have grown to rely on in Python. Consider the following tests and
 the resulting failure messages - which one is more helpful?</p>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.exs">Elixir</a>:</p>
 <pre class="code elixir literal-block">
-    <span class="n">test</span> <span class="s2">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span> <span class="k">do
-        </span><span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:alive</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:alive</span>
-        <span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:alive</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:alive</span>
-        <span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:dead</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:alive</span>
-        <span class="n">assert</span> <span class="no">Gofl</span><span class="o">.</span><span class="no">Rules</span><span class="o">.</span><span class="n">next_state</span><span class="p">(</span><span class="ss">:dead</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">==</span> <span class="ss">:dead</span>
-    <span class="k">end</span>
+    <span class="name">test</span> <span class="literal string double">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span> <span class="keyword">do</span>
+        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
+        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
+        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
+        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:dead</span>
+    <span class="keyword">end</span>
 </pre>
 <pre class="code bash literal-block">
-  1<span class="o">)</span> <span class="nb">test </span>survival - a living cell with 2 or 3 neighbours survives <span class="o">(</span>GoflRulesTest<span class="o">)</span>
-     ** <span class="o">(</span>ExUnit.ExpectationError<span class="o">)</span>
+  1<span class="operator">)</span> <span class="name builtin">test</span> survival - a living cell with <span class="literal number">2</span> or <span class="literal number">3</span> neighbours survives <span class="operator">(</span>GoflRulesTest<span class="operator">)</span>
+     ** <span class="operator">(</span>ExUnit.ExpectationError<span class="operator">)</span>
                   expected: :alive
-       to be equal to <span class="o">(==)</span>: :dead
+       to be equal to <span class="operator">(==)</span>: :dead
      at unit_testing_with_elixir_gofl.exs:18
 
 
 
-Finished in 0.05 seconds <span class="o">(</span>0.04s on load, 0.01s on tests<span class="o">)</span>
-1 tests, 1 failures
+Finished in 0.05 seconds <span class="operator">(</span>0.04s on load, 0.01s on tests<span class="operator">)</span>
+<span class="literal number">1</span> tests, <span class="literal number">1</span> failures
 </pre>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.py">Python</a>:</p>
 <pre class="code python literal-block">
-    <span class="k">def</span> <span class="nf">test_survival_a_living_cell_with_2_or_3_neighbours_survives</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">ALIVE</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">DEAD</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">DEAD</span><span class="p">,</span> <span class="n">cell_next_state</span><span class="p">(</span><span class="n">curr_state</span><span class="o">=</span><span class="n">DEAD</span><span class="p">,</span> <span class="n">live_neighbour_cnt</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="keyword">def</span> <span class="name function">test_survival_a_living_cell_with_2_or_3_neighbours_survives</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name">ALIVE</span><span class="punctuation">,</span> <span class="name">cell_next_state</span><span class="punctuation">(</span><span class="name">curr_state</span><span class="operator">=</span><span class="name">ALIVE</span><span class="punctuation">,</span> <span class="name">live_neighbour_cnt</span><span class="operator">=</span><span class="literal number integer">2</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name">ALIVE</span><span class="punctuation">,</span> <span class="name">cell_next_state</span><span class="punctuation">(</span><span class="name">curr_state</span><span class="operator">=</span><span class="name">ALIVE</span><span class="punctuation">,</span> <span class="name">live_neighbour_cnt</span><span class="operator">=</span><span class="literal number integer">3</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name">ALIVE</span><span class="punctuation">,</span> <span class="name">cell_next_state</span><span class="punctuation">(</span><span class="name">curr_state</span><span class="operator">=</span><span class="name">DEAD</span><span class="punctuation">,</span> <span class="name">live_neighbour_cnt</span><span class="operator">=</span><span class="literal number integer">3</span><span class="punctuation">))</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name">DEAD</span><span class="punctuation">,</span> <span class="name">cell_next_state</span><span class="punctuation">(</span><span class="name">curr_state</span><span class="operator">=</span><span class="name">DEAD</span><span class="punctuation">,</span> <span class="name">live_neighbour_cnt</span><span class="operator">=</span><span class="literal number integer">2</span><span class="punctuation">))</span>
 </pre>
 <pre class="code bash literal-block">
-<span class="nv">F</span>
-<span class="o">======================================================================</span>
-FAIL: test_survival_a_living_cell_with_2_or_3_neighbours_survives <span class="o">(</span>__main__.GoflRulesTest<span class="o">)</span>
+<span class="name variable">F</span>
+<span class="operator">======================================================================</span>
+FAIL: test_survival_a_living_cell_with_2_or_3_neighbours_survives <span class="operator">(</span>__main__.GoflRulesTest<span class="operator">)</span>
 ----------------------------------------------------------------------
-Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-  File <span class="s2">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line 22, in test_survival_a_living_cell_with_2_or_3_neighbours_survives
-    self.assertEquals<span class="o">(</span>DEAD, cell_next_state<span class="o">(</span><span class="nv">curr_state</span><span class="o">=</span>DEAD, <span class="nv">live_neighbour_cnt</span><span class="o">=</span>2<span class="o">))</span>
-AssertionError: False !<span class="o">=</span> True
+Traceback <span class="operator">(</span>most recent call last<span class="operator">)</span>:
+  File <span class="literal string double">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line 22, in test_survival_a_living_cell_with_2_or_3_neighbours_survives
+    self.assertEquals<span class="operator">(</span>DEAD, cell_next_state<span class="operator">(</span><span class="name variable">curr_state</span><span class="operator">=</span>DEAD, <span class="name variable">live_neighbour_cnt</span><span class="operator">=</span>2<span class="operator">))</span>
+AssertionError: False !<span class="operator">=</span> True
 
 ----------------------------------------------------------------------
-Ran 1 <span class="nb">test </span>in 0.000s
+Ran <span class="literal number">1</span> <span class="name builtin">test</span> in 0.000s
 
-FAILED <span class="o">(</span><span class="nv">failures</span><span class="o">=</span>1<span class="o">)</span>
+FAILED <span class="operator">(</span><span class="name variable">failures</span><span class="operator">=</span>1<span class="operator">)</span>
 </pre>
 <p>Granted, Python is unique in this regard, IIRC I wouldn't get such
 useful stacktraces in C# or Java either, but since I've been mostly
@@ -154,8 +154,8 @@ many minor inconveniences.</p>
 declared on the TestCase level whether it's OK to run it in parallel
 - giving finer control to the test author.</p>
 <pre class="code elixir literal-block">
-<span class="k">defmodule</span> <span class="no">GoflRulesTest</span> <span class="k">do
-    </span><span class="kn">use</span> <span class="no">ExUnit</span><span class="o">.</span><span class="no">Case</span><span class="p">,</span> <span class="ss">async:</span> <span class="no">true</span>
+<span class="keyword declaration">defmodule</span> <span class="name class">GoflRulesTest</span> <span class="keyword">do</span>
+    <span class="keyword namespace">use</span> <span class="name class">ExUnit.Case</span><span class="punctuation">,</span> <span class="literal string symbol">async</span><span class="punctuation">:</span> <span class="name constant">true</span>
 </pre>
 <p>I just wish it was true by default!</p>
 </div>
@@ -216,30 +216,30 @@ completely wrong explanation&quot;</em>.</p>
 function has.</em></p>
 <p><strong>Java</strong></p>
 <pre class="code java literal-block">
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingArity</span> <span class="o">{</span>
+<span class="keyword declaration">public</span> <span class="keyword declaration">class</span> <span class="name class">MethodOverloadingArity</span> <span class="operator">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nf">join</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="s">&quot; &quot;</span><span class="o">);</span>
-    <span class="o">}</span>
+    <span class="keyword declaration">public</span> <span class="keyword declaration">static</span> <span class="name">String</span> <span class="name function">join</span><span class="operator">(</span><span class="name">String</span> <span class="name">a</span><span class="operator">,</span> <span class="name">String</span> <span class="name">b</span><span class="operator">)</span> <span class="operator">{</span>
+        <span class="keyword">return</span> <span class="name">join</span><span class="operator">(</span><span class="name">a</span><span class="operator">,</span> <span class="name">b</span><span class="operator">,</span> <span class="literal string">&quot; &quot;</span><span class="operator">);</span>
+    <span class="operator">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">join</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">,</span> <span class="n">String</span> <span class="n">sep</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;%s%s%s&quot;</span><span class="o">,</span> <span class="n">a</span><span class="o">,</span> <span class="n">sep</span><span class="o">,</span> <span class="n">b</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="keyword declaration">public</span> <span class="keyword declaration">static</span> <span class="name">String</span> <span class="name function">join</span><span class="operator">(</span><span class="name">String</span> <span class="name">a</span><span class="operator">,</span> <span class="name">String</span> <span class="name">b</span><span class="operator">,</span> <span class="name">String</span> <span class="name">sep</span><span class="operator">)</span> <span class="operator">{</span>
+        <span class="keyword">return</span> <span class="name">String</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;%s%s%s&quot;</span><span class="operator">,</span> <span class="name">a</span><span class="operator">,</span> <span class="name">sep</span><span class="operator">,</span> <span class="name">b</span><span class="operator">);</span>
+    <span class="operator">}</span>
+<span class="operator">}</span>
 </pre>
 <p><strong>Elixir</strong></p>
 <pre class="code elixir literal-block">
-<span class="k">defmodule</span> <span class="no">MethodOverloadingArity</span> <span class="k">do
+<span class="keyword declaration">defmodule</span> <span class="name class">MethodOverloadingArity</span> <span class="keyword">do</span>
 
-    def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">do
-        </span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="k">end</span>
+    <span class="keyword declaration">def</span> <span class="name">join</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">)</span> <span class="keyword">do</span>
+        <span class="name">join</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">,</span> <span class="literal string double">&quot; &quot;</span><span class="punctuation">)</span>
+    <span class="keyword">end</span>
 
-    <span class="k">def</span> <span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span> <span class="k">do
-        </span><span class="n">a</span> <span class="o">&lt;&gt;</span> <span class="n">sep</span> <span class="o">&lt;&gt;</span> <span class="n">b</span>  <span class="c1"># string concatenation</span>
-    <span class="k">end</span>
+    <span class="keyword declaration">def</span> <span class="name">join</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">,</span> <span class="name">sep</span><span class="punctuation">)</span> <span class="keyword">do</span>
+        <span class="name">a</span> <span class="operator">&lt;&gt;</span> <span class="name">sep</span> <span class="operator">&lt;&gt;</span> <span class="name">b</span>  <span class="comment single"># string concatenation</span>
+    <span class="keyword">end</span>
 
-<span class="k">end</span>
+<span class="keyword">end</span>
 </pre>
 </div>
 <div class="section" id="my-wrong-mental-model">
@@ -250,9 +250,9 @@ It makes for dynamic dispatch - which gets bound at compile time in
 regular Java, but when invoked dynamically, it will resolve to the
 appropriate overload. I.e.: the following pseudocode would be valid:</p>
 <pre class="code elixir literal-block">
-<span class="n">foo</span> <span class="o">=</span> <span class="no">MethodOverloadingArity</span><span class="o">.</span><span class="n">join</span>
-<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
-<span class="n">foo</span><span class="o">.</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot; - &quot;</span><span class="p">)</span>
+<span class="name">foo</span> <span class="operator">=</span> <span class="name class">MethodOverloadingArity</span><span class="operator">.</span><span class="name">join</span>
+<span class="name">foo</span><span class="operator">.</span><span class="punctuation">(</span><span class="literal string double">&quot;a&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot;b&quot;</span><span class="punctuation">)</span>
+<span class="name">foo</span><span class="operator">.</span><span class="punctuation">(</span><span class="literal string double">&quot;a&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot;b&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot; - &quot;</span><span class="punctuation">)</span>
 </pre>
 <p>You can tell just from the heading that of course, it's is not valid.
 And this is what we get from Elixir:</p>
@@ -272,33 +272,33 @@ store a reference to it in a variable, I have to resolve the arity.</p>
 <p>Initially I thought it's just a special behavior for Elixir (Erlang),
 so I set out to explore how it works in Java</p>
 <pre class="code java literal-block">
-<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.lang.IllegalArgumentException</span><span class="o">;</span>
+<span class="keyword namespace">import</span> <span class="name namespace">java.lang.reflect.Method</span><span class="operator">;</span>
+<span class="keyword namespace">import</span> <span class="name namespace">java.lang.IllegalArgumentException</span><span class="operator">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MethodOverloadingMain</span> <span class="o">{</span>
+<span class="keyword declaration">public</span> <span class="keyword declaration">class</span> <span class="name class">MethodOverloadingMain</span> <span class="operator">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">&quot;MethodOverloadingArity&quot;</span><span class="o">);</span>
-        <span class="n">Method</span><span class="o">[]</span> <span class="n">declaredMethods</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getDeclaredMethods</span><span class="o">();</span>
-        <span class="k">for</span><span class="o">(</span><span class="n">Method</span> <span class="n">method</span> <span class="o">:</span> <span class="n">declaredMethods</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">if</span> <span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">!=</span> <span class="s">&quot;join&quot;</span><span class="o">)</span>
-                <span class="k">continue</span><span class="o">;</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">);</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (2 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (2 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
-            <span class="o">}</span>
-            <span class="k">try</span> <span class="o">{</span>
-                <span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="s">&quot;first&quot;</span><span class="o">,</span> <span class="s">&quot;second&quot;</span><span class="o">,</span> <span class="s">&quot; - &quot;</span><span class="o">);</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... invocation result (3 args): %s\n&quot;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
-            <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalArgumentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&quot;... (3 args) %s\n&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
-            <span class="o">}</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    <span class="keyword declaration">public</span> <span class="keyword declaration">static</span> <span class="keyword type">void</span> <span class="name function">main</span><span class="operator">(</span><span class="name">String</span><span class="operator">[]</span> <span class="name">args</span><span class="operator">)</span> <span class="keyword declaration">throws</span> <span class="name">Exception</span> <span class="operator">{</span>
+        <span class="name">Class</span><span class="operator">&lt;?&gt;</span> <span class="name">c</span> <span class="operator">=</span> <span class="name">Class</span><span class="operator">.</span><span class="name attribute">forName</span><span class="operator">(</span><span class="literal string">&quot;MethodOverloadingArity&quot;</span><span class="operator">);</span>
+        <span class="name">Method</span><span class="operator">[]</span> <span class="name">declaredMethods</span> <span class="operator">=</span> <span class="name">c</span><span class="operator">.</span><span class="name attribute">getDeclaredMethods</span><span class="operator">();</span>
+        <span class="keyword">for</span><span class="operator">(</span><span class="name">Method</span> <span class="name">method</span> <span class="operator">:</span> <span class="name">declaredMethods</span><span class="operator">)</span> <span class="operator">{</span>
+            <span class="keyword">if</span> <span class="operator">(</span><span class="name">method</span><span class="operator">.</span><span class="name attribute">getName</span><span class="operator">()</span> <span class="operator">!=</span> <span class="literal string">&quot;join&quot;</span><span class="operator">)</span>
+                <span class="keyword">continue</span><span class="operator">;</span>
+            <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">println</span><span class="operator">(</span><span class="name">method</span><span class="operator">.</span><span class="name attribute">toString</span><span class="operator">());</span>
+            <span class="keyword">try</span> <span class="operator">{</span>
+                <span class="name">Object</span> <span class="name">result</span> <span class="operator">=</span> <span class="name">method</span><span class="operator">.</span><span class="name attribute">invoke</span><span class="operator">(</span><span class="name">c</span><span class="operator">,</span> <span class="literal string">&quot;first&quot;</span><span class="operator">,</span> <span class="literal string">&quot;second&quot;</span><span class="operator">);</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... invocation result (2 args): %s\n&quot;</span><span class="operator">,</span> <span class="name">result</span><span class="operator">);</span>
+            <span class="operator">}</span> <span class="keyword">catch</span><span class="operator">(</span><span class="name">IllegalArgumentException</span> <span class="name">e</span><span class="operator">)</span> <span class="operator">{</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... (2 args) %s\n&quot;</span><span class="operator">,</span> <span class="name">e</span><span class="operator">);</span>
+            <span class="operator">}</span>
+            <span class="keyword">try</span> <span class="operator">{</span>
+                <span class="name">Object</span> <span class="name">result</span> <span class="operator">=</span> <span class="name">method</span><span class="operator">.</span><span class="name attribute">invoke</span><span class="operator">(</span><span class="name">c</span><span class="operator">,</span> <span class="literal string">&quot;first&quot;</span><span class="operator">,</span> <span class="literal string">&quot;second&quot;</span><span class="operator">,</span> <span class="literal string">&quot; - &quot;</span><span class="operator">);</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... invocation result (3 args): %s\n&quot;</span><span class="operator">,</span> <span class="name">result</span><span class="operator">);</span>
+            <span class="operator">}</span> <span class="keyword">catch</span><span class="operator">(</span><span class="name">IllegalArgumentException</span> <span class="name">e</span><span class="operator">)</span> <span class="operator">{</span>
+                <span class="name">System</span><span class="operator">.</span><span class="name attribute">out</span><span class="operator">.</span><span class="name attribute">format</span><span class="operator">(</span><span class="literal string">&quot;... (3 args) %s\n&quot;</span><span class="operator">,</span> <span class="name">e</span><span class="operator">);</span>
+            <span class="operator">}</span>
+        <span class="operator">}</span>
+    <span class="operator">}</span>
+<span class="operator">}</span>
 </pre>
 <p>(<em>Yes, it reminds me how much more elegant metaprogramming is in Python.
 But Python has no method overloading</em>)</p>

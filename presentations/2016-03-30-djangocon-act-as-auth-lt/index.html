@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<head>
+<title>Django Act As Authentication Backend</title>
+<meta name="viewport" content="height=device-height,width=device-width" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/higgins.js"></script>
+<link rel="stylesheet" type="text/css" href="higgins.css"></link>
+<link rel="stylesheet" type="text/css" href="pres.css"></link>
+</head><body>
+<div id='noteDetail'></div><div id='notes' onclick='showNotes();'>n</div><div id='num'>#0</div>
+<!-- The higgins slide presenter, licensed MS-PL, by Leon Bambrick, http://secretGeek.net -->
+<!-- Get your own higgins from http://higgins.CodePlex.com -->
+<!-- Put your collection of slides here... -->
+
+<div class='slide'>
+<h1>Django Act As Authentication Backend</h1>
+<p>...for better customer support!</p>
+<p><a href="https://twitter.com/zsepi">@zsepi</a></p>
+<p>DjangoCon Europe 2016 Budapest</p>
+</div>
+
+<div class='slide'>
+<h1>The tale of my first ISP invoice</h1>
+</div>
+
+<div class='slide'>
+	<h1>Install djactasauth</h1>
+	<code><pre>pip install djactasauth</pre></code>
+</div>
+
+<div class='slide'>
+	<h1>Add it to your auth backends in settings</h1>
+	<code><pre>
+import djactasauth
+...
+AUTHENTICATION_BACKENDS = (
+    ...,
+    'djactasauth.backends.' \
+       + 'OnlySuperuserCanActAsModelBackend',
+    ...,
+)
+...	
+	</pre></code>
+</div>
+
+<div class='slide'>
+	<h1>Add your views</h1>
+	<code><pre>
+from django.conf.urls import patterns, url
+from djactasauth.views import act_as_login_view
+from testapp.views import whoami
+
+
+urlpatterns = patterns(
+    'testapp',
+    url(r'^login/$', act_as_login_view, {}, 'login'),
+    url(r'^whoami/$', whoami),
+)
+	</pre></code>
+</div>
+
+<div class='slide'>
+<h1>whoami view</h1>
+<code><pre>
+from django.http import HttpResponse
+
+
+def whoami(request):
+    return HttpResponse(request.user.username)
+</pre></code>
+</div>
+
+<div class='slide'>
+<h1>Demo</h1>
+</div>
+
+<div class='slide'>
+	<h1>First Open Souce Project</h1>
+	<p><a href='https://github.com/PaesslerAG/django-act-as-auth'>https://github.com/PaesslerAG/django-act-as-auth</a></p>
+	<p><a href='https://pypi.python.org/pypi/djactasauth'>https://pypi.python.org/pypi/djactasauth</a></p>
+	<p><a href='http://django-act-as-auth.readthedocs.org/en/latest/'>http://django-act-as-auth.readthedocs.org/en/latest/</a></p>
+</div>
+
+  <script>
+      if(window.location.href.indexOf("http://blog.zsoldosp.eu") != -1) {
+          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
+          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+          s.parentNode.insertBefore(g,s)}(document,'script'));
+      }
+  </script>
+</body>
+</html>
