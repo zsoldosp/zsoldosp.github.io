@@ -24,12 +24,6 @@
   <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/pygment-tango.css" media="screen" rel="stylesheet" type="text/css" /> 
 
-<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-<script type="text/javascript">
-    window.cookieconsent_options = {"message":"FYI: this blog uses google analytics (GA), and thus cookies.","dismiss":"Got it!","learnMore":"GA's privacy and opt out policy","link":"https://support.google.com/analytics/answer/6004245?hl=en","theme":"dark-top"};
-</script>
-<script type="text/javascript" src="/js/cookieconsent/cookieconsent.min.js"></script>
-<!-- End Cookie Consent plugin -->
 </head>
 
   <body>
@@ -43,6 +37,7 @@
                 </ul>
                 <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
                 <h2>Excercises in public learning</h2>
+		<p style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
       </div>
     </div>
     <div id="content">
@@ -93,26 +88,26 @@ like Powershell.</p>
 <div class="section" id="the-script">
 <h1>The script</h1>
 <pre class="code bash literal-block">
-<span class="c">#!/bin/sh
-</span><span class="k">function </span>d<span class="o">()</span> <span class="o">{</span>
-    <span class="nb">echo</span> <span class="s2">&quot;\$ $*&quot;</span>
-    <span class="nv">$*</span>
-<span class="o">}</span>
+<span class="comment hashbang">#!/bin/sh
+</span><span class="keyword">function</span> d<span class="operator">()</span> <span class="operator">{</span>
+    <span class="name builtin">echo</span> <span class="literal string double">&quot;\$ </span><span class="name variable">$*</span><span class="literal string double">&quot;</span>
+    <span class="name variable">$*</span>
+<span class="operator">}</span>
 
-<span class="k">function </span>win_info<span class="o">()</span> <span class="o">{</span>
-    systeminfo | grep <span class="s2">&quot;\(OS Name\|OS Manufacturer\|System Type\|Locale\)&quot;</span>
-<span class="o">}</span>
+<span class="keyword">function</span> win_info<span class="operator">()</span> <span class="operator">{</span>
+    systeminfo <span class="punctuation">|</span> grep <span class="literal string double">&quot;\(OS Name\|OS Manufacturer\|System Type\|Locale\)&quot;</span>
+<span class="operator">}</span>
 
-<span class="nv">REPRO_FOLDER</span><span class="o">=</span>bugrepro
+<span class="name variable">REPRO_FOLDER</span><span class="operator">=</span>bugrepro
 d win_info
 d python --version
 d pip freeze
 d git --version
-d grep ^ -nH <span class="sb">`</span>find <span class="nv">$REPRO_FOLDER</span> -name <span class="se">\*</span>.py<span class="sb">`</span>
-d python -m unittest discover <span class="nv">$REPRO_FOLDER</span>
+d grep ^ -nH <span class="literal string backtick">`</span>find <span class="name variable">$REPRO_FOLDER</span> -name <span class="literal string escape">\*</span>.py<span class="literal string backtick">`</span>
+d python -m unittest discover <span class="name variable">$REPRO_FOLDER</span>
 d ls .testr* -l
 d cat .testr.conf
-d testr run <span class="nv">$REPRO_FOLDER</span>
+d testr run <span class="name variable">$REPRO_FOLDER</span>
 d testr run
 </pre>
 <p>Running <tt class="docutils literal">./bugrepro.sh <span class="pre">2&gt;&amp;1</span> | tee bugrepro.txt&nbsp; &gt; /dev/null</tt> produces
@@ -159,11 +154,11 @@ execution to continue requires an <tt class="docutils literal">exit</tt> command
 the body of a bash function? I'm thinking of something similar to
 what one does with alias</p>
 <pre class="code bash literal-block">
-<span class="nv">$ </span><span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
-<span class="nv">$ </span>foo
+$ <span class="name builtin">alias</span> <span class="name variable">foo</span><span class="operator">=</span><span class="literal string single">'echo foo'</span>
+$ foo
 foo
-<span class="nv">$ </span><span class="nb">alias </span>foo
-<span class="nb">alias </span><span class="nv">foo</span><span class="o">=</span><span class="s1">'echo foo'</span>
+$ <span class="name builtin">alias</span> foo
+<span class="name builtin">alias</span> <span class="name variable">foo</span><span class="operator">=</span><span class="literal string single">'echo foo'</span>
 </pre>
 </li>
 <li><p class="first">is there a better way for passing arguments in bash? I ended up doing
@@ -227,14 +222,6 @@ or
                 
             </div>
         </div>
-  <script>
-      if(window.location.href.indexOf("http://blog.zsoldosp.eu") != -1) {
-          var _gaq=[['_setAccount','UA-1962998-2'],['_trackPageview']];
-          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-          g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
-      }
-  </script>
     </body> 
 </html>
 
