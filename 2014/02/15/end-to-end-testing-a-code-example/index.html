@@ -23,6 +23,63 @@
   <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/pygment-tango.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <script type="text/javascript">
+  const posthogConsentKey = 'posthog-consent';
+  const consentPosthogConsentStore = window.localStorage;
+  const consentFormId = 'posthog-consent-form';
+  const consentOK = 'OK'
+  const noConsent = 'DNT'
+  function consent(isOK) {
+  	consentPosthogConsentStore[posthogConsentKey] = isOK;
+	posthogInit()
+	updateConsentUI()
+  }
+
+  function updateConsentUI() {
+	if(posthogHasChosen()) {
+		const form = document.querySelector('#' + consentFormId);
+		if (form) {
+			form.parentNode.removeChild(form);
+		}
+		if(hasConsent()) {
+			setConsentText('You consented to analytics cookies')
+		} else {
+			setConsentText('You opted out from analytics cookies')
+		}
+	} else {
+		setConsentText('No tracking happens until you consent to it using the below form')
+		addConsentForm()
+	}
+  }
+  function addConsentForm() {
+	const inner = document.querySelector('#content .inner');
+	const form = document.createElement("form");
+	form.id = consentFormId;
+	form.innerHTML = '<p>I would like to know which pages/articles are seen the most so I can improve the content of the site. For that, I chose the GDPR compliant <a href="https://posthog.com">posthog.com</a>, and it uses cookies if you consent.</p><p><input type=button onclick="consent(consentOK)" value="Cookies are OK, write more artcles"> <input type="button" onclick="consent(noConsent)" value="Do Not Track, please"></p>';
+	inner.insertBefore( form, inner.firstChild);
+  }
+  function posthogHasChosen() {
+  	return consentPosthogConsentStore[posthogConsentKey] !== undefined;
+  }
+  function hasConsent() {
+  	return consentPosthogConsentStore[posthogConsentKey] === consentOK;
+  }
+  function posthogInit() {
+     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_hc0BgsP5GW7bfHwdwV30CE3ezvLpitrbAscVGdNbONr',{api_host:'https://eu.posthog.com'})
+
+  }
+
+  function setConsentText(msg) {
+  	const node = document.querySelector('#posthog-chosen')
+	const sentences = node.innerText.split('.')
+	sentences[0] = msg
+	node.innerText = sentences.join('.');
+  }
+
+  if(hasConsent()) { posthogInit(); document}
+  document.addEventListener('DOMContentLoaded', updateConsentUI)
+  </script>
 
 </head>
 
@@ -37,7 +94,7 @@
                 </ul>
                 <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
                 <h2>Excercises in public learning</h2>
-		<p style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
+		<p id="posthog-chosen" style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
       </div>
     </div>
     <div id="content">
@@ -105,7 +162,7 @@ since the purpose of this post is not to teach idiomatic Django.</p>
     <span class="keyword">def</span> <span class="name function">test_can_only_calculate_fibonacci_for_integers</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal number float">3.14</span><span class="punctuation">)</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal string single">'not a number'</span><span class="punctuation">)</span>
-        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">None</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="keyword constant">None</span><span class="punctuation">)</span>
 
     <span class="keyword">def</span> <span class="name function">assert_can_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
         <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
@@ -178,7 +235,7 @@ for the FibonacciCaulcatorTests:</p>
         <span class="name">allowed_keys</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal string single">'status'</span><span class="punctuation">,</span> <span class="literal string single">'n'</span><span class="punctuation">,</span> <span class="literal string single">'error'</span><span class="punctuation">,</span> <span class="literal string single">'result'</span><span class="punctuation">])</span>
         <span class="name">data_keys</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">(</span><span class="name">data</span><span class="operator">.</span><span class="name">keys</span><span class="punctuation">())</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name builtin">set</span><span class="punctuation">([]),</span> <span class="name">data_keys</span> <span class="operator">-</span> <span class="name">allowed_keys</span><span class="punctuation">)</span>
-        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">),</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">])</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name">unicode</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">),</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">])</span>
         <span class="keyword">return</span> <span class="name">data</span>
 </pre>
 <p>As you can see, on top of the assertions in the base class, I've added
@@ -198,12 +255,12 @@ in which case I'll adjust the <strong>allowed_keys</strong> variable</p>
 
     <span class="keyword">def</span> <span class="name function">post</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
         <span class="name">n</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">POST</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">]</span>
-        <span class="name">error</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="name">error</span> <span class="operator">=</span> <span class="keyword constant">None</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="keyword constant">None</span>
         <span class="keyword">try</span><span class="punctuation">:</span>
             <span class="name">result</span> <span class="operator">=</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name builtin">int</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">))</span>
         <span class="keyword">except</span> <span class="name exception">ValueError</span> <span class="keyword">as</span> <span class="name">e</span><span class="punctuation">:</span>
-            <span class="name">error</span> <span class="operator">=</span> <span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
+            <span class="name">error</span> <span class="operator">=</span> <span class="name">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
         <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span> <span class="operator">=</span> \
             <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name">request</span><span class="punctuation">)(</span>
                 <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span>
@@ -215,7 +272,7 @@ in which case I'll adjust the <strong>allowed_keys</strong> variable</p>
 
     <span class="keyword">def</span> <span class="name function">json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span><span class="punctuation">):</span>
         <span class="name">response_data</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">}</span>
-        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="keyword constant">None</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'ERROR'</span>
         <span class="keyword">else</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'OK'</span>
@@ -257,7 +314,7 @@ we can execute the same set of tests against all implementations.</p>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertNotContains</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">=</span><span class="name">response</span><span class="punctuation">,</span> <span class="name">text</span><span class="operator">=</span><span class="literal string single">'&lt;p class=&quot;error&quot;&gt;'</span><span class="punctuation">)</span>
         <span class="keyword">return</span> <span class="name builtin">int</span><span class="punctuation">(</span>
             <span class="name">re</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span>
-                <span class="literal string single">r'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="punctuation">,</span> <span class="name">response</span><span class="operator">.</span><span class="name">content</span>
+                <span class="literal string affix">r</span><span class="literal string single">'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="punctuation">,</span> <span class="name">response</span><span class="operator">.</span><span class="name">content</span>
             <span class="punctuation">)</span> <span class="operator">.</span><span class="name">groups</span><span class="punctuation">()[</span><span class="literal number integer">0</span><span class="punctuation">])</span>
 
     <span class="keyword">def</span> <span class="name function">get_fibonacci_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
@@ -281,12 +338,12 @@ we can execute the same set of tests against all implementations.</p>
 
     <span class="keyword">def</span> <span class="name function">post</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
         <span class="name">n</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">POST</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">]</span>
-        <span class="name">error</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="name">error</span> <span class="operator">=</span> <span class="keyword constant">None</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="keyword constant">None</span>
         <span class="keyword">try</span><span class="punctuation">:</span>
             <span class="name">result</span> <span class="operator">=</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name builtin">int</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">))</span>
         <span class="keyword">except</span> <span class="name exception">ValueError</span> <span class="keyword">as</span> <span class="name">e</span><span class="punctuation">:</span>
-            <span class="name">error</span> <span class="operator">=</span> <span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
+            <span class="name">error</span> <span class="operator">=</span> <span class="name">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
         <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span> <span class="operator">=</span> \
             <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name">request</span><span class="punctuation">)(</span>
                 <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span>
@@ -298,7 +355,7 @@ we can execute the same set of tests against all implementations.</p>
 
     <span class="keyword">def</span> <span class="name function">json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span><span class="punctuation">):</span>
         <span class="name">response_data</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">}</span>
-        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="keyword constant">None</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'ERROR'</span>
         <span class="keyword">else</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'OK'</span>
@@ -322,7 +379,7 @@ and lessons learned from that project. Stay tuned!</p>
         <p>What do you think? I would love if you would <strong>leave a comment</strong> - drop me an <strong>email</strong> at <strong><a href="mailto:hello@zsoldosp.eu">hello@zsoldosp.eu</a></strong>, tell me on <a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/&text=@zsepi, in response to End-to-End Testing - A Code Example">Twitter</a>!
     </div>
     <div class="meta">
-        <p>Posted on <a href="/2014/02/15/end-to-end-testing-a-code-example/" itemprop="datePublished" content="2014-02-15T17:15">February 15, 2014 at 05:15 PM</a> in <span class="blog_post_categories"><a href='/category/django/'>django</a>, <a href='/category/end-to-end/'>end-to-end</a>, <a href='/category/code/'>code</a>, <a href='/category/testing/'>testing</a>, <a href='/category/software/'>software</a></span> by <a href="/about.html" rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" itemprop="name">Peter</a></p>
+        <p>Posted on <a href="/2014/02/15/end-to-end-testing-a-code-example/" itemprop="datePublished" content="2014-02-15T17:15">February 15, 2014 at 05:15 PM</a> in <span class="blog_post_categories"><a href='/category/code/'>code</a>, <a href='/category/testing/'>testing</a>, <a href='/category/django/'>django</a>, <a href='/category/software/'>software</a>, <a href='/category/end-to-end/'>end-to-end</a></span> by <a href="/about.html" rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" itemprop="name">Peter</a></p>
         <p>Share this post if you liked it - on 
 <a href="http://digg.com/submit?url=http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/">Digg</a>,
 <a href="http://facebook.com/sharer.php?u=http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/">Facebook</a>, 

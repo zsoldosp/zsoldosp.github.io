@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:20 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:19 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,12 +18,12 @@
       <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
       <link>http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
       <pubDate>Sun, 04 Aug 2013 14:25:00 CEST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[blog]]></category>
       <category><![CDATA[ownership]]></category>
+      <category><![CDATA[blog]]></category>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[outdoors]]></category>
       <category><![CDATA[data]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
       <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
       <content:encoded><![CDATA[
@@ -94,11 +94,11 @@ policy!</p>
       <title>Book Review - Exploring Everyday Things with Ruby and R by Sau Sheong Chang</title>
       <link>http://blog.zsoldosp.eu/2012/10/book-review-exploring-everyday-things.html</link>
       <pubDate>Thu, 25 Oct 2012 19:47:00 CEST</pubDate>
+      <category><![CDATA[analysis]]></category>
+      <category><![CDATA[book review]]></category>
+      <category><![CDATA[simulation]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[data]]></category>
-      <category><![CDATA[book review]]></category>
-      <category><![CDATA[analysis]]></category>
-      <category><![CDATA[simulation]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/10/book-review-exploring-everyday-things.html</guid>
       <description>Book Review - Exploring Everyday Things with Ruby and R by Sau Sheong Chang</description>
       <content:encoded><![CDATA[
@@ -112,11 +112,11 @@ policy!</p>
       <title>Book Review - Programming Collective Intelligence by Toby Segaran</title>
       <link>http://blog.zsoldosp.eu/2012/03/book-review-programming-collective.html</link>
       <pubDate>Thu, 01 Mar 2012 20:31:00 CET</pubDate>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[machine learning]]></category>
-      <category><![CDATA[data]]></category>
-      <category><![CDATA[book review]]></category>
       <category><![CDATA[data mining]]></category>
+      <category><![CDATA[book review]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[data]]></category>
+      <category><![CDATA[machine learning]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/03/book-review-programming-collective.html</guid>
       <description>Book Review - Programming Collective Intelligence by Toby Segaran</description>
       <content:encoded><![CDATA[

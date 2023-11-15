@@ -23,6 +23,63 @@
   <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/pygment-tango.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <script type="text/javascript">
+  const posthogConsentKey = 'posthog-consent';
+  const consentPosthogConsentStore = window.localStorage;
+  const consentFormId = 'posthog-consent-form';
+  const consentOK = 'OK'
+  const noConsent = 'DNT'
+  function consent(isOK) {
+  	consentPosthogConsentStore[posthogConsentKey] = isOK;
+	posthogInit()
+	updateConsentUI()
+  }
+
+  function updateConsentUI() {
+	if(posthogHasChosen()) {
+		const form = document.querySelector('#' + consentFormId);
+		if (form) {
+			form.parentNode.removeChild(form);
+		}
+		if(hasConsent()) {
+			setConsentText('You consented to analytics cookies')
+		} else {
+			setConsentText('You opted out from analytics cookies')
+		}
+	} else {
+		setConsentText('No tracking happens until you consent to it using the below form')
+		addConsentForm()
+	}
+  }
+  function addConsentForm() {
+	const inner = document.querySelector('#content .inner');
+	const form = document.createElement("form");
+	form.id = consentFormId;
+	form.innerHTML = '<p>I would like to know which pages/articles are seen the most so I can improve the content of the site. For that, I chose the GDPR compliant <a href="https://posthog.com">posthog.com</a>, and it uses cookies if you consent.</p><p><input type=button onclick="consent(consentOK)" value="Cookies are OK, write more artcles"> <input type="button" onclick="consent(noConsent)" value="Do Not Track, please"></p>';
+	inner.insertBefore( form, inner.firstChild);
+  }
+  function posthogHasChosen() {
+  	return consentPosthogConsentStore[posthogConsentKey] !== undefined;
+  }
+  function hasConsent() {
+  	return consentPosthogConsentStore[posthogConsentKey] === consentOK;
+  }
+  function posthogInit() {
+     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_hc0BgsP5GW7bfHwdwV30CE3ezvLpitrbAscVGdNbONr',{api_host:'https://eu.posthog.com'})
+
+  }
+
+  function setConsentText(msg) {
+  	const node = document.querySelector('#posthog-chosen')
+	const sentences = node.innerText.split('.')
+	sentences[0] = msg
+	node.innerText = sentences.join('.');
+  }
+
+  if(hasConsent()) { posthogInit(); document}
+  document.addEventListener('DOMContentLoaded', updateConsentUI)
+  </script>
 
 </head>
 
@@ -37,7 +94,7 @@
                 </ul>
                 <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
                 <h2>Excercises in public learning</h2>
-		<p style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
+		<p id="posthog-chosen" style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
       </div>
     </div>
     <div id="content">
@@ -88,7 +145,7 @@ fall into thinking had I written directly into the wiki.</p>
         <p>What do you think? I would love if you would <strong>leave a comment</strong> - drop me an <strong>email</strong> at <strong><a href="mailto:hello@zsoldosp.eu">hello@zsoldosp.eu</a></strong>, tell me on <a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/&text=@zsepi, in response to CITCON Turin Session Notes">Twitter</a>!
     </div>
     <div class="meta">
-        <p>Posted on <a href="/2013/10/08/citcon-turin-session-notes/" itemprop="datePublished" content="2013-10-08T13:30">October 08, 2013 at 01:30 PM</a> in <span class="blog_post_categories"><a href='/category/conferences/'>conferences</a>, <a href='/category/citcon/'>citcon</a>, <a href='/category/software/'>software</a></span> by <a href="/about.html" rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" itemprop="name">Peter</a></p>
+        <p>Posted on <a href="/2013/10/08/citcon-turin-session-notes/" itemprop="datePublished" content="2013-10-08T13:30">October 08, 2013 at 01:30 PM</a> in <span class="blog_post_categories"><a href='/category/citcon/'>citcon</a>, <a href='/category/software/'>software</a>, <a href='/category/conferences/'>conferences</a></span> by <a href="/about.html" rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" itemprop="name">Peter</a></p>
         <p>Share this post if you liked it - on 
 <a href="http://digg.com/submit?url=http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/">Digg</a>,
 <a href="http://facebook.com/sharer.php?u=http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/">Facebook</a>, 

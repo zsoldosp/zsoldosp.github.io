@@ -23,6 +23,63 @@
   <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/pygment-tango.css" media="screen" rel="stylesheet" type="text/css" /> 
+  <script type="text/javascript">
+  const posthogConsentKey = 'posthog-consent';
+  const consentPosthogConsentStore = window.localStorage;
+  const consentFormId = 'posthog-consent-form';
+  const consentOK = 'OK'
+  const noConsent = 'DNT'
+  function consent(isOK) {
+  	consentPosthogConsentStore[posthogConsentKey] = isOK;
+	posthogInit()
+	updateConsentUI()
+  }
+
+  function updateConsentUI() {
+	if(posthogHasChosen()) {
+		const form = document.querySelector('#' + consentFormId);
+		if (form) {
+			form.parentNode.removeChild(form);
+		}
+		if(hasConsent()) {
+			setConsentText('You consented to analytics cookies')
+		} else {
+			setConsentText('You opted out from analytics cookies')
+		}
+	} else {
+		setConsentText('No tracking happens until you consent to it using the below form')
+		addConsentForm()
+	}
+  }
+  function addConsentForm() {
+	const inner = document.querySelector('#content .inner');
+	const form = document.createElement("form");
+	form.id = consentFormId;
+	form.innerHTML = '<p>I would like to know which pages/articles are seen the most so I can improve the content of the site. For that, I chose the GDPR compliant <a href="https://posthog.com">posthog.com</a>, and it uses cookies if you consent.</p><p><input type=button onclick="consent(consentOK)" value="Cookies are OK, write more artcles"> <input type="button" onclick="consent(noConsent)" value="Do Not Track, please"></p>';
+	inner.insertBefore( form, inner.firstChild);
+  }
+  function posthogHasChosen() {
+  	return consentPosthogConsentStore[posthogConsentKey] !== undefined;
+  }
+  function hasConsent() {
+  	return consentPosthogConsentStore[posthogConsentKey] === consentOK;
+  }
+  function posthogInit() {
+     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_hc0BgsP5GW7bfHwdwV30CE3ezvLpitrbAscVGdNbONr',{api_host:'https://eu.posthog.com'})
+
+  }
+
+  function setConsentText(msg) {
+  	const node = document.querySelector('#posthog-chosen')
+	const sentences = node.innerText.split('.')
+	sentences[0] = msg
+	node.innerText = sentences.join('.');
+  }
+
+  if(hasConsent()) { posthogInit(); document}
+  document.addEventListener('DOMContentLoaded', updateConsentUI)
+  </script>
 
 </head>
 
@@ -37,7 +94,7 @@
                 </ul>
                 <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
                 <h2>Excercises in public learning</h2>
-		<p style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
+		<p id="posthog-chosen" style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
       </div>
     </div>
     <div id="content">
@@ -83,13 +140,13 @@ Run <span class="literal string backtick">`</span>mix <span class="name builtin"
 equivalent - it is aimed at those who get unit testing already. If you
 are new to automated testing, seeing code like</p>
 <pre class="code elixir literal-block">
-<span class="keyword declaration">defmodule</span> <span class="name class">FooTest</span> <span class="keyword">do</span>
-  <span class="keyword namespace">use</span> <span class="name class">ExUnit.Case</span>
+<span class="keyword declaration">defmodule</span><span class="whitespace"> </span><span class="name class">FooTest</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+  </span><span class="keyword namespace">use</span><span class="whitespace"> </span><span class="name class">ExUnit.Case</span><span class="whitespace">
 
-  <span class="name">test</span> <span class="literal string double">&quot;the truth&quot;</span> <span class="keyword">do</span>
-    <span class="name">assert</span><span class="punctuation">(</span><span class="name constant">true</span><span class="punctuation">)</span>
-  <span class="keyword">end</span>
-<span class="keyword">end</span>
+  </span><span class="name">test</span><span class="whitespace"> </span><span class="literal string double">&quot;the truth&quot;</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+    </span><span class="name">assert</span><span class="punctuation">(</span><span class="name constant">true</span><span class="punctuation">)</span><span class="whitespace">
+  </span><span class="keyword">end</span><span class="whitespace">
+</span><span class="keyword">end</span>
 </pre>
 <p>won't really make you say <em>&quot;yes, this makes me understand and love testing!&quot;</em>.
 Granted, the whole Elixir tutorial is aimed at people who can already
@@ -121,15 +178,15 @@ I have grown to rely on in Python. Consider the following tests and
 the resulting failure messages - which one is more helpful?</p>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.exs">Elixir</a>:</p>
 <pre class="code elixir literal-block">
-    <span class="name">test</span> <span class="literal string double">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span> <span class="keyword">do</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:dead</span>
-    <span class="keyword">end</span>
+<span class="whitespace">    </span><span class="name">test</span><span class="whitespace"> </span><span class="literal string double">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">2</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:alive</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">3</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:alive</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">3</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:alive</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">2</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:dead</span><span class="whitespace">
+    </span><span class="keyword">end</span>
 </pre>
 <pre class="code bash literal-block">
-  1<span class="operator">)</span> <span class="name builtin">test</span> survival - a living cell with <span class="literal number">2</span> or <span class="literal number">3</span> neighbours survives <span class="operator">(</span>GoflRulesTest<span class="operator">)</span>
+  <span class="literal number">1</span><span class="operator">)</span> <span class="name builtin">test</span> survival - a living cell with <span class="literal number">2</span> or <span class="literal number">3</span> neighbours survives <span class="operator">(</span>GoflRulesTest<span class="operator">)</span>
      ** <span class="operator">(</span>ExUnit.ExpectationError<span class="operator">)</span>
                   expected: :alive
        to be equal to <span class="operator">(==)</span>: :dead
@@ -137,7 +194,7 @@ the resulting failure messages - which one is more helpful?</p>
 
 
 
-Finished in 0.05 seconds <span class="operator">(</span>0.04s on load, 0.01s on tests<span class="operator">)</span>
+Finished <span class="keyword">in</span> <span class="literal number">0</span>.05 seconds <span class="operator">(</span><span class="literal number">0</span>.04s on load, <span class="literal number">0</span>.01s on tests<span class="operator">)</span>
 <span class="literal number">1</span> tests, <span class="literal number">1</span> failures
 </pre>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.py">Python</a>:</p>
@@ -154,14 +211,14 @@ Finished in 0.05 seconds <span class="operator">(</span>0.04s on load, 0.01s on 
 FAIL: test_survival_a_living_cell_with_2_or_3_neighbours_survives <span class="operator">(</span>__main__.GoflRulesTest<span class="operator">)</span>
 ----------------------------------------------------------------------
 Traceback <span class="operator">(</span>most recent call last<span class="operator">)</span>:
-  File <span class="literal string double">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line 22, in test_survival_a_living_cell_with_2_or_3_neighbours_survives
-    self.assertEquals<span class="operator">(</span>DEAD, cell_next_state<span class="operator">(</span><span class="name variable">curr_state</span><span class="operator">=</span>DEAD, <span class="name variable">live_neighbour_cnt</span><span class="operator">=</span>2<span class="operator">))</span>
+  File <span class="literal string double">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line <span class="literal number">22</span>, <span class="keyword">in</span> test_survival_a_living_cell_with_2_or_3_neighbours_survives
+    self.assertEquals<span class="operator">(</span>DEAD, cell_next_state<span class="operator">(</span><span class="name variable">curr_state</span><span class="operator">=</span>DEAD, <span class="name variable">live_neighbour_cnt</span><span class="operator">=</span><span class="literal number">2</span><span class="operator">))</span>
 AssertionError: False !<span class="operator">=</span> True
 
 ----------------------------------------------------------------------
-Ran <span class="literal number">1</span> <span class="name builtin">test</span> in 0.000s
+Ran <span class="literal number">1</span> <span class="name builtin">test</span> <span class="keyword">in</span> <span class="literal number">0</span>.000s
 
-FAILED <span class="operator">(</span><span class="name variable">failures</span><span class="operator">=</span>1<span class="operator">)</span>
+FAILED <span class="operator">(</span><span class="name variable">failures</span><span class="operator">=</span><span class="literal number">1</span><span class="operator">)</span>
 </pre>
 <p>Granted, Python is unique in this regard, IIRC I wouldn't get such
 useful stacktraces in C# or Java either, but since I've been mostly
@@ -182,33 +239,31 @@ many minor inconveniences.</p>
 declared on the TestCase level whether it's OK to run it in parallel
 - giving finer control to the test author.</p>
 <pre class="code elixir literal-block">
-<span class="keyword declaration">defmodule</span> <span class="name class">GoflRulesTest</span> <span class="keyword">do</span>
-    <span class="keyword namespace">use</span> <span class="name class">ExUnit.Case</span><span class="punctuation">,</span> <span class="literal string symbol">async</span><span class="punctuation">:</span> <span class="name constant">true</span>
+<span class="keyword declaration">defmodule</span><span class="whitespace"> </span><span class="name class">GoflRulesTest</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+    </span><span class="keyword namespace">use</span><span class="whitespace"> </span><span class="name class">ExUnit.Case</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal string symbol">async</span><span class="punctuation">:</span><span class="whitespace"> </span><span class="name constant">true</span>
 </pre>
 <p>I just wish it was true by default!</p>
 </div>
 <div class="section" id="cool-things-i-would-like-to-explore-further">
 <h1>Cool things I would like to explore further</h1>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><dl class="first docutils">
 <dt>This short exploration hasn't allowed me figure what kind of</dt>
-<dd><p class="first last"><strong>differences</strong> there are <strong>between</strong> testing <strong>functional</strong>-
+<dd><strong>differences</strong> there are <strong>between</strong> testing <strong>functional</strong>-
 and <strong>object oriented</strong> programs. My gut feeling is there
 shouldn't be many: black box, transformation (state) based should
 be the same. Interaction testing (mocking) seems an odd fit, however
 it might just turn out to be as easy as passing in a &quot;mock&quot; function
-as an argument.</p>
-</dd>
+as an argument.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Property-based testing</strong> has been on my radar for a while to be</dt>
-<dd><p class="first last">tried - and its use seems to be more common in functional programming,
+<dd>tried - and its use seems to be more common in functional programming,
 and it's appropriate I should try it in a context where it's set up
 to succeed. This is when I'm thankful for Elixir being
 built/run on top of a mature platform - otherwise there wouldn't yet
-be an available library.</p>
-</dd>
+be an available library.</dd>
 </dl>
 </li>
 </ol>
@@ -220,7 +275,7 @@ be an available library.</p>
         <p>What do you think? I would love if you would <strong>leave a comment</strong> - drop me an <strong>email</strong> at <strong><a href="mailto:hello@zsoldosp.eu">hello@zsoldosp.eu</a></strong>, tell me on <a href="https://twitter.com/intent/tweet?url=http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/&text=@zsepi, in response to Unit Testing In Elixir">Twitter</a>!
     </div>
     <div class="meta">
-        <p>Posted on <a href="/2014/03/05/unit-testing-in-elixir/" itemprop="datePublished" content="2014-03-05T19:30">March 05, 2014 at 07:30 PM</a> in <span class="blog_post_categories"><a href='/category/elixir/'>elixir</a>, <a href='/category/testing/'>testing</a>, <a href='/category/programming-languages/'>programming languages</a>, <a href='/category/software/'>software</a></span> by <a href="/about.html" rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" itemprop="name">Peter</a></p>
+        <p>Posted on <a href="/2014/03/05/unit-testing-in-elixir/" itemprop="datePublished" content="2014-03-05T19:30">March 05, 2014 at 07:30 PM</a> in <span class="blog_post_categories"><a href='/category/elixir/'>elixir</a>, <a href='/category/programming-languages/'>programming languages</a>, <a href='/category/software/'>software</a>, <a href='/category/testing/'>testing</a></span> by <a href="/about.html" rel="author" itemprop="author" itemscope itemtype="http://schema.org/Person" itemprop="name">Peter</a></p>
         <p>Share this post if you liked it - on 
 <a href="http://digg.com/submit?url=http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/">Digg</a>,
 <a href="http://facebook.com/sharer.php?u=http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/">Facebook</a>, 

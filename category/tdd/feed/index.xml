@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:19 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:19 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,13 +18,13 @@
       <title>Data Migrations As Acceptance Tests</title>
       <link>http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</link>
       <pubDate>Fri, 04 Nov 2011 09:23:00 CET</pubDate>
-      <category><![CDATA[rewrite]]></category>
       <category><![CDATA[data migration]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[tdd]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[approach]]></category>
       <category><![CDATA[legacy code]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[rewrite]]></category>
+      <category><![CDATA[tdd]]></category>
+      <category><![CDATA[approach]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</guid>
       <description>Data Migrations As Acceptance Tests</description>
       <content:encoded><![CDATA[
@@ -38,11 +38,11 @@
       <title>On Grassroots/Peer TDD Introduction</title>
       <link>http://blog.zsoldosp.eu/2011/05/on-grassrootspeer-tdd-introduction.html</link>
       <pubDate>Sun, 15 May 2011 14:43:00 CEST</pubDate>
+      <category><![CDATA[team]]></category>
       <category><![CDATA[teaching]]></category>
       <category><![CDATA[software]]></category>
-      <category><![CDATA[team]]></category>
-      <category><![CDATA[change]]></category>
       <category><![CDATA[tdd]]></category>
+      <category><![CDATA[change]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/05/on-grassrootspeer-tdd-introduction.html</guid>
       <description>On Grassroots/Peer TDD Introduction</description>
       <content:encoded><![CDATA[

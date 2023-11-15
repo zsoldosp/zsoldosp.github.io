@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:19 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:19 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,13 +18,13 @@
       <title>A few thoughts on BDDon't</title>
       <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
       <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
-      <category><![CDATA[bdd]]></category>
-      <category><![CDATA[python]]></category>
       <category><![CDATA[testing]]></category>
-      <category><![CDATA[behave]]></category>
       <category><![CDATA[cucumber]]></category>
-      <category><![CDATA[gherkin]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[gherkin]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[behave]]></category>
+      <category><![CDATA[bdd]]></category>
       <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
       <description>A few thoughts on BDDon't</description>
       <content:encoded><![CDATA[
@@ -181,9 +181,9 @@ state, such as a database can still be shared).</p>
       <link>http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/</link>
       <pubDate>Wed, 05 Mar 2014 19:30:00 CET</pubDate>
       <category><![CDATA[elixir]]></category>
-      <category><![CDATA[testing]]></category>
       <category><![CDATA[programming languages]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">0o-82cbUaxJeza1AWri2hAjNJqg=</guid>
       <description>Unit Testing In Elixir</description>
       <content:encoded><![CDATA[
@@ -217,13 +217,13 @@ Run <span class="literal string backtick">`</span>mix <span class="name builtin"
 equivalent - it is aimed at those who get unit testing already. If you
 are new to automated testing, seeing code like</p>
 <pre class="code elixir literal-block">
-<span class="keyword declaration">defmodule</span> <span class="name class">FooTest</span> <span class="keyword">do</span>
-  <span class="keyword namespace">use</span> <span class="name class">ExUnit.Case</span>
+<span class="keyword declaration">defmodule</span><span class="whitespace"> </span><span class="name class">FooTest</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+  </span><span class="keyword namespace">use</span><span class="whitespace"> </span><span class="name class">ExUnit.Case</span><span class="whitespace">
 
-  <span class="name">test</span> <span class="literal string double">&quot;the truth&quot;</span> <span class="keyword">do</span>
-    <span class="name">assert</span><span class="punctuation">(</span><span class="name constant">true</span><span class="punctuation">)</span>
-  <span class="keyword">end</span>
-<span class="keyword">end</span>
+  </span><span class="name">test</span><span class="whitespace"> </span><span class="literal string double">&quot;the truth&quot;</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+    </span><span class="name">assert</span><span class="punctuation">(</span><span class="name constant">true</span><span class="punctuation">)</span><span class="whitespace">
+  </span><span class="keyword">end</span><span class="whitespace">
+</span><span class="keyword">end</span>
 </pre>
 <p>won't really make you say <em>&quot;yes, this makes me understand and love testing!&quot;</em>.
 Granted, the whole Elixir tutorial is aimed at people who can already
@@ -255,15 +255,15 @@ I have grown to rely on in Python. Consider the following tests and
 the resulting failure messages - which one is more helpful?</p>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.exs">Elixir</a>:</p>
 <pre class="code elixir literal-block">
-    <span class="name">test</span> <span class="literal string double">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span> <span class="keyword">do</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:alive</span>
-        <span class="name">assert</span> <span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span> <span class="operator">==</span> <span class="literal string symbol">:dead</span>
-    <span class="keyword">end</span>
+<span class="whitespace">    </span><span class="name">test</span><span class="whitespace"> </span><span class="literal string double">&quot;survival - a living cell with 2 or 3 neighbours survives&quot;</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">2</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:alive</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:alive</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">3</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:alive</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">3</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:alive</span><span class="whitespace">
+        </span><span class="name">assert</span><span class="whitespace"> </span><span class="name class">Gofl.Rules</span><span class="operator">.</span><span class="name">next_state</span><span class="punctuation">(</span><span class="literal string symbol">:dead</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">2</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">==</span><span class="whitespace"> </span><span class="literal string symbol">:dead</span><span class="whitespace">
+    </span><span class="keyword">end</span>
 </pre>
 <pre class="code bash literal-block">
-  1<span class="operator">)</span> <span class="name builtin">test</span> survival - a living cell with <span class="literal number">2</span> or <span class="literal number">3</span> neighbours survives <span class="operator">(</span>GoflRulesTest<span class="operator">)</span>
+  <span class="literal number">1</span><span class="operator">)</span> <span class="name builtin">test</span> survival - a living cell with <span class="literal number">2</span> or <span class="literal number">3</span> neighbours survives <span class="operator">(</span>GoflRulesTest<span class="operator">)</span>
      ** <span class="operator">(</span>ExUnit.ExpectationError<span class="operator">)</span>
                   expected: :alive
        to be equal to <span class="operator">(==)</span>: :dead
@@ -271,7 +271,7 @@ the resulting failure messages - which one is more helpful?</p>
 
 
 
-Finished in 0.05 seconds <span class="operator">(</span>0.04s on load, 0.01s on tests<span class="operator">)</span>
+Finished <span class="keyword">in</span> <span class="literal number">0</span>.05 seconds <span class="operator">(</span><span class="literal number">0</span>.04s on load, <span class="literal number">0</span>.01s on tests<span class="operator">)</span>
 <span class="literal number">1</span> tests, <span class="literal number">1</span> failures
 </pre>
 <p><a class="reference external" href="/snippets/unit_testing_with_elixir_gofl.py">Python</a>:</p>
@@ -288,14 +288,14 @@ Finished in 0.05 seconds <span class="operator">(</span>0.04s on load, 0.01s on 
 FAIL: test_survival_a_living_cell_with_2_or_3_neighbours_survives <span class="operator">(</span>__main__.GoflRulesTest<span class="operator">)</span>
 ----------------------------------------------------------------------
 Traceback <span class="operator">(</span>most recent call last<span class="operator">)</span>:
-  File <span class="literal string double">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line 22, in test_survival_a_living_cell_with_2_or_3_neighbours_survives
-    self.assertEquals<span class="operator">(</span>DEAD, cell_next_state<span class="operator">(</span><span class="name variable">curr_state</span><span class="operator">=</span>DEAD, <span class="name variable">live_neighbour_cnt</span><span class="operator">=</span>2<span class="operator">))</span>
+  File <span class="literal string double">&quot;unit_testing_with_elixir_gofl.py&quot;</span>, line <span class="literal number">22</span>, <span class="keyword">in</span> test_survival_a_living_cell_with_2_or_3_neighbours_survives
+    self.assertEquals<span class="operator">(</span>DEAD, cell_next_state<span class="operator">(</span><span class="name variable">curr_state</span><span class="operator">=</span>DEAD, <span class="name variable">live_neighbour_cnt</span><span class="operator">=</span><span class="literal number">2</span><span class="operator">))</span>
 AssertionError: False !<span class="operator">=</span> True
 
 ----------------------------------------------------------------------
-Ran <span class="literal number">1</span> <span class="name builtin">test</span> in 0.000s
+Ran <span class="literal number">1</span> <span class="name builtin">test</span> <span class="keyword">in</span> <span class="literal number">0</span>.000s
 
-FAILED <span class="operator">(</span><span class="name variable">failures</span><span class="operator">=</span>1<span class="operator">)</span>
+FAILED <span class="operator">(</span><span class="name variable">failures</span><span class="operator">=</span><span class="literal number">1</span><span class="operator">)</span>
 </pre>
 <p>Granted, Python is unique in this regard, IIRC I wouldn't get such
 useful stacktraces in C# or Java either, but since I've been mostly
@@ -316,33 +316,31 @@ many minor inconveniences.</p>
 declared on the TestCase level whether it's OK to run it in parallel
 - giving finer control to the test author.</p>
 <pre class="code elixir literal-block">
-<span class="keyword declaration">defmodule</span> <span class="name class">GoflRulesTest</span> <span class="keyword">do</span>
-    <span class="keyword namespace">use</span> <span class="name class">ExUnit.Case</span><span class="punctuation">,</span> <span class="literal string symbol">async</span><span class="punctuation">:</span> <span class="name constant">true</span>
+<span class="keyword declaration">defmodule</span><span class="whitespace"> </span><span class="name class">GoflRulesTest</span><span class="whitespace"> </span><span class="keyword">do</span><span class="whitespace">
+    </span><span class="keyword namespace">use</span><span class="whitespace"> </span><span class="name class">ExUnit.Case</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal string symbol">async</span><span class="punctuation">:</span><span class="whitespace"> </span><span class="name constant">true</span>
 </pre>
 <p>I just wish it was true by default!</p>
 </div>
 <div class="section" id="cool-things-i-would-like-to-explore-further">
 <h1>Cool things I would like to explore further</h1>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><dl class="first docutils">
 <dt>This short exploration hasn't allowed me figure what kind of</dt>
-<dd><p class="first last"><strong>differences</strong> there are <strong>between</strong> testing <strong>functional</strong>-
+<dd><strong>differences</strong> there are <strong>between</strong> testing <strong>functional</strong>-
 and <strong>object oriented</strong> programs. My gut feeling is there
 shouldn't be many: black box, transformation (state) based should
 be the same. Interaction testing (mocking) seems an odd fit, however
 it might just turn out to be as easy as passing in a &quot;mock&quot; function
-as an argument.</p>
-</dd>
+as an argument.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>Property-based testing</strong> has been on my radar for a while to be</dt>
-<dd><p class="first last">tried - and its use seems to be more common in functional programming,
+<dd>tried - and its use seems to be more common in functional programming,
 and it's appropriate I should try it in a context where it's set up
 to succeed. This is when I'm thankful for Elixir being
 built/run on top of a mature platform - otherwise there wouldn't yet
-be an available library.</p>
-</dd>
+be an available library.</dd>
 </dl>
 </li>
 </ol>
@@ -357,11 +355,11 @@ be an available library.</p>
       <title>End-to-End Testing - A Code Example</title>
       <link>http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/</link>
       <pubDate>Sat, 15 Feb 2014 17:15:00 CET</pubDate>
-      <category><![CDATA[django]]></category>
-      <category><![CDATA[end-to-end]]></category>
       <category><![CDATA[code]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[django]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[end-to-end]]></category>
       <guid isPermaLink="false">VQdt1K4VFfD0lxpX8wRk-1HuUSE=</guid>
       <description>End-to-End Testing - A Code Example</description>
       <content:encoded><![CDATA[
@@ -417,7 +415,7 @@ since the purpose of this post is not to teach idiomatic Django.</p>
     <span class="keyword">def</span> <span class="name function">test_can_only_calculate_fibonacci_for_integers</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal number float">3.14</span><span class="punctuation">)</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="literal string single">'not a number'</span><span class="punctuation">)</span>
-        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">None</span><span class="punctuation">)</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assert_cannot_calculate</span><span class="punctuation">(</span><span class="keyword constant">None</span><span class="punctuation">)</span>
 
     <span class="keyword">def</span> <span class="name function">assert_can_calculate</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
         <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_fibonacci</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">)</span>
@@ -490,7 +488,7 @@ for the FibonacciCaulcatorTests:</p>
         <span class="name">allowed_keys</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal string single">'status'</span><span class="punctuation">,</span> <span class="literal string single">'n'</span><span class="punctuation">,</span> <span class="literal string single">'error'</span><span class="punctuation">,</span> <span class="literal string single">'result'</span><span class="punctuation">])</span>
         <span class="name">data_keys</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">(</span><span class="name">data</span><span class="operator">.</span><span class="name">keys</span><span class="punctuation">())</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name builtin">set</span><span class="punctuation">([]),</span> <span class="name">data_keys</span> <span class="operator">-</span> <span class="name">allowed_keys</span><span class="punctuation">)</span>
-        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">),</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">])</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertEquals</span><span class="punctuation">(</span><span class="name">unicode</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">),</span> <span class="name">data</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">])</span>
         <span class="keyword">return</span> <span class="name">data</span>
 </pre>
 <p>As you can see, on top of the assertions in the base class, I've added
@@ -510,12 +508,12 @@ in which case I'll adjust the <strong>allowed_keys</strong> variable</p>
 
     <span class="keyword">def</span> <span class="name function">post</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
         <span class="name">n</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">POST</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">]</span>
-        <span class="name">error</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="name">error</span> <span class="operator">=</span> <span class="keyword constant">None</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="keyword constant">None</span>
         <span class="keyword">try</span><span class="punctuation">:</span>
             <span class="name">result</span> <span class="operator">=</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name builtin">int</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">))</span>
         <span class="keyword">except</span> <span class="name exception">ValueError</span> <span class="keyword">as</span> <span class="name">e</span><span class="punctuation">:</span>
-            <span class="name">error</span> <span class="operator">=</span> <span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
+            <span class="name">error</span> <span class="operator">=</span> <span class="name">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
         <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span> <span class="operator">=</span> \
             <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name">request</span><span class="punctuation">)(</span>
                 <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span>
@@ -527,7 +525,7 @@ in which case I'll adjust the <strong>allowed_keys</strong> variable</p>
 
     <span class="keyword">def</span> <span class="name function">json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span><span class="punctuation">):</span>
         <span class="name">response_data</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">}</span>
-        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="keyword constant">None</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'ERROR'</span>
         <span class="keyword">else</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'OK'</span>
@@ -569,7 +567,7 @@ we can execute the same set of tests against all implementations.</p>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">assertNotContains</span><span class="punctuation">(</span><span class="name">response</span><span class="operator">=</span><span class="name">response</span><span class="punctuation">,</span> <span class="name">text</span><span class="operator">=</span><span class="literal string single">'&lt;p class=&quot;error&quot;&gt;'</span><span class="punctuation">)</span>
         <span class="keyword">return</span> <span class="name builtin">int</span><span class="punctuation">(</span>
             <span class="name">re</span><span class="operator">.</span><span class="name">search</span><span class="punctuation">(</span>
-                <span class="literal string single">r'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="punctuation">,</span> <span class="name">response</span><span class="operator">.</span><span class="name">content</span>
+                <span class="literal string affix">r</span><span class="literal string single">'&lt;span id=&quot;result&quot;&gt;(\d+)&lt;/span&gt;'</span><span class="punctuation">,</span> <span class="name">response</span><span class="operator">.</span><span class="name">content</span>
             <span class="punctuation">)</span> <span class="operator">.</span><span class="name">groups</span><span class="punctuation">()[</span><span class="literal number integer">0</span><span class="punctuation">])</span>
 
     <span class="keyword">def</span> <span class="name function">get_fibonacci_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">):</span>
@@ -593,12 +591,12 @@ we can execute the same set of tests against all implementations.</p>
 
     <span class="keyword">def</span> <span class="name function">post</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">request</span><span class="punctuation">):</span>
         <span class="name">n</span> <span class="operator">=</span> <span class="name">request</span><span class="operator">.</span><span class="name">POST</span><span class="punctuation">[</span><span class="literal string single">'n'</span><span class="punctuation">]</span>
-        <span class="name">error</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-        <span class="name">result</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+        <span class="name">error</span> <span class="operator">=</span> <span class="keyword constant">None</span>
+        <span class="name">result</span> <span class="operator">=</span> <span class="keyword constant">None</span>
         <span class="keyword">try</span><span class="punctuation">:</span>
             <span class="name">result</span> <span class="operator">=</span> <span class="name">calculator</span><span class="operator">.</span><span class="name">fibonacci</span><span class="punctuation">(</span><span class="name builtin">int</span><span class="punctuation">(</span><span class="name">n</span><span class="punctuation">))</span>
         <span class="keyword">except</span> <span class="name exception">ValueError</span> <span class="keyword">as</span> <span class="name">e</span><span class="punctuation">:</span>
-            <span class="name">error</span> <span class="operator">=</span> <span class="name builtin">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
+            <span class="name">error</span> <span class="operator">=</span> <span class="name">unicode</span><span class="punctuation">(</span><span class="name">e</span><span class="punctuation">)</span>
         <span class="name">content</span><span class="punctuation">,</span> <span class="name">content_type</span> <span class="operator">=</span> \
             <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">get_response_content_and_type_function</span><span class="punctuation">(</span><span class="name">request</span><span class="punctuation">)(</span>
                 <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span>
@@ -610,7 +608,7 @@ we can execute the same set of tests against all implementations.</p>
 
     <span class="keyword">def</span> <span class="name function">json_response</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">n</span><span class="punctuation">,</span> <span class="name">error</span><span class="punctuation">,</span> <span class="name">result</span><span class="punctuation">):</span>
         <span class="name">response_data</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'n'</span><span class="punctuation">:</span> <span class="name">n</span><span class="punctuation">}</span>
-        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="name builtin pseudo">None</span><span class="punctuation">:</span>
+        <span class="keyword">if</span> <span class="name">error</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="keyword constant">None</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'ERROR'</span>
         <span class="keyword">else</span><span class="punctuation">:</span>
             <span class="name">response_data</span><span class="punctuation">[</span><span class="literal string single">'status'</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="literal string single">'OK'</span>
@@ -637,12 +635,12 @@ and lessons learned from that project. Stay tuned!</p>
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
       <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
       <pubDate>Mon, 28 Oct 2013 08:05:00 CET</pubDate>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[business analysis]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
-      <category><![CDATA[end-to-end]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[business analysis]]></category>
+      <category><![CDATA[end-to-end]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
       <content:encoded><![CDATA[
@@ -767,11 +765,11 @@ it)!</p>
       <title>A New Look At End-to-End Testing - Polymorphic and Fast</title>
       <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
       <pubDate>Wed, 23 Oct 2013 19:28:00 CEST</pubDate>
-      <category><![CDATA[untested ideas]]></category>
-      <category><![CDATA[end-to-end]]></category>
       <category><![CDATA[code]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[end-to-end]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
       <content:encoded><![CDATA[
@@ -955,9 +953,9 @@ just that they listened and gave feedback!</p>
       <title>Find The Test Structure That Fits Your Team</title>
       <link>http://blog.zsoldosp.eu/2012/01/find-test-structure-that-fits-your-team.html</link>
       <pubDate>Thu, 12 Jan 2012 19:14:00 CET</pubDate>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[documentation]]></category>
       <category><![CDATA[testing]]></category>
-      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/01/find-test-structure-that-fits-your-team.html</guid>
       <description>Find The Test Structure That Fits Your Team</description>
       <content:encoded><![CDATA[
@@ -971,13 +969,13 @@ just that they listened and gave feedback!</p>
       <title>Data Migrations As Acceptance Tests</title>
       <link>http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</link>
       <pubDate>Fri, 04 Nov 2011 09:23:00 CET</pubDate>
-      <category><![CDATA[rewrite]]></category>
       <category><![CDATA[data migration]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[tdd]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[approach]]></category>
       <category><![CDATA[legacy code]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[rewrite]]></category>
+      <category><![CDATA[tdd]]></category>
+      <category><![CDATA[approach]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</guid>
       <description>Data Migrations As Acceptance Tests</description>
       <content:encoded><![CDATA[
@@ -991,10 +989,10 @@ just that they listened and gave feedback!</p>
       <title>Book Review - Python Testing Cookbook by Greg L. Turnquist</title>
       <link>http://blog.zsoldosp.eu/2011/10/book-review-python-testing-cookbook-by.html</link>
       <pubDate>Sun, 23 Oct 2011 13:24:00 CEST</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[book review]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[book review]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/10/book-review-python-testing-cookbook-by.html</guid>
       <description>Book Review - Python Testing Cookbook by Greg L. Turnquist</description>
       <content:encoded><![CDATA[
@@ -1010,8 +1008,8 @@ just that they listened and gave feedback!</p>
       <link>http://blog.zsoldosp.eu/2011/09/testing-strategy-on-migration-projects.html</link>
       <pubDate>Mon, 19 Sep 2011 17:30:00 CEST</pubDate>
       <category><![CDATA[software]]></category>
-      <category><![CDATA[testing]]></category>
       <category><![CDATA[legacy code]]></category>
+      <category><![CDATA[testing]]></category>
       <category><![CDATA[rewrite]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/09/testing-strategy-on-migration-projects.html</guid>
       <description>Testing Strategy On Migration Projects</description>

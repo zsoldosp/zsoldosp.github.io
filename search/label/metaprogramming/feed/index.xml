@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:21 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:20 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -19,9 +19,9 @@
       <link>http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
       <pubDate>Thu, 25 Jul 2013 08:18:00 CEST</pubDate>
       <category><![CDATA[code]]></category>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[metaprogramming]]></category>
       <category><![CDATA[bash]]></category>
-      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>
       <content:encoded><![CDATA[

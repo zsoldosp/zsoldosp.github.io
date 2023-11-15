@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:20 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:20 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,9 +18,9 @@
       <title>CITCON Cluj 2016</title>
       <link>http://blog.zsoldosp.eu/2016/04/18/citcon-cluj-2016/</link>
       <pubDate>Mon, 18 Apr 2016 12:32:00 CEST</pubDate>
-      <category><![CDATA[conferences]]></category>
       <category><![CDATA[citcon]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[conferences]]></category>
       <guid isPermaLink="false">Ak8DsCUnbn3-fj05vbRCp36P4OI=</guid>
       <description>CITCON Cluj 2016</description>
       <content:encoded><![CDATA[
@@ -55,7 +55,7 @@
 <p>I also learned that one should be careful with terminology - the question of who owns the solution and who owns the goal is totally orthogonal to how any given team is organizes work.</p>
 <p>At <a href="https://twitter.com/jtf">@Jtf</a>'s company they run something similar to how <a href="http://www.valvesoftware.com/jobs/index.html">Valve</a> operates - there is an internal project fair, where PO(s) propose projects, and then developers sign up for them - and it's perfectly OK if a project gets no signups.</p>
 <p>To address the divide between who owns the goal and who the solution, properly cross functional teams can be the answer, i.e.: the PO should be part of the team and should really own goals and priorization of the goals.</p>
-<p>There was a rather interesting quote from Alistair Cockburn that <a href="https://t.co/KvYJjkQMtL">"Self organization is mutiny"</a>, because self organizing will inevitebly be pushing the boundaries.</p>
+<p>There was a rather interesting quote from Alistair Cockburn that <a href="http://alistair.cockburn.us/Self-organization+means+mutiny">"Self organization is mutiny"</a>, because self organizing will inevitebly be pushing the boundaries.</p>
 <p>The technique called <a href="http://blog.jeffreyfredrick.com/2016/04/08/coherence-busting-explained/">Coherence Busting</a> was suggested, which in high level translates to empathy/understanding where people's actions are coming from, i.e.: What has to be true for this behavior to make sense. But if you can, just ask directly :)</p>
 <h2 id="randomized-testingrandom-data-generation">Randomized testing/random data generation</h2>
 <p>On the train ride to Cluj, I was <a href="https://github.com/zsoldosp/spike-pytest-fixtures">playing around with py.test's test fixtures</a> and how one can combine that, e.g.: in a shopping cart, how can one specify in a test that "I need an order for an electroncics items that is sold to an end user who paid by credit card and who used a fixed amount coupon". I've found that generating all combinations is rather easy, but to filter out the scenarios I need for a given test is hard if I don't want to write a lot of specific fixtures (e.g.: <code>electronics_item_for_end_user_with_creditcard_with_fixed_discount</code>), which could get out of hand fast.</p>
@@ -155,9 +155,9 @@
       <title>CITCON Turin Session Notes</title>
       <link>http://blog.zsoldosp.eu/2013/10/08/citcon-turin-session-notes/</link>
       <pubDate>Tue, 08 Oct 2013 13:30:00 CEST</pubDate>
-      <category><![CDATA[conferences]]></category>
       <category><![CDATA[citcon]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[conferences]]></category>
       <guid isPermaLink="false">AWskB6wuNpU0UUAq1fII-TJYmS0=</guid>
       <description>CITCON Turin Session Notes</description>
       <content:encoded><![CDATA[
@@ -199,9 +199,9 @@ fall into thinking had I written directly into the wiki.</p>
       <title>CITCON Turin 2013</title>
       <link>http://blog.zsoldosp.eu/2013/09/30/citcon-turin-2013/</link>
       <pubDate>Mon, 30 Sep 2013 09:13:00 CEST</pubDate>
-      <category><![CDATA[conferences]]></category>
       <category><![CDATA[citcon]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[conferences]]></category>
       <guid isPermaLink="false">HBw_qzJLfvKDJyuEPItoFPtvMx8=</guid>
       <description>CITCON Turin 2013</description>
       <content:encoded><![CDATA[
@@ -335,9 +335,9 @@ for a single TestCase</em> ideas in more detail.</p>
       <title>CITCON London 2011</title>
       <link>http://blog.zsoldosp.eu/2011/11/citcon-london-2011.html</link>
       <pubDate>Thu, 17 Nov 2011 09:26:00 CET</pubDate>
-      <category><![CDATA[conferences]]></category>
       <category><![CDATA[citcon]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[conferences]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/11/citcon-london-2011.html</guid>
       <description>CITCON London 2011</description>
       <content:encoded><![CDATA[
@@ -351,9 +351,9 @@ for a single TestCase</em> ideas in more detail.</p>
       <title>My #citcon London 2010 experience</title>
       <link>http://blog.zsoldosp.eu/2010/11/my-citcon-london-2010-experience.html</link>
       <pubDate>Wed, 10 Nov 2010 20:07:00 CET</pubDate>
-      <category><![CDATA[conferences]]></category>
       <category><![CDATA[citcon]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[conferences]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/11/my-citcon-london-2010-experience.html</guid>
       <description>My #citcon London 2010 experience</description>
       <content:encoded><![CDATA[

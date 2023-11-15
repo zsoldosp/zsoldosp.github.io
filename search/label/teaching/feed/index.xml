@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:21 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:20 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,13 +18,13 @@
       <title>The Power of (Open Source) Blueprints</title>
       <link>http://blog.zsoldosp.eu/2015/12/05/the-power-of-open-source-blueprints/</link>
       <pubDate>Sat, 05 Dec 2015 13:41:00 CET</pubDate>
-      <category><![CDATA[coderetreat]]></category>
       <category><![CDATA[community]]></category>
-      <category><![CDATA[change]]></category>
-      <category><![CDATA[teaching]]></category>
-      <category><![CDATA[organizing]]></category>
       <category><![CDATA[citcon]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[teaching]]></category>
+      <category><![CDATA[coderetreat]]></category>
+      <category><![CDATA[organizing]]></category>
+      <category><![CDATA[change]]></category>
       <guid isPermaLink="false">TmQscoJEA-SD6hw3sIe4T-DcJt4=</guid>
       <description>The Power of (Open Source) Blueprints</description>
       <content:encoded><![CDATA[
@@ -88,11 +88,11 @@ reputation, you simply just enable more people elsewhere to do the same!</p>
       <title>Teach me refactoring from my commits!</title>
       <link>http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/</link>
       <pubDate>Fri, 27 Sep 2013 09:40:00 CEST</pubDate>
-      <category><![CDATA[things i wish existed]]></category>
-      <category><![CDATA[teaching]]></category>
       <category><![CDATA[untested ideas]]></category>
-      <category><![CDATA[version control]]></category>
       <category><![CDATA[refactoring]]></category>
+      <category><![CDATA[things i wish existed]]></category>
+      <category><![CDATA[version control]]></category>
+      <category><![CDATA[teaching]]></category>
       <guid isPermaLink="false">GZ4JOnYZvQe5D8VUfKUh6eJAlkw=</guid>
       <description>Teach me refactoring from my commits!</description>
       <content:encoded><![CDATA[
@@ -140,12 +140,12 @@ examples tailored to their very codebase.</p>
       <title>There Is More To Clean Code Than Clean Code</title>
       <link>http://blog.zsoldosp.eu/2012/02/there-is-more-to-clean-code-than-clean.html</link>
       <pubDate>Fri, 03 Feb 2012 20:29:00 CET</pubDate>
-      <category><![CDATA[culture]]></category>
       <category><![CDATA[team]]></category>
       <category><![CDATA[teaching]]></category>
-      <category><![CDATA[approach]]></category>
-      <category><![CDATA[change]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[culture]]></category>
+      <category><![CDATA[change]]></category>
+      <category><![CDATA[approach]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/02/there-is-more-to-clean-code-than-clean.html</guid>
       <description>There Is More To Clean Code Than Clean Code</description>
       <content:encoded><![CDATA[
@@ -177,11 +177,11 @@ examples tailored to their very codebase.</p>
       <title>On Grassroots/Peer TDD Introduction</title>
       <link>http://blog.zsoldosp.eu/2011/05/on-grassrootspeer-tdd-introduction.html</link>
       <pubDate>Sun, 15 May 2011 14:43:00 CEST</pubDate>
+      <category><![CDATA[team]]></category>
       <category><![CDATA[teaching]]></category>
       <category><![CDATA[software]]></category>
-      <category><![CDATA[team]]></category>
-      <category><![CDATA[change]]></category>
       <category><![CDATA[tdd]]></category>
+      <category><![CDATA[change]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/05/on-grassrootspeer-tdd-introduction.html</guid>
       <description>On Grassroots/Peer TDD Introduction</description>
       <content:encoded><![CDATA[

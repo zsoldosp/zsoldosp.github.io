@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:21 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:20 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,13 +18,13 @@
       <title>warnings.warn - some DeprecationWarning gotchas</title>
       <link>http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/</link>
       <pubDate>Mon, 01 Feb 2016 11:17:00 CET</pubDate>
-      <category><![CDATA[deprecation]]></category>
       <category><![CDATA[warnings]]></category>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[gotcha]]></category>
       <category><![CDATA[til]]></category>
-      <category><![CDATA[executable documentation]]></category>
+      <category><![CDATA[deprecation]]></category>
+      <category><![CDATA[gotcha]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[executable documentation]]></category>
       <guid isPermaLink="false">bQ24ZuZG1n9rOMCSVN81UBv0wpU=</guid>
       <description>warnings.warn - some DeprecationWarning gotchas</description>
       <content:encoded><![CDATA[
@@ -116,9 +116,9 @@ be ignored too!</p>
       <title>Executable bug tracker</title>
       <link>http://blog.zsoldosp.eu/2010/08/executable-bug-tracker.html</link>
       <pubDate>Mon, 30 Aug 2010 21:18:00 CEST</pubDate>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[bug tracking]]></category>
       <category><![CDATA[executable documentation]]></category>
+      <category><![CDATA[bug tracking]]></category>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[automated testing]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/08/executable-bug-tracker.html</guid>
       <description>Executable bug tracker</description>
@@ -133,8 +133,8 @@ be ignored too!</p>
       <title>Executable documentation</title>
       <link>http://blog.zsoldosp.eu/2010/08/executable-documentation.html</link>
       <pubDate>Thu, 19 Aug 2010 19:56:00 CEST</pubDate>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[executable documentation]]></category>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[automation]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/08/executable-documentation.html</guid>
       <description>Executable documentation</description>

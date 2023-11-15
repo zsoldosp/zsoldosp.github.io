@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Tue, 19 Apr 2016 10:39:19 GMT</pubDate>
+    <pubDate>Wed, 15 Nov 2023 18:11:19 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -19,10 +19,10 @@
       <link>http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/</link>
       <pubDate>Wed, 11 Sep 2013 17:00:00 CEST</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[note to self]]></category>
       <category><![CDATA[bash]]></category>
+      <category><![CDATA[note to self]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
       <content:encoded><![CDATA[
@@ -35,7 +35,7 @@ I set out to reproduce the bug, but that is of course an iterative
 process, like anything else in coding, so I set out to script it. Since
 I expect I'll need this again, and someone else might need it too,
 I'm recording it here.</p>
-<div class="note">
+<div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>I eventually figured out the problem was that <a class="reference external" href="http://testrepository.readthedocs.org/en/latest/MANUAL.html#python">the recommended
 default for testrepository</a>
@@ -153,9 +153,9 @@ here, and I just want to echo back the command that was executed...</p>
       <link>http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
       <pubDate>Thu, 25 Jul 2013 08:18:00 CEST</pubDate>
       <category><![CDATA[code]]></category>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[metaprogramming]]></category>
       <category><![CDATA[bash]]></category>
-      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>
       <content:encoded><![CDATA[
