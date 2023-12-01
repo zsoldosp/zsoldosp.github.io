@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Wed, 15 Nov 2023 18:11:19 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -19,11 +19,11 @@
       <link>http://blog.zsoldosp.eu/2012/02/there-is-more-to-clean-code-than-clean.html</link>
       <pubDate>Fri, 03 Feb 2012 20:29:00 CET</pubDate>
       <category><![CDATA[team]]></category>
-      <category><![CDATA[teaching]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[culture]]></category>
-      <category><![CDATA[change]]></category>
       <category><![CDATA[approach]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[change]]></category>
+      <category><![CDATA[teaching]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/02/there-is-more-to-clean-code-than-clean.html</guid>
       <description>There Is More To Clean Code Than Clean Code</description>
       <content:encoded><![CDATA[
@@ -56,12 +56,12 @@
       <link>http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</link>
       <pubDate>Fri, 04 Nov 2011 09:23:00 CET</pubDate>
       <category><![CDATA[data migration]]></category>
-      <category><![CDATA[legacy code]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[rewrite]]></category>
-      <category><![CDATA[tdd]]></category>
       <category><![CDATA[approach]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[tdd]]></category>
+      <category><![CDATA[legacy code]]></category>
+      <category><![CDATA[rewrite]]></category>
+      <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</guid>
       <description>Data Migrations As Acceptance Tests</description>
       <content:encoded><![CDATA[
