@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -19,8 +19,8 @@
       <link>http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/</link>
       <pubDate>Fri, 07 Mar 2014 18:17:00 CET</pubDate>
       <category><![CDATA[monitoring]]></category>
-      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[continuous integration]]></category>
       <guid isPermaLink="false">HCF28j7b4oOFWdUd2ZzJi66jW7s=</guid>
       <description>Adding New Quality Checks to the Build</description>
       <content:encoded><![CDATA[
@@ -62,8 +62,8 @@ too!</p>
       <link>http://blog.zsoldosp.eu/2014/01/19/green-build-surprises/</link>
       <pubDate>Sun, 19 Jan 2014 11:30:00 CET</pubDate>
       <category><![CDATA[monitoring]]></category>
-      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[continuous integration]]></category>
       <guid isPermaLink="false">Fp298W8YFUYXUTLCJhSRMzFmERU=</guid>
       <description>Green Build Surprises</description>
       <content:encoded><![CDATA[
@@ -94,9 +94,9 @@ a one-off thing!</p>
       <link>http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</link>
       <pubDate>Fri, 17 Feb 2012 20:36:00 CET</pubDate>
       <category><![CDATA[version control]]></category>
-      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[ioc]]></category>
+      <category><![CDATA[continuous integration]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</guid>
       <description>Inversion of Control for Continuous Integration</description>
       <content:encoded><![CDATA[
@@ -120,11 +120,11 @@ a one-off thing!</p>
       <title>Slides for the Continuous Delivery talk</title>
       <link>http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</link>
       <pubDate>Sun, 10 Oct 2010 18:19:00 CEST</pubDate>
-      <category><![CDATA[presentation]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[continuous delivery]]></category>
+      <category><![CDATA[presentation]]></category>
+      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[automation]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</guid>
       <description>Slides for the Continuous Delivery talk</description>
       <content:encoded><![CDATA[

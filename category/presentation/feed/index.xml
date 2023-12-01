@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,11 +18,11 @@
       <title>Slides for the Continuous Delivery talk</title>
       <link>http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</link>
       <pubDate>Sun, 10 Oct 2010 18:19:00 CEST</pubDate>
-      <category><![CDATA[presentation]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[continuous delivery]]></category>
+      <category><![CDATA[presentation]]></category>
+      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[automation]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/10/slides-for-continuous-delivery-talk.html</guid>
       <description>Slides for the Continuous Delivery talk</description>
       <content:encoded><![CDATA[

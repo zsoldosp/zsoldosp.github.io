@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,9 +18,9 @@
       <title>CITCON Cluj 2016</title>
       <link>http://blog.zsoldosp.eu/2016/04/18/citcon-cluj-2016/</link>
       <pubDate>Mon, 18 Apr 2016 12:32:00 CEST</pubDate>
-      <category><![CDATA[conferences]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[citcon]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[conferences]]></category>
       <guid isPermaLink="false">Ak8DsCUnbn3-fj05vbRCp36P4OI=</guid>
       <description>CITCON Cluj 2016</description>
       <content:encoded><![CDATA[
@@ -155,13 +155,13 @@
       <title>warnings.warn - some DeprecationWarning gotchas</title>
       <link>http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/</link>
       <pubDate>Mon, 01 Feb 2016 11:17:00 CET</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[warnings]]></category>
-      <category><![CDATA[deprecation]]></category>
       <category><![CDATA[executable documentation]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[warnings]]></category>
       <category><![CDATA[gotcha]]></category>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[til]]></category>
+      <category><![CDATA[deprecation]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">bQ24ZuZG1n9rOMCSVN81UBv0wpU=</guid>
       <description>warnings.warn - some DeprecationWarning gotchas</description>
       <content:encoded><![CDATA[
@@ -253,13 +253,13 @@ be ignored too!</p>
       <title>A few thoughts on BDDon't</title>
       <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
       <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
-      <category><![CDATA[gherkin]]></category>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[cucumber]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[bdd]]></category>
-      <category><![CDATA[behave]]></category>
+      <category><![CDATA[gherkin]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[cucumber]]></category>
+      <category><![CDATA[behave]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
       <description>A few thoughts on BDDon't</description>
       <content:encoded><![CDATA[
@@ -415,13 +415,13 @@ state, such as a database can still be shared).</p>
       <title>The Power of (Open Source) Blueprints</title>
       <link>http://blog.zsoldosp.eu/2015/12/05/the-power-of-open-source-blueprints/</link>
       <pubDate>Sat, 05 Dec 2015 13:41:00 CET</pubDate>
-      <category><![CDATA[organizing]]></category>
+      <category><![CDATA[change]]></category>
+      <category><![CDATA[citcon]]></category>
       <category><![CDATA[community]]></category>
       <category><![CDATA[software]]></category>
-      <category><![CDATA[citcon]]></category>
-      <category><![CDATA[change]]></category>
       <category><![CDATA[teaching]]></category>
       <category><![CDATA[coderetreat]]></category>
+      <category><![CDATA[organizing]]></category>
       <guid isPermaLink="false">TmQscoJEA-SD6hw3sIe4T-DcJt4=</guid>
       <description>The Power of (Open Source) Blueprints</description>
       <content:encoded><![CDATA[
@@ -485,12 +485,12 @@ reputation, you simply just enable more people elsewhere to do the same!</p>
       <title>Facilitating the Global Day of Coderetreat Zagreb (and a little Nuremberg) 2015</title>
       <link>http://blog.zsoldosp.eu/2015/11/15/facilitating-the-global-day-of-coderetreat-zagreb-and-a-little-nuremberg-2015/</link>
       <pubDate>Sun, 15 Nov 2015 12:30:00 CET</pubDate>
-      <category><![CDATA[organizing]]></category>
-      <category><![CDATA[code]]></category>
-      <category><![CDATA[community]]></category>
       <category><![CDATA[facilitating]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[code]]></category>
       <category><![CDATA[code retreat]]></category>
+      <category><![CDATA[community]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[organizing]]></category>
       <guid isPermaLink="false">7Wh3mKRL5MoalaxX7WlvFFplBkw=</guid>
       <description>Facilitating the Global Day of Coderetreat Zagreb (and a little Nuremberg) 2015</description>
       <content:encoded><![CDATA[
@@ -544,8 +544,8 @@ before!</p>
       <link>http://blog.zsoldosp.eu/2014/03/19/podcasts-i-listen-to/</link>
       <pubDate>Wed, 19 Mar 2014 08:30:00 CET</pubDate>
       <category><![CDATA[software]]></category>
-      <category><![CDATA[podcasts]]></category>
       <category><![CDATA[outdoors]]></category>
+      <category><![CDATA[podcasts]]></category>
       <guid isPermaLink="false">LZVxlPekUBiw_pI1RaC0HDD6pkk=</guid>
       <description>Podcasts I Listen To</description>
       <content:encoded><![CDATA[
@@ -695,8 +695,8 @@ but not any further...</p>
       <link>http://blog.zsoldosp.eu/2014/03/07/adding-new-quality-checks-to-the-build/</link>
       <pubDate>Fri, 07 Mar 2014 18:17:00 CET</pubDate>
       <category><![CDATA[monitoring]]></category>
-      <category><![CDATA[continuous integration]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[continuous integration]]></category>
       <guid isPermaLink="false">HCF28j7b4oOFWdUd2ZzJi66jW7s=</guid>
       <description>Adding New Quality Checks to the Build</description>
       <content:encoded><![CDATA[
@@ -737,9 +737,9 @@ too!</p>
       <title>Unit Testing In Elixir</title>
       <link>http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/</link>
       <pubDate>Wed, 05 Mar 2014 19:30:00 CET</pubDate>
-      <category><![CDATA[programming languages]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[elixir]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
       <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">0o-82cbUaxJeza1AWri2hAjNJqg=</guid>
       <description>Unit Testing In Elixir</description>
@@ -913,10 +913,10 @@ be an available library.</dd>
       <link>http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/</link>
       <pubDate>Sat, 15 Feb 2014 17:15:00 CET</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[django]]></category>
       <category><![CDATA[end-to-end]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">VQdt1K4VFfD0lxpX8wRk-1HuUSE=</guid>
       <description>End-to-End Testing - A Code Example</description>
       <content:encoded><![CDATA[
@@ -1192,10 +1192,10 @@ and lessons learned from that project. Stay tuned!</p>
       <title>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</title>
       <link>http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/</link>
       <pubDate>Sat, 08 Feb 2014 15:10:00 CET</pubDate>
-      <category><![CDATA[oop]]></category>
-      <category><![CDATA[programming languages]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[elixir]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[oop]]></category>
       <guid isPermaLink="false">4mQOP4Y091_HZpmnEdjhq0LThyc=</guid>
       <description>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</description>
       <content:encoded><![CDATA[

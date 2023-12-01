@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,9 +18,9 @@
       <title>Unit Testing In Elixir</title>
       <link>http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/</link>
       <pubDate>Wed, 05 Mar 2014 19:30:00 CET</pubDate>
-      <category><![CDATA[programming languages]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[elixir]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
       <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">0o-82cbUaxJeza1AWri2hAjNJqg=</guid>
       <description>Unit Testing In Elixir</description>
@@ -193,10 +193,10 @@ be an available library.</dd>
       <title>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</title>
       <link>http://blog.zsoldosp.eu/2014/02/08/what-elixir-taught-me-about-java-method-overloading-is-just-a-convention/</link>
       <pubDate>Sat, 08 Feb 2014 15:10:00 CET</pubDate>
-      <category><![CDATA[oop]]></category>
-      <category><![CDATA[programming languages]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[elixir]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[oop]]></category>
       <guid isPermaLink="false">4mQOP4Y091_HZpmnEdjhq0LThyc=</guid>
       <description>What Elixir Taught Me About Java - Method Overloading Is Just a Convention</description>
       <content:encoded><![CDATA[
@@ -342,9 +342,9 @@ helping me understand all this.</p>
       <title>Why I chose Elixir to learn this year (and initial impressions)</title>
       <link>http://blog.zsoldosp.eu/2014/01/31/why-i-chose-elixir-to-learn-this-year-and-initial-impressions/</link>
       <pubDate>Fri, 31 Jan 2014 11:46:00 CET</pubDate>
-      <category><![CDATA[programming languages]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[elixir]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
       <guid isPermaLink="false">_J8kM8aoHGnkBPYQ285TytaSHOE=</guid>
       <description>Why I chose Elixir to learn this year (and initial impressions)</description>
       <content:encoded><![CDATA[
@@ -435,9 +435,9 @@ the motto was that we are adults, so we can use knives and scissors...</p>
       <title>When in Rome, do as the Romans do</title>
       <link>http://blog.zsoldosp.eu/2010/12/when-in-rome-do-as-romans-do.html</link>
       <pubDate>Fri, 03 Dec 2010 08:30:00 CET</pubDate>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[programming languages]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
+      <category><![CDATA[culture]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2010/12/when-in-rome-do-as-romans-do.html</guid>
       <description>When in Rome, do as the Romans do</description>
       <content:encoded><![CDATA[

@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:17 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,12 +18,12 @@
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
       <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
       <pubDate>Mon, 28 Oct 2013 08:05:00 CET</pubDate>
-      <category><![CDATA[business analysis]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[business analysis]]></category>
       <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
       <content:encoded><![CDATA[
@@ -149,10 +149,10 @@ it)!</p>
       <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
       <pubDate>Wed, 23 Oct 2013 19:28:00 CEST</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
       <content:encoded><![CDATA[
@@ -336,11 +336,11 @@ just that they listened and gave feedback!</p>
       <title>Teach me refactoring from my commits!</title>
       <link>http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/</link>
       <pubDate>Fri, 27 Sep 2013 09:40:00 CEST</pubDate>
-      <category><![CDATA[refactoring]]></category>
-      <category><![CDATA[version control]]></category>
-      <category><![CDATA[teaching]]></category>
       <category><![CDATA[things i wish existed]]></category>
+      <category><![CDATA[version control]]></category>
+      <category><![CDATA[refactoring]]></category>
       <category><![CDATA[untested ideas]]></category>
+      <category><![CDATA[teaching]]></category>
       <guid isPermaLink="false">GZ4JOnYZvQe5D8VUfKUh6eJAlkw=</guid>
       <description>Teach me refactoring from my commits!</description>
       <content:encoded><![CDATA[

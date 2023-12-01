@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,13 +18,13 @@
       <title>A few thoughts on BDDon't</title>
       <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
       <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
-      <category><![CDATA[gherkin]]></category>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[cucumber]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[bdd]]></category>
-      <category><![CDATA[behave]]></category>
+      <category><![CDATA[gherkin]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[cucumber]]></category>
+      <category><![CDATA[behave]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
       <description>A few thoughts on BDDon't</description>
       <content:encoded><![CDATA[
@@ -180,9 +180,9 @@ state, such as a database can still be shared).</p>
       <title>Unit Testing In Elixir</title>
       <link>http://blog.zsoldosp.eu/2014/03/05/unit-testing-in-elixir/</link>
       <pubDate>Wed, 05 Mar 2014 19:30:00 CET</pubDate>
-      <category><![CDATA[programming languages]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[elixir]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[programming languages]]></category>
       <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">0o-82cbUaxJeza1AWri2hAjNJqg=</guid>
       <description>Unit Testing In Elixir</description>
@@ -356,10 +356,10 @@ be an available library.</dd>
       <link>http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/</link>
       <pubDate>Sat, 15 Feb 2014 17:15:00 CET</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[django]]></category>
       <category><![CDATA[end-to-end]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">VQdt1K4VFfD0lxpX8wRk-1HuUSE=</guid>
       <description>End-to-End Testing - A Code Example</description>
       <content:encoded><![CDATA[
@@ -635,12 +635,12 @@ and lessons learned from that project. Stay tuned!</p>
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
       <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
       <pubDate>Mon, 28 Oct 2013 08:05:00 CET</pubDate>
-      <category><![CDATA[business analysis]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[business analysis]]></category>
       <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
       <content:encoded><![CDATA[
@@ -766,10 +766,10 @@ it)!</p>
       <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
       <pubDate>Wed, 23 Oct 2013 19:28:00 CEST</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
       <content:encoded><![CDATA[
@@ -953,9 +953,9 @@ just that they listened and gave feedback!</p>
       <title>Find The Test Structure That Fits Your Team</title>
       <link>http://blog.zsoldosp.eu/2012/01/find-test-structure-that-fits-your-team.html</link>
       <pubDate>Thu, 12 Jan 2012 19:14:00 CET</pubDate>
+      <category><![CDATA[testing]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[documentation]]></category>
-      <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/01/find-test-structure-that-fits-your-team.html</guid>
       <description>Find The Test Structure That Fits Your Team</description>
       <content:encoded><![CDATA[
@@ -970,12 +970,12 @@ just that they listened and gave feedback!</p>
       <link>http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</link>
       <pubDate>Fri, 04 Nov 2011 09:23:00 CET</pubDate>
       <category><![CDATA[data migration]]></category>
-      <category><![CDATA[approach]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[tdd]]></category>
-      <category><![CDATA[legacy code]]></category>
       <category><![CDATA[rewrite]]></category>
+      <category><![CDATA[tdd]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[approach]]></category>
+      <category><![CDATA[legacy code]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/11/data-migrations-as-acceptance-tests.html</guid>
       <description>Data Migrations As Acceptance Tests</description>
       <content:encoded><![CDATA[
@@ -990,9 +990,9 @@ just that they listened and gave feedback!</p>
       <link>http://blog.zsoldosp.eu/2011/10/book-review-python-testing-cookbook-by.html</link>
       <pubDate>Sun, 23 Oct 2011 13:24:00 CEST</pubDate>
       <category><![CDATA[book review]]></category>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/10/book-review-python-testing-cookbook-by.html</guid>
       <description>Book Review - Python Testing Cookbook by Greg L. Turnquist</description>
       <content:encoded><![CDATA[
@@ -1007,9 +1007,9 @@ just that they listened and gave feedback!</p>
       <title>Testing Strategy On Migration Projects</title>
       <link>http://blog.zsoldosp.eu/2011/09/testing-strategy-on-migration-projects.html</link>
       <pubDate>Mon, 19 Sep 2011 17:30:00 CEST</pubDate>
-      <category><![CDATA[legacy code]]></category>
       <category><![CDATA[rewrite]]></category>
       <category><![CDATA[software]]></category>
+      <category><![CDATA[legacy code]]></category>
       <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/09/testing-strategy-on-migration-projects.html</guid>
       <description>Testing Strategy On Migration Projects</description>

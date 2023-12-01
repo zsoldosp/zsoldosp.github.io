@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,11 +18,11 @@
       <title>Quick script to help reporting bugs for python</title>
       <link>http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/</link>
       <pubDate>Wed, 11 Sep 2013 17:00:00 CEST</pubDate>
-      <category><![CDATA[python]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[bash]]></category>
       <category><![CDATA[note to self]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
       <content:encoded><![CDATA[
@@ -152,9 +152,9 @@ here, and I just want to echo back the command that was executed...</p>
       <title>Some Metaprogramming (Reflection) In Bash</title>
       <link>http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
       <pubDate>Thu, 25 Jul 2013 08:18:00 CEST</pubDate>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[bash]]></category>
       <category><![CDATA[metaprogramming]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[code]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>

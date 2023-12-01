@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 08:41:16 GMT</pubDate>
+    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,12 +18,12 @@
       <title>Facilitating the Global Day of Coderetreat Zagreb (and a little Nuremberg) 2015</title>
       <link>http://blog.zsoldosp.eu/2015/11/15/facilitating-the-global-day-of-coderetreat-zagreb-and-a-little-nuremberg-2015/</link>
       <pubDate>Sun, 15 Nov 2015 12:30:00 CET</pubDate>
-      <category><![CDATA[organizing]]></category>
-      <category><![CDATA[code]]></category>
-      <category><![CDATA[community]]></category>
       <category><![CDATA[facilitating]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[code]]></category>
       <category><![CDATA[code retreat]]></category>
+      <category><![CDATA[community]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[organizing]]></category>
       <guid isPermaLink="false">7Wh3mKRL5MoalaxX7WlvFFplBkw=</guid>
       <description>Facilitating the Global Day of Coderetreat Zagreb (and a little Nuremberg) 2015</description>
       <content:encoded><![CDATA[
@@ -77,10 +77,10 @@ before!</p>
       <link>http://blog.zsoldosp.eu/2014/02/15/end-to-end-testing-a-code-example/</link>
       <pubDate>Sat, 15 Feb 2014 17:15:00 CET</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[django]]></category>
       <category><![CDATA[end-to-end]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">VQdt1K4VFfD0lxpX8wRk-1HuUSE=</guid>
       <description>End-to-End Testing - A Code Example</description>
       <content:encoded><![CDATA[
@@ -356,12 +356,12 @@ and lessons learned from that project. Stay tuned!</p>
       <title>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</title>
       <link>http://blog.zsoldosp.eu/2013/10/28/going-beyond-regression-what-other-benefits-could-end-to-end-testing-provide/</link>
       <pubDate>Mon, 28 Oct 2013 08:05:00 CET</pubDate>
-      <category><![CDATA[business analysis]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
+      <category><![CDATA[business analysis]]></category>
       <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <guid isPermaLink="false">1ojU7m2klQVoaVtPAyBIp7nHdds=</guid>
       <description>Going Beyond Regression - What Other Benefits could End-to-End Testing Provide?</description>
       <content:encoded><![CDATA[
@@ -487,10 +487,10 @@ it)!</p>
       <link>http://blog.zsoldosp.eu/2013/10/23/a-new-look-at-end-to-end-testing-polymorphic-and-fast/</link>
       <pubDate>Wed, 23 Oct 2013 19:28:00 CEST</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[end-to-end]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[testing]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[untested ideas]]></category>
       <guid isPermaLink="false">ity9bCalQkCuoSztWSPkSrQ8XGs=</guid>
       <description>A New Look At End-to-End Testing - Polymorphic and Fast</description>
       <content:encoded><![CDATA[
@@ -674,11 +674,11 @@ just that they listened and gave feedback!</p>
       <title>Quick script to help reporting bugs for python</title>
       <link>http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/</link>
       <pubDate>Wed, 11 Sep 2013 17:00:00 CEST</pubDate>
-      <category><![CDATA[python]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[bash]]></category>
       <category><![CDATA[note to self]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[python]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
       <content:encoded><![CDATA[
@@ -808,9 +808,9 @@ here, and I just want to echo back the command that was executed...</p>
       <title>Some Metaprogramming (Reflection) In Bash</title>
       <link>http://blog.zsoldosp.eu/2013/07/25/some-metaprogramming-reflection-in-bash/</link>
       <pubDate>Thu, 25 Jul 2013 08:18:00 CEST</pubDate>
+      <category><![CDATA[software]]></category>
       <category><![CDATA[bash]]></category>
       <category><![CDATA[metaprogramming]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[code]]></category>
       <guid isPermaLink="false">SrLBQ0AP18Vcd0lyROK5o6cmGI0=</guid>
       <description>Some Metaprogramming (Reflection) In Bash</description>
@@ -881,11 +881,11 @@ echo $FILE_NAME
       <title>Global Day of Coderetreat 2012 - Nuremberg</title>
       <link>http://blog.zsoldosp.eu/2012/12/global-day-of-coderetreat-2012-nuremberg.html</link>
       <pubDate>Thu, 20 Dec 2012 09:30:00 CET</pubDate>
-      <category><![CDATA[organizing]]></category>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[community]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[code retreat]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[community]]></category>
+      <category><![CDATA[organizing]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/12/global-day-of-coderetreat-2012-nuremberg.html</guid>
       <description>Global Day of Coderetreat 2012 - Nuremberg</description>
       <content:encoded><![CDATA[
@@ -901,10 +901,10 @@ echo $FILE_NAME
       <link>http://blog.zsoldosp.eu/2011/03/how-why-i-do-code-reviews.html</link>
       <pubDate>Thu, 17 Mar 2011 11:00:00 CET</pubDate>
       <category><![CDATA[code]]></category>
-      <category><![CDATA[team]]></category>
+      <category><![CDATA[quality]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[practice]]></category>
-      <category><![CDATA[quality]]></category>
+      <category><![CDATA[team]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/03/how-why-i-do-code-reviews.html</guid>
       <description>How & Why I do code reviews</description>
       <content:encoded><![CDATA[

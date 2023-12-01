@@ -3,6 +3,7 @@
     <title>Billgyak</title>
   </head>
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script type="module">
       import { createApp } from 'https://unpkg.com/vue@3.3.9/dist/vue.esm-browser.js'
       
@@ -63,6 +64,10 @@
             title() {
               return this.selectedDigitClasses.join(' + ');
             },
+	    displayTime() {
+	    	const dur = luxon.Duration.fromObject({seconds: this.elapsedTime})
+		return dur.toFormat('hh:mm:ss')
+	    }
           },
           watch: {
             timing(value) {
@@ -87,12 +92,12 @@
       <button @click="start">Start</button>
       <button @click="stop">Stop</button>
     <ul>
-      <li>Eltelt idő: {{ elapsedTime }}</li>
+      <li>Eltelt idő: {{ displayTime}}</li>
       <li>Pontok: {{ score }}</li>
     </ul>
     </div>
     <div class="image">
-    <img src="https://static.wikia.nocookie.net/geronimostilton/images/e/e9/Photo-Paulina.jpg/revision/latest?cb=20150630141727" alt="">
+    <img src="Photo-Paulina.webp" alt="Picture of Pauline from Thea Stilton's Angels book series">
     <p class="attribution">CC-BY-SA from <a href="https://geronimostilton.fandom.com/wiki/Paulina">https://geronimostilton.fandom.com/wiki/Paulina</a>
     </div>
     </div>
