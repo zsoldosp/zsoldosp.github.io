@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>Billgyak</title>
+  </head>
+  <body>
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3.3.9/dist/vue.esm-browser.js'
+      
+      const letters = 'aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz'
+      const digits = ''
+      const special = ''
+      const betuk = 'Betűk'
+      const szamok = 'Számok'
+      const jelek = 'Jelek'
+      const app = createApp({
+           el: '#app',
+           data() {
+            return {
+                allDigitClasses : [betuk, szamok, jelek],
+                selectedDigitClasses: [betuk],
+                digitClassToCharsToType: {
+                  [betuk]: 'aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz',
+                  [szamok]: '0123456789',
+                  [jelek]: '.,;!?+-/:@#$%^&*()_{}|[]\\\'\"?<>~',
+                },
+                elapsedTime: 0,
+                timing: false,
+                score: 0,
+                currentLetterToType: null
+            }
+          },
+          methods: {
+            start() {
+              this.selectCurrentLetterToType()
+              this.elapsedTime= 0;
+              this.timing = true;
+              
+            },
+            stop() {
+              this.timing = false;
+              this.currentLetterToType = null;
+            },
+            tickTimer() {
+              this.elapsedTime++;
+            },
+            selectCurrentLetterToType() {
+              this.currentLetterToType = this.charsToType[Math.floor(Math.random() * this.charsToType.length)]
+            },
+            handleKeyPressed({key}) {
+              if(! this.timing ) {
+                return
+              }
+              if(this.currentLetterToType === key) {
+                this.score++;
+                this.selectCurrentLetterToType()
+              }
+            }
+          },
+          computed: {
+            charsToType() {
+              return this.selectedDigitClasses.reduce((acc, item) => this.digitClassToCharsToType[item] + acc, "")
+            },
+            title() {
+              return this.selectedDigitClasses.join(' + ');
+            },
+          },
+          watch: {
+            timing(value) {
+              if (value) { setTimeout(() => this.tickTimer(), 1000); }
+            },
+            elapsedTime(value) {
+              if ( this.timing ) {
+                if (value) { setTimeout(() => this.tickTimer(), 1000); }
+              }
+            },
+          }
+  })
+  app.mount('#app')
+    </script>
+    <div id="app">
+      <div @keyup="handleKeyPressed">
+    <h1>{{ title }}</h1>
+    <form id="select-chars-to-type">
+      <label v-for="item in allDigitClasses" :key="item"><input type="checkbox" :value="item" v-model="selectedDigitClasses">{{ item}} {{item.checked}}</label>
+    </form>
+    <div id="charToType">{{ currentLetterToType }}</div>
+      <button @click="start">Start</button>
+      <button @click="stop">Stop</button>
+    <ul>
+      <li>Eltelt idő: {{ elapsedTime }}</li>
+      <li>Pontok: {{ score }}</li>
+    </ul>
+    </div>
+    <div class="image">
+    <img src="https://static.wikia.nocookie.net/geronimostilton/images/e/e9/Photo-Paulina.jpg/revision/latest?cb=20150630141727" alt="">
+    <p class="attribution">CC-BY-SA from <a href="https://geronimostilton.fandom.com/wiki/Paulina">https://geronimostilton.fandom.com/wiki/Paulina</a>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
+
+
