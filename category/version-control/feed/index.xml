@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
+    <pubDate>Sat, 02 Dec 2023 12:41:30 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,11 +18,11 @@
       <title>Teach me refactoring from my commits!</title>
       <link>http://blog.zsoldosp.eu/2013/09/27/teach-me-refactoring-from-my-commits/</link>
       <pubDate>Fri, 27 Sep 2013 09:40:00 CEST</pubDate>
-      <category><![CDATA[things i wish existed]]></category>
-      <category><![CDATA[version control]]></category>
       <category><![CDATA[refactoring]]></category>
-      <category><![CDATA[untested ideas]]></category>
       <category><![CDATA[teaching]]></category>
+      <category><![CDATA[things i wish existed]]></category>
+      <category><![CDATA[untested ideas]]></category>
+      <category><![CDATA[version control]]></category>
       <guid isPermaLink="false">GZ4JOnYZvQe5D8VUfKUh6eJAlkw=</guid>
       <description>Teach me refactoring from my commits!</description>
       <content:encoded><![CDATA[
@@ -70,10 +70,10 @@ examples tailored to their very codebase.</p>
       <title>Inversion of Control for Continuous Integration</title>
       <link>http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</link>
       <pubDate>Fri, 17 Feb 2012 20:36:00 CET</pubDate>
-      <category><![CDATA[version control]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[ioc]]></category>
       <category><![CDATA[continuous integration]]></category>
+      <category><![CDATA[ioc]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[version control]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2012/01/inversion-of-control-for-continuous.html</guid>
       <description>Inversion of Control for Continuous Integration</description>
       <content:encoded><![CDATA[

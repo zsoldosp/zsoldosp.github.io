@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
+    <pubDate>Sat, 02 Dec 2023 12:41:30 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -19,12 +19,12 @@
       <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
       <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
       <category><![CDATA[bdd]]></category>
-      <category><![CDATA[gherkin]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[cucumber]]></category>
       <category><![CDATA[behave]]></category>
+      <category><![CDATA[cucumber]]></category>
+      <category><![CDATA[gherkin]]></category>
       <category><![CDATA[python]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
       <description>A few thoughts on BDDon't</description>
       <content:encoded><![CDATA[

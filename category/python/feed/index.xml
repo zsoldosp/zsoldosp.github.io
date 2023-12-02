@@ -10,7 +10,7 @@
     <title>Do. Reflect. Learn. Repeat!</title>
     <link>http://blog.zsoldosp.eu</link>
     <description>Excercises in public learning</description>
-    <pubDate>Fri, 01 Dec 2023 18:50:50 GMT</pubDate>
+    <pubDate>Sat, 02 Dec 2023 12:41:30 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -18,13 +18,13 @@
       <title>warnings.warn - some DeprecationWarning gotchas</title>
       <link>http://blog.zsoldosp.eu/2016/02/01/warnings-warn-some-deprecationwarning-gotchas/</link>
       <pubDate>Mon, 01 Feb 2016 11:17:00 CET</pubDate>
+      <category><![CDATA[deprecation]]></category>
       <category><![CDATA[executable documentation]]></category>
-      <category><![CDATA[warnings]]></category>
       <category><![CDATA[gotcha]]></category>
+      <category><![CDATA[python]]></category>
       <category><![CDATA[software]]></category>
       <category><![CDATA[til]]></category>
-      <category><![CDATA[deprecation]]></category>
-      <category><![CDATA[python]]></category>
+      <category><![CDATA[warnings]]></category>
       <guid isPermaLink="false">bQ24ZuZG1n9rOMCSVN81UBv0wpU=</guid>
       <description>warnings.warn - some DeprecationWarning gotchas</description>
       <content:encoded><![CDATA[
@@ -117,12 +117,12 @@ be ignored too!</p>
       <link>http://blog.zsoldosp.eu/2015/12/09/a-few-thoughts-on-bddon-t/</link>
       <pubDate>Wed, 09 Dec 2015 23:00:00 CET</pubDate>
       <category><![CDATA[bdd]]></category>
-      <category><![CDATA[gherkin]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[cucumber]]></category>
       <category><![CDATA[behave]]></category>
+      <category><![CDATA[cucumber]]></category>
+      <category><![CDATA[gherkin]]></category>
       <category><![CDATA[python]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">i_P3Vr2QhglZzxeTvlHSfb_4o6w=</guid>
       <description>A few thoughts on BDDon't</description>
       <content:encoded><![CDATA[
@@ -278,11 +278,11 @@ state, such as a database can still be shared).</p>
       <title>Quick script to help reporting bugs for python</title>
       <link>http://blog.zsoldosp.eu/2013/09/11/quick-script-to-help-reporting-bugs-for-python/</link>
       <pubDate>Wed, 11 Sep 2013 17:00:00 CEST</pubDate>
-      <category><![CDATA[code]]></category>
       <category><![CDATA[bash]]></category>
+      <category><![CDATA[code]]></category>
       <category><![CDATA[note to self]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[python]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">-y0sMmjTXW82o3McTP9I6l_Hh4k=</guid>
       <description>Quick script to help reporting bugs for python</description>
       <content:encoded><![CDATA[
@@ -412,12 +412,12 @@ here, and I just want to echo back the command that was executed...</p>
       <title>Own your data (or why did I move away from Blogger and WordPress?)</title>
       <link>http://blog.zsoldosp.eu/2013/08/04/own-your-data-or-why-did-i-move-away-from-blogger-and-wordpress/</link>
       <pubDate>Sun, 04 Aug 2013 14:25:00 CEST</pubDate>
-      <category><![CDATA[data]]></category>
-      <category><![CDATA[ownership]]></category>
-      <category><![CDATA[software]]></category>
-      <category><![CDATA[outdoors]]></category>
       <category><![CDATA[blog]]></category>
+      <category><![CDATA[data]]></category>
+      <category><![CDATA[outdoors]]></category>
+      <category><![CDATA[ownership]]></category>
       <category><![CDATA[python]]></category>
+      <category><![CDATA[software]]></category>
       <guid isPermaLink="false">8UAjTLJV0td1NxR0DNBSZhVVots=</guid>
       <description>Own your data (or why did I move away from Blogger and WordPress?)</description>
       <content:encoded><![CDATA[
@@ -489,9 +489,9 @@ policy!</p>
       <link>http://blog.zsoldosp.eu/2011/10/book-review-python-testing-cookbook-by.html</link>
       <pubDate>Sun, 23 Oct 2011 13:24:00 CEST</pubDate>
       <category><![CDATA[book review]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[software]]></category>
       <category><![CDATA[python]]></category>
+      <category><![CDATA[software]]></category>
+      <category><![CDATA[testing]]></category>
       <guid isPermaLink="false">http://blog.zsoldosp.eu/2011/10/book-review-python-testing-cookbook-by.html</guid>
       <description>Book Review - Python Testing Cookbook by Greg L. Turnquist</description>
       <content:encoded><![CDATA[
