@@ -1,12 +1,19 @@
 <html>
   <head>
     <title>Billgyak</title>
+    <style type="text/css">
+#mobile-hack {
+  position: absolute;
+  left: -1000;
+  top: -1000;
+}
+    </style>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script type="module">
       import { createApp } from 'https://unpkg.com/vue@3.3.9/dist/vue.esm-browser.js'
-      
+
       const letters = 'aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz'
       const digits = ''
       const special = ''
@@ -31,11 +38,19 @@
             }
           },
           methods: {
+	    getInputHackElement() {
+	    	return document.getElementById('mobile-hack');
+	    },
+	    focusOnBlurToEnsureKeyboardIsOnForMobile() {
+		if(this.timing) {
+		  this.getInputHackElement().focus()
+		}
+	    },
             start() {
               this.selectCurrentLetterToType()
               this.elapsedTime= 0;
               this.timing = true;
-              
+	      this.focusOnBlurToEnsureKeyboardIsOnForMobile()
             },
             stop() {
               this.timing = false;
@@ -67,7 +82,13 @@
 	    displayTime() {
 	    	const dur = luxon.Duration.fromObject({seconds: this.elapsedTime})
 		return dur.toFormat('hh:mm:ss')
-	    }
+	    },
+	    startDisabled() {
+	    	return this.timing;
+	    },
+	    stopDisabled() {
+	    	return !this.startDisabled;
+	    },
           },
           watch: {
             timing(value) {
@@ -77,6 +98,9 @@
               if ( this.timing ) {
                 if (value) { setTimeout(() => this.tickTimer(), 1000); }
               }
+            },
+            selectedDigitClasses(value) {
+              this.stop();
             },
           }
   })
@@ -88,9 +112,10 @@
     <form id="select-chars-to-type">
       <label v-for="item in allDigitClasses" :key="item"><input type="checkbox" :value="item" v-model="selectedDigitClasses">{{ item}} {{item.checked}}</label>
     </form>
+    <input type="text" id="mobile-hack" @blur="focusOnBlurToEnsureKeyboardIsOnForMobile">
     <div id="charToType">{{ currentLetterToType }}</div>
-      <button @click="start">Start</button>
-      <button @click="stop">Stop</button>
+      <button @click="start" :disabled="startDisabled">Start</button>
+      <button @click="stop" :disabled="stopDisabled">Stop</button>
     <ul>
       <li>Eltelt idő: {{ displayTime}}</li>
       <li>Pontok: {{ score }}</li>
