@@ -16,6 +16,7 @@
 
   <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/zsoldosp" />
   <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link href="/css/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/main.css" media="screen" rel="stylesheet" type="text/css" /> 
   <link href="/css/pygment-tango.css" media="screen" rel="stylesheet" type="text/css" /> 
@@ -32,26 +33,19 @@
   }
 
   function updateConsentUI() {
+  	const modal = document.getElementById('consent-modal');
 	if(posthogHasChosen()) {
-		const form = document.querySelector('#' + consentFormId);
-		if (form) {
-			form.parentNode.removeChild(form);
-		}
-		if(hasConsent()) {
-			setConsentText('You consented to analytics cookies')
-		} else {
-			setConsentText('You opted out from analytics cookies')
-		}
+		modal.classList.remove('is-active')
 	} else {
-		setConsentText('No tracking happens until you consent to it using the below form')
-		addConsentForm()
+		modal.classList.add('is-active')
 	}
   }
   function addConsentForm() {
 	const inner = document.querySelector('#content .inner');
 	const form = document.createElement("form");
 	form.id = consentFormId;
-	form.innerHTML = '<p>I would like to know which pages/articles are seen the most so I can improve the content of the site. For that, I chose the GDPR compliant <a href="https://posthog.com">posthog.com</a>, and it uses cookies if you consent.</p><p><input type=button onclick="consent(consentOK)" value="Cookies are OK, write more artcles"> <input type="button" onclick="consent(noConsent)" value="Do Not Track, please"></p>';
+	const modal = '<div id="consent-modal" class="modal is-active"><div class="modal-background"></div><div class="modal-content" style="background: #FFF">' + content  + '</div></div>'
+	form.innerHTML = modal
 	inner.insertBefore( form, inner.firstChild);
   }
   function posthogHasChosen() {
@@ -66,20 +60,29 @@
 
   }
 
-  function setConsentText(msg) {
-  	const node = document.querySelector('#posthog-chosen')
-	const sentences = node.innerText.split('.')
-	sentences[0] = msg
-	node.innerText = sentences.join('.');
-  }
 
-  if(hasConsent()) { posthogInit(); document}
+  if(hasConsent()) { posthogInit(); }
   document.addEventListener('DOMContentLoaded', updateConsentUI)
   </script>
 
 </head>
 
   <body>
+ <div class="modal" id="consent-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Cookie consent</p>
+    </header>
+    <section class="modal-card-body">
+	I would like to know which pages/articles are seen the most so I can improve the content of the site. For that, I chose the GDPR compliant <a href="https://posthog.com/eu">posthog.com/eu</a>, and it uses cookies if you consent.
+    </section>
+    <footer class="modal-card-foot level">
+      <button class="button is-text is-light is-small level-item" onclick="consent(noConsent)">I do not agree</button>
+      <button class="button is-success is-primary level-item" onclick="consent(consentOK)">I agree</button>
+    </footer>
+  </div>
+</div>
     <div id="header">
       <div class="inner">
                 <ul>
@@ -90,10 +93,9 @@
                 </ul>
                 <h1><a href="/">Do. Reflect. Learn. Repeat!</a></h1>
                 <h2>Excercises in public learning</h2>
-		<p id="posthog-chosen" style="font-size: 70%; text-align: right; font-style: italic">This site doesn't use cookies, and doesn't collect data about your visit. The hosting provider likely records operational data. For more info, email me hello at zsoldosp.eu</p>
       </div>
     </div>
-    <div id="content">
+    <div id="content" class="is-clipped">
         <div class="inner">
             
 <h1 id="dr-strangelove-or-how-i-stopped-worrying-and-starting-to-love-end-to-end-tests">Dr. Strangelove - or how I stopped worrying and starting to love end-to-end tests</h1>
